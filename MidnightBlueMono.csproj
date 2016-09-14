@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{379CCC38-A971-49ED-832A-1F1620B71E3E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MidnightBlueMono</RootNamespace>
+    <AssemblyName>MidnightBlueMono</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Extended">
+      <HintPath>packages\MonoGame.Extended.0.5.149\lib\MonoGame.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Engine\Commands\MoveCommands.cs" />
+    <Compile Include="src\Engine\Components\PlayerController.cs" />
+    <Compile Include="src\Engine\Containers\Edge.cs" />
+    <Compile Include="src\Engine\Containers\Graph.cs" />
+    <Compile Include="src\Engine\Containers\Node.cs" />
+    <Compile Include="src\Engine\Entity\Component.cs" />
+    <Compile Include="src\Engine\Entity\ECSMap.cs" />
+    <Compile Include="src\Engine\Entity\ECSystem.cs" />
+    <Compile Include="src\Engine\Entity\Entity.cs" />
+    <Compile Include="src\Engine\Input\Command.cs" />
+    <Compile Include="src\Engine\Input\ConsoleCommand.cs" />
+    <Compile Include="src\Engine\Input\InputMap.cs" />
+    <Compile Include="src\Engine\Scene\Scene.cs" />
+    <Compile Include="src\Engine\Scene\SceneStack.cs" />
+    <Compile Include="src\Engine\Systems\InputSystem.cs" />
+    <Compile Include="src\Engine\Test\ECSTest.cs" />
+    <Compile Include="src\Engine\Test\EntityContainerTests.cs" />
+    <Compile Include="src\Engine\Test\TestSystem.cs" />
+    <Compile Include="src\Engine\Console\MBConsole.cs" />
+    <Compile Include="src\Engine\Util\IOUtil.cs" />
+    <Compile Include="src\Engine\MBGame.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="src\MidnightBlueMain.cs" />
+    <Compile Include="src\Engine\Geometry\Line.cs" />
+    <Compile Include="src\Game\Gen\Galaxy.cs" />
+    <Compile Include="src\Game\Gen\GalaxyNode.cs" />
+    <Compile Include="src\Game\Test\GalaxyGenTest.cs" />
+    <Compile Include="src\Game\Scenes\TitleScene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.png" />
+    <None Include="packages.config" />
+    <None Include="Content\SourceCodePro-Regular.ttf" />
+    <None Include="Content\SourceCode.xnb" />
+    <None Include="src\Engine\Test\GenTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MonoGame.Framework.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libopenal.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libSDL2-2.0.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\Engine\" />
+    <Folder Include="src\Engine\Console\" />
+    <Folder Include="src\Engine\Util\" />
+    <Folder Include="src\Game\" />
+    <Folder Include="src\Engine\Geometry\" />
+    <Folder Include="src\Game\Gen\" />
+    <Folder Include="src\Game\Test\" />
+    <Folder Include="src\Game\Scenes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+</Project>
