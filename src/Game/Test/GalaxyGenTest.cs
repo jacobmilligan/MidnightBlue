@@ -7,16 +7,19 @@ namespace MidnightBlueMono
   {
     private Galaxy _galaxy;
     private SpriteFont _font;
+    private int _seed;
 
     public GalaxyGenTest(ECSMap map, int size, int radius, int seed = 0) : base(map)
     {
       _galaxy = new Galaxy(size, radius);
-      _galaxy.Generate(seed);
+      _seed = seed;
     }
 
     public override void Initialize()
     {
       _font = Content.Load<SpriteFont>("SourceCode");
+      _galaxy.SetTexture(Content.Load<Texture2D>("Images/Galaxy"), 32);
+      _galaxy.Generate(_seed);
     }
 
     public override void HandleInput()

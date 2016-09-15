@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Shapes;
+using MonoGame.Extended.Sprites;
 
 namespace MidnightBlueMono
 {
@@ -53,8 +54,8 @@ namespace MidnightBlueMono
 
     public void Draw(Color color, SpriteBatch spriteBatch, SpriteFont font)
     {
-      spriteBatch.DrawCircle(_position.ToVector2(), _radius, 360, color);
-      var mouseCircle = new CircleF(_position.ToVector2(), _radius * 2);
+      spriteBatch.Draw(Sprite);
+      var mouseCircle = new CircleF(_position.ToVector2(), Radius);
       if ( mouseCircle.Contains(Mouse.GetState().Position) ) {
         float civ = (float)_neighbours.Count / 10;
         var txt = _name + "\nChance of civilization: " + (civ * 100) + "%";
@@ -68,6 +69,7 @@ namespace MidnightBlueMono
         spriteBatch.FillRectangle(rect, Color.White);
         spriteBatch.DrawString(font, txt, rect.Location.ToVector2(), Color.Black);
       }
+
     }
 
     public String Name
@@ -79,6 +81,8 @@ namespace MidnightBlueMono
     {
       get { return _radius; }
     }
+
+    public Sprite Sprite { get; set; }
   }
 }
 

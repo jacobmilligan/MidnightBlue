@@ -493,7 +493,10 @@ namespace MidnightBlueMono
           if ( ex is KeyNotFoundException ) {
             msg = "No such function '" + toks[1] + "'";
           }
-          Write("Parse error: " + msg);
+#if DEBUG
+          System.Diagnostics.Debug.WriteLine(ex);
+#endif
+          Write("Parse error: " + msg + " (see IDE output for more information)");
         }
       } else if ( toks[0] == "quit" ) {
         MBGame.ForceQuit = true;

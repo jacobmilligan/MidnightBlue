@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
 
 namespace MidnightBlueMono
 {
@@ -16,9 +13,7 @@ namespace MidnightBlueMono
     private static GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private Color _bgColor;
-    private Dictionary<string, SpriteFont> _fonts;
     private FramesPerSecondCounter _fps;
-    private GameTime _gameTimer;
     private float _dt;
 
     /// <summary>
@@ -39,13 +34,11 @@ namespace MidnightBlueMono
     {
       _graphics = new GraphicsDeviceManager(this);
       Content.RootDirectory = "Content";
-      _fonts = new Dictionary<string, SpriteFont>();
 
       _scenes = new SceneStack();
       ForceQuit = false;
       _gameObjects = new ECSMap();
       _fps = new FramesPerSecondCounter();
-      _gameTimer = new GameTime();
     }
 
     /// <summary>
@@ -127,7 +120,6 @@ namespace MidnightBlueMono
         _scenes.Top.HandleInput();
         _scenes.Top.Update();
       }
-
       _debugConsole.Update();
 
       IOUtil.UpdateKeyState();
@@ -150,7 +142,7 @@ namespace MidnightBlueMono
 
       _debugConsole.Draw(_spriteBatch);
 
-      _dt = _gameTimer.ElapsedGameTime.Seconds;
+      _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
       _fps.Update(_dt);
 
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {

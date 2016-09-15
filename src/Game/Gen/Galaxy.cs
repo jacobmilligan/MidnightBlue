@@ -15,6 +15,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Shapes;
+using MonoGame.Extended.Sprites;
+using MonoGame.Extended.TextureAtlases;
 
 namespace MidnightBlueMono
 {
@@ -23,6 +25,7 @@ namespace MidnightBlueMono
     private Graph<GalaxyNode> _graph;
     private int _nodeRadius, _numSystems;
     private int _seed;
+    private TextureAtlas _textureAtlas;
 
     public const float MouseDistance = 5.0f;
 
@@ -33,8 +36,15 @@ namespace MidnightBlueMono
       _numSystems = numSystems;
     }
 
+    public void SetTexture(Texture2D texture, int cellSize)
+    {
+      _textureAtlas = TextureAtlas.Create(texture, cellSize, cellSize);
+      _nodeRadius = (int)Math.Sqrt((cellSize * cellSize) + (cellSize * cellSize)) / 2;
+    }
+
     public void Generate(int seed = 0)
     {
+
       var rand = new Random();
       _seed = seed;
 
@@ -60,11 +70,11 @@ namespace MidnightBlueMono
           pt.X = rand.Next((int)-windowSize.X, (int)(windowSize.X * 2));
           pt.Y = rand.Next((int)-windowSize.Y, (int)(windowSize.Y * 2));
           rad.Center = pt.ToVector2();
-          rad.Radius = _nodeRadius * 5;
+          rad.Radius = _nodeRadius / 2;
 
           foreach ( var node in _graph.Nodes ) {
             cir.Center = node.Position.ToVector2();
-            cir.Radius = _nodeRadius * 5;
+            cir.Radius = _nodeRadius / 2;
             if ( rad.Contains(cir) ) {
               collision = true;
               break;
@@ -73,11 +83,16 @@ namespace MidnightBlueMono
         }
 
         var system = new GalaxyNode(pt, _nodeRadius);
+
+        system.Sprite = new Sprite(_textureAtlas.GetRegion(0)) {
+          Position = system.Position.ToVector2()
+        };
+
         system.GenerateName(rand);
         _graph.Nodes.Add(system);
       }
 
-      cir.Radius = 150;
+      cir.Radius = _nodeRadius * (_nodeRadius / 2);
       foreach ( var node in _graph.Nodes ) {
         cir.Center = node.Position.ToVector2();
 
@@ -101,7 +116,7 @@ namespace MidnightBlueMono
     {
       foreach ( var node in _graph.Nodes ) {
         if ( MBGame.Graphics.Viewport.Bounds.Contains(node.Position) ) {
-          var mouseCircle = new CircleF(node.Position.ToVector2(), node.Radius * 2);
+          var mouseCircle = new CircleF(node.Position.ToVector2(), node.Radius);
           if ( mouseCircle.Contains(Mouse.GetState().Position) ) {
             foreach ( var edge in _graph.Edges ) {
               if ( edge.A == node || edge.B == node ) {

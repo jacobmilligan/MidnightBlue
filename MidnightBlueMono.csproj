@@ -71,7 +71,9 @@
     </Compile>
     <Compile Include="src\MidnightBlueMain.cs" />
     <Compile Include="src\Engine\Geometry\Line.cs" />
-    <Compile Include="src\Game\Gen\Galaxy.cs" />
+    <Compile Include="src\Game\Gen\Galaxy.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="src\Game\Gen\GalaxyNode.cs" />
     <Compile Include="src\Game\Test\GalaxyGenTest.cs" />
     <Compile Include="src\Game\Scenes\TitleScene.cs" />
@@ -80,8 +82,13 @@
     <None Include="Icon.png" />
     <None Include="packages.config" />
     <None Include="Content\SourceCodePro-Regular.ttf" />
-    <None Include="Content\SourceCode.xnb" />
+    <None Include="Content\SourceCode.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="src\Engine\Test\GenTest.cs" />
+    <None Include="Content\Images\Galaxy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
