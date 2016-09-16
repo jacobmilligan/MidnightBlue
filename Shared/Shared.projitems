@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{FCFA02AB-719C-427E-981B-CE0E15027300}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Content\.DS_Store" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Arial.ttf" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SourceCode.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SourceCode.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SourceCodePro-Regular.ttf" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Images\Galaxy.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\bin\DesktopGL\Images\.DS_Store" />
+    <None Include="$(MSBuildThisFileDirectory)Content\bin\DesktopGL\Images\Galaxy.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\bin\Windows\Images\.DS_Store" />
+    <None Include="$(MSBuildThisFileDirectory)Content\bin\Windows\Images\Galaxy.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\obj\DesktopGL\.mgcontent" />
+    <None Include="$(MSBuildThisFileDirectory)Content\obj\DesktopGL\Images\Galaxy.mgcontent" />
+    <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\.mgcontent" />
+    <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\Images\Galaxy.mgcontent" />
+    <None Include="$(MSBuildThisFileDirectory)src\Engine\Test\GenTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\MoveCommands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\PlayerController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Console\MBConsole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Edge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Graph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Entity\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Entity\ECSMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Entity\ECSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Entity\Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Line.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\Command.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\ConsoleCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\InputMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBGame.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\Scene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\SceneStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\InputSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\ECSTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\EntityContainerTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Util\IOUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\Galaxy.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Test\GalaxyGenTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)src\" />
+  </ItemGroup>
+</Project>
