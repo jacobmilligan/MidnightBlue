@@ -29,6 +29,18 @@ namespace MidnightBlueMono
     public int Y { get; set; }
   }
 
+  public class Test : Component
+  {
+    public int X { get; set; }
+    public int Y { get; set; }
+  }
+
+  public class Unregistered : Component
+  {
+    public int X { get; set; }
+    public int Y { get; set; }
+  }
+
   public class TestSystem : ECSystem
   {
     public TestSystem() : base(typeof(Position)) { }
@@ -37,6 +49,17 @@ namespace MidnightBlueMono
     {
       entity.GetComponent<Position>().X += 1;
       entity.GetComponent<Position>().Y += 1;
+    }
+  }
+
+  public class TestSystem2 : ECSystem
+  {
+    public TestSystem2() : base(typeof(Test)) { }
+
+    protected override void Process(Entity entity)
+    {
+      entity.GetComponent<Test>().X += 1;
+      entity.GetComponent<Test>().Y += 1;
     }
   }
 }

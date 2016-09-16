@@ -18,11 +18,14 @@ namespace MidnightBlueMono
   {
     private List<Entity> _entities;
     private List<Type> _components;
+    private Dictionary<ulong, Entity> _idEntityMap;
 
     public ECSystem(params Type[] components)
     {
       _entities = new List<Entity>();
       _components = new List<Type>();
+      _idEntityMap = new Dictionary<ulong, Entity>();
+
       ID = 0;
 
       foreach ( var c in components ) {
@@ -43,11 +46,20 @@ namespace MidnightBlueMono
       }
     }
 
+    public void AssociateEntity(Entity entity)
+    {
+      if ( !_idEntityMap.ContainsKey(entity.ID) ) {
+        _entities.Add(entity);
+        _idEntityMap.Add(entity.ID, entity);
+      }
+    }
+
     protected abstract void Process(Entity entity);
 
     public List<Entity> AssociatedEntities
     {
       get { return _entities; }
+
       set
       {
         _entities = value;

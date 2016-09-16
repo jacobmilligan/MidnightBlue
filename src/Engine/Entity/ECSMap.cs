@@ -18,7 +18,8 @@ namespace MidnightBlueMono
 
   public class ECSMap
   {
-    private ulong _lastID;
+    private ulong _lastMask;
+    private ulong _nextID;
 
     private Dictionary<Type, ECSystem> _systems;
     private Dictionary<Type, ulong> _components;
@@ -27,7 +28,7 @@ namespace MidnightBlueMono
 
     public ECSMap()
     {
-      _lastID = 0;
+      _lastMask = _nextID = 0;
       _systems = new Dictionary<Type, ECSystem>();
       _entities = new List<Entity>();
       _components = new Dictionary<Type, ulong>();
@@ -36,7 +37,7 @@ namespace MidnightBlueMono
 
     public ECSMap(ECSMap map)
     {
-      _lastID = map._lastID;
+      _lastMask = map._lastMask;
       _systems = new Dictionary<Type, ECSystem>(map._systems);
       _entities = new List<Entity>(map._entities);
       _components = new Dictionary<Type, ulong>(map._components);
@@ -47,7 +48,9 @@ namespace MidnightBlueMono
     {
       var type = typeof(T);
       if ( !_components.ContainsKey(type) ) {
-        _components.Add(type, _lastID++);
+        // Couldn't get this to fail tests but just in case any bitwise-related bugs
+        // I didn't think of crop up, make this increase by a power of 2 instead
+        _components.Add(type, ++_lastMask);
       }
     }
 
@@ -65,36 +68,52 @@ namespace MidnightBlueMono
 
     public void AddEntity(Entity entity)
     {
-      foreach ( var c in entity.ComponentTypeList ) {
-        entity.ID |= NewOrExistingComponentID(c);
-      }
-      if ( !_tags.ContainsKey(entity.Tag) && entity.Tag != string.Empty ) {
-        _tags.Add(entity.Tag, _entities.Count);
+      UpdateEntityMask(entity);
+      if ( !_tags.ContainsKey(entity.Tag) ) {
+
+        if ( entity.Tag.Length > 0 ) {
+          _tags.Add(entity.Tag, _entities.Count);
+        }
+
+        _entities.Add(entity);
+        UpdateSystems(entity);
+
       } else {
-        Debug.WriteLine("Midnight Blue: entity with duplicate tag '{0}' exists.", entity.Tag);
+        Debug.WriteLine("Duplicate Tag '" + entity.Tag + "'");
       }
-      _entities.Add(entity);
+    }
+
+    public void UpdateEntityMask(Entity entity)
+    {
+      foreach ( var c in entity.ComponentTypeList ) {
+        entity.Mask |= NewOrExistingComponentID(c);
+      }
+    }
+
+    public void UpdateSystems(Entity entity)
+    {
       foreach ( var sys in _systems.Values ) {
-        if ( (entity.ID & sys.ID) == sys.ID ) {
-          sys.AssociatedEntities.Add(entity);
+        if ( (entity.Mask & sys.ID) == sys.ID ) {
+          sys.AssociateEntity(entity);
         }
       }
     }
 
     public Entity CreateEntity(string tag = "")
     {
-      var entity = new Entity(tag);
+      var entity = new Entity(this, tag);
       AddEntity(entity);
       return entity;
     }
 
-    public ulong GetComponentID(Type component)
+    public ulong GetComponentID<T>() where T : Component
     {
       ulong result = 0;
-      if ( component.BaseType == typeof(Component) && _components.ContainsKey(component) ) {
-        result = _components[component];
+      var type = typeof(T);
+      if ( _components.ContainsKey(type) ) {
+        result = _components[type];
       } else {
-        Debug.WriteLine("Midnight Blue: Not a valid component '{0}'", component);
+        Debug.WriteLine("Invalid Component '{0}'", type);
       }
       return result;
     }
@@ -130,11 +149,13 @@ namespace MidnightBlueMono
         if ( _components.ContainsKey(component) ) {
           result = _components[component];
         } else {
-          result = ++_lastID;
+          // Couldn't get this to fail tests but just in case any bitwise-related bugs
+          // I didn't think of crop up, make this increase by a power of 2 instead
+          result = ++_lastMask;
           _components.Add(component, result);
         }
       } else {
-        Debug.WriteLine("Midnight Blue: Not a valid component '{0}'", component);
+        Debug.WriteLine("Invalid Component '{0}'", component);
       }
       return result;
     }
@@ -152,6 +173,16 @@ namespace MidnightBlueMono
         }
         return result;
       }
+    }
+
+    public int EntityCount
+    {
+      get { return _entities.Count; }
+    }
+
+    public ulong NextID
+    {
+      get { return ++_nextID; }
     }
   }
 }

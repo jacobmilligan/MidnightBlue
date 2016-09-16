@@ -78,10 +78,9 @@ namespace MidnightBlueMono
 
       _gameObjects.AddSystem<InputSystem>();
 
-      Entity player = new Entity("player");
+      Entity player = _gameObjects.CreateEntity("player");
       player.Attach<PlayerController>();
       player.Persistant = true;
-      _gameObjects.AddEntity(player);
 
       _scenes.ResetTo(new TitleScene(_gameObjects), Content);
       _fps.Reset();

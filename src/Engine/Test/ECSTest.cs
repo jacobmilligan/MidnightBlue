@@ -23,37 +23,59 @@ namespace MidnightBlueMono
     {
       _map = new ECSMap();
       _map.AddSystem<TestSystem>();
-      var e = new Entity("test entity");
+      _map.AddSystem<TestSystem2>();
+      var e = new Entity(_map, "test entity");
       e.Attach<Position>(0, 0);
+      e.Attach<Velocity>();
+      e.Attach<Test>();
       _map.AddEntity(e);
-      var e2 = new Entity("persistant entity");
+      var e2 = _map.CreateEntity("persistant entity");
       e2.Attach<Position>(0, 0);
       e2.Persistant = true;
       _map.AddEntity(e2);
     }
 
     [Test()]
+    public void TestEntitiesArentDuplicated()
+    {
+      Assert.AreEqual(2, _map.GetSystem<TestSystem>().AssociatedEntities.Count);
+      Assert.AreEqual(1, _map.GetSystem<TestSystem2>().AssociatedEntities.Count);
+    }
+
+    [Test()]
     public void TestGetComponentID()
     {
-      Assert.Greater(_map.GetComponentID(typeof(Position)), 0);
+      Assert.Greater(_map.GetComponentID<Position>(), 0);
     }
 
     [Test()]
     public void TestComponentHasNoID()
     {
-      Assert.AreEqual(0, _map.GetComponentID(typeof(Velocity)));
+      Assert.AreEqual(0, _map.GetComponentID<Unregistered>());
     }
 
     [Test()]
     public void TestEntityAndSystemIDAreSame()
     {
-      Assert.AreEqual(_map["test entity"].ID, _map.GetSystem<TestSystem>().ID);
+      Assert.AreEqual(_map["persistant entity"].Mask, _map.GetSystem<TestSystem>().ID);
     }
 
     [Test()]
     public void TestSystemHasEntityReferences()
     {
       Assert.AreEqual(_map.GetSystem<TestSystem>().AssociatedEntities[0], _map["test entity"]);
+    }
+
+    [Test()]
+    public void TestSystemHasCorrectID()
+    {
+      Assert.AreEqual(_map.GetSystem<TestSystem>().ValidComponents.Count, 1);
+    }
+
+    [Test()]
+    public void TestEntityHasCorrectID()
+    {
+      Assert.AreEqual(_map.GetSystem<TestSystem>().ID, _map.GetSystem<TestSystem>().ID);
     }
 
     [Test()]

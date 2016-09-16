@@ -21,6 +21,7 @@ namespace MidnightBlueMono
     public static void EntityContainerTest(params string[] args)
     {
       var timer = new Stopwatch();
+      var map = new ECSMap();
       List<Entity> eList = new List<Entity>();
       int max = 0;
       int maxSamples = 0;
@@ -28,7 +29,7 @@ namespace MidnightBlueMono
       int.TryParse(args[1], out maxSamples);
 
       for ( int i = 0; i < max; i++ ) {
-        eList.Add(new Entity("tag"));
+        eList.Add(new Entity(map, "tag"));
       }
 
       string filename = "/Users/Jacob/Uni/OOP/Midnight_Blue/scripts/test_output/entity_containers_test-" + DateTime.Now.Ticks + ".csv";

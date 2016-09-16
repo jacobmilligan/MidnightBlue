@@ -16,22 +16,32 @@ namespace MidnightBlueMono
 {
   public class Entity
   {
+    public ulong Mask { get; set; }
     public ulong ID { get; set; }
 
     private string _tag;
+    private ECSMap _container;
     private Dictionary<Type, Component> _components;
 
-    public Entity(string tag = "")
+    private Entity(string tag = "")
     {
       _components = new Dictionary<Type, Component>();
       _tag = tag;
-      ID = 0;
+      Mask = 0;
       Persistant = false;
+    }
+
+    public Entity(ECSMap container, string tag = "") : this(tag)
+    {
+      _container = container;
+      ID = container.NextID;
     }
 
     public void Attach<T>(params object[] args) where T : Component
     {
       _components.Add(typeof(T), NewComponent<T>(args));
+      _container.UpdateEntityMask(this);
+      _container.UpdateSystems(this);
     }
 
     private Component NewComponent<T>(params object[] args) where T : Component
