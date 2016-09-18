@@ -10,7 +10,9 @@
 
 
 using System;
-namespace MidnightBlue
+using MidnightBlue.Engine.EntityComponent;
+
+namespace MidnightBlue.Engine.Testing
 {
   public class Position : Component
   {

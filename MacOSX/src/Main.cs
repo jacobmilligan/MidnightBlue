@@ -6,7 +6,7 @@ using System.Linq;
 using AppKit;
 using Foundation;
 
-using MidnightBlue;
+using MidnightBlue.Engine;
 #endregion
 
 namespace MidnightBlue.MacOSX

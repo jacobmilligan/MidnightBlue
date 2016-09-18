@@ -67,8 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
+    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\Shared\Content\Images\Galaxy.png">

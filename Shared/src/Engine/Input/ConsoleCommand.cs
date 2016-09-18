@@ -8,10 +8,10 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
-using System;
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.EntityComponent;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.IO
 {
   public class ConsoleCommand : Command
   {

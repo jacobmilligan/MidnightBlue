@@ -9,8 +9,9 @@
 //
 
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.EntityComponent;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.IO
 {
 
   /// <summary>

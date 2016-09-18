@@ -11,7 +11,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Containers
 {
   public abstract class Node
   {

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Geometry
 {
   public class Line
   {

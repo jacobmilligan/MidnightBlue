@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MidnightBlue.Engine;
 #if MONOMAC
 using MonoMac.AppKit;
 using MonoMac.Foundation;

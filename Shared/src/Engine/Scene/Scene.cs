@@ -11,8 +11,9 @@
 
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MidnightBlue.Engine.EntityComponent;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Scene
 {
   public abstract class Scene
   {

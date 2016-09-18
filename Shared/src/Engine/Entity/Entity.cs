@@ -12,7 +12,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.EntityComponent
 {
   public class Entity
   {

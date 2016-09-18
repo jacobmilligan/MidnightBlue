@@ -2,8 +2,11 @@
 using MonoGame.Extended;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.Scene;
+using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.IO;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine
 {
   /// <summary>
   /// This is the main type for your game.

@@ -15,10 +15,10 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
 using MonoGame.Extended.Shapes;
+using MidnightBlue.Engine.IO;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine
 {
   /// <summary>
   /// Midnight Blue debug console class. Executes attached methods and changes attached variables.
@@ -375,7 +375,7 @@ namespace MidnightBlue
     {
       var keyStates = Keyboard.GetState();
       var lastKey = IOUtil.LastKeyTyped;
-      char keyChar = (char)0;
+      var keyChar = (char)0;
 
       if ( lastKey.ToString().Length < 2 ) {
         keyChar = (char)lastKey.ToString().ToLower()[0];

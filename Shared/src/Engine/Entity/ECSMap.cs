@@ -13,7 +13,7 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.EntityComponent
 {
 
   public class ECSMap

@@ -13,8 +13,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.IO;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Testing
 {
   public struct EntityContainerTests
   {
@@ -22,7 +24,7 @@ namespace MidnightBlue
     {
       var timer = new Stopwatch();
       var map = new ECSMap();
-      List<Entity> eList = new List<Entity>();
+      var eList = new List<Entity>();
       int max = 0;
       int maxSamples = 0;
       int.TryParse(args[0], out max);

@@ -9,7 +9,7 @@
 //
 
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.EntityComponent
 {
   public abstract class Component
   {

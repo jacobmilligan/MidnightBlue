@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Containers
 {
   public class Graph<T> where T : Node
   {

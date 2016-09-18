@@ -8,17 +8,17 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
-using System;
+using MidnightBlue.Engine.EntityComponent;
 using NUnit.Framework;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Testing
 {
-  [TestFixture()]
+  [TestFixture]
   public class ECSTest
   {
     ECSMap _map;
 
-    [SetUp()]
+    [SetUp]
     public void SetUp()
     {
       _map = new ECSMap();
@@ -35,50 +35,50 @@ namespace MidnightBlue
       _map.AddEntity(e2);
     }
 
-    [Test()]
+    [Test]
     public void TestEntitiesArentDuplicated()
     {
       Assert.AreEqual(2, _map.GetSystem<TestSystem>().AssociatedEntities.Count);
       Assert.AreEqual(1, _map.GetSystem<TestSystem2>().AssociatedEntities.Count);
     }
 
-    [Test()]
+    [Test]
     public void TestGetComponentID()
     {
       Assert.Greater(_map.GetComponentID<Position>(), 0);
     }
 
-    [Test()]
+    [Test]
     public void TestComponentHasNoID()
     {
       Assert.AreEqual(0, _map.GetComponentID<Unregistered>());
     }
 
-    [Test()]
+    [Test]
     public void TestEntityAndSystemIDAreSame()
     {
       Assert.AreEqual(_map["persistant entity"].Mask, _map.GetSystem<TestSystem>().ID);
     }
 
-    [Test()]
+    [Test]
     public void TestSystemHasEntityReferences()
     {
       Assert.AreEqual(_map.GetSystem<TestSystem>().AssociatedEntities[0], _map["test entity"]);
     }
 
-    [Test()]
+    [Test]
     public void TestSystemHasCorrectID()
     {
       Assert.AreEqual(_map.GetSystem<TestSystem>().ValidComponents.Count, 1);
     }
 
-    [Test()]
+    [Test]
     public void TestEntityHasCorrectID()
     {
       Assert.AreEqual(_map.GetSystem<TestSystem>().ID, _map.GetSystem<TestSystem>().ID);
     }
 
-    [Test()]
+    [Test]
     public void TestSystemRuns()
     {
       _map.GetSystem<TestSystem>().Run();
@@ -86,14 +86,14 @@ namespace MidnightBlue
       Assert.Greater(_map["test entity"].GetComponent<Position>().X, 1);
     }
 
-    [Test()]
+    [Test]
     public void TestEntityNotFoundByTag()
     {
       _map.CreateEntity().Attach<Position>(0, 0);
       Assert.IsNull(_map[""]);
     }
 
-    [Test()]
+    [Test]
     public void TestPersistantEntity()
     {
       var newMap = new ECSMap(_map);
@@ -102,7 +102,7 @@ namespace MidnightBlue
       Assert.IsNull(newMap["test entity"]);
     }
 
-    [Test()]
+    [Test]
     public void TestSystemOnPersistantEntityAfterClear()
     {
       var newMap = new ECSMap(_map);
@@ -112,7 +112,7 @@ namespace MidnightBlue
       Assert.Greater(_map["persistant entity"].GetComponent<Position>().X, 1);
     }
 
-    [Test()]
+    [Test]
     public void TestCopyOfECSMap()
     {
       var newMap = new ECSMap(_map);

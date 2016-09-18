@@ -12,7 +12,7 @@
 using System;
 using Microsoft.Xna.Framework.Input;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.IO
 {
   public class IOUtil
   {

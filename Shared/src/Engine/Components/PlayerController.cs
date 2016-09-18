@@ -10,8 +10,9 @@
 using System;
 
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.IO;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.EntityComponent
 {
   /// <summary>
   /// Defines the attached entity as controllable

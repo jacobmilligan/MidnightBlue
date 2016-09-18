@@ -8,7 +8,7 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
-namespace MidnightBlueMono
+namespace MidnightBlueMono.Engine.Testing
 {
   public class GenTest
   {

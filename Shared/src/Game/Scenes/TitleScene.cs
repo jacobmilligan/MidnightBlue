@@ -10,6 +10,8 @@
 
 
 using Microsoft.Xna.Framework.Graphics;
+using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.Scene;
 
 namespace MidnightBlue
 {

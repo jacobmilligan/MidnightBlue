@@ -14,8 +14,9 @@ using MonoGame.Extended.Shapes;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.Geometry;
 
-namespace MidnightBlue
+namespace MidnightBlue.Engine.Containers
 {
   public class Edge<T> where T : Node
   {

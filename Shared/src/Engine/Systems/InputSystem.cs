@@ -8,7 +8,9 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 using System;
-namespace MidnightBlue
+using MidnightBlue.Engine.IO;
+
+namespace MidnightBlue.Engine.EntityComponent
 {
   public class InputSystem : ECSystem
   {

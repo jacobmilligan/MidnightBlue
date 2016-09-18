@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
+using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.Scene;
 
 namespace MidnightBlue
 {

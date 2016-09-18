@@ -7,10 +7,13 @@
 // Create by Jacob Milligan on 13/09/2016.
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
-using System;
+
 using Microsoft.Xna.Framework.Input;
 
-namespace MidnightBlue
+using MidnightBlue.Engine.Testing;
+using MidnightBlue.Engine.EntityComponent;
+
+namespace MidnightBlue.Engine.IO
 {
   public class MoveUp : Command
   {
