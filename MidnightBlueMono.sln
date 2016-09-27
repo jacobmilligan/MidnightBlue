@@ -7,6 +7,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MidnightBlue", "Shared\Midn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacOSX", "MacOSX\MacOSX.csproj", "{4B73A100-2CEA-4587-B6AC-9A25F3EA51B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{FFE43221-3B10-4AFF-9C9D-B12F27A0CB54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,5 +23,15 @@ Global
 		{4B73A100-2CEA-4587-B6AC-9A25F3EA51B3}.Debug|x86.Build.0 = Debug|x86
 		{4B73A100-2CEA-4587-B6AC-9A25F3EA51B3}.Release|x86.ActiveCfg = Release|x86
 		{4B73A100-2CEA-4587-B6AC-9A25F3EA51B3}.Release|x86.Build.0 = Release|x86
+		{FFE43221-3B10-4AFF-9C9D-B12F27A0CB54}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFE43221-3B10-4AFF-9C9D-B12F27A0CB54}.Debug|x86.Build.0 = Debug|Any CPU
+		{FFE43221-3B10-4AFF-9C9D-B12F27A0CB54}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFE43221-3B10-4AFF-9C9D-B12F27A0CB54}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.Text = @\n\t${FileName}\n\tMidnight Blue\n\n\t--------------------------------------------------------------\n\n\tCreated by ${AuthorName} on ${Date}.\n\tCopyright ${CopyrightHolder} All rights reserved\n
+		$1.IncludeInNewFiles = True
 	EndGlobalSection
 EndGlobal

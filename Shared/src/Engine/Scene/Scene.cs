@@ -13,20 +13,20 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
 
-namespace MidnightBlue.Engine.Scene
+namespace MidnightBlue.Engine.Scenes
 {
   public abstract class Scene
   {
-    private ECSMap _gameObjects;
+    private EntityMap _gameObjects;
 
     private Scene()
     {
-      _gameObjects = new ECSMap();
+      _gameObjects = new EntityMap();
     }
 
-    public Scene(ECSMap gameObjects)
+    public Scene(EntityMap gameObjects)
     {
-      _gameObjects = new ECSMap(gameObjects);
+      _gameObjects = new EntityMap(gameObjects);
       _gameObjects.Clear();
     }
 
@@ -40,7 +40,7 @@ namespace MidnightBlue.Engine.Scene
       _gameObjects.Clear();
     }
 
-    protected ECSMap GameObjects
+    protected EntityMap GameObjects
     {
       get { return _gameObjects; }
     }

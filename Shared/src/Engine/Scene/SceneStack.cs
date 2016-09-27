@@ -11,7 +11,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 
-namespace MidnightBlue.Engine.Scene
+namespace MidnightBlue.Engine.Scenes
 {
   public class SceneStack
   {

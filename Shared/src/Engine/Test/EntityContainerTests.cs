@@ -23,7 +23,7 @@ namespace MidnightBlue.Engine.Testing
     public static void EntityContainerTest(params string[] args)
     {
       var timer = new Stopwatch();
-      var map = new ECSMap();
+      var map = new EntityMap();
       var eList = new List<Entity>();
       int max = 0;
       int maxSamples = 0;

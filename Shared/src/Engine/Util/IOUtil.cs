@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.IO
 {
-  public class IOUtil
+  public static class IOUtil
   {
     private static KeyboardState _previousState;
 
@@ -46,11 +46,10 @@ namespace MidnightBlue.Engine.IO
           Console.WriteLine("CSV parse error: Value '{0}' contains illegal character ','", values[i]);
           result = null;
           break;
-        } else {
-          result += values[i];
-          if ( i < values.Length - 1 ) {
-            result += ",";
-          }
+        }
+        result += values[i];
+        if ( i < values.Length - 1 ) {
+          result += ",";
         }
       }
       return result;

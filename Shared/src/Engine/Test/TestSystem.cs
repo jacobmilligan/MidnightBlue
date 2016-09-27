@@ -14,7 +14,7 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue.Engine.Testing
 {
-  public class Position : Component
+  public class Position : IComponent
   {
     public Position(int x = 0, int y = 0)
     {
@@ -25,25 +25,25 @@ namespace MidnightBlue.Engine.Testing
     public int Y { get; set; }
   }
 
-  public class Velocity : Component
+  public class Velocity : IComponent
   {
     public int X { get; set; }
     public int Y { get; set; }
   }
 
-  public class Test : Component
+  public class Test : IComponent
   {
     public int X { get; set; }
     public int Y { get; set; }
   }
 
-  public class Unregistered : Component
+  public class Unregistered : IComponent
   {
     public int X { get; set; }
     public int Y { get; set; }
   }
 
-  public class TestSystem : ECSystem
+  public class TestSystem : EntitySystem
   {
     public TestSystem() : base(typeof(Position)) { }
 
@@ -54,7 +54,7 @@ namespace MidnightBlue.Engine.Testing
     }
   }
 
-  public class TestSystem2 : ECSystem
+  public class TestSystem2 : EntitySystem
   {
     public TestSystem2() : base(typeof(Test)) { }
 

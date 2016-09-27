@@ -18,7 +18,7 @@ namespace MidnightBlue.Engine.Containers
     protected Point _position;
     protected List<Node> _neighbours;
 
-    public Node(float x, float y)
+    protected Node(float x, float y)
     {
       _neighbours = new List<Node>();
       _position = new Point();
@@ -28,7 +28,7 @@ namespace MidnightBlue.Engine.Containers
 
     public virtual void AddNeighbour(Node n)
     {
-      if ( n.GetType() == this.GetType() ) {
+      if ( n.GetType() == GetType() ) {
         if ( !_neighbours.Contains(n) ) {
           _neighbours.Add(n);
           n.AddNeighbour(this);

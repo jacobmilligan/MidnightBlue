@@ -11,11 +11,6 @@
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public abstract class Component
-  {
-    public Component()
-    {
-    }
-  }
+  public interface IComponent { }
 }
 

@@ -14,13 +14,13 @@ using System.Collections.Generic;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public abstract class ECSystem
+  public abstract class EntitySystem
   {
     private List<Entity> _entities;
     private List<Type> _components;
     private Dictionary<ulong, Entity> _idEntityMap;
 
-    public ECSystem(params Type[] components)
+    public EntitySystem(params Type[] components)
     {
       _entities = new List<Entity>();
       _components = new List<Type>();
@@ -29,8 +29,8 @@ namespace MidnightBlue.Engine.EntityComponent
       ID = 0;
 
       foreach ( var c in components ) {
-        if ( c.BaseType != typeof(Component) ) {
-          MBGame.Console.Write("Midnight Blue: '{0}' is not a valid component.", c);
+        if ( !(typeof(IComponent).IsAssignableFrom(c)) ) {
+          Console.WriteLine("Midnight Blue: '{0}' is not a valid component.", c);
           _components.Clear();
           break;
         } else {

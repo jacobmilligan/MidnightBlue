@@ -20,31 +20,41 @@ namespace MidnightBlue.Engine.EntityComponent
     public ulong ID { get; set; }
 
     private string _tag;
-    private ECSMap _container;
-    private Dictionary<Type, Component> _components;
+    private EntityMap _container;
+    private Dictionary<Type, IComponent> _components;
 
     private Entity(string tag = "")
     {
-      _components = new Dictionary<Type, Component>();
+      _components = new Dictionary<Type, IComponent>();
       _tag = tag;
       Mask = 0;
       Persistant = false;
     }
 
-    public Entity(ECSMap container, string tag = "") : this(tag)
+    public Entity(EntityMap container, string tag = "") : this(tag)
     {
       _container = container;
       ID = container.NextID;
     }
 
-    public void Attach<T>(params object[] args) where T : Component
+    public void Attach<T>(params object[] args) where T : IComponent
     {
       _components.Add(typeof(T), NewComponent<T>(args));
       _container.UpdateEntityMask(this);
       _container.UpdateSystems(this);
     }
 
-    private Component NewComponent<T>(params object[] args) where T : Component
+    public T GetComponent<T>() where T : IComponent
+    {
+      T result = default(T);
+      var cType = typeof(T);
+      if ( _components.ContainsKey(cType) ) {
+        result = (T)_components[cType];
+      }
+      return result;
+    }
+
+    private IComponent NewComponent<T>(params object[] args) where T : IComponent
     {
       return (T)Activator.CreateInstance(typeof(T), args);
     }
@@ -54,22 +64,12 @@ namespace MidnightBlue.Engine.EntityComponent
       get { return _tag; }
     }
 
-    public T GetComponent<T>() where T : Component
-    {
-      T result = null;
-      var cType = typeof(T);
-      if ( _components.ContainsKey(cType) ) {
-        result = (T)_components[cType];
-      }
-      return result;
-    }
-
-    public Dictionary<Type, Component>.ValueCollection ComponentList
+    public Dictionary<Type, IComponent>.ValueCollection ComponentList
     {
       get { return _components.Values; }
     }
 
-    public Dictionary<Type, Component>.KeyCollection ComponentTypeList
+    public Dictionary<Type, IComponent>.KeyCollection ComponentTypeList
     {
       get { return _components.Keys; }
     }

@@ -11,14 +11,14 @@
 
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scene;
+using MidnightBlue.Engine.Scenes;
 
 namespace MidnightBlue
 {
   public class TitleScene : Scene
   {
 
-    public TitleScene(ECSMap map) : base(map) { }
+    public TitleScene(EntityMap map) : base(map) { }
 
     public override void HandleInput()
     {
@@ -32,10 +32,12 @@ namespace MidnightBlue
 
     public override void Update()
     {
+
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
+
     }
   }
 }

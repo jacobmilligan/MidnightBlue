@@ -2,9 +2,10 @@
 using MonoGame.Extended;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine.Scene;
+using MidnightBlue.Engine.Scenes;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
+using MidnightBlue.Engine.Testing;
 
 namespace MidnightBlue.Engine
 {
@@ -31,7 +32,7 @@ namespace MidnightBlue.Engine
     /// </summary>
     private SceneStack _scenes;
 
-    private ECSMap _gameObjects;
+    private EntityMap _gameObjects;
 
     public MBGame()
     {
@@ -40,7 +41,7 @@ namespace MidnightBlue.Engine
 
       _scenes = new SceneStack();
       ForceQuit = false;
-      _gameObjects = new ECSMap();
+      _gameObjects = new EntityMap();
       _fps = new FramesPerSecondCounter();
     }
 
@@ -76,6 +77,11 @@ namespace MidnightBlue.Engine
         }
         _scenes.Push(new GalaxyGenTest(_gameObjects, size, radius, seed), Content);
       });
+
+      _debugConsole.AddFunc(
+        "UITest",
+        (string[] args) => _scenes.Push(new UITest(_gameObjects), Content)
+      );
 
       _debugConsole.AddFunc("EndCurrentScene", (string[] args) => _scenes.Pop());
 

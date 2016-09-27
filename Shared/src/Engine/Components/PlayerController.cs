@@ -7,7 +7,6 @@
 // Create by Jacob Milligan on 12/09/2016.
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
-using System;
 
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine.IO;
@@ -17,7 +16,7 @@ namespace MidnightBlue.Engine.EntityComponent
   /// <summary>
   /// Defines the attached entity as controllable
   /// </summary>
-  public class PlayerController : Component
+  public class PlayerController : IComponent
   {
     /// <summary>
     /// The input map for the player controller. 

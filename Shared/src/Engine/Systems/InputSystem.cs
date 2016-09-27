@@ -12,7 +12,7 @@ using MidnightBlue.Engine.IO;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public class InputSystem : ECSystem
+  public class InputSystem : EntitySystem
   {
     public InputSystem() : base(
       typeof(PlayerController)

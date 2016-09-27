@@ -9,12 +9,11 @@
 //
 
 
-using System;
-using MonoGame.Extended.Shapes;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine.Geometry;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.Containers
 {

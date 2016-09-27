@@ -9,14 +9,14 @@
 //
 
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended.Shapes;
 using MidnightBlue.Engine.IO;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine
 {
@@ -210,7 +210,7 @@ namespace MidnightBlue.Engine
       var width = _font.MeasureString(line).X;
       // Split input when wider than the max width
       if ( width > _maxTextWidth ) {
-        int splitPos = (int)(_maxTextWidth / (width / line.Length));
+        var splitPos = (int)(_maxTextWidth / (width / line.Length));
         _ioHistory.Add(line.Substring(0, splitPos));
         _ioHistory.Add(line.Substring(splitPos));
       } else {
@@ -399,7 +399,7 @@ namespace MidnightBlue.Engine
               keyChar = Keys.OemQuotes.ToString()[0];
               break;
             default:
-              keyChar = (char)(keyChar.ToString().ToUpper()[0]);
+              keyChar = keyChar.ToString().ToUpper()[0];
               break;
           }
 

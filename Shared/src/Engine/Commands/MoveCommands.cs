@@ -8,10 +8,9 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
-using Microsoft.Xna.Framework.Input;
-
 using MidnightBlue.Engine.Testing;
 using MidnightBlue.Engine.EntityComponent;
+using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.IO
 {

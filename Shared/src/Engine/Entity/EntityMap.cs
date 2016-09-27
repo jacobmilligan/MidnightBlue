@@ -16,35 +16,35 @@ using System.Collections.Generic;
 namespace MidnightBlue.Engine.EntityComponent
 {
 
-  public class ECSMap
+  public class EntityMap
   {
     private ulong _lastMask;
     private ulong _nextID;
 
-    private Dictionary<Type, ECSystem> _systems;
+    private Dictionary<Type, EntitySystem> _systems;
     private Dictionary<Type, ulong> _components;
     private Dictionary<string, int> _tags;
     private List<Entity> _entities;
 
-    public ECSMap()
+    public EntityMap()
     {
       _lastMask = _nextID = 0;
-      _systems = new Dictionary<Type, ECSystem>();
+      _systems = new Dictionary<Type, EntitySystem>();
       _entities = new List<Entity>();
       _components = new Dictionary<Type, ulong>();
       _tags = new Dictionary<string, int>();
     }
 
-    public ECSMap(ECSMap map)
+    public EntityMap(EntityMap map)
     {
       _lastMask = map._lastMask;
-      _systems = new Dictionary<Type, ECSystem>(map._systems);
+      _systems = new Dictionary<Type, EntitySystem>(map._systems);
       _entities = new List<Entity>(map._entities);
       _components = new Dictionary<Type, ulong>(map._components);
       _tags = new Dictionary<string, int>(map._tags);
     }
 
-    public void AddComponent<T>() where T : Component
+    public void AddComponent<T>() where T : IComponent
     {
       var type = typeof(T);
       if ( !_components.ContainsKey(type) ) {
@@ -54,11 +54,12 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
-    public void AddSystem<T>() where T : ECSystem, new()
+    public void AddSystem<T>() where T : EntitySystem, new()
     {
       var sysType = typeof(T);
       if ( !_systems.ContainsKey(sysType) ) {
-        _systems.Add(sysType, new T());
+        var sysT = new T();
+        _systems.Add(sysType, sysT);
         var sys = _systems[sysType];
         foreach ( var c in sys.ValidComponents ) {
           sys.ID |= NewOrExistingComponentID(c);
@@ -106,7 +107,7 @@ namespace MidnightBlue.Engine.EntityComponent
       return entity;
     }
 
-    public ulong GetComponentID<T>() where T : Component
+    public ulong GetComponentID<T>() where T : IComponent
     {
       ulong result = 0;
       var type = typeof(T);
@@ -118,11 +119,11 @@ namespace MidnightBlue.Engine.EntityComponent
       return result;
     }
 
-    public ECSystem GetSystem<T>() where T : ECSystem
+    public EntitySystem GetSystem<T>() where T : EntitySystem
     {
-      ECSystem result = null;
+      EntitySystem result = null;
       var key = typeof(T);
-      if ( key.BaseType == typeof(ECSystem) ) {
+      if ( key.BaseType == typeof(EntitySystem) ) {
         result = _systems[key];
       }
       return result;
@@ -145,7 +146,7 @@ namespace MidnightBlue.Engine.EntityComponent
     private ulong NewOrExistingComponentID(Type component)
     {
       ulong result = 0;
-      if ( component.BaseType == typeof(Component) ) {
+      if ( typeof(IComponent).IsAssignableFrom(component) ) {
         if ( _components.ContainsKey(component) ) {
           result = _components[component];
         } else {

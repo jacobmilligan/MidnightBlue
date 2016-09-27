@@ -48,7 +48,7 @@ namespace MidnightBlue.Engine.IO
     /// </summary>
     /// <param name="key">Key to associate with the command</param>
     /// <param name="commandType">Trigger or hold command</param>
-    public Command(Keys key, CommandType commandType)
+    protected Command(Keys key, CommandType commandType)
     {
       Type = commandType;
       _key = key;

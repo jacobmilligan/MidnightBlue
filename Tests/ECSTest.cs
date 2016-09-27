@@ -16,12 +16,12 @@ namespace MidnightBlue.Engine.Testing
   [TestFixture]
   public class ECSTest
   {
-    ECSMap _map;
+    EntityMap _map;
 
     [SetUp]
     public void SetUp()
     {
-      _map = new ECSMap();
+      _map = new EntityMap();
       _map.AddSystem<TestSystem>();
       _map.AddSystem<TestSystem2>();
       var e = new Entity(_map, "test entity");
@@ -96,7 +96,7 @@ namespace MidnightBlue.Engine.Testing
     [Test]
     public void TestPersistantEntity()
     {
-      var newMap = new ECSMap(_map);
+      var newMap = new EntityMap(_map);
       newMap.Clear();
       Assert.NotNull(newMap["persistant entity"]);
       Assert.IsNull(newMap["test entity"]);
@@ -105,7 +105,7 @@ namespace MidnightBlue.Engine.Testing
     [Test]
     public void TestSystemOnPersistantEntityAfterClear()
     {
-      var newMap = new ECSMap(_map);
+      var newMap = new EntityMap(_map);
       newMap.Clear();
       _map.GetSystem<TestSystem>().Run();
       _map.GetSystem<TestSystem>().Run();
@@ -115,7 +115,7 @@ namespace MidnightBlue.Engine.Testing
     [Test]
     public void TestCopyOfECSMap()
     {
-      var newMap = new ECSMap(_map);
+      var newMap = new EntityMap(_map);
       Assert.AreSame(_map["test entity"], newMap["test entity"]);
       Assert.AreEqual(_map["test entity"].Tag, newMap["test entity"].Tag);
       Assert.NotNull(newMap.GetSystem<TestSystem>());

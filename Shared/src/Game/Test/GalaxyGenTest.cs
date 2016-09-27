@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scene;
+using MidnightBlue.Engine.Scenes;
 
 namespace MidnightBlue
 {
@@ -10,7 +10,7 @@ namespace MidnightBlue
     private SpriteFont _font;
     private int _seed;
 
-    public GalaxyGenTest(ECSMap map, int size, int radius, int seed = 0) : base(map)
+    public GalaxyGenTest(EntityMap map, int size, int radius, int seed = 0) : base(map)
     {
       _galaxy = new Galaxy(size, radius);
       _seed = seed;

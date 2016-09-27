@@ -38,11 +38,11 @@ namespace MidnightBlue
       int max = rand.Next(2, 10);
 
       var vowels = new Regex("^[aeiou]{1}");
-      int[] vowelList = new int[] { 97, 101, 105, 111, 117 }; // ASCII vowels
+      var vowelList = new int[] { 97, 101, 105, 111, 117 }; // ASCII vowels
 
       _name += (char)rand.Next(65, 90); // Capital letters
 
-      char prev = (char)((int)_name[0] + 32); // Get lower case version of first character
+      var prev = (char)(_name[0] + 32); // Get lower case version of first character
 
       for ( int i = 0; i < max; i++ ) {
         if ( !vowels.Match(prev.ToString()).Success ) {
@@ -74,7 +74,7 @@ namespace MidnightBlue
 
     }
 
-    public String Name
+    public string Name
     {
       get { return _name; }
     }
