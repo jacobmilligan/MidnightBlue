@@ -9,6 +9,7 @@
 //
 
 using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MidnightBlue.Engine.UI
@@ -24,11 +25,18 @@ namespace MidnightBlue.Engine.UI
 
     public void Draw(SpriteBatch spriteBatch)
     {
-      var rowLen = Content.Length;
+      if ( (bool)MBGame.Console.Vars["drawGrids"] ) {
+        spriteBatch.DrawGrid(_grid.Bounds, new Point(_grid.Rect.X, _grid.Rect.Y), Color.Yellow);
+      }
+
+      var rowLen = Content.GetLength(0);
       var colLen = Content.GetLength(1);
       for ( int row = 0; row < rowLen; row++ ) {
         for ( int col = 0; col < colLen; col++ ) {
-          _grid.Content[row, col].Draw(spriteBatch);
+          var currGrid = _grid.Content[row, col];
+          if ( currGrid != null ) {
+            currGrid.Draw(spriteBatch);
+          }
         }
       }
     }

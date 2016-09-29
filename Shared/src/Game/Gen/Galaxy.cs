@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine;
 using MidnightBlue.Engine.Containers;
+using MonoGame.Extended;
 using MonoGame.Extended.Shapes;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
@@ -55,10 +56,9 @@ namespace MidnightBlue
       }
 
       var cir = new CircleF();
-
       var windowSize = new Point {
-        X = MBGame.Graphics.Adapter.CurrentDisplayMode.Width,
-        Y = MBGame.Graphics.Adapter.CurrentDisplayMode.Height
+        X = MBGame.Graphics.Viewport.Width,
+        Y = MBGame.Graphics.Viewport.Height
       };
 
       for ( int i = 0; i < _numSystems; i++ ) {

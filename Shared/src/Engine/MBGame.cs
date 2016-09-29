@@ -6,6 +6,7 @@ using MidnightBlue.Engine.Scenes;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
 using MidnightBlue.Engine.Testing;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine
 {
@@ -43,6 +44,10 @@ namespace MidnightBlue.Engine
       ForceQuit = false;
       _gameObjects = new EntityMap();
       _fps = new FramesPerSecondCounter();
+
+      _graphics.PreferredBackBufferWidth = 1280;
+      _graphics.PreferredBackBufferHeight = 720;
+      _graphics.ApplyChanges();
     }
 
     /// <summary>
@@ -57,33 +62,17 @@ namespace MidnightBlue.Engine
 
       this.IsMouseVisible = true;
 
-      //_graphics.IsFullScreen = true;
-      _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-      _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
-      _graphics.ApplyChanges();
+      _graphics.GraphicsDevice.Viewport = new Viewport {
+        X = 0,
+        Y = 0,
+        Width = _graphics.PreferredBackBufferWidth,
+        Height = _graphics.PreferredBackBufferHeight,
+      };
 
       _bgColor = Color.MidnightBlue;
       Window.Title = "Midnight Blue";
 
-      _debugConsole.AddVar("showFramerate", true);
-
-      _debugConsole.AddFunc("GalaxyTest", (string[] args) => {
-        int size, radius, seed = 0;
-        int.TryParse(args[0], out size);
-        int.TryParse(args[1], out radius);
-
-        if ( args.Length > 2 ) {
-          int.TryParse(args[2], out seed);
-        }
-        _scenes.Push(new GalaxyGenTest(_gameObjects, size, radius, seed), Content);
-      });
-
-      _debugConsole.AddFunc(
-        "UITest",
-        (string[] args) => _scenes.Push(new UITest(_gameObjects), Content)
-      );
-
-      _debugConsole.AddFunc("EndCurrentScene", (string[] args) => _scenes.Pop());
+      SetUpDebugVals();
 
       _gameObjects.AddSystem<InputSystem>();
 
@@ -160,6 +149,33 @@ namespace MidnightBlue.Engine
       _spriteBatch.End();
 
       base.Draw(gameTime);
+    }
+
+    private void SetUpDebugVals()
+    {
+      _debugConsole.AddVar("showFramerate", false);
+      _debugConsole.AddVar("drawBorders", false);
+      _debugConsole.AddVar("drawGrids", false);
+
+      _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
+
+      _debugConsole.AddFunc("GalaxyTest", (string[] args) => {
+        int size, radius, seed = 0;
+        int.TryParse(args[0], out size);
+        int.TryParse(args[1], out radius);
+
+        if ( args.Length > 2 ) {
+          int.TryParse(args[2], out seed);
+        }
+        _scenes.Push(new GalaxyGenTest(_gameObjects, size, radius, seed), Content);
+      });
+
+      _debugConsole.AddFunc(
+        "UITest",
+        (string[] args) => _scenes.Push(new UITest(_gameObjects), Content)
+      );
+
+      _debugConsole.AddFunc("EndCurrentScene", (string[] args) => _scenes.Pop());
     }
 
     public static GraphicsDevice Graphics

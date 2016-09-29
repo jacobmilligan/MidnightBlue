@@ -17,7 +17,6 @@ namespace MidnightBlue.Engine.UI
   public abstract class UIElement
   {
     private UIGrid _grid;
-    private RectangleF _border;
     private int _numRows, _numCols;
 
     protected UIElement(int rows, int cols)
@@ -25,6 +24,11 @@ namespace MidnightBlue.Engine.UI
       BorderDisplayed = false;
       BorderColor = Color.Transparent;
       BorderWidth = 0;
+
+      TextColor = Color.Black;
+      TextContent = string.Empty;
+      _numRows = rows;
+      _numCols = cols;
     }
 
     public void SetRelativeSize(UIGrid parent, Point at, Point span, Point size)
@@ -36,13 +40,13 @@ namespace MidnightBlue.Engine.UI
 
       var rect = new Rectangle(x, y, width, height);
 
-      _grid = new UIGrid(size.Y, size.X, rect);
+      _grid = new UIGrid(size.X, size.Y, rect);
     }
 
     public void SetRelativeSize(UIGrid parent, int atRow, int atCol, int rowSpan, int colSpan)
     {
       SetRelativeSize(
-        parent, new Point(atRow, atCol), new Point(rowSpan, colSpan), new Point(_numRows, _numCols)
+        parent, new Point(atCol, atRow), new Point(colSpan, rowSpan), new Point(_numCols, _numRows)
       );
     }
 
@@ -62,6 +66,8 @@ namespace MidnightBlue.Engine.UI
     }
 
     public string TextContent { get; set; }
+    public Color TextColor { get; set; }
+    public SpriteFont Font { get; set; }
 
     public bool BorderDisplayed { get; set; }
     public Color BorderColor { get; set; }

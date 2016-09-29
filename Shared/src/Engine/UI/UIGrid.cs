@@ -22,10 +22,10 @@ namespace MidnightBlue.Engine.UI
 
     public UIGrid(int rows, int cols, Rectangle parent)
     {
-      _grid = new UIElement[rows, cols];
-      _rowSpan = parent.Width / rows;
-      _colSpan = parent.Height / cols;
-      _rect = new Rectangle(parent.X, parent.Y, _rowSpan, _colSpan);
+      _grid = new UIElement[rows - 1, cols - 1];
+      _rowSpan = parent.Height / (rows);
+      _colSpan = parent.Width / (cols);
+      _rect = parent;
     }
 
     public UIElement[,] Content
@@ -37,7 +37,7 @@ namespace MidnightBlue.Engine.UI
     {
       get
       {
-        return new Grid(_grid.GetLength(0), _grid.GetLength(1), _rowSpan, _colSpan);
+        return new Grid(_grid.GetLength(0) + 1, _grid.GetLength(1) + 1, _rowSpan, _colSpan);
       }
     }
 

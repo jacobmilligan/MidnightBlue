@@ -126,7 +126,7 @@ namespace MidnightBlue.Engine
     /// <param name="graphics">GraphicsDevice to use for rendering</param>
     public void InitWindow(GraphicsDevice graphics)
     {
-      _surface = new Rectangle(0, 0, graphics.Adapter.CurrentDisplayMode.Width, graphics.Adapter.CurrentDisplayMode.Height / 3);
+      _surface = new RectangleF(graphics.Viewport.Bounds);
       _surface.Height = 0;
     }
 
@@ -158,7 +158,7 @@ namespace MidnightBlue.Engine
       // Animate down. Not displayed so we need to display it
       if ( _animating && !Display ) {
         _surface.Height += _ANIM_SPEED;
-        if ( _surface.Height >= MBGame.Graphics.Adapter.CurrentDisplayMode.Width / 4 ) {
+        if ( _surface.Height >= MBGame.Graphics.Viewport.Height / 3 ) {
           _animating = false;
           Display = true; // show
         }

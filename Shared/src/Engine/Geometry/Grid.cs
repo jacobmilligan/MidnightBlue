@@ -9,6 +9,8 @@
 //
 
 using System;
+using Microsoft.Xna.Framework;
+
 namespace MidnightBlue.Engine.Geometry
 {
   public class Grid
@@ -25,5 +27,10 @@ namespace MidnightBlue.Engine.Geometry
     public int ColCount { get; set; }
     public int RowSize { get; set; }
     public int ColSize { get; set; }
+
+    public Vector2 CellSize
+    {
+      get { return new Vector2(ColSize, RowSize); }
+    }
   }
 }

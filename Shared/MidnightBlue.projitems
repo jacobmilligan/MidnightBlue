@@ -25,6 +25,15 @@
     <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\.mgcontent" />
     <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\Images\Galaxy.mgcontent" />
     <None Include="$(MSBuildThisFileDirectory)src\Engine\Test\GenTest.cs" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Bender.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Bender.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Bender.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\MoveCommands.cs" />
@@ -62,9 +71,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Layout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Grid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\UITest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\SpriteBatchExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIControlElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\UI\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\" />
   </ItemGroup>
 </Project>
