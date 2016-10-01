@@ -15,17 +15,41 @@ using System.Collections.Generic;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-
+  /// <summary>
+  /// Maps entities, systems and components to one another and
+  /// provides querying and updating access to all elements
+  /// </summary>
   public class EntityMap
   {
+    /// <summary>
+    /// The last component mask created for an entity or system
+    /// </summary>
     private ulong _lastMask;
+    /// <summary>
+    /// The next GUID to generate for a new entity
+    /// </summary>
     private ulong _nextID;
 
+    /// <summary>
+    /// The currently registered EntitySystems
+    /// </summary>
     private Dictionary<Type, EntitySystem> _systems;
+    /// <summary>
+    /// The currently registered IComponent derived types
+    /// </summary>
     private Dictionary<Type, ulong> _components;
+    /// <summary>
+    /// All tags assigned to entities - ensures uniqueness
+    /// </summary>
     private Dictionary<string, int> _tags;
+    /// <summary>
+    /// All created entities
+    /// </summary>
     private List<Entity> _entities;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.EntityMap"/> class.
+    /// </summary>
     public EntityMap()
     {
       _lastMask = _nextID = 0;
@@ -35,6 +59,12 @@ namespace MidnightBlue.Engine.EntityComponent
       _tags = new Dictionary<string, int>();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.EntityMap"/> class.
+    /// Uses an existing EntityMap to copy all registered systems and components as well as any
+    /// persistant Entities.
+    /// </summary>
+    /// <param name="map">EntityMap to copy from</param>
     public EntityMap(EntityMap map)
     {
       _lastMask = map._lastMask;
@@ -44,6 +74,10 @@ namespace MidnightBlue.Engine.EntityComponent
       _tags = new Dictionary<string, int>(map._tags);
     }
 
+    /// <summary>
+    /// Registers a new component type to the EntityMap
+    /// </summary>
+    /// <typeparam name="T">Type of component to register</typeparam>
     public void AddComponent<T>() where T : IComponent
     {
       var type = typeof(T);
@@ -54,6 +88,10 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Registers a new EntitySystem to the map
+    /// </summary>
+    /// <typeparam name="T">EntitySystem type to add</typeparam>
     public void AddSystem<T>() where T : EntitySystem, new()
     {
       var sysType = typeof(T);
@@ -61,15 +99,23 @@ namespace MidnightBlue.Engine.EntityComponent
         var sysT = new T();
         _systems.Add(sysType, sysT);
         var sys = _systems[sysType];
+        // Generate a mask for the new system based off its valid components
+        // defined in its constructor
         foreach ( var c in sys.ValidComponents ) {
           sys.ID |= NewOrExistingComponentID(c);
         }
       }
     }
 
+    /// <summary>
+    /// Adds a created entity to this map
+    /// </summary>
+    /// <param name="entity">Entity to add</param>
     public void AddEntity(Entity entity)
     {
       UpdateEntityMask(entity);
+      // Add the tag if it doesn't exist otherwise
+      // don't add the entity - it's a duplicate
       if ( !_tags.ContainsKey(entity.Tag) ) {
 
         if ( entity.Tag.Length > 0 ) {
@@ -84,6 +130,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Updates a specific entities component mask. Use after registering
+    /// new components or systems.
+    /// </summary>
+    /// <param name="entity">Entity to update</param>
     public void UpdateEntityMask(Entity entity)
     {
       foreach ( var c in entity.ComponentTypeList ) {
@@ -91,6 +142,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Updates each systems associated entity list, adding the specified Entity. Use after
+    /// creating a new Entity and adding it manually
+    /// </summary>
+    /// <param name="entity">Entity to track in each system</param>
     public void UpdateSystems(Entity entity)
     {
       foreach ( var sys in _systems.Values ) {
@@ -100,6 +156,12 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Creates a new Entity with the given tag in this map. Auto-Registers the entity
+    /// with all systems and updates its mask.
+    /// </summary>
+    /// <returns>The created entity</returns>
+    /// <param name="tag">Tagname to give the entity</param>
     public Entity CreateEntity(string tag = "")
     {
       var entity = new Entity(this, tag);
@@ -107,6 +169,11 @@ namespace MidnightBlue.Engine.EntityComponent
       return entity;
     }
 
+    /// <summary>
+    /// Gets the id of a specified component type if it exists.
+    /// </summary>
+    /// <returns>The component id mask.</returns>
+    /// <typeparam name="T">Type of component to query for.</typeparam>
     public ulong GetComponentID<T>() where T : IComponent
     {
       ulong result = 0;
@@ -119,6 +186,11 @@ namespace MidnightBlue.Engine.EntityComponent
       return result;
     }
 
+    /// <summary>
+    /// Retrieves a pre-registered system from the map
+    /// </summary>
+    /// <returns>The system if it exists; null otherwise</returns>
+    /// <typeparam name="T">Type of system to retrieve.</typeparam>
     public EntitySystem GetSystem<T>() where T : EntitySystem
     {
       EntitySystem result = null;
@@ -129,13 +201,21 @@ namespace MidnightBlue.Engine.EntityComponent
       return result;
     }
 
+    /// <summary>
+    /// Clears all entities from this map except for
+    /// any marked as persistant.
+    /// </summary>
     public void Clear()
     {
+      // Clear associated entities for all systems
       foreach ( var system in _systems.Values ) {
         system.AssociatedEntities.RemoveAll(entity => !entity.Persistant);
       }
       _tags.Clear();
+      // Remove all non-persistant entities
       _entities.RemoveAll(entity => !entity.Persistant);
+
+      // Re-add all persistant entities tags to the map
       for ( int i = 0; i < _entities.Count; i++ ) {
         if ( _entities[i].Tag != string.Empty ) {
           _tags.Add(_entities[i].Tag, i);
@@ -143,6 +223,12 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Looks up if the component is already registered and adds a new instance of it to the map
+    /// if it isn't
+    /// </summary>
+    /// <returns>The new or existing components ID.</returns>
+    /// <param name="component">Component type to query for.</param>
     private ulong NewOrExistingComponentID(Type component)
     {
       ulong result = 0;
@@ -161,6 +247,11 @@ namespace MidnightBlue.Engine.EntityComponent
       return result;
     }
 
+    /// <summary>
+    /// Gets the <see cref="T:MidnightBlue.Engine.EntityComponent.Entity"/> with the specified tag
+    /// if it exists; null otherwise
+    /// </summary>
+    /// <param name="key">Tagname of the entity to retireve.</param>
     public Entity this[string key]
     {
       get
@@ -176,11 +267,19 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Gets the number of entities in the map.
+    /// </summary>
+    /// <value>The entity count.</value>
     public int EntityCount
     {
       get { return _entities.Count; }
     }
 
+    /// <summary>
+    /// Auto-increments the last generated GUID and retrieves the result
+    /// </summary>
+    /// <value>The next identifier.</value>
     public ulong NextID
     {
       get { return ++_nextID; }

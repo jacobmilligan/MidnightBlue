@@ -377,15 +377,19 @@ namespace MidnightBlue.Engine
       var lastKey = IOUtil.LastKeyTyped;
       var keyChar = (char)0;
 
+      // Check if its an alpha key then if space then if numeric, otherwise
+      // invalid entry
       if ( lastKey.ToString().Length < 2 ) {
-        keyChar = (char)lastKey.ToString().ToLower()[0];
+        keyChar = lastKey.ToString().ToLower()[0];
       } else if ( lastKey == Keys.Space ) {
         keyChar = ' ';
       } else if ( (char)lastKey >= '0' && (char)lastKey <= '9' ) {
         keyChar = (char)lastKey;
       }
 
+      // Gets all valid alphanumeric and control ASCII keys
       if ( (keyChar >= 32 && keyChar < 127) && lastKey != Keys.OemTilde ) {
+        // Get shift altered keys
         if ( keyStates.IsKeyDown(Keys.LeftShift) || keyStates.IsKeyDown(Keys.RightShift) ) {
 
           switch ( lastKey ) {
@@ -407,12 +411,14 @@ namespace MidnightBlue.Engine
 
         _currentLine += (keyChar).ToString();
 
+        // Get ctrl+c to erase line
         if ( keyStates.IsKeyDown(Keys.LeftControl) || keyStates.IsKeyDown(Keys.RightControl) ) {
           if ( lastKey == Keys.C ) {
             _currentLine = string.Empty;
           }
         }
 
+        // Handle backspace
       } else if ( lastKey == Keys.Back && _currentLine != string.Empty ) {
         _currentLine = _currentLine.Remove(_currentLine.Length - 1);
       }
@@ -537,6 +543,10 @@ namespace MidnightBlue.Engine
       get { return _txtColor; }
     }
 
+    /// <summary>
+    /// Gets the consoles game variables.
+    /// </summary>
+    /// <value>The variables.</value>
     public Dictionary<string, object> Vars
     {
       get { return _gameVars; }

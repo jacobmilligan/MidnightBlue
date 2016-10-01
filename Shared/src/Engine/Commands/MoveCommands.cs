@@ -14,6 +14,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.IO
 {
+  /// <summary>
+  /// Moves a player controller up 
+  /// </summary>
   public class MoveUp : Command
   {
     public MoveUp(Keys key, CommandType type) : base(key, type) { }

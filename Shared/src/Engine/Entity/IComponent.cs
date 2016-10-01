@@ -11,6 +11,10 @@
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Tags any class as a valid component for use in the EntityMap.
+  /// Derived classes should contain no logic, only data fields.
+  /// </summary>
   public interface IComponent { }
 }
 

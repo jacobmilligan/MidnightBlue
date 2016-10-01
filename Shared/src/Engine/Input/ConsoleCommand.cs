@@ -13,6 +13,9 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue.Engine.IO
 {
+  /// <summary>
+  /// Shows or hides the debug console
+  /// </summary>
   public class ConsoleCommand : Command
   {
 

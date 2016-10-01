@@ -14,12 +14,30 @@ using System.Collections.Generic;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Performs logic on an entity.
+  /// </summary>
   public abstract class EntitySystem
   {
+    /// <summary>
+    /// The entities this system should know about
+    /// </summary>
     private List<Entity> _entities;
+    /// <summary>
+    /// The valid components used in this system
+    /// </summary>
     private List<Type> _components;
+    /// <summary>
+    /// All GUID's of entities this system knows about
+    /// </summary>
     private Dictionary<ulong, Entity> _idEntityMap;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.EntitySystem"/> class.
+    /// Checks if the passed in types are valid components and if not, all components are deregistered
+    /// leaving a system that knows about nothing and can't operate on any entities.
+    /// </summary>
+    /// <param name="components">Components this system is interested in</param>
     public EntitySystem(params Type[] components)
     {
       _entities = new List<Entity>();
@@ -39,6 +57,9 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Runs this systems Process() method on all entities
+    /// </summary>
     public void Run()
     {
       for ( int i = 0; i < _entities.Count; i++ ) {
@@ -46,6 +67,10 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Associates a new entity with this system.
+    /// </summary>
+    /// <param name="entity">Entity to associate</param>
     public void AssociateEntity(Entity entity)
     {
       if ( !_idEntityMap.ContainsKey(entity.ID) ) {
@@ -54,8 +79,16 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Executes this systems logic on a single entity
+    /// </summary>
+    /// <param name="entity">Entity to operate on</param>
     protected abstract void Process(Entity entity);
 
+    /// <summary>
+    /// Gets or sets the associated entities list.
+    /// </summary>
+    /// <value>The associated entities.</value>
     public List<Entity> AssociatedEntities
     {
       get { return _entities; }
@@ -66,11 +99,19 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Gets the list of components this system is interested in
+    /// </summary>
+    /// <value>The valid components.</value>
     public List<Type> ValidComponents
     {
       get { return _components; }
     }
 
+    /// <summary>
+    /// Gets or sets this systems ID mask
+    /// </summary>
+    /// <value>The identifier mask.</value>
     public ulong ID { get; set; }
   }
 }

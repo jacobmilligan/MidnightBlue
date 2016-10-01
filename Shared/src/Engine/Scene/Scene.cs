@@ -15,21 +15,38 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue.Engine.Scenes
 {
+  /// <summary>
+  /// Holds all logic and data for a single game screen
+  /// </summary>
   public abstract class Scene
   {
+    /// <summary>
+    /// The scenes EntityMap
+    /// </summary>
     private EntityMap _gameObjects;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.Scenes.Scene"/> class
+    /// </summary>
     private Scene()
     {
       _gameObjects = new EntityMap();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.Scenes.Scene"/> class
+    /// with a pre-existing EntityMap
+    /// </summary>
+    /// <param name="gameObjects">EntityMap to assign to the scene.</param>
     public Scene(EntityMap gameObjects)
     {
       _gameObjects = new EntityMap(gameObjects);
       _gameObjects.Clear();
     }
 
+    /// <summary>
+    /// Initialize this scene and loads all resources.
+    /// </summary>
     public abstract void Initialize();
     public abstract void HandleInput();
     public abstract void Update();
