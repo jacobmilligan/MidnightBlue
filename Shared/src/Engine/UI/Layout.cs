@@ -17,6 +17,21 @@ namespace MidnightBlue.Engine.UI
   {
     public Layout(int rows, int cols) : base(rows, cols) { }
 
+    public override void Update()
+    {
+      var rowLen = Bounds.Content.GetLength(0);
+      var colLen = Bounds.Content.GetLength(1);
+
+      for ( int row = 0; row < rowLen; row++ ) {
+        for ( int col = 0; col < colLen; col++ ) {
+          var currGrid = Bounds.Content[row, col];
+          if ( currGrid != null ) {
+            currGrid.Update();
+          }
+        }
+      }
+    }
+
     public override void Draw(SpriteBatch spriteBatch)
     {
       if ( (bool)MBGame.Console.Vars["drawBorders"] ) {

@@ -23,6 +23,20 @@ namespace MidnightBlue.Engine.UI
       _grid = new UIGrid(rows, cols, MBGame.Graphics.Viewport.Bounds);
     }
 
+    public void Update()
+    {
+      var rowLen = Content.GetLength(0);
+      var colLen = Content.GetLength(1);
+      for ( int row = 0; row < rowLen; row++ ) {
+        for ( int col = 0; col < colLen; col++ ) {
+          var currGrid = _grid.Content[row, col];
+          if ( currGrid != null ) {
+            currGrid.Update();
+          }
+        }
+      }
+    }
+
     public void Draw(SpriteBatch spriteBatch)
     {
       if ( (bool)MBGame.Console.Vars["drawGrids"] ) {

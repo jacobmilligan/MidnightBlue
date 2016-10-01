@@ -25,7 +25,7 @@ namespace MidnightBlue.Engine.UI
       _grid = new UIElement[rows - 1, cols - 1];
       _rowSpan = parent.Height / (rows);
       _colSpan = parent.Width / (cols);
-      _rect = parent;
+      _rect = new Rectangle(parent.X, parent.Y, _colSpan, _rowSpan);
     }
 
     public UIElement[,] Content

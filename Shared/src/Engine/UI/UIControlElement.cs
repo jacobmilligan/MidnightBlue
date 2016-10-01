@@ -10,6 +10,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.UI
 {
@@ -35,6 +36,16 @@ namespace MidnightBlue.Engine.UI
       _currentState = UIState.Normal;
     }
 
+    public override void Update()
+    {
+      var mousePos = Mouse.GetState().Position;
+      if ( Bounds.Rect.Contains(mousePos) ) {
+        _currentState = UIState.Selected;
+      } else {
+        _currentState = UIState.Normal;
+      }
+    }
+
     public override void Draw(SpriteBatch spriteBatch)
     {
       var drawnTexture = NormalTexture;
@@ -46,26 +57,51 @@ namespace MidnightBlue.Engine.UI
           drawnTexture = PressedTexture;
           break;
       }
-      var textureSize = drawnTexture.Bounds.Size.ToVector2();
       var pos = new Vector2(Bounds.Rect.X, Bounds.Rect.Y);
+
+      var scale = FitChildVectorToParent(
+        drawnTexture.Bounds.Size.ToVector2(), Bounds.Bounds.CellSize
+      );
+
       spriteBatch.Draw(
         drawnTexture,
-        scale: Bounds.Bounds.CellSize / textureSize,
+        scale: scale,
         position: pos
       );
-      textureSize = Font.MeasureString(TextContent);
+
+      scale = FitChildVectorToParent(
+        Font.MeasureString(TextContent), Bounds.Bounds.CellSize
+      );
 
       spriteBatch.DrawString(
         spriteFont: Font,
         text: TextContent,
         position: pos,
         color: TextColor,
-        scale: Bounds.Bounds.CellSize / textureSize,
+        scale: scale,
         rotation: 0,
         origin: new Vector2(0, 0),
         effects: SpriteEffects.None,
         layerDepth: 0
       );
+    }
+
+    /// <summary>
+    /// Gets a scale vector that fits exactly inside a parent vector
+    /// </summary>
+    /// <returns>The size fitting vector</returns>
+    /// <param name="child">Child size vector.</param>
+    /// <param name="parent">Parent size vector.</param>
+    private Vector2 FitChildVectorToParent(Vector2 child, Vector2 parent)
+    {
+      var scale = new Vector2(1, 1);
+      if ( child.X > parent.X ) {
+        scale.X = parent.X / child.X;
+      }
+      if ( child.Y > parent.Y ) {
+        scale.Y = parent.Y / child.Y;
+      }
+      return scale;
     }
 
     public Texture2D NormalTexture { get; set; }

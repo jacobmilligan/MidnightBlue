@@ -51,10 +51,10 @@ namespace MidnightBlue.Engine.UI
     }
 
     public abstract void Draw(SpriteBatch spriteBatch);
+    public abstract void Update();
 
     protected void DrawBorder(SpriteBatch spriteBatch)
     {
-      // Draw the border
       spriteBatch.DrawRectangle(
         _grid.Rect, BorderColor, BorderWidth
       );

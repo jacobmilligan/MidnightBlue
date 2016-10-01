@@ -45,18 +45,6 @@
     <Reference Include="nunit.framework">
       <HintPath>packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="EmptyKeys.UserInterface.Core">
-      <HintPath>..\packages\EmptyKeysUI_MonoGame.2.5.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Common\AnyCPU\EmptyKeys.UserInterface.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EmptyKeys.UserInterface.Debug">
-      <HintPath>..\packages\EmptyKeysUI_MonoGame.2.5.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Common\AnyCPU\EmptyKeys.UserInterface.Debug.dll</HintPath>
-    </Reference>
-    <Reference Include="EmptyKeys.UserInterface">
-      <HintPath>..\packages\EmptyKeysUI_MonoGame.2.5.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Common\AnyCPU\EmptyKeys.UserInterface.dll</HintPath>
-    </Reference>
-    <Reference Include="EmptyKeys.UserInterface.MonoGame">
-      <HintPath>..\packages\EmptyKeysUI_MonoGame.2.5.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\MonoGame\AnyCPU\EmptyKeys.UserInterface.MonoGame.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,9 +97,6 @@
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
-    <None Include="shaders\DirectionalBlurShader.fx" />
-    <None Include="license.txt" />
-    <None Include="BehaviorsLicense.txt" />
     <None Include="..\Shared\Content\Bender.spritefont">
       <Link>Content\Bender.spritefont</Link>
     </None>

@@ -33,7 +33,7 @@ namespace MidnightBlue.Engine.Testing
       var normal = Content.Load<Texture2D>("Images/blue_button00");
       var down = Content.Load<Texture2D>("Images/blue_button01");
       var font = Content.Load<SpriteFont>("Bender");
-      var btn = new UIControlElement(2, 2, normal, normal, down) {
+      var btn = new UIControlElement(2, 2, normal, down, down) {
         Font = font,
         TextColor = Color.White,
         TextContent = "Test Button"
@@ -53,7 +53,7 @@ namespace MidnightBlue.Engine.Testing
 
     public override void Update()
     {
-
+      _ui.Update();
     }
 
     public override void Draw(SpriteBatch spriteBatch)
