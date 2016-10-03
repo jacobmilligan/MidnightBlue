@@ -9,6 +9,7 @@
 //
 
 
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
@@ -31,6 +32,7 @@ namespace MidnightBlue.Engine.Scenes
     private Scene()
     {
       _gameObjects = new EntityMap();
+      WindowBackgroundColor = Color.MidnightBlue;
     }
 
     /// <summary>
@@ -50,10 +52,14 @@ namespace MidnightBlue.Engine.Scenes
     public abstract void Initialize();
     public abstract void HandleInput();
     public abstract void Update();
+    public abstract bool Pause();
+    public abstract bool Resume();
     public abstract void Draw(SpriteBatch spriteBatch);
+    public abstract void Exit();
 
     public void Cleanup()
     {
+      Exit();
       _gameObjects.Clear();
     }
 
@@ -62,7 +68,14 @@ namespace MidnightBlue.Engine.Scenes
       get { return _gameObjects; }
     }
 
+    public bool Pausing { get; set; }
+    public bool Resuming { get; set; }
+
     public ContentManager Content { get; set; }
+    public Color WindowBackgroundColor { get; set; }
+    public SceneStack SceneController { get; set; }
+
+    public float DeltaTime { get; set; }
   }
 }
 

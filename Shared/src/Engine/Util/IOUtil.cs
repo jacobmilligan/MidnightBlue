@@ -17,6 +17,7 @@ namespace MidnightBlue.Engine.IO
   public static class IOUtil
   {
     private static KeyboardState _previousState;
+    private static MouseState _lastMouseState;
 
     public static bool KeyTyped(Keys key)
     {
@@ -28,9 +29,24 @@ namespace MidnightBlue.Engine.IO
       return result;
     }
 
+    public static bool LeftMouseClicked()
+    {
+      var result = false;
+      var nextState = Mouse.GetState();
+      if ( nextState.LeftButton == ButtonState.Pressed && _lastMouseState.LeftButton == ButtonState.Released ) {
+        result = true;
+      }
+      return result;
+    }
+
     public static void UpdateKeyState()
     {
       _previousState = Keyboard.GetState();
+    }
+
+    public static void UpdateMouseState()
+    {
+      _lastMouseState = Mouse.GetState();
     }
 
     public static char LastChar()

@@ -9,7 +9,11 @@
 //
 
 
+using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
 
@@ -17,28 +21,78 @@ namespace MidnightBlue
 {
   public class TitleScene : Scene
   {
+    private TitleView _ui;
+    private Song _bgSong;
 
-    public TitleScene(EntityMap map) : base(map) { }
+    public TitleScene(EntityMap map) : base(map)
+    {
+      WindowBackgroundColor = Color.Black;
+    }
+
+    public override void Initialize()
+    {
+      _ui = new TitleView(Content, GameObjects, SceneController);
+
+      _bgSong = Content.Load<Song>("Audio/Title");
+
+      if ( MediaPlayer.GameHasControl ) {
+        MediaPlayer.Play(_bgSong);
+        MediaPlayer.IsRepeating = true;
+      }
+    }
 
     public override void HandleInput()
     {
       GameObjects.GetSystem<InputSystem>().Run();
     }
 
-    public override void Initialize()
-    {
-
-    }
-
     public override void Update()
     {
-
+      _ui.Update();
     }
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-
+      _ui.Draw(spriteBatch);
     }
+
+    public override void Exit()
+    {
+      MediaPlayer.Stop();
+    }
+
+    public override bool Pause()
+    {
+      var transition = true;
+
+      var fadeSpeed = 2f;
+      if ( MediaPlayer.Volume > 0 ) {
+        MediaPlayer.Volume -= DeltaTime * fadeSpeed;
+      } else {
+        MediaPlayer.Pause();
+        transition = false;
+      }
+
+      return transition;
+    }
+
+    public override bool Resume()
+    {
+      var transition = true;
+
+      var fadeSpeed = 2f;
+
+      MediaPlayer.Resume();
+
+      if ( MediaPlayer.Volume < 100 ) {
+        MediaPlayer.Volume += DeltaTime * fadeSpeed;
+      } else {
+        transition = false;
+      }
+
+      return transition;
+    }
+
   }
 }
 

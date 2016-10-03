@@ -8,6 +8,7 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
@@ -21,29 +22,15 @@ namespace MidnightBlue.Engine.Testing
 {
   public class UITest : Scene
   {
-    private UIContext _ui;
+    private TestUIView _ui;
 
     public UITest(EntityMap map) : base(map)
     {
-      _ui = new UIContext(20, 20);
     }
 
     public override void Initialize()
     {
-      var normal = Content.Load<Texture2D>("Images/blue_button00");
-      var down = Content.Load<Texture2D>("Images/blue_button01");
-      var font = Content.Load<SpriteFont>("Bender");
-      var btn = new UIControlElement(2, 2, normal, down, down) {
-        Font = font,
-        TextColor = Color.White,
-        TextContent = "Test Button"
-      };
-      var layout1 = new Layout(20, 20) {
-        BorderColor = Color.Black,
-        BorderWidth = 2,
-      };
-      _ui.Add(layout1, 2, 2, 10, 10);
-      layout1.Add(btn, 1, 1, 4, 4);
+      _ui = new TestUIView(Content, 20, 20);
     }
 
     public override void HandleInput()
@@ -59,7 +46,21 @@ namespace MidnightBlue.Engine.Testing
     public override void Draw(SpriteBatch spriteBatch)
     {
       _ui.Draw(spriteBatch);
+    }
 
+    public override void Exit()
+    {
+
+    }
+
+    public override bool Pause()
+    {
+      return false;
+    }
+
+    public override bool Resume()
+    {
+      return false;
     }
   }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using System;
+using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
 
@@ -36,6 +37,21 @@ namespace MidnightBlue
     public override void Draw(SpriteBatch spriteBatch)
     {
       _galaxy.Draw(spriteBatch, _font);
+    }
+
+    public override void Exit()
+    {
+
+    }
+
+    public override bool Pause()
+    {
+      throw new NotImplementedException();
+    }
+
+    public override bool Resume()
+    {
+      throw new NotImplementedException();
     }
   }
 }

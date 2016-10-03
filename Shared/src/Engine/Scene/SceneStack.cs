@@ -16,6 +16,7 @@ namespace MidnightBlue.Engine.Scenes
   public class SceneStack
   {
     private List<Scene> _scenes;
+    private Scene _nextScene;
 
     public SceneStack()
     {
@@ -25,14 +26,39 @@ namespace MidnightBlue.Engine.Scenes
     public void Push(Scene scene, ContentManager content)
     {
       scene.Content = content;
-      scene.Initialize();
-      _scenes.Add(scene);
+      scene.SceneController = this;
+
+      if ( _scenes.Count > 0 ) {
+        Top.Pausing = true;
+      }
+
+      _nextScene = scene;
+    }
+
+    public void Update()
+    {
+      if ( _scenes.Count > 0 ) {
+        if ( _nextScene != null && !Top.Pausing ) {
+          _nextScene.Initialize();
+          _scenes.Add(_nextScene);
+          _nextScene = null;
+        }
+      } else {
+        _nextScene.Initialize();
+        _scenes.Add(_nextScene);
+        _nextScene = null;
+      }
     }
 
     public void Pop()
     {
       if ( _scenes.Count > 0 ) {
+        Top.Cleanup();
         _scenes.RemoveAt(_scenes.Count - 1);
+
+        if ( _scenes.Count > 0 ) {
+          Top.Resuming = true;
+        }
       } else {
         MBGame.Console.Debug("Midnight Blue: Cannot pop scene from empty stack");
       }

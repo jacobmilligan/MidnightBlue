@@ -9,6 +9,7 @@
 //
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -24,26 +25,39 @@ namespace MidnightBlue.Engine.UI
   public class UIControlElement : UIElement
   {
 
-    private UIState _currentState;
+    protected UIState _currentState;
+    protected UIState _previousState;
 
-    public UIControlElement(
-      int rows, int cols, Texture2D normal, Texture2D selected, Texture2D pressed
-    ) : base(rows, cols)
+    public UIControlElement(Texture2D normal, Texture2D selected, Texture2D pressed) : base(1, 1)
     {
       NormalTexture = normal;
-      SelectedTexture = selected;
+      HighlightedTexture = selected;
       PressedTexture = pressed;
+
+      NormalTextColor = HighlightedTextColor = TextColor;
       _currentState = UIState.Normal;
     }
+
+    public UIControlElement() : this(null, null, null) { }
 
     public override void Update()
     {
       var mousePos = Mouse.GetState().Position;
+
+      _previousState = _currentState;
+
       if ( Bounds.Rect.Contains(mousePos) ) {
         _currentState = UIState.Selected;
+        TextColor = HighlightedTextColor;
+
+        if ( HighlightedSound != null && _previousState == UIState.Normal ) {
+          HighlightedSound.Play();
+        }
       } else {
         _currentState = UIState.Normal;
+        TextColor = NormalTextColor;
       }
+
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -51,61 +65,54 @@ namespace MidnightBlue.Engine.UI
       var drawnTexture = NormalTexture;
       switch ( _currentState ) {
         case UIState.Selected:
-          drawnTexture = SelectedTexture;
+          drawnTexture = HighlightedTexture;
           break;
         case UIState.Pressed:
           drawnTexture = PressedTexture;
           break;
       }
+
       var pos = new Vector2(Bounds.Rect.X, Bounds.Rect.Y);
 
-      var scale = FitChildVectorToParent(
-        drawnTexture.Bounds.Size.ToVector2(), Bounds.Bounds.CellSize
-      );
+      if ( drawnTexture != null ) {
 
-      spriteBatch.Draw(
-        drawnTexture,
-        scale: scale,
-        position: pos
-      );
+        var scale = FitChildVectorToParent(
+          drawnTexture.Bounds.Size.ToVector2(), Bounds.Grid.CellSize
+        );
 
-      scale = FitChildVectorToParent(
-        Font.MeasureString(TextContent), Bounds.Bounds.CellSize
-      );
+        spriteBatch.Draw(
+          drawnTexture,
+          scale: scale,
+          position: pos
+        );
+      }
 
-      spriteBatch.DrawString(
-        spriteFont: Font,
-        text: TextContent,
-        position: pos,
-        color: TextColor,
-        scale: scale,
-        rotation: 0,
-        origin: new Vector2(0, 0),
-        effects: SpriteEffects.None,
-        layerDepth: 0
-      );
+      if ( TextContent.Length > 0 ) {
+        var scale = FitChildVectorToParent(
+          Font.MeasureString(TextContent), Bounds.Grid.CellSize
+        );
+
+        spriteBatch.DrawString(
+          spriteFont: Font,
+          text: TextContent,
+          position: pos,
+          color: TextColor,
+          scale: scale,
+          rotation: 0,
+          origin: new Vector2(0, 0),
+          effects: SpriteEffects.None,
+          layerDepth: 0
+        );
+      }
     }
 
-    /// <summary>
-    /// Gets a scale vector that fits exactly inside a parent vector
-    /// </summary>
-    /// <returns>The size fitting vector</returns>
-    /// <param name="child">Child size vector.</param>
-    /// <param name="parent">Parent size vector.</param>
-    private Vector2 FitChildVectorToParent(Vector2 child, Vector2 parent)
-    {
-      var scale = new Vector2(1, 1);
-      if ( child.X > parent.X ) {
-        scale.X = parent.X / child.X;
-      }
-      if ( child.Y > parent.Y ) {
-        scale.Y = parent.Y / child.Y;
-      }
-      return scale;
-    }
+    public Color NormalTextColor { get; set; }
+    public Color HighlightedTextColor { get; set; }
 
     public Texture2D NormalTexture { get; set; }
-    public Texture2D SelectedTexture { get; set; }
+    public Texture2D HighlightedTexture { get; set; }
     public Texture2D PressedTexture { get; set; }
+
+    public SoundEffect HighlightedSound { get; set; }
   }
 }

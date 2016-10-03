@@ -114,12 +114,35 @@ namespace MidnightBlue.Engine
 #endif
 
       if ( _scenes.Top != null ) {
+        _scenes.Top.DeltaTime = _dt;
         _scenes.Top.HandleInput();
         _scenes.Top.Update();
+
+        if ( _scenes.Top.Pausing ) {
+          if ( !_scenes.Top.Pause() ) {
+            _scenes.Top.Pausing = false;
+          }
+        }
+        if ( _scenes.Top.Resuming ) {
+          if ( !_scenes.Top.Resume() ) {
+            _scenes.Top.Resuming = false;
+          }
+        }
+
+        _bgColor = _scenes.Top.WindowBackgroundColor;
       }
+
+      if ( ForceQuit ) {
+        Exit();
+      }
+
+      _scenes.Update();
+
       _debugConsole.Update();
 
       IOUtil.UpdateKeyState();
+      IOUtil.UpdateMouseState();
+
       base.Update(gameTime);
     }
 
@@ -139,14 +162,14 @@ namespace MidnightBlue.Engine
 
       _debugConsole.Draw(_spriteBatch);
 
-      _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-      _fps.Update(_dt);
-
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
         _spriteBatch.DrawString(Content.Load<SpriteFont>("SourceCode"), _fps.AverageFramesPerSecond.ToString("0"), new Vector2(0, 0), Color.White);
       }
 
       _spriteBatch.End();
+
+      _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+      _fps.Update(_dt);
 
       base.Draw(gameTime);
     }
@@ -175,7 +198,7 @@ namespace MidnightBlue.Engine
         (string[] args) => _scenes.Push(new UITest(_gameObjects), Content)
       );
 
-      _debugConsole.AddFunc("EndCurrentScene", (string[] args) => _scenes.Pop());
+      _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
     }
 
     public static GraphicsDevice Graphics

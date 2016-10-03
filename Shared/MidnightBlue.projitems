@@ -34,6 +34,21 @@
     <None Include="$(MSBuildThisFileDirectory)Content\Bender.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Horatio.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Horatio.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\HoratioLarge.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SerifGothic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SerifGothicBlack.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\MoveCommands.cs" />
@@ -65,18 +80,29 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Test\GalaxyGenTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIContent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Layout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Grid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\UITest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\SpriteBatchExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIControlElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\UI\TitleView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestUIView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Label.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Game\UI\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Content\Audio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

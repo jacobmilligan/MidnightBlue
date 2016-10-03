@@ -19,12 +19,12 @@ namespace MidnightBlue.Engine.UI
 
     public override void Update()
     {
-      var rowLen = Bounds.Content.GetLength(0);
-      var colLen = Bounds.Content.GetLength(1);
+      var rowLen = Bounds.Elements.GetLength(0);
+      var colLen = Bounds.Elements.GetLength(1);
 
       for ( int row = 0; row < rowLen; row++ ) {
         for ( int col = 0; col < colLen; col++ ) {
-          var currGrid = Bounds.Content[row, col];
+          var currGrid = Bounds.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Update();
           }
@@ -34,19 +34,19 @@ namespace MidnightBlue.Engine.UI
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-      if ( (bool)MBGame.Console.Vars["drawBorders"] ) {
+      if ( (bool)MBGame.Console.Vars["drawBorders"] || BorderDisplayed ) {
         DrawBorder(spriteBatch);
       }
       if ( (bool)MBGame.Console.Vars["drawGrids"] ) {
-        spriteBatch.DrawGrid(Bounds.Bounds, new Point(Bounds.Rect.X, Bounds.Rect.Y), Color.Red);
+        spriteBatch.DrawGrid(Bounds.Grid, new Point(Bounds.Rect.X, Bounds.Rect.Y), Color.Red);
       }
 
-      var rowLen = Bounds.Content.GetLength(0);
-      var colLen = Bounds.Content.GetLength(1);
+      var rowLen = Bounds.Elements.GetLength(0);
+      var colLen = Bounds.Elements.GetLength(1);
 
       for ( int row = 0; row < rowLen; row++ ) {
         for ( int col = 0; col < colLen; col++ ) {
-          var currGrid = Bounds.Content[row, col];
+          var currGrid = Bounds.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Draw(spriteBatch);
           }
@@ -57,7 +57,7 @@ namespace MidnightBlue.Engine.UI
     public void Add(UIElement element, int atRow, int atCol, int rowSpan, int colSpan)
     {
       element.SetRelativeSize(Bounds, atRow, atCol, rowSpan, colSpan);
-      Bounds.Content[atRow, atCol] = element;
+      Bounds.Elements[atRow - 1, atCol - 1] = element;
     }
   }
 }
