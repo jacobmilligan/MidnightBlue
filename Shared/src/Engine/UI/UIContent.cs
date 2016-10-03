@@ -13,26 +13,56 @@ using MidnightBlue.Engine.Geometry;
 
 namespace MidnightBlue.Engine.UI
 {
+  /// <summary>
+  /// Holds content in a grid structure for a UIContext or Layout
+  /// </summary>
   public class UIContent
   {
+    /// <summary>
+    /// All elements stored in this content
+    /// </summary>
     private UIElement[,] _grid;
+    /// <summary>
+    /// Height of each cell
+    /// </summary>
     private int _rowSpan;
+    /// <summary>
+    /// Width of each cell
+    /// </summary>
     private int _colSpan;
+    /// <summary>
+    /// The rectangle encompassing the content
+    /// </summary>
     private Rectangle _rect;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.UIContent"/> class.
+    /// 
+    /// </summary>
+    /// <param name="rows">Rows.</param>
+    /// <param name="cols">Cols.</param>
+    /// <param name="parent">Parent.</param>
     public UIContent(int rows, int cols, Rectangle parent)
     {
       _grid = new UIElement[rows, cols];
-      _rowSpan = parent.Height / (rows);
-      _colSpan = parent.Width / (cols);
+      _rowSpan = parent.Height / rows;
+      _colSpan = parent.Width / cols;
       _rect = new Rectangle(parent.X, parent.Y, _colSpan, _rowSpan);
     }
 
+    /// <summary>
+    /// Gets the elements of the content.
+    /// </summary>
+    /// <value>The UI elements.</value>
     public UIElement[,] Elements
     {
       get { return _grid; }
     }
 
+    /// <summary>
+    /// Gets a grid geometry representation of the content
+    /// </summary>
+    /// <value>The grid.</value>
     public Grid Grid
     {
       get
@@ -41,6 +71,10 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Gets the rectangle encompassing the content.
+    /// </summary>
+    /// <value>The rectangle.</value>
     public Rectangle Rect
     {
       get { return _rect; }
