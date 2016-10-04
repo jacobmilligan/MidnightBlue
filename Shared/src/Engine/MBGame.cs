@@ -112,22 +112,8 @@ namespace MidnightBlue.Engine
 #endif
 
       if ( _scenes.Top != null ) {
-        _scenes.Top.DeltaTime = _dt;
-        _scenes.Top.HandleInput();
-        _scenes.Top.Update();
-
-        if ( _scenes.Top.Pausing ) {
-          if ( !_scenes.Top.Pause() ) {
-            _scenes.Top.Pausing = false;
-          }
-        }
-        if ( _scenes.Top.Resuming ) {
-          if ( !_scenes.Top.Resume() ) {
-            _scenes.Top.Resuming = false;
-          }
-        }
-
         _bgColor = _scenes.Top.WindowBackgroundColor;
+        _scenes.Top.DeltaTime = _dt;
       }
 
       if ( ForceQuit ) {

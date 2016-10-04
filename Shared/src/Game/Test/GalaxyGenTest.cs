@@ -22,6 +22,7 @@ namespace MidnightBlue
       _font = Content.Load<SpriteFont>("SourceCode");
       _galaxy.SetTexture(Content.Load<Texture2D>("Images/Galaxy"), 32);
       _galaxy.Generate(_seed);
+      TransitionState = TransitionState.None;
     }
 
     public override void HandleInput()
@@ -41,17 +42,17 @@ namespace MidnightBlue
 
     public override void Exit()
     {
-
+      TransitionState = TransitionState.Null;
     }
 
-    public override bool Pause()
+    public override void Pause()
     {
-      throw new NotImplementedException();
+      TransitionState = TransitionState.None;
     }
 
-    public override bool Resume()
+    public override void Resume()
     {
-      throw new NotImplementedException();
+      TransitionState = TransitionState.None;
     }
   }
 }

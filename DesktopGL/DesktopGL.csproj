@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MidnightBlueMono</RootNamespace>
     <AssemblyName>MidnightBlueMono</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
     <DisableFastUpToDateCheck></DisableFastUpToDateCheck>
   </PropertyGroup>

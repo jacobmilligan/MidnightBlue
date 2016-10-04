@@ -150,6 +150,10 @@ namespace MidnightBlue.Engine.UI
           layerDepth: 0
         );
       }
+
+      if ( BorderDisplayed ) {
+        DrawBorder(spriteBatch);
+      }
     }
 
     /// <summary>

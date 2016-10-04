@@ -16,11 +16,22 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue.Engine.Scenes
 {
+  public enum TransitionState
+  {
+    Null,
+    None,
+    Pausing,
+    Resuming,
+    Exiting,
+    Initializing
+  }
+
   /// <summary>
   /// Holds all logic and data for a single game screen
   /// </summary>
   public abstract class Scene
   {
+    private TransitionState _lastState;
     /// <summary>
     /// The scenes EntityMap
     /// </summary>
@@ -33,6 +44,8 @@ namespace MidnightBlue.Engine.Scenes
     {
       _gameObjects = new EntityMap();
       WindowBackgroundColor = Color.MidnightBlue;
+      _lastState = TransitionState.Null;
+      TransitionState = TransitionState.Initializing;
     }
 
     /// <summary>
@@ -46,20 +59,24 @@ namespace MidnightBlue.Engine.Scenes
       _gameObjects.Clear();
     }
 
+    public void UpdateTransition()
+    {
+      _lastState = TransitionState;
+    }
+
     /// <summary>
     /// Initialize this scene and loads all resources.
     /// </summary>
     public abstract void Initialize();
     public abstract void HandleInput();
     public abstract void Update();
-    public abstract bool Pause();
-    public abstract bool Resume();
+    public abstract void Pause();
+    public abstract void Resume();
     public abstract void Draw(SpriteBatch spriteBatch);
     public abstract void Exit();
 
     public void Cleanup()
     {
-      Exit();
       _gameObjects.Clear();
     }
 
@@ -68,8 +85,11 @@ namespace MidnightBlue.Engine.Scenes
       get { return _gameObjects; }
     }
 
-    public bool Pausing { get; set; }
-    public bool Resuming { get; set; }
+    public TransitionState TransitionState { get; set; }
+    public TransitionState PreviousTransitionState
+    {
+      get { return _lastState; }
+    }
 
     public ContentManager Content { get; set; }
     public Color WindowBackgroundColor { get; set; }

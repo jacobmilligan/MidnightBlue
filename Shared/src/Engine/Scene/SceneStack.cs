@@ -8,6 +8,7 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 
@@ -29,35 +30,45 @@ namespace MidnightBlue.Engine.Scenes
       scene.SceneController = this;
 
       if ( _scenes.Count > 0 ) {
-        Top.Pausing = true;
+        Top.TransitionState = TransitionState.Pausing;
       }
 
       _nextScene = scene;
+      if ( _nextScene.TransitionState == TransitionState.Null ) {
+        _nextScene.TransitionState = TransitionState.Initializing;
+      }
     }
 
     public void Update()
     {
       if ( _scenes.Count > 0 ) {
-        if ( _nextScene != null && !Top.Pausing ) {
-          _nextScene.Initialize();
-          _scenes.Add(_nextScene);
-          _nextScene = null;
+        HandleState(Top);
+        if ( _nextScene != null ) {
+          HandleState(_nextScene);
         }
       } else {
-        _nextScene.Initialize();
-        _scenes.Add(_nextScene);
-        _nextScene = null;
+        if ( _nextScene != null ) {
+          HandleState(_nextScene);
+        } else {
+          MBGame.ForceQuit = true;
+        }
+      }
+
+      if ( Top != null ) {
+        Top.UpdateTransition();
+        Top.HandleInput();
+        Top.Update();
       }
     }
 
     public void Pop()
     {
       if ( _scenes.Count > 0 ) {
-        Top.Cleanup();
-        _scenes.RemoveAt(_scenes.Count - 1);
-
-        if ( _scenes.Count > 0 ) {
-          Top.Resuming = true;
+        if ( Top.TransitionState != TransitionState.Null ) {
+          Top.TransitionState = TransitionState.Exiting;
+        }
+        if ( _scenes.Count > 1 ) {
+          _scenes[_scenes.Count - 2].TransitionState = TransitionState.Resuming;
         }
       } else {
         MBGame.Console.Debug("Midnight Blue: Cannot pop scene from empty stack");
@@ -67,8 +78,11 @@ namespace MidnightBlue.Engine.Scenes
     public void ResetTo(Scene scene, ContentManager content)
     {
       if ( _scenes.Count > 0 ) {
+        _nextScene = scene;
+        var currentScene = Top;
         while ( _scenes.Count > 0 ) {
           Pop();
+          Update();
         }
       }
       Push(scene, content);
@@ -81,6 +95,96 @@ namespace MidnightBlue.Engine.Scenes
         result = _scenes[index];
       }
       return result;
+    }
+
+    private void HandleState(Scene scene)
+    {
+      var last = scene.PreviousTransitionState;
+      var current = scene.TransitionState;
+
+      if ( last != current ) {
+        if ( last == TransitionState.Null ) {
+          switch ( current ) {
+            case TransitionState.Initializing:
+              scene.Initialize();
+              break;
+            case TransitionState.None:
+              _scenes.Add(_nextScene);
+              _nextScene = null;
+              break;
+            default:
+              Console.WriteLine("Transition from '{0}' to '{1}' is invalid", last, current);
+              break;
+          }
+        }
+        if ( last == TransitionState.None ) {
+          switch ( current ) {
+            case TransitionState.Null:
+              if ( _scenes.Count > 0 ) {
+                _scenes.RemoveAt(_scenes.Count - 1);
+              }
+              break;
+            case TransitionState.Pausing:
+              scene.Pause();
+              break;
+            case TransitionState.Resuming:
+              scene.Resume();
+              break;
+            case TransitionState.Exiting:
+              scene.Exit();
+              break;
+            default:
+              Console.WriteLine("Transition from '{0}' to '{1}' is invalid", last, current);
+              break;
+          }
+        }
+        if ( last == TransitionState.Pausing ) {
+          if ( current == TransitionState.None ) {
+
+          }
+        }
+        if ( last == TransitionState.Resuming ) {
+          if ( current == TransitionState.None ) {
+            _scenes.RemoveAt(_scenes.Count - 1);
+          }
+        }
+        if ( last == TransitionState.Initializing ) {
+          if ( current == TransitionState.None ) {
+            _scenes.Add(_nextScene);
+            _nextScene = null;
+          }
+        }
+        if ( last == TransitionState.Exiting ) {
+          if ( current == TransitionState.Null ) {
+            _scenes.RemoveAt(_scenes.Count - 1);
+          }
+        }
+      } else {
+        switch ( current ) {
+          case TransitionState.Null:
+            if ( _scenes.Count > 0 ) {
+              _scenes.RemoveAt(_scenes.Count - 1);
+            }
+            break;
+          case TransitionState.None:
+            break;
+          case TransitionState.Pausing:
+            scene.Pause();
+            break;
+          case TransitionState.Resuming:
+            scene.Resume();
+            break;
+          case TransitionState.Exiting:
+            scene.Exit();
+            break;
+          case TransitionState.Initializing:
+            scene.Initialize();
+            break;
+          default:
+            Console.WriteLine("Transition from '{0}' to '{1}' is invalid", last, current);
+            break;
+        }
+      }
     }
 
     public Scene Top

@@ -39,6 +39,7 @@ namespace MidnightBlue
         MediaPlayer.Play(_bgSong);
         MediaPlayer.IsRepeating = true;
       }
+      TransitionState = TransitionState.None;
     }
 
     public override void HandleInput()
@@ -59,26 +60,22 @@ namespace MidnightBlue
     public override void Exit()
     {
       MediaPlayer.Stop();
+      TransitionState = TransitionState.Null;
     }
 
-    public override bool Pause()
+    public override void Pause()
     {
-      var transition = true;
-
-      var fadeSpeed = 2f;
+      var fadeSpeed = 0.8f;
       if ( MediaPlayer.Volume > 0 ) {
-        MediaPlayer.Volume -= DeltaTime * fadeSpeed;
+        MediaPlayer.Volume -= fadeSpeed;
       } else {
         MediaPlayer.Pause();
-        transition = false;
+        TransitionState = TransitionState.None;
       }
-
-      return transition;
     }
 
-    public override bool Resume()
+    public override void Resume()
     {
-      var transition = true;
 
       var fadeSpeed = 2f;
 
@@ -87,10 +84,9 @@ namespace MidnightBlue
       if ( MediaPlayer.Volume < 100 ) {
         MediaPlayer.Volume += DeltaTime * fadeSpeed;
       } else {
-        transition = false;
+        TransitionState = TransitionState.None;
       }
 
-      return transition;
     }
 
   }

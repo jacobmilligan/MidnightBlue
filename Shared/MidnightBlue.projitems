@@ -92,6 +92,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestUIView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Label.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\GalaxyScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
