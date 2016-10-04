@@ -32,6 +32,7 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       _inputMap = new InputMap();
       //_inputMap.Assign<MoveUp>(Keys.W, CommandType.Hold);
+      //_inputMap.Assign<MoveRight>(Keys.D, CommandType.Hold);
       _inputMap.Assign<ConsoleCommand>(Keys.OemTilde, CommandType.Trigger);
     }
 

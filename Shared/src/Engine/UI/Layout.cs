@@ -52,6 +52,14 @@ namespace MidnightBlue.Engine.UI
     /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
+      if ( BaseTexture != null ) {
+        // Draw the current states texture
+        spriteBatch.Draw(
+          BaseTexture,
+          destinationRectangle: BoundingBox
+        );
+      }
+
       if ( (bool)MBGame.Console.Vars["drawBorders"] || BorderDisplayed ) {
         DrawBorder(spriteBatch);
       }
@@ -87,5 +95,7 @@ namespace MidnightBlue.Engine.UI
       element.SetRelativeSize(Content, atRow, atCol, rowSpan, colSpan);
       Content.Elements[atRow - 1, atCol - 1] = element;
     }
+
+    public Texture2D BaseTexture { get; set; }
   }
 }

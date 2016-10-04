@@ -19,7 +19,7 @@ namespace MidnightBlue.Engine
     private SpriteBatch _spriteBatch;
     private Color _bgColor;
     private FramesPerSecondCounter _fps;
-    private float _dt;
+    private static float _dt;
 
     /// <summary>
     /// The games debug console. Static so as to be accessed globally for adding functions/variables
@@ -75,6 +75,10 @@ namespace MidnightBlue.Engine
       SetUpDebugVals();
 
       _gameObjects.AddSystem<InputSystem>();
+      _gameObjects.AddSystem<NavigationInputSystem>();
+      _gameObjects.AddSystem<MovementSystem>();
+      _gameObjects.AddSystem<PhysicsSystem>();
+      _gameObjects.AddSystem<RenderSystem>(_spriteBatch);
 
       Entity player = _gameObjects.CreateEntity("player");
       player.Attach<PlayerController>();
@@ -193,6 +197,11 @@ namespace MidnightBlue.Engine
     public static MBConsole Console
     {
       get { return _debugConsole; }
+    }
+
+    public static float DeltaTime
+    {
+      get { return _dt; }
     }
 
     public static bool ForceQuit { get; set; }

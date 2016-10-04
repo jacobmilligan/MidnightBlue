@@ -63,7 +63,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Entity\Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Line.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\Command.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\ConsoleCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\InputMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBGame.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -93,6 +92,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\GalaxyScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\SpriteComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\RenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\ShipController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Movement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\MovementSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\PhysicsSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\ConsoleCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

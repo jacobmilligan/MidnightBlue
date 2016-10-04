@@ -189,6 +189,11 @@ namespace MidnightBlue.Engine.UI
       get { return new Vector2(_numCols, _numRows); }
     }
 
+    public Rectangle BoundingBox
+    {
+      get { return _borderRect; }
+    }
+
     /// <summary>
     /// Gets or sets a value that indicates the element should be stretched or shrunk to fill its
     /// parents bounds exactly

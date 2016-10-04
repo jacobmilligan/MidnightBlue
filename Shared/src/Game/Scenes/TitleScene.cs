@@ -44,7 +44,7 @@ namespace MidnightBlue
 
     public override void HandleInput()
     {
-      GameObjects.GetSystem<InputSystem>().Run();
+      GameObjects.GetSystem<NavigationInputSystem>().Run();
     }
 
     public override void Update()

@@ -13,10 +13,10 @@ using MidnightBlue.Engine.IO;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public class NavigationInputSystem : EntitySystem
+  public class InputSystem : EntitySystem
   {
-    public NavigationInputSystem() : base(
-      typeof(PlayerController)
+    public InputSystem() : base(
+      typeof(PlayerController), typeof(SpriteComponent)
     )
     { }
 
@@ -25,11 +25,20 @@ namespace MidnightBlue.Engine.EntityComponent
       var keys = Keyboard.GetState().GetPressedKeys();
 
       Command cmd = null;
-      var controller = entity.GetComponent<PlayerController>();
+      IComponent controller = entity.GetComponent<PlayerController>();
+
+      if ( controller == null ) {
+        controller = entity.GetComponent<ShipController>();
+      }
 
       if ( controller != null ) {
         foreach ( var k in keys ) {
-          cmd = controller.InputMap[k];
+          if ( controller is PlayerController ) {
+            cmd = ((PlayerController)controller).InputMap[k];
+          }
+          if ( controller is ShipController ) {
+            cmd = ((ShipController)controller).InputMap[k];
+          }
           if ( cmd != null ) {
             cmd.Execute(entity);
           }

@@ -92,11 +92,11 @@ namespace MidnightBlue.Engine.EntityComponent
     /// Registers a new EntitySystem to the map
     /// </summary>
     /// <typeparam name="T">EntitySystem type to add</typeparam>
-    public void AddSystem<T>() where T : EntitySystem, new()
+    public void AddSystem<T>(params object[] args) where T : EntitySystem
     {
       var sysType = typeof(T);
       if ( !_systems.ContainsKey(sysType) ) {
-        var sysT = new T();
+        var sysT = CreateSystemInstance<T>(args);
         _systems.Add(sysType, sysT);
         var sys = _systems[sysType];
         // Generate a mask for the new system based off its valid components
@@ -221,6 +221,11 @@ namespace MidnightBlue.Engine.EntityComponent
           _tags.Add(_entities[i].Tag, i);
         }
       }
+    }
+
+    private EntitySystem CreateSystemInstance<T>(params object[] args) where T : EntitySystem
+    {
+      return (T)Activator.CreateInstance(typeof(T), args);
     }
 
     /// <summary>
