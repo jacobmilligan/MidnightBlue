@@ -14,21 +14,32 @@ using MidnightBlue.Engine.UI;
 
 namespace MidnightBlue.Engine.UI
 {
+  /// <summary>
+  /// A static UIElement with a TextContent, border and optional texture
+  /// </summary>
   public class Label : UIElement
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.Label"/> class.
+    /// </summary>
     public Label() : base(1, 1) { }
 
+    /// <summary>
+    /// Draw the label to the window.
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
       if ( BorderDisplayed ) {
         DrawBorder(spriteBatch);
       }
 
-      var pos = new Vector2(Bounds.Rect.X, Bounds.Rect.Y);
+      var pos = new Vector2(Content.Rect.X, Content.Rect.Y);
 
       if ( TextContent.Length > 0 ) {
-        var scale = FitChildVectorToParent(Font.MeasureString(TextContent), Bounds.Grid.CellSize);
+        var scale = FitChildVectorToParent(Font.MeasureString(TextContent), Content.Grid.CellSize);
 
+        // Draws the TextContent to the window
         spriteBatch.DrawString(
           spriteFont: Font,
           text: TextContent,
@@ -43,6 +54,9 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Updates the labels state
+    /// </summary>
     public override void Update()
     {
     }

@@ -95,8 +95,6 @@ namespace MidnightBlue.Engine
 
       _debugConsole = new MBConsole(Color.Black, Color.Yellow, Content.Load<SpriteFont>("SourceCode"));
       _debugConsole.InitWindow(Graphics);
-
-      //TODO: use this.Content to load your game content here 
     }
 
     /// <summary>

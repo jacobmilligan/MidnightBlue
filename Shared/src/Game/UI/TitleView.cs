@@ -67,7 +67,7 @@ namespace MidnightBlue
         HighlightedTextColor = Color.White,
         TextContent = "New Game",
         Font = _horatio,
-        StretchToFit = true,
+        Fill = true,
         HighlightedSound = _select
       };
 
@@ -76,7 +76,7 @@ namespace MidnightBlue
         HighlightedTextColor = Color.White,
         TextContent = "Continue",
         Font = _horatio,
-        StretchToFit = true,
+        Fill = true,
         HighlightedSound = _select
       };
 
@@ -85,7 +85,7 @@ namespace MidnightBlue
         HighlightedTextColor = Color.White,
         TextContent = "Quit",
         Font = _horatio,
-        StretchToFit = true,
+        Fill = true,
         HighlightedSound = _select,
         PressedSound = _confirm.CreateInstance()
       };

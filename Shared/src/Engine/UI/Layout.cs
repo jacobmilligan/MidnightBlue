@@ -13,18 +13,32 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MidnightBlue.Engine.UI
 {
+  /// <summary>
+  /// A container for UIElements used within a UIView. Used to
+  /// divide the View into smaller segments and to move around
+  /// a group of elements easily
+  /// </summary>
   public class Layout : UIElement
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.Layout"/> class.
+    /// Divides the layouts rows and columns into an even cell size based of its parents size.
+    /// </summary>
+    /// <param name="rows">Number of rows the layout has.</param>
+    /// <param name="cols">Number of columns the layout has.</param>
     public Layout(int rows, int cols) : base(rows, cols) { }
 
+    /// <summary>
+    /// Update all elements contained within the layout.
+    /// </summary>
     public override void Update()
     {
-      var rowLen = Bounds.Elements.GetLength(0);
-      var colLen = Bounds.Elements.GetLength(1);
+      var rowLen = Content.Elements.GetLength(0);
+      var colLen = Content.Elements.GetLength(1);
 
       for ( int row = 0; row < rowLen; row++ ) {
         for ( int col = 0; col < colLen; col++ ) {
-          var currGrid = Bounds.Elements[row, col];
+          var currGrid = Content.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Update();
           }
@@ -32,21 +46,27 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Draws all elements contained within the layout and the layouts border to the window.
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
       if ( (bool)MBGame.Console.Vars["drawBorders"] || BorderDisplayed ) {
         DrawBorder(spriteBatch);
       }
+      // DEBUG: Draws the layouts grid to the window
       if ( (bool)MBGame.Console.Vars["drawGrids"] ) {
-        spriteBatch.DrawGrid(Bounds.Grid, new Point(Bounds.Rect.X, Bounds.Rect.Y), Color.Red);
+        spriteBatch.DrawGrid(Content.Grid, new Point(Content.Rect.X, Content.Rect.Y), Color.Red);
       }
 
-      var rowLen = Bounds.Elements.GetLength(0);
-      var colLen = Bounds.Elements.GetLength(1);
+      var rowLen = Content.Elements.GetLength(0);
+      var colLen = Content.Elements.GetLength(1);
 
+      // Draw all elements
       for ( int row = 0; row < rowLen; row++ ) {
         for ( int col = 0; col < colLen; col++ ) {
-          var currGrid = Bounds.Elements[row, col];
+          var currGrid = Content.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Draw(spriteBatch);
           }
@@ -54,10 +74,18 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Adds a new UIElement to the layout, setting its size relative to this layouts cell size
+    /// </summary>
+    /// <param name="element">Element to add.</param>
+    /// <param name="atRow">Row position to add the element at.</param>
+    /// <param name="atCol">Column position to add the element at.</param>
+    /// <param name="rowSpan">Number of rows the element should span.</param>
+    /// <param name="colSpan">Number of columns the element should span.</param>
     public void Add(UIElement element, int atRow, int atCol, int rowSpan, int colSpan)
     {
-      element.SetRelativeSize(Bounds, atRow, atCol, rowSpan, colSpan);
-      Bounds.Elements[atRow - 1, atCol - 1] = element;
+      element.SetRelativeSize(Content, atRow, atCol, rowSpan, colSpan);
+      Content.Elements[atRow - 1, atCol - 1] = element;
     }
   }
 }
