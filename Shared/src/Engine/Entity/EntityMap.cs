@@ -138,6 +138,7 @@ namespace MidnightBlue.Engine.EntityComponent
     /// <param name="entity">Entity to update</param>
     public void UpdateEntityMask(Entity entity)
     {
+      entity.Mask = 0;
       foreach ( var c in entity.ComponentTypeList ) {
         entity.Mask |= NewOrExistingComponentID(c);
       }
@@ -153,6 +154,8 @@ namespace MidnightBlue.Engine.EntityComponent
       foreach ( var sys in _systems.Values ) {
         if ( (entity.Mask & sys.ID) != 0 ) {
           sys.AssociateEntity(entity);
+        } else {
+          sys.AssociatedEntities.Remove(entity);
         }
       }
     }
@@ -199,6 +202,17 @@ namespace MidnightBlue.Engine.EntityComponent
       if ( key.BaseType == typeof(EntitySystem) ) {
         result = _systems[key];
       }
+
+      if ( result != null && result.DestroyList.Count > 0 ) {
+        foreach ( var e in result.DestroyList ) {
+          result.AssociatedEntities.Remove(e);
+          _entities.Remove(e);
+          if ( e.Tag != string.Empty ) {
+            _tags.Remove(e.Tag);
+          }
+        }
+      }
+
       return result;
     }
 

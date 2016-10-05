@@ -121,6 +121,37 @@ namespace MidnightBlue.Engine.Testing
       Assert.NotNull(newMap.GetSystem<TestSystem>());
     }
 
+    [Test]
+    public void TestRemoveComponent()
+    {
+      var e = _map["persistant entity"];
+      if ( e != null ) {
+        e.Remove<Position>();
+        Assert.Null(e.GetComponent<Position>());
+        Assert.False(_map.GetSystem<TestSystem>().AssociatedEntities.Contains(e));
+      }
+    }
+
+    [Test]
+    public void TestDestroyEntity()
+    {
+      var initialCount = _map.EntityCount;
+      var e = _map.CreateEntity("remove");
+      e.Attach<Position>(0, 0);
+      var testSystem = _map.GetSystem<TestSystem>();
+
+      Assert.True(testSystem.AssociatedEntities.Contains(e));
+      Assert.NotNull(_map["remove"]);
+      Assert.Greater(_map.EntityCount, initialCount);
+
+      _map.GetSystem<TestSystem>().Destroy(e);
+      _map.GetSystem<TestSystem>();
+
+      Assert.False(_map.GetSystem<TestSystem>().AssociatedEntities.Contains(e));
+      Assert.Null(_map["remove"]);
+      Assert.AreEqual(initialCount, _map.EntityCount);
+    }
+
   }
 }
 

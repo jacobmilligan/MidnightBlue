@@ -84,6 +84,15 @@ namespace MidnightBlue.Engine.EntityComponent
       return component;
     }
 
+    public void Remove<T>() where T : IComponent
+    {
+      if ( _components.ContainsKey(typeof(T)) ) {
+        _components.Remove(typeof(T));
+        _container.UpdateEntityMask(this);
+        _container.UpdateSystems(this);
+      }
+    }
+
     /// <summary>
     /// Queries the entity to see if it has a component attached and returns it if it does
     /// </summary>

@@ -28,6 +28,8 @@ namespace MidnightBlue.Engine.EntityComponent
     /// The valid components used in this system
     /// </summary>
     private List<Type> _components;
+
+    private List<Entity> _toDestroy;
     /// <summary>
     /// All GUID's of entities this system knows about
     /// </summary>
@@ -44,6 +46,7 @@ namespace MidnightBlue.Engine.EntityComponent
     public EntitySystem(params Type[] components)
     {
       _entities = new List<Entity>();
+      _toDestroy = new List<Entity>();
       _components = new List<Type>();
       _idEntityMap = new Dictionary<ulong, Entity>();
 
@@ -66,18 +69,31 @@ namespace MidnightBlue.Engine.EntityComponent
     public void Run()
     {
       _timer = Stopwatch.StartNew();
+
+      _toDestroy.Clear();
+
       PreProcess();
       for ( int i = 0; i < _entities.Count; i++ ) {
         Process(_entities[i]);
       }
       PostProcess();
 
+      _timer.Stop();
+#if !TESTING
       if ( MBGame.Console.Vars.ContainsKey("systemRuntime") ) {
         var rtVar = (bool)MBGame.Console.Vars["systemRuntime"];
         if ( rtVar ) {
           MBGame.Console.Write("{0}: {1}", this.GetType().Name, _timer.ElapsedMilliseconds);
         }
       }
+#endif
+      _timer.Reset();
+    }
+
+    public void Destroy(Entity entity)
+    {
+      _toDestroy.Add(entity);
+      _idEntityMap.Remove(entity.ID);
     }
 
     /// <summary>
@@ -132,6 +148,11 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     /// <value>The identifier mask.</value>
     public ulong ID { get; set; }
+
+    public List<Entity> DestroyList
+    {
+      get { return _toDestroy; }
+    }
   }
 }
 

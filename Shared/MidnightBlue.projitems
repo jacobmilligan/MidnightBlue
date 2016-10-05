@@ -104,6 +104,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\CollisionSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\GalaxyRenderSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\CollisionRenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Depth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\DepthSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
