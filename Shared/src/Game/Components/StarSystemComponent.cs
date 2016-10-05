@@ -8,16 +8,15 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using Microsoft.Xna.Framework;
 using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue
 {
   public class StarSystemComponent : IComponent
   {
-    public StarSystemComponent()
-    {
-    }
-
     public string Name { get; set; }
+    public Color Color { get; set; }
+    public bool Draw { get; set; }
   }
 }

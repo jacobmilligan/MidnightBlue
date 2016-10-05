@@ -8,6 +8,7 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
+//TODO: Maybe delete this class
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

@@ -18,20 +18,24 @@ namespace MidnightBlue.Engine.EntityComponent
 {
   public class SpriteComponent : IComponent
   {
-    public SpriteComponent(Texture2D texture, Vector2 position, Vector2 scale)
+    private void SetDefaults(Vector2 position, Vector2 scale)
     {
-      Target = new Sprite(texture);
       Target.Position = position;
       Target.Scale = scale;
       Rotation = 0.0f;
+      Z = 0;
+    }
+
+    public SpriteComponent(Texture2D texture, Vector2 position, Vector2 scale)
+    {
+      Target = new Sprite(texture);
+      SetDefaults(position, scale);
     }
 
     public SpriteComponent(TextureRegion2D texture, Vector2 position, Vector2 scale)
     {
       Target = new Sprite(texture);
-      Target.Position = position;
-      Target.Scale = scale;
-      Rotation = 0.0f;
+      SetDefaults(position, scale);
     }
 
     public Sprite Target { get; set; }
@@ -52,5 +56,7 @@ namespace MidnightBlue.Engine.EntityComponent
       get { return Target.Rotation - MathHelper.ToRadians(90); }
       set { Target.Rotation = value + MathHelper.ToRadians(90); }
     }
+
+    public int Z { get; set; }
   }
 }

@@ -1,22 +1,23 @@
 ﻿//
-// InputSystem.cs
-// Midnight Blue
+// 	ShipInputSystem.cs
+// 	Midnight Blue
 //
-// ---------------------------------------------------
+// 	--------------------------------------------------------------
 //
-// Create by Jacob Milligan on 12/09/2016.
-// Copyright (c) Jacob Milligan 2016. All rights reserved.
+// 	Created by Jacob Milligan on 5/10/2016.
+// 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
 
-namespace MidnightBlue.Engine.EntityComponent
+namespace MidnightBlue
 {
-  public class NavigationInputSystem : EntitySystem
+  public class ShipInputSystem : EntitySystem
   {
-    public NavigationInputSystem() : base(
-      typeof(PlayerController)
+    public ShipInputSystem() : base(
+      typeof(ShipController)
     )
     { }
 
@@ -25,7 +26,7 @@ namespace MidnightBlue.Engine.EntityComponent
       var keys = Keyboard.GetState().GetPressedKeys();
 
       Command cmd = null;
-      var controller = entity.GetComponent<PlayerController>();
+      var controller = entity.GetComponent<ShipController>();
 
       if ( controller != null ) {
         foreach ( var k in keys ) {
@@ -40,4 +41,3 @@ namespace MidnightBlue.Engine.EntityComponent
 
   }
 }
-

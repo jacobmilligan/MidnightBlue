@@ -69,15 +69,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\Scene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\SceneStack.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\InputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\EntityContainerTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Util\IOUtil.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\Galaxy.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Test\GalaxyGenTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIContent.cs" />
@@ -94,15 +88,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\GalaxyScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\SpriteComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\RenderSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\ShipController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Movement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\MovementSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\PhysicsSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\ConsoleCommand.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\InputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\StarSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\StarSystemComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\ShipController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\GalaxySystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Collision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\ShipInputSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\CollisionSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\GalaxyRenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\CollisionRenderSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -111,6 +112,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)Content\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Components\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Game\Systems\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Game\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

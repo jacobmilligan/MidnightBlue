@@ -16,5 +16,6 @@ namespace MidnightBlue
   {
     public Color Color { get; set; }
     public Rectangle Bounds { get; set; }
+    public string Name { get; set; }
   }
 }

@@ -20,6 +20,7 @@ namespace MidnightBlue.Engine
     private Color _bgColor;
     private FramesPerSecondCounter _fps;
     private static float _dt;
+    private static Camera2D _camera;
 
     /// <summary>
     /// The games debug console. Static so as to be accessed globally for adding functions/variables
@@ -58,7 +59,6 @@ namespace MidnightBlue.Engine
     /// </summary>
     protected override void Initialize()
     {
-      base.Initialize();
 
       this.IsMouseVisible = true;
 
@@ -69,16 +69,26 @@ namespace MidnightBlue.Engine
         Height = _graphics.PreferredBackBufferHeight,
       };
 
+      _camera = new Camera2D(Graphics);
+
+      base.Initialize();
+
+
       _bgColor = Color.MidnightBlue;
       Window.Title = "Midnight Blue";
 
       SetUpDebugVals();
 
       _gameObjects.AddSystem<InputSystem>();
+      _gameObjects.AddSystem<ShipInputSystem>();
       _gameObjects.AddSystem<NavigationInputSystem>();
       _gameObjects.AddSystem<MovementSystem>();
+      _gameObjects.AddSystem<CollisionSystem>();
       _gameObjects.AddSystem<PhysicsSystem>();
       _gameObjects.AddSystem<RenderSystem>(_spriteBatch);
+      _gameObjects.AddSystem<GalaxyRenderSystem>(_spriteBatch, Content);
+      _gameObjects.AddSystem<GalaxySystem>();
+      _gameObjects.AddSystem<CollisionRenderSystem>(_spriteBatch);
 
       Entity player = _gameObjects.CreateEntity("player");
       player.Attach<PlayerController>();
@@ -131,6 +141,13 @@ namespace MidnightBlue.Engine
       IOUtil.UpdateKeyState();
       IOUtil.UpdateMouseState();
 
+      var playerSprite = _gameObjects["player"].GetComponent<SpriteComponent>();
+      if ( playerSprite != null ) {
+        _camera.LookAt(
+          playerSprite.Target.Position
+        );
+      }
+
       base.Update(gameTime);
     }
 
@@ -142,7 +159,9 @@ namespace MidnightBlue.Engine
     {
       _graphics.GraphicsDevice.Clear(_bgColor);
 
-      _spriteBatch.Begin();
+      _spriteBatch.Begin(
+        transformMatrix: _camera.GetViewMatrix()
+      );
 
       if ( _scenes.Top != null ) {
         _scenes.Top.Draw(_spriteBatch);
@@ -151,7 +170,16 @@ namespace MidnightBlue.Engine
       _debugConsole.Draw(_spriteBatch);
 
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
-        _spriteBatch.DrawString(Content.Load<SpriteFont>("SourceCode"), _fps.AverageFramesPerSecond.ToString("0"), new Vector2(0, 0), Color.White);
+        _spriteBatch.DrawString(
+          Content.Load<SpriteFont>("SourceCode"),
+          _fps.AverageFramesPerSecond.ToString("0"),
+          Camera.Position,
+          Color.White
+        );
+      }
+
+      if ( (bool)_debugConsole.Vars["drawCollision"] ) {
+        _gameObjects.GetSystem<CollisionRenderSystem>().Run();
       }
 
       _spriteBatch.End();
@@ -167,19 +195,10 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("showFramerate", false);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
+      _debugConsole.AddVar("drawCollision", false);
+      _debugConsole.AddVar("systemRuntime", false);
 
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
-
-      _debugConsole.AddFunc("GalaxyTest", (string[] args) => {
-        int size, radius, seed = 0;
-        int.TryParse(args[0], out size);
-        int.TryParse(args[1], out radius);
-
-        if ( args.Length > 2 ) {
-          int.TryParse(args[2], out seed);
-        }
-        _scenes.Push(new GalaxyGenTest(_gameObjects, size, radius, seed), Content);
-      });
 
       _debugConsole.AddFunc(
         "UITest",
@@ -192,6 +211,11 @@ namespace MidnightBlue.Engine
     public static GraphicsDevice Graphics
     {
       get { return _graphics.GraphicsDevice; }
+    }
+
+    public static Camera2D Camera
+    {
+      get { return _camera; }
     }
 
     public static MBConsole Console

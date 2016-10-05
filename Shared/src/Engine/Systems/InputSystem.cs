@@ -13,9 +13,9 @@ using MidnightBlue.Engine.IO;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public class NavigationInputSystem : EntitySystem
+  public class InputSystem : EntitySystem
   {
-    public NavigationInputSystem() : base(
+    public InputSystem() : base(
       typeof(PlayerController)
     )
     { }

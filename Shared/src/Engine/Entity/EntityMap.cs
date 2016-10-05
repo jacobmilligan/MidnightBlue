@@ -68,6 +68,7 @@ namespace MidnightBlue.Engine.EntityComponent
     public EntityMap(EntityMap map)
     {
       _lastMask = map._lastMask;
+      _nextID = map.NextID - 1;
       _systems = new Dictionary<Type, EntitySystem>(map._systems);
       _entities = new List<Entity>(map._entities);
       _components = new Dictionary<Type, ulong>(map._components);
@@ -84,7 +85,7 @@ namespace MidnightBlue.Engine.EntityComponent
       if ( !_components.ContainsKey(type) ) {
         // Couldn't get this to fail tests but just in case any bitwise-related bugs
         // I didn't think of crop up, make this increase by a power of 2 instead
-        _components.Add(type, ++_lastMask);
+        _components.Add(type, NextMask);
       }
     }
 
@@ -150,7 +151,7 @@ namespace MidnightBlue.Engine.EntityComponent
     public void UpdateSystems(Entity entity)
     {
       foreach ( var sys in _systems.Values ) {
-        if ( (entity.Mask & sys.ID) == sys.ID ) {
+        if ( (entity.Mask & sys.ID) != 0 ) {
           sys.AssociateEntity(entity);
         }
       }
@@ -220,6 +221,7 @@ namespace MidnightBlue.Engine.EntityComponent
         if ( _entities[i].Tag != string.Empty ) {
           _tags.Add(_entities[i].Tag, i);
         }
+        UpdateSystems(_entities[i]);
       }
     }
 
@@ -243,7 +245,7 @@ namespace MidnightBlue.Engine.EntityComponent
         } else {
           // Couldn't get this to fail tests but just in case any bitwise-related bugs
           // I didn't think of crop up, make this increase by a power of 2 instead
-          result = ++_lastMask;
+          result = NextMask;
           _components.Add(component, result);
         }
       } else {
@@ -288,6 +290,19 @@ namespace MidnightBlue.Engine.EntityComponent
     public ulong NextID
     {
       get { return ++_nextID; }
+    }
+
+    private ulong NextMask
+    {
+      get
+      {
+        if ( _lastMask < 1 ) {
+          _lastMask = 1;
+        } else {
+          _lastMask *= 2;
+        }
+        return _lastMask;
+      }
     }
   }
 }

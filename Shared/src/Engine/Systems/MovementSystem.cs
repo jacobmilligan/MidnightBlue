@@ -19,6 +19,11 @@ namespace MidnightBlue.Engine.EntityComponent
       var movement = entity.GetComponent<Movement>();
       var sprite = entity.GetComponent<SpriteComponent>();
       if ( movement != null && sprite != null ) {
+
+        if ( entity.Tag == "player" ) {
+          //MBGame.Graphics.Viewport.
+        }
+
         sprite.Target.Position += movement.Velocity * MBGame.DeltaTime;
 
         switch ( movement.RotationDirection ) {

@@ -75,11 +75,13 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     /// <param name="args">The components constructor arguments</param>
     /// <typeparam name="T">Type of component to attach</typeparam>
-    public void Attach<T>(params object[] args) where T : IComponent
+    public IComponent Attach<T>(params object[] args) where T : IComponent
     {
-      _components.Add(typeof(T), NewComponent<T>(args));
+      var component = NewComponent<T>(args);
+      _components.Add(typeof(T), component);
       _container.UpdateEntityMask(this);
       _container.UpdateSystems(this);
+      return component;
     }
 
     /// <summary>

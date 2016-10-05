@@ -9,9 +9,11 @@
 //
 using System;
 using Microsoft.Xna.Framework.Input;
+using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
+using MonoGame.Extended.Particles;
 
-namespace MidnightBlue.Engine.EntityComponent
+namespace MidnightBlue
 {
   public class ShipController : IComponent
   {
@@ -39,5 +41,7 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       get { return _inputMap; }
     }
+
+    public ParticleEffect Particles { get; set; }
   }
 }

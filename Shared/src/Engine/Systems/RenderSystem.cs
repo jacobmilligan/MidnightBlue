@@ -17,6 +17,7 @@ namespace MidnightBlue.Engine.EntityComponent
   public class RenderSystem : EntitySystem
   {
     private SpriteBatch _spriteBatch;
+    private int _drawn;
 
     public RenderSystem(SpriteBatch spriteBatch)
       : base(typeof(SpriteComponent))
@@ -24,15 +25,30 @@ namespace MidnightBlue.Engine.EntityComponent
       _spriteBatch = spriteBatch;
     }
 
+    protected override void PreProcess()
+    {
+      _drawn = 0;
+      AssociatedEntities.Sort((x, y) => {
+        var xSprite = x.GetComponent<SpriteComponent>();
+        var ySprite = y.GetComponent<SpriteComponent>();
+
+        return xSprite.Z.CompareTo(ySprite.Z);
+      });
+    }
+
     protected override void Process(Entity entity)
     {
       var sprite = entity.GetComponent<SpriteComponent>();
-      if ( sprite != null ) {
-        var spriteRect = (Rectangle)(sprite.Target.GetBoundingRectangle());
-        if ( MBGame.Graphics.Viewport.Bounds.Intersects(spriteRect) ) {
-          _spriteBatch.Draw(sprite.Target);
-        }
+      sprite.Target.IsVisible = MBGame.Camera.Contains(sprite.Target.Position) == ContainmentType.Contains; //TODO: Implement camera system instead
+      if ( sprite != null && sprite.Target.IsVisible ) {
+        _spriteBatch.Draw(sprite.Target);
+        _drawn++;
       }
+    }
+
+    protected override void PostProcess()
+    {
+      Console.WriteLine(_drawn);
     }
   }
 }

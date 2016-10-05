@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
@@ -30,7 +31,9 @@ namespace MidnightBlue.Engine.EntityComponent
     /// <summary>
     /// All GUID's of entities this system knows about
     /// </summary>
-    private Dictionary<ulong, Entity> _idEntityMap;
+    protected Dictionary<ulong, Entity> _idEntityMap;
+
+    private Stopwatch _timer;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.EntitySystem"/> class.
@@ -62,8 +65,18 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     public void Run()
     {
+      _timer = Stopwatch.StartNew();
+      PreProcess();
       for ( int i = 0; i < _entities.Count; i++ ) {
         Process(_entities[i]);
+      }
+      PostProcess();
+
+      if ( MBGame.Console.Vars.ContainsKey("systemRuntime") ) {
+        var rtVar = (bool)MBGame.Console.Vars["systemRuntime"];
+        if ( rtVar ) {
+          MBGame.Console.Write("{0}: {1}", this.GetType().Name, _timer.ElapsedMilliseconds);
+        }
       }
     }
 
@@ -77,7 +90,13 @@ namespace MidnightBlue.Engine.EntityComponent
         _entities.Add(entity);
         _idEntityMap.Add(entity.ID, entity);
       }
+      PostAssociate(entity);
     }
+
+    protected virtual void PreProcess() { }
+    protected virtual void PostProcess() { }
+
+    protected virtual void PostAssociate(Entity entity) { }
 
     /// <summary>
     /// Executes this systems logic on a single entity

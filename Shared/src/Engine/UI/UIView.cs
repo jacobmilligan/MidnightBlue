@@ -34,7 +34,7 @@ namespace MidnightBlue.Engine.UI
     /// <param name="cols">Number of columns in the view</param>
     public UIView(int rows, int cols)
     {
-      _grid = new UIContent(rows, cols, MBGame.Graphics.Viewport.Bounds);
+      _grid = new UIContent(rows, cols, (Rectangle)MBGame.Camera.GetBoundingRectangle());
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ namespace MidnightBlue.Engine.UI
         // Draws the background image if it exists
         spriteBatch.Draw(
           BackgroundTexture,
-          position: new Vector2(MBGame.Graphics.Viewport.X, MBGame.Graphics.Viewport.Y)
+          position: MBGame.Camera.Position
         );
       }
 
