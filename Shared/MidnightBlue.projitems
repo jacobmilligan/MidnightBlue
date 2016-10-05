@@ -98,7 +98,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\StarSystemComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\ShipController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\GalaxySystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Collision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\CollisionComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\ShipInputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\CollisionSystem.cs" />
@@ -106,6 +106,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\CollisionRenderSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\Depth.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\DepthSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -116,6 +118,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Components\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Systems\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Test\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Collision\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

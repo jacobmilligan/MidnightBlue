@@ -45,10 +45,5 @@ namespace MidnightBlue.Engine.EntityComponent
         _drawn++;
       }
     }
-
-    protected override void PostProcess()
-    {
-      Console.WriteLine(_drawn);
-    }
   }
 }

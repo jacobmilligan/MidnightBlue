@@ -19,14 +19,14 @@ namespace MidnightBlue.Engine.Testing
   {
     private SpriteBatch _spriteBatch;
     public CollisionRenderSystem(SpriteBatch spriteBatch)
-      : base(typeof(Collision), typeof(StarSystemComponent), typeof(SpriteComponent))
+      : base(typeof(CollisionComponent), typeof(StarSystemComponent), typeof(SpriteComponent))
     {
       _spriteBatch = spriteBatch;
     }
 
     protected override void Process(Entity entity)
     {
-      var collision = entity.GetComponent<Collision>();
+      var collision = entity.GetComponent<CollisionComponent>();
       var sprite = entity.GetComponent<SpriteComponent>();
 
       if ( collision != null ) {

@@ -70,6 +70,7 @@ namespace MidnightBlue.Engine
       };
 
       _camera = new Camera2D(Graphics);
+      _camera.LookAt(new Vector2(10000, 10000));
 
       base.Initialize();
 
@@ -159,6 +160,15 @@ namespace MidnightBlue.Engine
 
       _debugConsole.Draw(_spriteBatch);
 
+      if ( (bool)_debugConsole.Vars["showCameraPos"] ) {
+        _spriteBatch.DrawString(
+          Content.Load<SpriteFont>("SourceCode"),
+          Camera.Position.ToString(),
+          new Vector2(Camera.Position.X + 100, Camera.Position.Y),
+          Color.White
+        );
+      }
+
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
         _spriteBatch.DrawString(
           Content.Load<SpriteFont>("SourceCode"),
@@ -182,11 +192,12 @@ namespace MidnightBlue.Engine
 
     private void SetUpDebugVals()
     {
-      _debugConsole.AddVar("showFramerate", false);
+      _debugConsole.AddVar("showFramerate", true);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
       _debugConsole.AddVar("drawCollision", false);
       _debugConsole.AddVar("systemRuntime", false);
+      _debugConsole.AddVar("showCameraPos", false);
 
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
 

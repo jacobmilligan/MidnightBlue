@@ -36,13 +36,17 @@ namespace MidnightBlue.Engine
       _ship = Content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = Content.Load<Texture2D>("Images/starsystem");
 
-      BuildSystem();
-
+      BuildGalaxy();
       BuildPlayerShip();
 
       var physics = GameObjects.GetSystem<PhysicsSystem>();
       if ( physics != null ) {
         (physics as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
+      }
+
+      var collision = GameObjects.GetSystem<CollisionSystem>();
+      if ( collision != null ) {
+        ((CollisionSystem)collision).ResetGrid(_galaxy.Bounds.Width, _galaxy.Bounds.Height, 25); //HACK: Hardcoded collision cell size
       }
 
       TransitionState = TransitionState.None;
@@ -94,7 +98,7 @@ namespace MidnightBlue.Engine
         new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
         new Vector2(0.3f, 0.3f)
       ) as SpriteComponent;
-      player.Attach<Collision>(new Rectangle[] { (Rectangle)sprite.Target.GetBoundingRectangle() });
+      player.Attach<CollisionComponent>(new Rectangle[] { (Rectangle)sprite.Target.GetBoundingRectangle() });
       player.GetComponent<SpriteComponent>().Z = 1;
       player.Attach<ShipController>();
       player.Attach<Depth>();
@@ -103,11 +107,12 @@ namespace MidnightBlue.Engine
       GameObjects.UpdateSystems(player);
     }
 
-    private void BuildSystem()
+    private void BuildGalaxy()
     {
-      var systems = _galaxy.Generate(5000);
+      var systems = _galaxy.Generate(3000);
       var scale = 0.5f;
       foreach ( var s in systems ) {
+
         var newSystem = new Entity(GameObjects);
         var sprite = newSystem.Attach<SpriteComponent>(
           _solarSystem,
@@ -117,9 +122,10 @@ namespace MidnightBlue.Engine
         var sysComponent = newSystem.Attach<StarSystemComponent>() as StarSystemComponent;
         sysComponent.Name = s.Name;
         sprite.Target.Color = s.Color;
-        newSystem.Attach<Collision>(new Rectangle[] {
+        newSystem.Attach<CollisionComponent>(new Rectangle[] {
           (Rectangle)sprite.Target.GetBoundingRectangle()
         });
+
       }
     }
 

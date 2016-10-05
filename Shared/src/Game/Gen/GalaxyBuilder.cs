@@ -13,17 +13,19 @@ using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MidnightBlue.Engine;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
 {
   public class GalaxyBuilder
   {
-    private ContentManager _content;
     private int _size, _seed;
+    private Rectangle _bounds;
     private Texture2D _star;
     private List<StarSystem> _starSystems;
     private List<Color> _availableColors;
+    private ContentManager _content;
 
     public GalaxyBuilder(ContentManager content, int size, int seed = 0)
     {
@@ -32,6 +34,7 @@ namespace MidnightBlue
       _seed = seed;
       _star = _content.Load<Texture2D>("Images/starsystem");
       _starSystems = new List<StarSystem>();
+      _bounds = new Rectangle();
 
       _availableColors = new List<Color> {
         Color.White,
@@ -49,14 +52,25 @@ namespace MidnightBlue
         rand = new Random(_seed);
       }
 
+      var cameraPos = MBGame.Camera.Position.ToPoint();
+
       for ( int sys = 0; sys < _size; sys++ ) {
         var color = _availableColors[
           rand.Next(_availableColors.Count - 1)
         ];
-        var pos = new Vector2(rand.Next(-maxDistance, maxDistance), rand.Next(-maxDistance, maxDistance));
+
+        var pos = new Vector2(
+          rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
+          rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
+        );
+
         while ( GetCollision(pos) ) {
-          pos = new Vector2(rand.Next(-maxDistance, maxDistance), rand.Next(-maxDistance, maxDistance));
+          pos = new Vector2(
+            rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
+            rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
+          );
         }
+
         var rect = new Rectangle(pos.ToPoint(), _star.Bounds.Size);
 
         _starSystems.Add(new StarSystem {
@@ -64,6 +78,19 @@ namespace MidnightBlue
           Bounds = rect,
           Name = GenerateSystemName(rand)
         });
+
+        if ( rect.Right > _bounds.Right ) {
+          _bounds.Inflate(rect.Right - _bounds.Right, 0);
+        }
+        if ( rect.Bottom > _bounds.Bottom ) {
+          _bounds.Inflate(0, rect.Bottom - _bounds.Bottom);
+        }
+        if ( rect.Top < _bounds.Top ) {
+          _bounds.Inflate(0, _bounds.Top - rect.Top);
+        }
+        if ( rect.Left < _bounds.Left ) {
+          _bounds.Inflate(_bounds.Right - rect.Right, 0);
+        }
       }
 
       return _starSystems;
@@ -105,6 +132,11 @@ namespace MidnightBlue
       }
 
       return collision;
+    }
+
+    public Rectangle Bounds
+    {
+      get { return _bounds; }
     }
   }
 }
