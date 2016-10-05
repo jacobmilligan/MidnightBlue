@@ -61,6 +61,7 @@ namespace MidnightBlue.Engine
       GameObjects.GetSystem<MovementSystem>().Run();
       GameObjects.GetSystem<PhysicsSystem>().Run();
       GameObjects.GetSystem<GalaxySystem>().Run();
+      GameObjects.GetSystem<DepthSystem>().Run();
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -96,6 +97,7 @@ namespace MidnightBlue.Engine
       player.Attach<Collision>(new Rectangle[] { (Rectangle)sprite.Target.GetBoundingRectangle() });
       player.GetComponent<SpriteComponent>().Z = 1;
       player.Attach<ShipController>();
+      player.Attach<Depth>();
       player.Attach<Movement>(30.0f, 0.05f);
 
       GameObjects.UpdateSystems(player);
@@ -115,9 +117,9 @@ namespace MidnightBlue.Engine
         var sysComponent = newSystem.Attach<StarSystemComponent>() as StarSystemComponent;
         sysComponent.Name = s.Name;
         sprite.Target.Color = s.Color;
-
-        newSystem.Attach<Collision>(new Rectangle[] { (Rectangle)sprite.Target.GetBoundingRectangle() });
-
+        newSystem.Attach<Collision>(new Rectangle[] {
+          (Rectangle)sprite.Target.GetBoundingRectangle()
+        });
       }
     }
 

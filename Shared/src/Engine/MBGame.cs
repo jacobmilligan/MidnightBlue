@@ -78,17 +78,7 @@ namespace MidnightBlue.Engine
       Window.Title = "Midnight Blue";
 
       SetUpDebugVals();
-
-      _gameObjects.AddSystem<InputSystem>();
-      _gameObjects.AddSystem<ShipInputSystem>();
-      _gameObjects.AddSystem<NavigationInputSystem>();
-      _gameObjects.AddSystem<MovementSystem>();
-      _gameObjects.AddSystem<CollisionSystem>();
-      _gameObjects.AddSystem<PhysicsSystem>();
-      _gameObjects.AddSystem<RenderSystem>(_spriteBatch);
-      _gameObjects.AddSystem<GalaxyRenderSystem>(_spriteBatch, Content);
-      _gameObjects.AddSystem<GalaxySystem>();
-      _gameObjects.AddSystem<CollisionRenderSystem>(_spriteBatch);
+      RegisterSystems();
 
       Entity player = _gameObjects.CreateEntity("player");
       player.Attach<PlayerController>();
@@ -206,6 +196,21 @@ namespace MidnightBlue.Engine
       );
 
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
+    }
+
+    private void RegisterSystems()
+    {
+      _gameObjects.AddSystem<InputSystem>();
+      _gameObjects.AddSystem<ShipInputSystem>();
+      _gameObjects.AddSystem<NavigationInputSystem>();
+      _gameObjects.AddSystem<MovementSystem>();
+      _gameObjects.AddSystem<CollisionSystem>();
+      _gameObjects.AddSystem<PhysicsSystem>();
+      _gameObjects.AddSystem<DepthSystem>();
+      _gameObjects.AddSystem<RenderSystem>(_spriteBatch);
+      _gameObjects.AddSystem<GalaxyRenderSystem>(_spriteBatch, Content);
+      _gameObjects.AddSystem<GalaxySystem>();
+      _gameObjects.AddSystem<CollisionRenderSystem>(_spriteBatch);
     }
 
     public static GraphicsDevice Graphics

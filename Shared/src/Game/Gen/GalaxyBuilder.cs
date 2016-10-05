@@ -64,7 +64,6 @@ namespace MidnightBlue
           Bounds = rect,
           Name = GenerateSystemName(rand)
         });
-
       }
 
       return _starSystems;
