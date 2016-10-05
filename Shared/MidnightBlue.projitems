@@ -100,6 +100,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\PhysicsSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\ConsoleCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\StarSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\StarSystemComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -107,6 +110,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)Content\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Game\Components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

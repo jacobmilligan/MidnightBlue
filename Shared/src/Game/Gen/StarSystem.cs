@@ -8,12 +8,13 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
-namespace MidnightBlue.Engine
+using Microsoft.Xna.Framework;
+
+namespace MidnightBlue
 {
   public class StarSystem
   {
-    public StarSystem()
-    {
-    }
+    public Color Color { get; set; }
+    public Rectangle Bounds { get; set; }
   }
 }

@@ -12,10 +12,12 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue
 {
-  public class StarSystem : IComponent
+  public class StarSystemComponent : IComponent
   {
-    public StarSystem()
+    public StarSystemComponent()
     {
     }
+
+    public string Name { get; set; }
   }
 }

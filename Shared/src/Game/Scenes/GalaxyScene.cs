@@ -21,6 +21,7 @@ namespace MidnightBlue.Engine
   {
     private Texture2D _ship, _solarSystem;
     private int _seed;
+    private GalaxyBuilder _galaxy;
 
     public GalaxyScene(EntityMap map) : base(map)
     {
@@ -29,8 +30,11 @@ namespace MidnightBlue.Engine
 
     public override void Initialize()
     {
+      _galaxy = new GalaxyBuilder(Content, 1000);
       _ship = Content.Load<Texture2D>("Images/playership_blue");
-      _solarSystem = Content.Load<Texture2D>("Images/playership_blue");
+      _solarSystem = Content.Load<Texture2D>("Images/starsystem");
+
+      BuildSystem();
 
       BuildPlayerShip();
 
@@ -38,6 +42,7 @@ namespace MidnightBlue.Engine
       if ( physics != null ) {
         (physics as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
       }
+
 
       TransitionState = TransitionState.None;
     }
@@ -88,19 +93,17 @@ namespace MidnightBlue.Engine
       player.Attach<Movement>(30.0f, 0.05f);
     }
 
-    private void Generate()
-    {
-      var rand = new Random();
-
-      if ( _seed != 0 ) {
-        rand = new Random(_seed);
-      }
-    }
-
     private void BuildSystem()
     {
-      var newSystem = new Entity(GameObjects);
-      //newSystem.Attach<SpriteComponent>
+      var systems = _galaxy.Generate(5000);
+      foreach ( var s in systems ) {
+        var newSystem = new Entity(GameObjects);
+        newSystem.Attach<SpriteComponent>(
+          _solarSystem,
+          new Vector2(s.Bounds.X, s.Bounds.Y),
+          new Vector2(0.5f, 0.5f)
+        );
+      }
     }
 
   }
