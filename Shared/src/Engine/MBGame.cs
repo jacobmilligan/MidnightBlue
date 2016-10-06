@@ -17,11 +17,12 @@ namespace MidnightBlue.Engine
   public class MBGame : Game
   {
     private static GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
-    private Color _bgColor;
-    private FramesPerSecondCounter _fps;
+    private static FramesPerSecondCounter _fps;
     private static float _dt;
     private static Camera2D _camera;
+
+    private SpriteBatch _spriteBatch;
+    private Color _bgColor;
 
     /// <summary>
     /// The games debug console. Static so as to be accessed globally for adding functions/variables
@@ -71,6 +72,7 @@ namespace MidnightBlue.Engine
       };
 
       _camera = new Camera2D(Graphics);
+      _camera.LookAt(new Vector2(0, 0));
       base.Initialize();
 
       _bgColor = Color.MidnightBlue;
@@ -251,6 +253,11 @@ namespace MidnightBlue.Engine
     public static float DeltaTime
     {
       get { return _dt; }
+    }
+
+    public static float FPS
+    {
+      get { return _fps.AverageFramesPerSecond; }
     }
 
     public static bool ForceQuit { get; set; }

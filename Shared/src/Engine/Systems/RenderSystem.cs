@@ -7,7 +7,7 @@
 // 	Created by Jacob Milligan on 4/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
-using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Shapes;
@@ -30,22 +30,19 @@ namespace MidnightBlue.Engine.EntityComponent
     protected override void PreProcess()
     {
       _drawn = 0;
-      AssociatedEntities.Sort((x, y) => {
-        var xSprite = x.GetComponent<SpriteComponent>();
-        var ySprite = y.GetComponent<SpriteComponent>();
-
-        return xSprite.Z.CompareTo(ySprite.Z);
-      });
+      AssociatedEntities = AssociatedEntities.OrderBy(
+        entity => entity.GetComponent<SpriteComponent>().Z
+      ).ToList();
+      _cameraRect = MBGame.Camera.GetBoundingRectangle();
     }
 
     protected override void Process(Entity entity)
     {
       var sprite = entity.GetComponent<SpriteComponent>();
-      if ( sprite != null && sprite.Target.IsVisible ) {
-        if ( sprite.Target.IsVisible ) {
-          _spriteBatch.Draw(sprite.Target);
-          _drawn++;
-        }
+
+      if ( sprite != null && _cameraRect.Intersects((Rectangle)sprite.Bounds) ) {
+        _spriteBatch.Draw(sprite.Target);
+        _drawn++;
       }
     }
   }

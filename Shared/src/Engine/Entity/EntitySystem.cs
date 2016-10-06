@@ -81,21 +81,22 @@ namespace MidnightBlue.Engine.EntityComponent
       if ( MBGame.Console.Vars.ContainsKey("systemRuntime") ) {
         var rtVar = (bool)MBGame.Console.Vars["systemRuntime"];
         if ( rtVar ) {
-          MBGame.Console.Write("{0}: {1}", this.GetType().Name, _timer.ElapsedMilliseconds);
+          Console.WriteLine("{0}: {1}", GetType().Name, _timer.ElapsedMilliseconds);
         }
       }
 #endif
       _timer.Reset();
     }
 
-    public virtual void ProcessingLoop()
+    protected virtual void ProcessingLoop()
     {
-      for ( int i = 0; i < _entities.Count; i++ ) {
+      var entityCount = _entities.Count;
+      for ( int i = 0; i < entityCount; i++ ) {
         Process(_entities[i]);
       }
     }
 
-    public void Destroy(Entity entity)
+    protected void Destroy(Entity entity)
     {
       _toDestroy.Add(entity);
       _idEntityMap.Remove(entity.ID);

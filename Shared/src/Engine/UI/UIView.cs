@@ -42,6 +42,9 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     public void Update()
     {
+      var newRect = _grid.Rect;
+      newRect.Location = MBGame.Camera.Position.ToPoint();
+      _grid.Rect = newRect;
       var rowLen = Content.GetLength(0);
       var colLen = Content.GetLength(1);
       for ( int row = 0; row < rowLen; row++ ) {
@@ -49,6 +52,7 @@ namespace MidnightBlue.Engine.UI
           var currGrid = _grid.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Update();
+            //currGrid.SetRelativeSize(_grid, currGrid.GridPosition, currGrid.Size.ToPoint());
           }
         }
       }
@@ -64,7 +68,7 @@ namespace MidnightBlue.Engine.UI
         // Draws the background image if it exists
         spriteBatch.Draw(
           BackgroundTexture,
-          position: MBGame.Camera.Position
+          position: _grid.Rect.Location.ToVector2()
         );
       }
 

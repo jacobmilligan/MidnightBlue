@@ -17,7 +17,6 @@ namespace MidnightBlue.Engine.EntityComponent
   {
     private CollisionMap _map;
     private int _comparisons;
-    private SpriteComponent _currentSprite;
 
     public CollisionSystem() : base(typeof(CollisionComponent), typeof(SpriteComponent))
     {
@@ -26,7 +25,6 @@ namespace MidnightBlue.Engine.EntityComponent
 
     public void ResetGrid(int xMin, int xMax, int yMin, int yMax, int cellSize)
     {
-
       _map = new CollisionMap(xMin, xMax, yMin, yMax, cellSize);
     }
 
@@ -85,7 +83,6 @@ namespace MidnightBlue.Engine.EntityComponent
           _comparisons++;
         }
       }
-
     }
 
     protected override void PostProcess()

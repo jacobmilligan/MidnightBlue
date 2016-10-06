@@ -34,7 +34,7 @@ namespace MidnightBlue.Engine.UI
         DrawBorder(spriteBatch);
       }
 
-      var pos = new Vector2(Content.Rect.X, Content.Rect.Y);
+      var pos = Content.Rect.Location.ToVector2();
 
       if ( TextContent.Length > 0 ) {
         var scale = FitChildVectorToParent(Font.MeasureString(TextContent), Content.Grid.CellSize);

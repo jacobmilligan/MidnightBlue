@@ -41,6 +41,7 @@ namespace MidnightBlue.Engine.UI
           var currGrid = Content.Elements[row, col];
           if ( currGrid != null ) {
             currGrid.Update();
+            //currGrid.SetRelativeSize(Content, currGrid.GridPosition, currGrid.Size.ToPoint());
           }
         }
       }

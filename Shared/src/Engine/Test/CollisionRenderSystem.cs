@@ -19,7 +19,7 @@ namespace MidnightBlue.Engine.Testing
   {
     private SpriteBatch _spriteBatch;
     public CollisionRenderSystem(SpriteBatch spriteBatch)
-      : base(typeof(CollisionComponent), typeof(StarSystemComponent), typeof(SpriteComponent))
+      : base(typeof(CollisionComponent), typeof(StarSystem), typeof(SpriteComponent))
     {
       _spriteBatch = spriteBatch;
     }

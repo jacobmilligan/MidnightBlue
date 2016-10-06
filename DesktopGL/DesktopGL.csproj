@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GLMain.cs" />
+    <Compile Include="..\Shared\src\Engine\Components\Dictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

@@ -16,18 +16,7 @@ namespace MidnightBlue.Engine.EntityComponent
 {
   public class MovementSystem : EntitySystem
   {
-    private RectangleF _cameraRect;
-    private List<Entity> _visibleEntities;
-
-    public MovementSystem() : base(typeof(Movement), typeof(SpriteComponent))
-    {
-      _visibleEntities = new List<Entity>();
-    }
-
-    protected override void PreProcess()
-    {
-      _cameraRect = MBGame.Camera.GetBoundingRectangle();
-    }
+    public MovementSystem() : base(typeof(Movement), typeof(SpriteComponent)) { }
 
     protected override void Process(Entity entity)
     {
@@ -56,20 +45,6 @@ namespace MidnightBlue.Engine.EntityComponent
 
         sprite.DeltaSize = sprite.Bounds.Size - lastSize;
         sprite.DeltaPosition = sprite.Target.Position - lastPos;
-      }
-
-      if ( sprite != null && _cameraRect.Intersects((Rectangle)sprite.Bounds) ) {
-        if ( !_visibleEntities.Contains(entity) ) {
-          _visibleEntities.Add(entity);
-        }
-      }
-    }
-
-    public List<Entity> VisibleList
-    {
-      get
-      {
-        return _visibleEntities;
       }
     }
   }

@@ -28,9 +28,12 @@ namespace MidnightBlue
       _inputMap = new InputMap();
       _inputMap.Assign<MoveForward>(Keys.W, CommandType.Hold);
       _inputMap.Assign<MoveBackward>(Keys.S, CommandType.Hold);
+
       _inputMap.Assign<RotateRight>(Keys.D, CommandType.Hold);
       _inputMap.Assign<RotateLeft>(Keys.A, CommandType.Hold);
-      _inputMap.Assign<ConsoleCommand>(Keys.OemTilde, CommandType.Trigger);
+
+      _inputMap.Assign<MoveShip>(Keys.W, CommandType.Hold);
+      _inputMap.Assign<MoveShip>(Keys.S, CommandType.Hold);
     }
 
     /// <summary>

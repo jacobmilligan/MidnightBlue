@@ -26,6 +26,7 @@ namespace MidnightBlue
     private List<StarSystem> _starSystems;
     private List<Color> _availableColors;
     private ContentManager _content;
+    private Random _rand;
 
     public GalaxyBuilder(ContentManager content, int size, int seed = 0)
     {
@@ -38,45 +39,56 @@ namespace MidnightBlue
 
       _availableColors = new List<Color> {
         Color.White,
-        Color.AntiqueWhite,
+        Color.PaleGoldenrod,
         Color.LightYellow,
-        Color.LavenderBlush
+        Color.Gold
       };
     }
 
     public List<StarSystem> Generate(int maxDistance)
     {
-      var rand = new Random();
+      _rand = new Random();
 
       if ( _seed != 0 ) {
-        rand = new Random(_seed);
+        _rand = new Random(_seed);
       }
 
       var cameraPos = MBGame.Camera.Position.ToPoint();
 
       for ( int sys = 0; sys < _size; sys++ ) {
-        var color = _availableColors[
-          rand.Next(_availableColors.Count - 1)
-        ];
 
         var pos = new Vector2(
-          rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
-          rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
+          _rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
+          _rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
         );
 
         while ( GetCollision(pos) ) {
           pos = new Vector2(
-            rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
-            rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
+            _rand.Next(cameraPos.X - maxDistance, cameraPos.X + maxDistance),
+            _rand.Next(cameraPos.Y - maxDistance, cameraPos.Y + maxDistance)
           );
         }
 
         var rect = new Rectangle(pos.ToPoint(), _star.Bounds.Size);
+        var nebulaSize = _rand.Next(1000, 10000);
+        var radius = _rand.Next(100000 + nebulaSize, 1000000 + nebulaSize);
+
+        var colorIdx = 0;
+        if ( radius >= 200000 && radius < 550000 ) {
+          colorIdx = 1;
+        } else if ( radius >= 550000 && radius < 750000 ) {
+          colorIdx = 2;
+        } else if ( radius >= 750000 ) {
+          colorIdx = 3;
+        }
+        var color = _availableColors[colorIdx];
 
         _starSystems.Add(new StarSystem {
           Color = color,
           Bounds = rect,
-          Name = GenerateSystemName(rand)
+          Name = GenerateName(),
+          Radius = radius,
+          Planets = GeneratePlanets(nebulaSize, radius)
         });
 
         if ( rect.Right > _bounds.Right ) {
@@ -96,23 +108,43 @@ namespace MidnightBlue
       return _starSystems;
     }
 
-    private string GenerateSystemName(Random rand)
+    private List<Planet> GeneratePlanets(int nebulaSize, int starRadius)
+    {
+      var planets = new List<Planet>();
+      var acceleration = _rand.Next(starRadius / 10000, starRadius / 1000);
+      var maxPlanets = _rand.Next(4);
+      var growthFactor = (nebulaSize * acceleration) - starRadius;
+
+      if ( growthFactor > 0 && _rand.Next(growthFactor) > starRadius ) {
+        maxPlanets += _rand.Next(4);
+      }
+
+      for ( int p = 0; p < maxPlanets; p++ ) {
+        planets.Add(new Planet {
+          Name = GenerateName()
+        });
+      }
+
+      return planets;
+    }
+
+    private string GenerateName()
     {
       string name = string.Empty;
-      int max = rand.Next(2, 10);
+      int max = _rand.Next(2, 10);
 
       var vowels = new Regex("^[aeiou]{1}");
       var vowelList = new int[] { 97, 101, 105, 111, 117 }; // ASCII vowels
 
-      name += (char)rand.Next(65, 90); // Capital letters
+      name += (char)_rand.Next(65, 90); // Capital letters
 
       var prev = (char)(name[0] + 32); // Get lower case version of first character
 
       for ( int i = 0; i < max; i++ ) {
         if ( !vowels.Match(prev.ToString()).Success ) {
-          prev = (char)vowelList[rand.Next(0, vowelList.Length)];
+          prev = (char)vowelList[_rand.Next(0, vowelList.Length)];
         } else {
-          prev = (char)rand.Next(97, 122); // All lower case alpha letters
+          prev = (char)_rand.Next(97, 122); // All lower case alpha letters
         }
         name += prev;
       }

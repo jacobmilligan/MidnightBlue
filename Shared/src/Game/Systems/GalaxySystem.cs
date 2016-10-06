@@ -21,7 +21,7 @@ namespace MidnightBlue.Engine
   {
     public GalaxySystem()
       : base(
-        typeof(StarSystemComponent),
+        typeof(StarSystem),
         typeof(CollisionComponent)
       )
     {
@@ -29,7 +29,7 @@ namespace MidnightBlue.Engine
 
     protected override void Process(Entity entity)
     {
-      var sys = entity.GetComponent<StarSystemComponent>();
+      var sys = entity.GetComponent<StarSystem>();
       var sysCollision = entity.GetComponent<CollisionComponent>();
 
       if ( sys != null && sysCollision != null ) {

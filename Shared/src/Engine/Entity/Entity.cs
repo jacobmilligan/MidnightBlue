@@ -84,6 +84,17 @@ namespace MidnightBlue.Engine.EntityComponent
       return component;
     }
 
+    /// <summary>
+    /// Attaches a new component to the entity.
+    /// </summary>
+    /// <param name="component">Pre constructed component to add</param>
+    public void Attach(IComponent component)
+    {
+      _components.Add(component.GetType(), component);
+      _container.UpdateEntityMask(this);
+      _container.UpdateSystems(this);
+    }
+
     public void Remove<T>() where T : IComponent
     {
       if ( _components.ContainsKey(typeof(T)) ) {

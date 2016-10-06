@@ -23,7 +23,7 @@ namespace MidnightBlue
     private SpriteFont _font;
 
     public GalaxyRenderSystem(SpriteBatch spriteBatch, ContentManager content)
-      : base(typeof(StarSystemComponent))
+      : base(typeof(StarSystem))
     {
       _content = content;
       _spriteBatch = spriteBatch;
@@ -32,16 +32,29 @@ namespace MidnightBlue
 
     protected override void Process(Entity entity)
     {
-      var star = entity.GetComponent<StarSystemComponent>();
+      var star = entity.GetComponent<StarSystem>();
 
       if ( star != null && star.Draw ) {
+
+        var textPosition = GetCenter(
+          MBGame.Camera.GetBoundingRectangle().Center,
+          new Vector2(_font.MeasureString(star.Name).X / 2, _font.MeasureString(star.Name).Y / 2)
+        );
+
+        var starInfo = string.Format("{0}\nRadius: {1}\nPlanets:\n{2}", star.Name, star.Radius, star.PlanetList);
+
         _spriteBatch.DrawString(
           _font,
-          star.Name,
-          MBGame.Camera.Position,
+          starInfo,
+          textPosition,
           Color.White
         );
       }
+    }
+
+    private Vector2 GetCenter(Vector2 parentCenter, Vector2 childCenter)
+    {
+      return new Vector2(parentCenter.X - childCenter.X, parentCenter.Y - 200);
     }
   }
 }

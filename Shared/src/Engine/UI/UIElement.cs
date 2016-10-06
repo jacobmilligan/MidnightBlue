@@ -42,6 +42,8 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     private int _numRows, _numCols;
 
+    private Point _gridPos;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.UIElement"/> class.
     /// Sets default property values
@@ -66,6 +68,8 @@ namespace MidnightBlue.Engine.UI
 
       _numRows = rows;
       _numCols = cols;
+
+      _grid = new UIContent(1, 1, Rectangle.Empty);
     }
 
     /// <summary>
@@ -76,6 +80,8 @@ namespace MidnightBlue.Engine.UI
     /// <param name="span">Number of columns/rows the element should span.</param>
     public void SetRelativeSize(UIContent parent, Point at, Point span)
     {
+      _gridPos = at;
+
       var x = parent.Rect.X + (parent.Grid.ColSize * at.X);
       var y = parent.Rect.Y + (parent.Grid.RowSize * at.Y);
       var width = parent.Grid.ColSize * span.X;
@@ -83,7 +89,9 @@ namespace MidnightBlue.Engine.UI
 
       var rect = new Rectangle(x, y, width, height);
 
-      _grid = new UIContent(_numRows, _numCols, rect);
+      if ( _grid != null ) {
+        _grid = new UIContent(_numRows, _numCols, rect);
+      }
 
       _borderRect = rect;
       _borderRect.Width += parent.Grid.ColSize;
@@ -187,6 +195,11 @@ namespace MidnightBlue.Engine.UI
     public Vector2 Size
     {
       get { return new Vector2(_numCols, _numRows); }
+    }
+
+    public Point GridPosition
+    {
+      get { return _gridPos; }
     }
 
     public Rectangle BoundingBox

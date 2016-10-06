@@ -26,10 +26,10 @@ namespace MidnightBlue.Engine.EntityComponent
 
       switch ( Environment ) {
         case PhysicsEnvironement.Galaxy:
-          decay = 0.99f;
+          decay = 1.0f;
           break;
         case PhysicsEnvironement.System:
-          decay = 0.98f;
+          decay = 0.99f;
           break;
         case PhysicsEnvironement.Planet:
           decay = 0.50f;

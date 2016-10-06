@@ -20,7 +20,7 @@ namespace MidnightBlue.Engine.Collision
   public class CollisionMap
   {
     private CollisionCell[,] _cells;
-    private HashSet<RectangleF> _checkedRects;
+    private LinkedList<RectangleF> _checkedRects;
     private List<CollisionCell> _nonEmptyCells;
     private int _cellSize;
     private Grid _grid;
@@ -40,7 +40,7 @@ namespace MidnightBlue.Engine.Collision
 
       _cellSize = cellSize;
 
-      _checkedRects = new HashSet<RectangleF>();
+      _checkedRects = new LinkedList<RectangleF>();
       _nonEmptyCells = new List<CollisionCell>();
     }
 
@@ -93,7 +93,8 @@ namespace MidnightBlue.Engine.Collision
       var result = new List<RectangleF>();
       var corners = GetCorners(bounds);
 
-      _checkedRects.Clear();
+      //TODO: Remove this once tested for larger collision amounts
+      //_checkedRects.Clear();
 
       foreach ( var corner in corners ) {
         var index = IndexOf(corner);
@@ -104,7 +105,7 @@ namespace MidnightBlue.Engine.Collision
             foreach ( var i in cell.Items ) {
               if ( !_checkedRects.Contains(i) && i.Center != bounds.Center ) {
                 result.Add(i);
-                _checkedRects.Add(i);
+                //_checkedRects.AddFirst(i);
               }
             }
           }

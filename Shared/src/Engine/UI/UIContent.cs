@@ -30,10 +30,6 @@ namespace MidnightBlue.Engine.UI
     /// Width of each cell
     /// </summary>
     private int _colSpan;
-    /// <summary>
-    /// The rectangle encompassing the content
-    /// </summary>
-    private Rectangle _rect;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.UIContent"/> class.
@@ -47,7 +43,7 @@ namespace MidnightBlue.Engine.UI
       _grid = new UIElement[rows, cols];
       _rowSpan = parent.Height / rows;
       _colSpan = parent.Width / cols;
-      _rect = new Rectangle(parent.X, parent.Y, _colSpan, _rowSpan);
+      Rect = parent;
     }
 
     /// <summary>
@@ -72,12 +68,9 @@ namespace MidnightBlue.Engine.UI
     }
 
     /// <summary>
-    /// Gets the rectangle encompassing the content.
+    /// Gets or sets the rectangle encompassing the content.
     /// </summary>
     /// <value>The rectangle.</value>
-    public Rectangle Rect
-    {
-      get { return _rect; }
-    }
+    public Rectangle Rect { get; set; }
   }
 }

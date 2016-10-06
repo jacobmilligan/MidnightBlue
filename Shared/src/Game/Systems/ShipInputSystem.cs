@@ -25,19 +25,23 @@ namespace MidnightBlue
     {
       var keys = Keyboard.GetState().GetPressedKeys();
 
-      Command cmd = null;
       var controller = entity.GetComponent<ShipController>();
 
       if ( controller != null ) {
-        foreach ( var k in keys ) {
-          cmd = controller.InputMap[k];
-          if ( cmd != null ) {
-            cmd.Execute(entity);
+        for ( int k = 0; k < keys.Length; k++ ) {
+          var commands = controller.InputMap[keys[k]];
+          if ( commands != null ) {
+            for ( int c = 0; c < commands.Count; c++ ) {
+              var cmd = commands[c];
+              if ( cmd != null ) {
+                cmd.Execute(entity);
+              }
+            }
           }
         }
       }
-
     }
 
   }
+
 }

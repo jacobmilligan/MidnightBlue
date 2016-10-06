@@ -22,14 +22,14 @@ namespace MidnightBlue.Engine.IO
     /// <summary>
     /// All commands mapped to specific keys
     /// </summary>
-    private Dictionary<Keys, Command> _inputMap = new Dictionary<Keys, Command>();
+    private Dictionary<Keys, List<Command>> _inputMap;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.InputMap"/> class.
     /// </summary>
     public InputMap()
     {
-      _inputMap = new Dictionary<Keys, Command>();
+      _inputMap = new Dictionary<Keys, List<Command>>();
     }
 
     /// <summary>
@@ -41,9 +41,10 @@ namespace MidnightBlue.Engine.IO
     public void Assign<T>(Keys key, CommandType type) where T : Command
     {
       if ( _inputMap.ContainsKey(key) ) {
-        _inputMap[key] = NewCommand<T>(key, type);
+        _inputMap[key].Add(NewCommand<T>(key, type));
       } else {
-        _inputMap.Add(key, NewCommand<T>(key, type));
+        _inputMap.Add(key, new List<Command>());
+        _inputMap[key].Add(NewCommand<T>(key, type));
       }
     }
 
@@ -63,15 +64,14 @@ namespace MidnightBlue.Engine.IO
     /// Gets the <see cref="T:MidnightBlue.Engine.IO.Commnad"/> mapped to the specified key.
     /// </summary>
     /// <param name="key">Key to query</param>
-    public Command this[Keys key]
+    public List<Command> this[Keys key]
     {
       get
       {
-        Command result = null;
         if ( _inputMap.ContainsKey(key) ) {
-          result = _inputMap[key];
+          return _inputMap[key];
         }
-        return result;
+        return null;
       }
     }
 
@@ -79,7 +79,7 @@ namespace MidnightBlue.Engine.IO
     /// Gets a key->Command dictionary
     /// </summary>
     /// <value>The collection of commands.</value>
-    public Dictionary<Keys, Command> Collection
+    public Dictionary<Keys, List<Command>> Collection
     {
       get { return _inputMap; }
     }
