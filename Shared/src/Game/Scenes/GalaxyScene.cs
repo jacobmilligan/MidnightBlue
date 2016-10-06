@@ -26,7 +26,6 @@ namespace MidnightBlue.Engine
     private Texture2D _ship, _solarSystem, _background;
     private Song _bgSong;
     private SpriteFont _bender;
-    private List<Texture2D> _loadingBars;
     private int _seed, _progressRemaining, _maxProgress, _currentProgress;
     private bool _loading;
     private GalaxyBuilder _galaxy;
@@ -39,7 +38,6 @@ namespace MidnightBlue.Engine
       _loading = true;
       _currentProgress = 0;
       _maxProgress = _progressRemaining = 40;
-      _loadingBars = new List<Texture2D>();
     }
 
     public override void Initialize()
@@ -52,8 +50,8 @@ namespace MidnightBlue.Engine
       _bgSong = Content.Load<Song>("Audio/galaxy");
       _hud = new GalaxyHud(Content);
 
-      BuildGalaxy();
       BuildPlayerShip();
+      BuildGalaxy();
 
       var physics = GameObjects.GetSystem<PhysicsSystem>();
       if ( physics != null ) {
@@ -175,7 +173,6 @@ namespace MidnightBlue.Engine
         new Vector2(0.3f, 0.3f)
       ) as SpriteComponent;
       sprite.Z = 1;
-      player.Attach<Depth>();
       player.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
       player.Attach<ShipController>();
       var inventory = player.Attach<Inventory>() as Inventory;
