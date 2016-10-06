@@ -100,12 +100,12 @@ namespace MidnightBlue.Engine.EntityComponent
     /// <typeparam name="T">Component to query the entity for.</typeparam>
     public T GetComponent<T>() where T : IComponent
     {
-      T result = default(T);
       var cType = typeof(T);
       if ( _components.ContainsKey(cType) ) {
-        result = (T)_components[cType];
+        return (T)_components[cType];
+      } else {
+        return default(T);
       }
-      return result;
     }
 
     /// <summary>

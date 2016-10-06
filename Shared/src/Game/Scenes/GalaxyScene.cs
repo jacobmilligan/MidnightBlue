@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
+using MonoGame.Extended.Shapes;
 using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue.Engine
@@ -46,7 +47,13 @@ namespace MidnightBlue.Engine
 
       var collision = GameObjects.GetSystem<CollisionSystem>();
       if ( collision != null ) {
-        ((CollisionSystem)collision).ResetGrid(_galaxy.Bounds.Width, _galaxy.Bounds.Height, 25); //HACK: Hardcoded collision cell size
+        ((CollisionSystem)collision).ResetGrid(
+          _galaxy.Bounds.Left,
+          _galaxy.Bounds.Right,
+          _galaxy.Bounds.Top,
+          _galaxy.Bounds.Bottom,
+          90
+        ); //HACK: Hardcoded collision cell size
       }
 
       TransitionState = TransitionState.None;
@@ -98,7 +105,7 @@ namespace MidnightBlue.Engine
         new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
         new Vector2(0.3f, 0.3f)
       ) as SpriteComponent;
-      player.Attach<CollisionComponent>(new Rectangle[] { (Rectangle)sprite.Target.GetBoundingRectangle() });
+      player.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
       player.GetComponent<SpriteComponent>().Z = 1;
       player.Attach<ShipController>();
       player.Attach<Depth>();
@@ -122,8 +129,8 @@ namespace MidnightBlue.Engine
         var sysComponent = newSystem.Attach<StarSystemComponent>() as StarSystemComponent;
         sysComponent.Name = s.Name;
         sprite.Target.Color = s.Color;
-        newSystem.Attach<CollisionComponent>(new Rectangle[] {
-          (Rectangle)sprite.Target.GetBoundingRectangle()
+        newSystem.Attach<CollisionComponent>(new RectangleF[] {
+          sprite.Target.GetBoundingRectangle()
         });
 
       }

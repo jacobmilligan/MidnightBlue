@@ -8,6 +8,8 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using Microsoft.Xna.Framework;
+
 namespace MidnightBlue.Engine.EntityComponent
 {
   public class MovementSystem : EntitySystem
@@ -19,8 +21,11 @@ namespace MidnightBlue.Engine.EntityComponent
       var movement = entity.GetComponent<Movement>();
       var sprite = entity.GetComponent<SpriteComponent>();
       if ( movement != null && sprite != null ) {
+        var lastPos = sprite.Target.Position;
+        var lastSize = sprite.Bounds.Size;
 
         sprite.Target.Position += movement.Velocity * MBGame.DeltaTime;
+
 
         switch ( movement.RotationDirection ) {
           case RotationDirection.Right:
@@ -33,6 +38,11 @@ namespace MidnightBlue.Engine.EntityComponent
             sprite.Rotation += 0.0f;
             break;
         }
+
+        sprite.Bounds = sprite.Target.GetBoundingRectangle();
+
+        sprite.DeltaSize = sprite.Bounds.Size - lastSize;
+        sprite.DeltaPosition = sprite.Target.Position - lastPos;
       }
     }
   }

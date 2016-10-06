@@ -39,10 +39,12 @@ namespace MidnightBlue.Engine.EntityComponent
     protected override void Process(Entity entity)
     {
       var sprite = entity.GetComponent<SpriteComponent>();
-      sprite.Target.IsVisible = MBGame.Camera.Contains(sprite.Target.Position) == ContainmentType.Contains; //TODO: Implement camera system instead
       if ( sprite != null && sprite.Target.IsVisible ) {
-        _spriteBatch.Draw(sprite.Target);
-        _drawn++;
+        //TODO: Implement camera system instead
+        if ( MBGame.Camera.GetBoundingRectangle().Intersects((Rectangle)sprite.Bounds) ) {
+          _spriteBatch.Draw(sprite.Target);
+          _drawn++;
+        }
       }
     }
   }

@@ -19,7 +19,7 @@ namespace MidnightBlue.Engine.EntityComponent
       var depth = entity.GetComponent<Depth>();
       var sprite = entity.GetComponent<SpriteComponent>();
       if ( depth != null && sprite != null ) {
-        sprite.Z = (int)sprite.Target.GetBoundingRectangle().Top;
+        sprite.Z = sprite.Bounds.Top;
       }
     }
   }

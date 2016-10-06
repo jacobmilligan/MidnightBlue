@@ -11,42 +11,53 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.Geometry;
+using MonoGame.Extended.Particles;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.Collision
 {
   public class CollisionMap
   {
     private CollisionCell[,] _cells;
+    private HashSet<RectangleF> _checkedRects;
+    private List<CollisionCell> _nonEmptyCells;
     private int _cellSize;
+    private Grid _grid;
+    private Vector2 _min;
+    private Vector2 _max;
 
-    public CollisionMap(int width, int height, int cellSize)
+    public CollisionMap(int xMin, int xMax, int yMin, int yMax, int cellSize)
     {
-      if ( cellSize > 0 ) {
-        if ( width > 0 ) {
-          width /= cellSize;
-        }
-        if ( height > 0 ) {
-          height /= cellSize;
-        }
-      }
+      var width = (xMax - xMin) / cellSize;
+      var height = (yMax - yMin) / cellSize;
+
       _cells = new CollisionCell[width, height];
+      _grid = new Grid(height, width, cellSize, cellSize);
+
+      _min = new Vector2(xMin, yMin);
+      _max = new Vector2(xMax, yMax);
+
       _cellSize = cellSize;
+
+      _checkedRects = new HashSet<RectangleF>();
+      _nonEmptyCells = new List<CollisionCell>();
     }
 
     public Point IndexOf(Vector2 position)
     {
       return new Point {
-        X = (int)(position.X / _cellSize),
-        Y = (int)(position.Y / _cellSize)
+        X = (int)((position.X - _min.X) / _cellSize),
+        Y = (int)((position.Y - _min.Y) / _cellSize)
       };
     }
 
-    public void Insert(Rectangle bounds, List<CollisionCell> cellList)
+    public void Insert(RectangleF bounds)
     {
-      var sides = GetSides(bounds);
+      var corners = GetCorners(bounds);
 
-      foreach ( var side in sides ) {
-        var index = IndexOf(side);
+      foreach ( var corner in corners ) {
+        var index = IndexOf(corner);
         var cell = _cells[index.X, index.Y];
         if ( cell == null ) {
           _cells[index.X, index.Y] = new CollisionCell();
@@ -54,25 +65,27 @@ namespace MidnightBlue.Engine.Collision
         }
         if ( !cell.Contains(bounds) ) {
           cell.Add(bounds);
-        }
-        if ( !cellList.Contains(cell) ) {
-          cellList.Add(cell);
+          _nonEmptyCells.Add(cell);
         }
       }
     }
 
-    public List<Rectangle> GetCollisions(Rectangle bounds)
+    public List<RectangleF> GetCollisions(RectangleF bounds)
     {
-      var result = new List<Rectangle>();
-      var sides = GetSides(bounds);
+      var result = new List<RectangleF>();
+      var corners = GetCorners(bounds);
 
-      foreach ( var side in sides ) {
-        var index = IndexOf(side);
+      _checkedRects.Clear();
+
+      foreach ( var corner in corners ) {
+        var index = IndexOf(corner);
         var cell = _cells[index.X, index.Y];
         if ( cell != null ) {
-          foreach ( var r in cell.Items ) {
-            if ( !result.Contains(r) && r.Center != bounds.Center ) {
-              result.Add(r);
+          var maxItems = cell.Items.Count;
+          for ( int i = 0; i < maxItems; i++ ) {
+            if ( !_checkedRects.Contains(cell.Items[i]) && cell.Items[i].Center != bounds.Center ) {
+              result.Add(cell.Items[i]);
+              _checkedRects.Add(cell.Items[i]);
             }
           }
         }
@@ -83,34 +96,41 @@ namespace MidnightBlue.Engine.Collision
 
     public void Clear()
     {
-      foreach ( var c in _cells ) {
-        if ( c != null && c.Items.Count > 0 ) {
-          c.Items.Clear();
-        }
+      var nonEmptySize = _nonEmptyCells.Count;
+      for ( int c = 0; c < nonEmptySize; c++ ) {
+        _nonEmptyCells[c].Clear();
       }
+      _nonEmptyCells.Clear();
     }
 
-    private Vector2[] GetSides(Rectangle bounds)
+    private Vector2[] GetCorners(RectangleF bounds)
     {
-      return new Vector2[8]
+      return new Vector2[4]
       {
         // Top left
         new Vector2(bounds.Left, bounds.Top),
-        // Top middle
-        new Vector2(bounds.Center.X, bounds.Top),
         // Top right
         new Vector2(bounds.Right, bounds.Top),
-        // Right middle
-        new Vector2(bounds.Right, bounds.Center.Y),
         // Bottom right
         new Vector2(bounds.Right, bounds.Bottom),
-        // Bottom middle
-        new Vector2(bounds.Center.X, bounds.Bottom),
         // Bottom left
         new Vector2(bounds.Left, bounds.Bottom),
-        // Left middle
-        new Vector2(bounds.Left, bounds.Center.Y)
       };
+    }
+
+    public Grid Grid
+    {
+      get { return _grid; }
+    }
+
+    public Vector2 Position
+    {
+      get { return _min; }
+    }
+
+    public Vector2 Max
+    {
+      get { return _max; }
     }
   }
 }

@@ -11,6 +11,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using MonoGame.Extended.Shapes;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 
@@ -20,10 +21,14 @@ namespace MidnightBlue.Engine.EntityComponent
   {
     private void SetDefaults(Vector2 position, Vector2 scale)
     {
+      DeltaPosition = new Vector2(0, 0);
+      DeltaSize = new Vector2(0, 0);
+
       Target.Position = position;
       Target.Scale = scale;
       Rotation = 0.0f;
       Z = 0;
+      Bounds = Target.GetBoundingRectangle();
     }
 
     public SpriteComponent(Texture2D texture, Vector2 position, Vector2 scale)
@@ -57,6 +62,11 @@ namespace MidnightBlue.Engine.EntityComponent
       set { Target.Rotation = value + MathHelper.ToRadians(90); }
     }
 
-    public int Z { get; set; }
+    public Vector2 DeltaPosition { get; set; }
+    public Vector2 DeltaSize { get; set; }
+
+    public RectangleF Bounds { get; set; }
+
+    public float Z { get; set; }
   }
 }

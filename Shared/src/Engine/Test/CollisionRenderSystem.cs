@@ -29,15 +29,15 @@ namespace MidnightBlue.Engine.Testing
       var collision = entity.GetComponent<CollisionComponent>();
       var sprite = entity.GetComponent<SpriteComponent>();
 
-      if ( collision != null ) {
-        foreach ( var b in collision.Boxes ) {
-          _spriteBatch.DrawRectangle(b, Color.Red);
+      if ( sprite != null && MBGame.Camera.Contains(sprite.Target.Position) == ContainmentType.Contains ) {
+        _spriteBatch.DrawRectangle(sprite.Target.GetBoundingRectangle(), Color.Yellow);
+        if ( collision != null ) {
+          foreach ( var b in collision.Boxes ) {
+            _spriteBatch.DrawRectangle(b, Color.Red);
+          }
         }
       }
 
-      if ( sprite != null ) {
-        _spriteBatch.DrawRectangle(sprite.Target.GetBoundingRectangle(), Color.Yellow);
-      }
     }
   }
 }

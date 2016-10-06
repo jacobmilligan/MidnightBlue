@@ -7,6 +7,7 @@ using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
 using MidnightBlue.Engine.Testing;
 using MonoGame.Extended.Shapes;
+using System;
 
 namespace MidnightBlue.Engine
 {
@@ -73,7 +74,6 @@ namespace MidnightBlue.Engine
       _camera.LookAt(new Vector2(10000, 10000));
 
       base.Initialize();
-
 
       _bgColor = Color.MidnightBlue;
       Window.Title = "Midnight Blue";
@@ -176,10 +176,21 @@ namespace MidnightBlue.Engine
           Camera.Position,
           Color.White
         );
+
+        _spriteBatch.DrawString(
+          Content.Load<SpriteFont>("SourceCode"),
+          _dt.ToString(),
+          new Vector2(Camera.Position.X + 50, Camera.Position.Y),
+          Color.White
+        );
       }
 
       if ( (bool)_debugConsole.Vars["drawCollision"] ) {
         _gameObjects.GetSystem<CollisionRenderSystem>().Run();
+        var collisionMap = (_gameObjects.GetSystem<CollisionSystem>() as CollisionSystem).CurrentMap;
+        if ( collisionMap != null ) {
+          //_spriteBatch.DrawGrid(collisionMap.Grid, collisionMap.Position.ToPoint(), Color.White);
+        }
       }
 
       _spriteBatch.End();
