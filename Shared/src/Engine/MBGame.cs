@@ -21,7 +21,7 @@ namespace MidnightBlue.Engine
     private static float _dt;
     private static Camera2D _camera;
 
-    private SpriteBatch _spriteBatch;
+    private SpriteBatch _spriteBatch, _uiSpriteBatch;
     private Color _bgColor;
 
     /// <summary>
@@ -97,6 +97,7 @@ namespace MidnightBlue.Engine
     {
       // Create a new SpriteBatch, which can be used to draw textures.
       _spriteBatch = new SpriteBatch(GraphicsDevice);
+      _uiSpriteBatch = new SpriteBatch(GraphicsDevice);
 
       _debugConsole = new MBConsole(Color.Black, Color.Yellow, Content.Load<SpriteFont>("SourceCode"));
       _debugConsole.InitWindow(Graphics);
@@ -150,12 +151,14 @@ namespace MidnightBlue.Engine
     {
       _graphics.GraphicsDevice.Clear(_bgColor);
 
+      _uiSpriteBatch.Begin();
+
       _spriteBatch.Begin(
         transformMatrix: _camera.GetViewMatrix()
       );
 
       if ( _scenes.Top != null ) {
-        _scenes.Top.Draw(_spriteBatch);
+        _scenes.Top.Draw(_spriteBatch, _uiSpriteBatch);
       }
 
       _debugConsole.Draw(_spriteBatch);
@@ -194,6 +197,7 @@ namespace MidnightBlue.Engine
       }
 
       _spriteBatch.End();
+      _uiSpriteBatch.End();
 
       _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
       _fps.Update(_dt);

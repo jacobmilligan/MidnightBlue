@@ -76,8 +76,7 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     public override void Update()
     {
-      var mouseState = Mouse.GetState();
-      var mousePos = MBGame.Camera.ScreenToWorld(mouseState.Position.X, mouseState.Position.Y);
+      var mousePos = Mouse.GetState().Position;
       _previousState = _currentState;
 
       // Selected state

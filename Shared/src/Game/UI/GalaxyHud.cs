@@ -25,23 +25,23 @@ namespace MidnightBlue.Engine
     {
       _bender = content.Load<SpriteFont>("Bender");
 
-      var bars = new Layout(1, 10) {
+      var bars = new Layout(2, 10) {
         BorderColor = Color.White,
         BorderWidth = 1
       };
-      this.Add(bars, 24, 1, 1, 10);
+      this.Add(bars, 22, 1, 1, 10);
 
       _fuel = new Label {
         Font = _bender,
-        TextColor = Color.Yellow
+        TextColor = Color.Yellow,
       };
-      bars.Add(_fuel, 1, 1, 1, 10);
+      bars.Add(_fuel, 1, 1, 2, 2);
     }
 
     public void Refresh(Inventory inventory)
     {
       if ( inventory.Items.ContainsKey(typeof(Fuel)) ) {
-        _fuel.TextContent = inventory.Items[typeof(Fuel)].Count.ToString();
+        _fuel.TextContent = "Fuel levels: " + inventory.Items[typeof(Fuel)].Count.ToString();
       }
     }
   }

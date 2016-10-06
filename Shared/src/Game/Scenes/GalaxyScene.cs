@@ -106,7 +106,7 @@ namespace MidnightBlue.Engine
       }
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
       if ( _loading ) {
         var center = MBGame.Camera.GetBoundingRectangle().Center;
@@ -129,16 +129,8 @@ namespace MidnightBlue.Engine
         spriteBatch.Draw(_background, MBGame.Camera.Position);
         GameObjects.GetSystem<RenderSystem>().Run();
         GameObjects.GetSystem<GalaxyRenderSystem>().Run();
-        _hud.Draw(spriteBatch);
 
-        //HACK: Testing inventory
-        var inv = GameObjects["player"].GetComponent<Inventory>();
-        spriteBatch.DrawString(
-          _bender,
-          inv.Items[typeof(Fuel)].Count.ToString(),
-          MBGame.Camera.GetBoundingRectangle().Center,
-          Color.White
-        );
+        _hud.Draw(uiSpriteBatch);
       }
     }
 

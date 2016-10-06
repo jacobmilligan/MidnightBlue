@@ -40,7 +40,7 @@ namespace MidnightBlue.Engine
             grid.ColSize,
             grid.RowSize
           );
-          if ( MBGame.Camera.Contains((Rectangle)rect) == ContainmentType.Contains ) {
+          if ( MBGame.Graphics.Viewport.Bounds.Intersects((Rectangle)rect) ) {
             spriteBatch.DrawRectangle(rect, color, 1);
           }
         }

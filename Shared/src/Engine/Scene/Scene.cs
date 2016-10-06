@@ -72,7 +72,7 @@ namespace MidnightBlue.Engine.Scenes
     public abstract void Update();
     public abstract void Pause();
     public abstract void Resume();
-    public abstract void Draw(SpriteBatch spriteBatch);
+    public abstract void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch);
     public abstract void Exit();
 
     public void Cleanup()
