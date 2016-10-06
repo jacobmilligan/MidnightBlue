@@ -47,9 +47,25 @@ namespace MidnightBlue.Engine.Collision
     public Point IndexOf(Vector2 position)
     {
       return new Point {
-        X = (int)((position.X - _min.X) / _cellSize),
-        Y = (int)((position.Y - _min.Y) / _cellSize)
+        X = (int)((position.X - _min.X) / _cellSize) - 1,
+        Y = (int)((position.Y - _min.Y) / _cellSize) - 1
       };
+    }
+
+    public bool IndexExists(int x, int y)
+    {
+      var result = false;
+      var xSize = _cells.GetLength(0);
+      var ySize = _cells.GetLength(1);
+      if ( x >= 0 && x < xSize && y >= 0 && y < ySize ) {
+        result = true;
+      }
+      return result;
+    }
+
+    public bool IndexExists(Point index)
+    {
+      return IndexExists(index.X, index.Y);
     }
 
     public void Insert(RectangleF bounds)
@@ -58,14 +74,16 @@ namespace MidnightBlue.Engine.Collision
 
       foreach ( var corner in corners ) {
         var index = IndexOf(corner);
-        var cell = _cells[index.X, index.Y];
-        if ( cell == null ) {
-          _cells[index.X, index.Y] = new CollisionCell();
-          cell = _cells[index.X, index.Y];
-        }
-        if ( !cell.Contains(bounds) ) {
-          cell.Add(bounds);
-          _nonEmptyCells.Add(cell);
+        if ( IndexExists(index) ) {
+          var cell = _cells[index.X, index.Y];
+          if ( cell == null ) {
+            _cells[index.X, index.Y] = new CollisionCell();
+            cell = _cells[index.X, index.Y];
+          }
+          if ( !cell.Contains(bounds) ) {
+            cell.Add(bounds);
+            _nonEmptyCells.Add(cell);
+          }
         }
       }
     }
@@ -79,13 +97,15 @@ namespace MidnightBlue.Engine.Collision
 
       foreach ( var corner in corners ) {
         var index = IndexOf(corner);
-        var cell = _cells[index.X, index.Y];
-        if ( cell != null ) {
-          var maxItems = cell.Items.Count;
-          for ( int i = 0; i < maxItems; i++ ) {
-            if ( !_checkedRects.Contains(cell.Items[i]) && cell.Items[i].Center != bounds.Center ) {
-              result.Add(cell.Items[i]);
-              _checkedRects.Add(cell.Items[i]);
+        if ( IndexExists(index) ) {
+          var cell = _cells[index.X, index.Y];
+          if ( cell != null ) {
+            var maxItems = cell.Items.Count;
+            foreach ( var i in cell.Items ) {
+              if ( !_checkedRects.Contains(i) && i.Center != bounds.Center ) {
+                result.Add(i);
+                _checkedRects.Add(i);
+              }
             }
           }
         }

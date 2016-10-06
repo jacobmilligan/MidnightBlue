@@ -138,5 +138,10 @@ namespace MidnightBlue
     {
       get { return _bounds; }
     }
+
+    public int Size
+    {
+      get { return _size; }
+    }
   }
 }

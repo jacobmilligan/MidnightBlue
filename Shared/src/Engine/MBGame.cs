@@ -71,8 +71,6 @@ namespace MidnightBlue.Engine
       };
 
       _camera = new Camera2D(Graphics);
-      _camera.LookAt(new Vector2(10000, 10000));
-
       base.Initialize();
 
       _bgColor = Color.MidnightBlue;
@@ -189,7 +187,7 @@ namespace MidnightBlue.Engine
         _gameObjects.GetSystem<CollisionRenderSystem>().Run();
         var collisionMap = (_gameObjects.GetSystem<CollisionSystem>() as CollisionSystem).CurrentMap;
         if ( collisionMap != null ) {
-          //_spriteBatch.DrawGrid(collisionMap.Grid, collisionMap.Position.ToPoint(), Color.White);
+          _spriteBatch.DrawGrid(collisionMap.Grid, collisionMap.Position.ToPoint(), Color.White);
         }
       }
 

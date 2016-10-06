@@ -73,9 +73,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _toDestroy.Clear();
 
       PreProcess();
-      for ( int i = 0; i < _entities.Count; i++ ) {
-        Process(_entities[i]);
-      }
+      ProcessingLoop();
       PostProcess();
 
       _timer.Stop();
@@ -88,6 +86,13 @@ namespace MidnightBlue.Engine.EntityComponent
       }
 #endif
       _timer.Reset();
+    }
+
+    public virtual void ProcessingLoop()
+    {
+      for ( int i = 0; i < _entities.Count; i++ ) {
+        Process(_entities[i]);
+      }
     }
 
     public void Destroy(Entity entity)

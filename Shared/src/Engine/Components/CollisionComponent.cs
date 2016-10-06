@@ -25,11 +25,9 @@ namespace MidnightBlue.Engine.EntityComponent
       } else {
         Boxes = new List<RectangleF>();
       }
-      ContainingCells = new List<CollisionCell>();
     }
 
     public List<RectangleF> Boxes { get; set; }
-    public List<CollisionCell> ContainingCells { get; set; }
     public bool Event { get; set; }
   }
 }

@@ -29,7 +29,6 @@ namespace MidnightBlue.Engine
 
     protected override void Process(Entity entity)
     {
-
       var sys = entity.GetComponent<StarSystemComponent>();
       var sysCollision = entity.GetComponent<CollisionComponent>();
 

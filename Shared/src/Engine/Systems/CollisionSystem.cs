@@ -17,6 +17,7 @@ namespace MidnightBlue.Engine.EntityComponent
   {
     private CollisionMap _map;
     private int _comparisons;
+    private SpriteComponent _currentSprite;
 
     public CollisionSystem() : base(typeof(CollisionComponent), typeof(SpriteComponent))
     {
@@ -36,6 +37,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _map.Clear();
 
       var maxEntities = AssociatedEntities.Count;
+
       for ( int e = 0; e < maxEntities; e++ ) {
         var collision = AssociatedEntities[e].GetComponent<CollisionComponent>();
 

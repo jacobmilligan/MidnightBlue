@@ -10,6 +10,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Shapes;
 using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue.Engine.EntityComponent
@@ -18,6 +19,7 @@ namespace MidnightBlue.Engine.EntityComponent
   {
     private SpriteBatch _spriteBatch;
     private int _drawn;
+    private RectangleF _cameraRect;
 
     public RenderSystem(SpriteBatch spriteBatch)
       : base(typeof(SpriteComponent))
@@ -40,8 +42,7 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       var sprite = entity.GetComponent<SpriteComponent>();
       if ( sprite != null && sprite.Target.IsVisible ) {
-        //TODO: Implement camera system instead
-        if ( MBGame.Camera.GetBoundingRectangle().Intersects((Rectangle)sprite.Bounds) ) {
+        if ( sprite.Target.IsVisible ) {
           _spriteBatch.Draw(sprite.Target);
           _drawn++;
         }

@@ -37,7 +37,7 @@ namespace MidnightBlue.Engine.EntityComponent
       }
 
       movement.Velocity *= decay;
-      movement.RotationAcceleration *= decay / 1.05f;
+      movement.RotationAcceleration *= decay * 0.95f;
     }
 
     public PhysicsEnvironement Environment { get; set; }

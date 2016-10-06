@@ -24,6 +24,7 @@ namespace MidnightBlue.Engine
     private Texture2D _ship, _solarSystem;
     private int _seed;
     private GalaxyBuilder _galaxy;
+    private MovementSystem _movement;
 
     public GalaxyScene(EntityMap map) : base(map)
     {
@@ -33,7 +34,7 @@ namespace MidnightBlue.Engine
 
     public override void Initialize()
     {
-      _galaxy = new GalaxyBuilder(Content, 1000, _seed);
+      _galaxy = new GalaxyBuilder(Content, 2500, _seed);
       _ship = Content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = Content.Load<Texture2D>("Images/starsystem");
 
@@ -45,14 +46,15 @@ namespace MidnightBlue.Engine
         (physics as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
       }
 
-      var collision = GameObjects.GetSystem<CollisionSystem>();
+      var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {
-        ((CollisionSystem)collision).ResetGrid(
+        var collisionSize = _galaxy.Bounds;
+        collision.ResetGrid(
           _galaxy.Bounds.Left,
           _galaxy.Bounds.Right,
           _galaxy.Bounds.Top,
           _galaxy.Bounds.Bottom,
-          90
+          180
         ); //HACK: Hardcoded collision cell size
       }
 
@@ -69,7 +71,8 @@ namespace MidnightBlue.Engine
     public override void Update()
     {
       GameObjects.GetSystem<CollisionSystem>().Run();
-      GameObjects.GetSystem<MovementSystem>().Run();
+      _movement = GameObjects.GetSystem<MovementSystem>() as MovementSystem;
+      _movement.Run();
       GameObjects.GetSystem<PhysicsSystem>().Run();
       GameObjects.GetSystem<GalaxySystem>().Run();
       GameObjects.GetSystem<DepthSystem>().Run();
@@ -77,7 +80,9 @@ namespace MidnightBlue.Engine
 
     public override void Draw(SpriteBatch spriteBatch)
     {
-      GameObjects.GetSystem<RenderSystem>().Run();
+      var render = GameObjects.GetSystem<RenderSystem>();
+      render.AssociatedEntities = _movement.VisibleList;
+      render.Run();
       GameObjects.GetSystem<GalaxyRenderSystem>().Run();
     }
 
@@ -105,18 +110,18 @@ namespace MidnightBlue.Engine
         new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
         new Vector2(0.3f, 0.3f)
       ) as SpriteComponent;
+      sprite.Z = 1;
       player.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
-      player.GetComponent<SpriteComponent>().Z = 1;
       player.Attach<ShipController>();
-      player.Attach<Depth>();
       player.Attach<Movement>(30.0f, 0.05f);
 
+      MBGame.Camera.LookAt(sprite.Target.Origin);
       GameObjects.UpdateSystems(player);
     }
 
     private void BuildGalaxy()
     {
-      var systems = _galaxy.Generate(3000);
+      var systems = _galaxy.Generate(_galaxy.Size * 3);
       var scale = 0.5f;
       foreach ( var s in systems ) {
 
@@ -132,7 +137,6 @@ namespace MidnightBlue.Engine
         newSystem.Attach<CollisionComponent>(new RectangleF[] {
           sprite.Target.GetBoundingRectangle()
         });
-
       }
     }
 

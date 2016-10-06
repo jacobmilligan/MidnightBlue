@@ -17,41 +17,36 @@ namespace MidnightBlue.Engine.Collision
 {
   public class CollisionCell
   {
-    private List<RectangleF> _rects;
-    private HashSet<RectangleF> _lookup;
+    private LinkedList<RectangleF> _list;
 
     public CollisionCell()
     {
-      _rects = new List<RectangleF>();
-      _lookup = new HashSet<RectangleF>();
+      _list = new LinkedList<RectangleF>();
     }
 
     public void Add(RectangleF rect)
     {
-      _rects.Add(rect);
-      _lookup.Add(rect);
+      _list.AddFirst(rect);
     }
 
     public void Remove(RectangleF rect)
     {
-      _rects.Remove(rect);
-      _lookup.Remove(rect);
+      _list.Remove(rect);
     }
 
     public bool Contains(RectangleF rect)
     {
-      return _lookup.Contains(rect);
+      return _list.Contains(rect);
     }
 
     public void Clear()
     {
-      _rects.Clear();
-      _lookup.Clear();
+      _list.Clear();
     }
 
-    public List<RectangleF> Items
+    public LinkedList<RectangleF> Items
     {
-      get { return _rects; }
+      get { return _list; }
     }
   }
 }
