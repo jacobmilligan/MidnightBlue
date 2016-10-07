@@ -34,7 +34,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map) : base(map)
     {
       //TODO: Load from file here
-      _seed = 100; //HACK: Hardcoded seed value for galaxy
+      _seed = 1005; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _currentProgress = 0;
       _maxProgress = _progressRemaining = 40;

@@ -113,6 +113,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Inventory\Fuel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Commands\MoveShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\UI\GalaxyHud.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Util\Length.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -127,6 +128,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Inventory\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Commands\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Inventory\" />
+    <Folder Include="$(MSBuildThisFileDirectory)src\Game\Util\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

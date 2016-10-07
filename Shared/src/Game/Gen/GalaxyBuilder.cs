@@ -20,6 +20,12 @@ namespace MidnightBlue
 {
   public class GalaxyBuilder
   {
+    /// <summary>
+    /// Jupiter radius - unit of measurement for planets.
+    /// <a href="https://en.wikipedia.org/wiki/Jupiter_radius">See wikipedia link</a>
+    /// </summary>
+    private const int _jup = 71492;
+
     private int _size, _seed;
     private Rectangle _bounds;
     private Texture2D _star;
@@ -47,11 +53,10 @@ namespace MidnightBlue
 
     public List<StarSystem> Generate(int maxDistance)
     {
-      _rand = new Random();
-
-      if ( _seed != 0 ) {
-        _rand = new Random(_seed);
+      if ( _seed == 0 ) {
+        _seed = new Random().Next(100);
       }
+      _rand = new Random(_seed);
 
       var cameraPos = MBGame.Camera.Position.ToPoint();
 
@@ -111,21 +116,71 @@ namespace MidnightBlue
     private List<Planet> GeneratePlanets(int nebulaSize, int starRadius)
     {
       var planets = new List<Planet>();
-      var acceleration = _rand.Next(starRadius / 10000, starRadius / 1000);
-      var maxPlanets = _rand.Next(4);
-      var growthFactor = (nebulaSize * acceleration) - starRadius;
+      var availableMatter = starRadius - nebulaSize;
+      var gravity = starRadius - _rand.Next(_jup);
+      var acceleration = gravity / 1000;
 
-      if ( growthFactor > 0 && _rand.Next(growthFactor) > starRadius ) {
-        maxPlanets += _rand.Next(4);
-      }
+      var impact = 0;
+      var planetSize = 1;
+      for ( int nebulaLeft = availableMatter; nebulaLeft > 0; nebulaLeft -= planetSize + (impact * impact) ) {
+        impact = _rand.Next(acceleration);
+        if ( impact > 100 && impact < 200 ) {
 
-      for ( int p = 0; p < maxPlanets; p++ ) {
-        planets.Add(new Planet {
-          Name = GenerateName()
-        });
+          // Convert distance for less overhead while calculating
+          // planet parameters = (actual / 1000000)
+          var starDistance = _rand.Next(50, 1000000);
+          var newPlanet = CreatePlanet(starDistance, impact);
+          if ( newPlanet != null ) {
+            planetSize = newPlanet.Radius;
+            planets.Add(newPlanet);
+          }
+        }
+
       }
 
       return planets;
+    }
+
+    private Planet CreatePlanet(int starDistance, int impactSpeed)
+    {
+      var maxDensity = 6;
+      var density = maxDensity - (impactSpeed / 100);
+      density = _rand.Next(density);
+      var radius = density + (_jup * (impactSpeed / 1000));
+
+      var gas = _rand.Next(radius + impactSpeed);
+      var water = _rand.Next(starDistance);
+      var carbon = _rand.Next(radius + impactSpeed + density);
+
+      var type = PlanetType.Terrestrial;
+
+      if ( gas > water + carbon && _rand.Next(10) > 5 ) {
+        type = PlanetType.Gas;
+      } else if ( water > gas + carbon && _rand.Next(10) > 5 ) {
+        type = PlanetType.Water;
+      }
+
+      var surfaceArea = (4 * MathHelper.Pi * (radius * radius));
+      var temperature = (surfaceArea * (int)type) - (starDistance / 10000) + _rand.Next(30);
+
+      var life = 30 - Math.Abs(temperature) + _rand.Next(density);
+      if ( type == PlanetType.Terrestrial && life > 0 ) {
+        life *= life;
+      }
+
+      return new Planet {
+        Name = GenerateName(),
+        Density = density,
+        Gas = gas,
+        Water = water,
+        Carbon = carbon,
+        Type = type,
+        Radius = radius,
+        SurfaceTemperature = temperature,
+        Habitable = life,
+        // convert distance back to actual kilometers
+        StarDistance = new Length((ulong)starDistance * 1000000)
+      };
     }
 
     private string GenerateName()
