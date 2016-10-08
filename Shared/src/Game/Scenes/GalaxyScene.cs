@@ -9,9 +9,11 @@
 //
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,28 +27,45 @@ namespace MidnightBlue.Engine
 {
   public class GalaxyScene : Scene
   {
+    private int _seed, _animFrame, _animTime;
+    private bool _loading;
+    private SpriteFont _bender, _benderLarge;
     private Texture2D _ship, _solarSystem, _background;
     private Song _bgSong;
-    private SpriteFont _bender;
-    private int _seed, _progressRemaining, _maxProgress, _currentProgress;
-    private bool _loading;
-    private Thread _galaxyBuildThread;
+    private SoundEffect _thrusterSound;
+    private SoundEffectInstance _thrusterInstance;
+    private List<Texture2D> _loadingTextures;
     private GalaxyBuilder _galaxy;
     private GalaxyHud _hud;
+    private Thread _galaxyBuildThread;
 
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
       _seed = 1005; //HACK: Hardcoded seed value for galaxy
       _loading = true;
-      _currentProgress = 0;
-      _maxProgress = _progressRemaining = 40;
+      _animTime = _animFrame = 0;
 
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = content.Load<Texture2D>("Images/starsystem");
       _background = content.Load<Texture2D>("Images/stars");
-      _bender = content.Load<SpriteFont>("Bender");
+      _bender = content.Load<SpriteFont>("Fonts/Bender");
+      _benderLarge = content.Load<SpriteFont>("Fonts/Bender Large");
+
       _bgSong = content.Load<Song>("Audio/galaxy");
+      _thrusterSound = content.Load<SoundEffect>("Audio/engine");
+      _thrusterInstance = _thrusterSound.CreateInstance();
+      _thrusterInstance.IsLooped = true;
+
+      _loadingTextures = new List<Texture2D>();
+      var animDir = content.RootDirectory + "/Images/loading_galaxy";
+      var files = Directory.GetFiles(animDir);
+      for ( int i = 0; i < files.Length; i++ ) {
+        var fileName = files[i].Replace(".xnb", "").Replace("Content/", "");
+        _loadingTextures.Add(
+          content.Load<Texture2D>(fileName)
+        );
+      }
       _hud = new GalaxyHud(content);
       _galaxyBuildThread = new Thread(new ThreadStart(BuildGalaxy));
     }
@@ -100,13 +119,18 @@ namespace MidnightBlue.Engine
     public override void Update()
     {
       var inventory = GameObjects["player"].GetComponent<Inventory>();
+
       if ( inventory != null && !_loading ) {
         _hud.Update();
+
         GameObjects.GetSystem<CollisionSystem>().Run();
+
+        UpdateSounds(GameObjects["player"]);
+
         GameObjects.GetSystem<PhysicsSystem>().Run();
         GameObjects.GetSystem<MovementSystem>().Run();
-        GameObjects.GetSystem<GalaxySystem>().Run();
         GameObjects.GetSystem<DepthSystem>().Run();
+
         _hud.Refresh(inventory);
       }
     }
@@ -114,22 +138,7 @@ namespace MidnightBlue.Engine
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
       if ( _loading ) {
-        var center = MBGame.Camera.GetBoundingRectangle().Center;
-        var start = (center.X - ((_maxProgress / 2) * (_solarSystem.Width * 0.5f)));
-        _currentProgress++;
-        spriteBatch.DrawString(
-          _bender,
-          "Loading...",
-          center,
-          Color.White
-        );
-        for ( int i = 0; i < _currentProgress / 2; i++ ) {
-          spriteBatch.Draw(
-            _solarSystem,
-            new Vector2(start + (i * _solarSystem.Width * 0.5f), center.Y),
-            scale: new Vector2(0.5f, 0.5f)
-          );
-        }
+        AnimateLoading(spriteBatch);
       } else {
         spriteBatch.Draw(_background, MBGame.Camera.Position);
 
@@ -158,6 +167,64 @@ namespace MidnightBlue.Engine
     public override void Resume()
     {
       TransitionState = TransitionState.None;
+    }
+
+    private void UpdateSounds(Entity player)
+    {
+      const float fadeSpeed = 0.05f;
+      const float maxVolume = 0.5f;
+
+      var physics = player.GetComponent<PhysicsComponent>();
+
+      if ( physics != null && (physics.Power > 0 || physics.Power < 0) ) {
+        if ( _thrusterInstance.State == SoundState.Stopped ) {
+          _thrusterInstance.Play();
+          _thrusterInstance.Volume = 0.0f;
+        }
+        if ( _thrusterInstance.Volume < maxVolume ) {
+          _thrusterInstance.Volume += fadeSpeed;
+        }
+      } else {
+        if ( _thrusterInstance.Volume > fadeSpeed ) {
+          _thrusterInstance.Volume -= fadeSpeed;
+        } else {
+          _thrusterInstance.Stop();
+        }
+      }
+    }
+
+    private void AnimateLoading(SpriteBatch spriteBatch)
+    {
+      var center = MBGame.Camera.GetBoundingRectangle().Center;
+      var loadingStr = "PLEASE BE PATIENT WHILE YOUR UNIVERSE IS CREATED...";
+      var measureStr = _benderLarge.MeasureString(loadingStr);
+      center.Y -= 200;
+      center.X -= measureStr.X / 2;
+
+      spriteBatch.DrawString(
+        _benderLarge,
+        loadingStr,
+        center,
+        Color.White
+      );
+
+      var loadingTexture = _loadingTextures[_animFrame];
+
+      center = MBGame.Camera.GetBoundingRectangle().Center;
+      center.X -= loadingTexture.Width / 2;
+      center.Y -= loadingTexture.Height / 2;
+
+      spriteBatch.Draw(_loadingTextures[_animFrame], center);
+
+      _animTime++;
+
+      if ( _animTime > 2 ) {
+        _animTime = 0;
+        _animFrame++;
+        if ( _animFrame > _loadingTextures.Count - 1 ) {
+          _animFrame = 0;
+        }
+      }
     }
 
     private void BuildPlayerShip()

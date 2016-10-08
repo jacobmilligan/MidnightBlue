@@ -9,6 +9,7 @@
 //
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;

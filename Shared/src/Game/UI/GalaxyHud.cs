@@ -20,22 +20,30 @@ namespace MidnightBlue.Engine
   {
     private Label _fuel;
     private SpriteFont _bender;
+    private Color _hudColor = new Color(40, 107, 159);
+    private Color _backgroundColor;
+    private Color _borderColor;
 
     public GalaxyHud(ContentManager content) : base(25, 25)
     {
-      _bender = content.Load<SpriteFont>("Bender");
+      _backgroundColor = _hudColor * 0.2f;
+      _borderColor = _hudColor * 0.8f;
+      _bender = content.Load<SpriteFont>("Fonts/Bender");
 
-      var bars = new Layout(2, 10) {
-        BorderColor = Color.White,
-        BorderWidth = 1
+      var bars = new Layout(10, 7) {
+        BackgroundColor = _backgroundColor,
+        BorderTopColor = _borderColor,
+        BorderBottomColor = _borderColor,
+        BorderWidth = 3,
+        BorderDisplayed = true
       };
-      this.Add(bars, 22, 1, 1, 10);
+      this.Add(bars, 1, 20, 5, 4);
 
       _fuel = new Label {
         Font = _bender,
         TextColor = Color.Yellow,
       };
-      bars.Add(_fuel, 1, 1, 2, 2);
+      bars.Add(_fuel, 1, 1, 2, 7);
     }
 
     public void Refresh(Inventory inventory)

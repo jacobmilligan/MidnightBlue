@@ -52,6 +52,8 @@ namespace MidnightBlue.Engine.UI
     /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
+      base.Draw(spriteBatch);
+
       if ( BaseTexture != null ) {
         // Draw the current states texture
         spriteBatch.Draw(

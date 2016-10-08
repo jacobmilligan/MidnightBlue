@@ -54,18 +54,6 @@
   <ItemGroup>
     <None Include="Icon.png" />
     <None Include="packages.config" />
-    <None Include="..\Shared\Content\Arial.ttf">
-      <Link>Content\Arial.ttf</Link>
-    </None>
-    <None Include="..\Shared\Content\SourceCode.spritefont">
-      <Link>Content\SourceCode.spritefont</Link>
-    </None>
-    <None Include="..\Shared\Content\SourceCode.xnb">
-      <Link>Content\SourceCode.xnb</Link>
-    </None>
-    <None Include="..\Shared\Content\SourceCodePro-Regular.ttf">
-      <Link>Content\SourceCodePro-Regular.ttf</Link>
-    </None>
     <None Include="..\Shared\Content\Images\Galaxy.png">
       <Link>Content\Images\Galaxy.png</Link>
     </None>
@@ -98,14 +86,33 @@
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
-    <None Include="..\Shared\Content\Bender.spritefont">
-      <Link>Content\Bender.spritefont</Link>
+    <None Include="..\Shared\Content\Fonts\Bender Large.xnb">
+      <Link>Content\Fonts\Bender Large.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Shared\Content\Bender.ttf">
-      <Link>Content\Bender.ttf</Link>
+    <None Include="..\Shared\Content\Fonts\Bender Medium.xnb">
+      <Link>Content\Fonts\Bender Medium.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Shared\Content\Bender.xnb">
-      <Link>Content\Bender.xnb</Link>
+    <None Include="..\Shared\Content\Fonts\Bender.xnb">
+      <Link>Content\Fonts\Bender.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Shared\Content\Fonts\Horatio.xnb">
+      <Link>Content\Fonts\Horatio.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Shared\Content\Fonts\HoratioLarge.xnb">
+      <Link>Content\Fonts\HoratioLarge.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Shared\Content\Fonts\SerifGothicBlack.xnb">
+      <Link>Content\Fonts\SerifGothicBlack.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Shared\Content\Fonts\SourceCode.xnb">
+      <Link>Content\Fonts\SourceCode.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

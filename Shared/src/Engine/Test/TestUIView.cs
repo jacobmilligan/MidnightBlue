@@ -13,15 +13,15 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.UI;
 
-namespace MidnightBlue.Engine
+namespace MidnightBlue.Engine.Testing
 {
   public class TestUIView : UIView
   {
-    public TestUIView(ContentManager content, int rows, int cols) : base(rows, cols)
+    public TestUIView(ContentManager content) : base(25, 25)
     {
-      var normal = content.Load<Texture2D>("Images/blue_button00");
-      var down = content.Load<Texture2D>("Images/blue_button01");
-      var font = content.Load<SpriteFont>("Bender");
+      var normal = content.Load<Texture2D>("Images/uiback");
+      var down = content.Load<Texture2D>("Images/uibackselected");
+      var font = content.Load<SpriteFont>("Fonts/Bender");
       var btn = new Button(normal, down, down) {
         Font = font,
         TextColor = Color.White,
@@ -33,6 +33,18 @@ namespace MidnightBlue.Engine
       };
       this.Add(layout1, 2, 2, 10, 10);
       layout1.Add(btn, 1, 1, 4, 4);
+
+      var list = new ListControl(font) {
+        BorderColor = Color.Tomato,
+        BorderDisplayed = true,
+        BorderWidth = 2,
+        Content = {
+          "Test1",
+          "Test2"
+        },
+        ItemSpan = 30
+      };
+      layout1.Add(list, 10, 10, 5, 5);
     }
   }
 }

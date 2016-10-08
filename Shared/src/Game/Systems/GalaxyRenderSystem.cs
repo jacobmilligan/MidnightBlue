@@ -28,14 +28,15 @@ namespace MidnightBlue
     {
       _content = content;
       _spriteBatch = spriteBatch;
-      _font = _content.Load<SpriteFont>("Bender");
+      _font = _content.Load<SpriteFont>("Fonts/Bender");
     }
 
     protected override void Process(Entity entity)
     {
       var star = entity.GetComponent<StarSystem>();
+      var collision = entity.GetComponent<CollisionComponent>();
 
-      if ( star != null && star.Draw ) {
+      if ( star != null && collision != null && collision.Event ) {
 
         var textPosition = GetCenter(
           MBGame.Camera.GetBoundingRectangle().Center,

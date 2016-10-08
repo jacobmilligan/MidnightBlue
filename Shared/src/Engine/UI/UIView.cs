@@ -64,7 +64,7 @@ namespace MidnightBlue.Engine.UI
         // Draws the background image if it exists
         spriteBatch.Draw(
           BackgroundTexture,
-          position: _grid.Rect.Location.ToVector2()
+          position: new Vector2(0, 0)
         );
       }
 
@@ -115,5 +115,12 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     /// <value>The background texture.</value>
     public Texture2D BackgroundTexture { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the background image shoudl stretch to fit
+    /// the window.
+    /// </summary>
+    /// <value><c>true</c> if background should be stretched; otherwise, <c>false</c>.</value>
+    public bool StretchBackground { get; set; }
   }
 }

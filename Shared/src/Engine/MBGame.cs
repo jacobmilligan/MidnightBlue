@@ -99,7 +99,7 @@ namespace MidnightBlue.Engine
       _spriteBatch = new SpriteBatch(GraphicsDevice);
       _uiSpriteBatch = new SpriteBatch(GraphicsDevice);
 
-      _debugConsole = new MBConsole(Color.Black, Color.Yellow, Content.Load<SpriteFont>("SourceCode"));
+      _debugConsole = new MBConsole(Color.Black, Color.Yellow, Content.Load<SpriteFont>("Fonts/SourceCode"));
       _debugConsole.InitWindow(Graphics);
     }
 
@@ -161,28 +161,37 @@ namespace MidnightBlue.Engine
         _scenes.Top.Draw(_spriteBatch, _uiSpriteBatch);
       }
 
-
-      if ( (bool)_debugConsole.Vars["showCameraPos"] ) {
-        _uiSpriteBatch.DrawString(
-          Content.Load<SpriteFont>("SourceCode"),
-          Camera.Position.ToString(),
-          new Vector2(200, 0),
-          Color.White
-        );
-      }
-
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
         _uiSpriteBatch.DrawString(
-          Content.Load<SpriteFont>("SourceCode"),
+          Content.Load<SpriteFont>("Fonts/SourceCode"),
           _fps.AverageFramesPerSecond.ToString("0"),
           new Vector2(0, 0),
           Color.White
         );
 
         _uiSpriteBatch.DrawString(
-          Content.Load<SpriteFont>("SourceCode"),
+          Content.Load<SpriteFont>("Fonts/SourceCode"),
           _dt.ToString(),
           new Vector2(50, 0),
+          Color.White
+        );
+      }
+
+      if ( (bool)_debugConsole.Vars["showCameraPos"] ) {
+        _uiSpriteBatch.DrawString(
+          Content.Load<SpriteFont>("Fonts/SourceCode"),
+          Camera.Position.ToString(),
+          new Vector2(200, 0),
+          Color.White
+        );
+      }
+
+      if ( (bool)_debugConsole.Vars["collisionChecks"] ) {
+        var collision = _gameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
+        _uiSpriteBatch.DrawString(
+          Content.Load<SpriteFont>("Fonts/SourceCode"),
+          "Collision checks: " + collision.NumberOfChecks,
+          new Vector2(200, 0),
           Color.White
         );
       }
@@ -212,12 +221,14 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
       _debugConsole.AddVar("drawCollision", false);
+      _debugConsole.AddVar("collisionChecks", true);
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);
 
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
-
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
+
+      _debugConsole.AddFunc("TestUI", (string[] args) => _scenes.Push(new UITest(_gameObjects, Content)));
     }
 
     private void RegisterSystems()
@@ -231,7 +242,6 @@ namespace MidnightBlue.Engine
       _gameObjects.AddSystem<DepthSystem>();
       _gameObjects.AddSystem<RenderSystem>(_spriteBatch);
       _gameObjects.AddSystem<GalaxyRenderSystem>(_spriteBatch, Content);
-      _gameObjects.AddSystem<GalaxySystem>();
       _gameObjects.AddSystem<CollisionRenderSystem>(_spriteBatch);
     }
 

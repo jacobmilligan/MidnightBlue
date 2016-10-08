@@ -25,21 +25,19 @@ namespace MidnightBlue
   {
     private Color _superNovaYellow = new Color(251, 186, 48);
     private Color _grayBlue = new Color(142, 189, 245);
-    private SpriteFont _horatio, _serifGothic;
+    private SpriteFont _benderLarge, _serifGothic;
     private SoundEffect _select, _confirm;
 
     public TitleView(ContentManager content, EntityMap gameObjects, SceneStack scenes) : base(25, 25)
     {
-      _horatio = content.Load<SpriteFont>("Fonts/HoratioLarge");
+      _benderLarge = content.Load<SpriteFont>("Fonts/Bender Large");
       _serifGothic = content.Load<SpriteFont>("Fonts/SerifGothicBlack");
       _select = content.Load<SoundEffect>("Audio/select");
       _confirm = content.Load<SoundEffect>("Audio/confirm");
 
       this.BackgroundTexture = content.Load<Texture2D>("Images/TitleBackground");
 
-      var opts = new Layout(20, 20) {
-        BaseTexture = content.Load<Texture2D>("Images/uiback")
-      };
+      var opts = new Layout(20, 20);
 
       var titleLayout = new Layout(5, 6) {
         BorderDisplayed = true,
@@ -70,7 +68,7 @@ namespace MidnightBlue
         NormalTextColor = Color.White,
         HighlightedTextColor = _grayBlue,
         TextContent = "New Game",
-        Font = _horatio,
+        Font = _benderLarge,
         Fill = true,
         HighlightedSound = _select,
         PressedSound = _confirm.CreateInstance()
@@ -80,7 +78,7 @@ namespace MidnightBlue
         NormalTextColor = Color.White,
         HighlightedTextColor = _grayBlue,
         TextContent = "Continue",
-        Font = _horatio,
+        Font = _benderLarge,
         Fill = true,
         HighlightedSound = _select,
         PressedSound = _confirm.CreateInstance()
@@ -90,7 +88,7 @@ namespace MidnightBlue
         NormalTextColor = Color.White,
         HighlightedTextColor = _grayBlue,
         TextContent = "Quit",
-        Font = _horatio,
+        Font = _benderLarge,
         Fill = true,
         HighlightedSound = _select,
         PressedSound = _confirm.CreateInstance()

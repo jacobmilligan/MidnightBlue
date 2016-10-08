@@ -8,6 +8,7 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.Geometry;
@@ -57,7 +58,7 @@ namespace MidnightBlue.Engine.UI
     protected UIElement(int rows, int cols)
     {
       BorderDisplayed = false;
-      BorderColor = Color.White;
+      BorderColor = Color.Transparent;
       BorderTopColor = BorderRightColor = BorderBottomColor = BorderLeftColor = BorderColor;
       BorderWidth = 0;
 
@@ -134,7 +135,12 @@ namespace MidnightBlue.Engine.UI
     /// Draws the element to the window. Overriden in derived classes
     /// </summary>
     /// <param name="spriteBatch">Sprite batch to draw to.</param>
-    public abstract void Draw(SpriteBatch spriteBatch);
+    public virtual void Draw(SpriteBatch spriteBatch)
+    {
+      if ( BackgroundColor != Color.Transparent ) {
+        spriteBatch.FillRectangle(_borderRect, BackgroundColor);
+      }
+    }
 
     /// <summary>
     /// Update the elements state and handles input. Overriden in derived classes
@@ -142,40 +148,27 @@ namespace MidnightBlue.Engine.UI
     public abstract void Update();
 
     /// <summary>
-    /// Gets a scale vector that fits exactly inside a parent vector
-    /// </summary>
-    /// <returns>The size fitting vector</returns>
-    /// <param name="child">Child size vector.</param>
-    /// <param name="parent">Parent size vector.</param>
-    protected Vector2 FitChildVectorToParent(Vector2 child, Vector2 parent)
-    {
-      var scale = new Vector2(1, 1);
-      if ( child.X > parent.X || Fill ) {
-        scale.X = parent.X / child.X;
-      }
-      if ( child.Y > parent.Y || Fill ) {
-        scale.Y = parent.Y / child.Y;
-      }
-      return scale;
-    }
-
-    /// <summary>
     /// Draws the elements border to the window. Skips sides that have color set to <see cref="Color.Transparent"/>
     /// </summary>
     /// <param name="spriteBatch">Sprite batch to draw the border to.</param>
     protected void DrawBorder(SpriteBatch spriteBatch)
     {
-      if ( BorderTopColor != Color.Transparent ) {
-        spriteBatch.DrawLine(_borderTop.Start, _borderTop.End, BorderTopColor, BorderWidth);
-      }
-      if ( BorderRightColor != Color.Transparent ) {
-        spriteBatch.DrawLine(_borderRight.Start, _borderRight.End, BorderRightColor, BorderWidth);
-      }
-      if ( BorderBottomColor != Color.Transparent ) {
-        spriteBatch.DrawLine(_borderBottom.Start, _borderBottom.End, BorderBottomColor, BorderWidth);
-      }
-      if ( BorderLeftColor != Color.Transparent ) {
-        spriteBatch.DrawLine(_borderLeft.Start, _borderLeft.End, BorderLeftColor, BorderWidth);
+      var colors = new Color[] { BorderTopColor, BorderRightColor, BorderBottomColor, BorderLeftColor };
+      if ( colors.All(clr => clr == BorderTopColor) ) {
+        spriteBatch.DrawRectangle(_borderRect, BorderTopColor, BorderWidth);
+      } else {
+        if ( BorderTopColor != Color.Transparent ) {
+          spriteBatch.DrawLine(_borderTop.Start, _borderTop.End, BorderTopColor, BorderWidth);
+        }
+        if ( BorderRightColor != Color.Transparent ) {
+          spriteBatch.DrawLine(_borderRight.Start, _borderRight.End, BorderRightColor, BorderWidth);
+        }
+        if ( BorderBottomColor != Color.Transparent ) {
+          spriteBatch.DrawLine(_borderBottom.Start, _borderBottom.End, BorderBottomColor, BorderWidth);
+        }
+        if ( BorderLeftColor != Color.Transparent ) {
+          spriteBatch.DrawLine(_borderLeft.Start, _borderLeft.End, BorderLeftColor, BorderWidth);
+        }
       }
     }
 
@@ -213,6 +206,12 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     /// <value><c>true</c> if set to fill parent; otherwise, <c>false</c>.</value>
     public bool Fill { get; set; }
+
+    /// <summary>
+    /// Gets or sets the color of the elements background.
+    /// </summary>
+    /// <value>The color of the background.</value>
+    public Color BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the string rendered by the element.

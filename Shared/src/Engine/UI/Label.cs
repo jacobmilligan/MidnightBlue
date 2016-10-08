@@ -30,6 +30,8 @@ namespace MidnightBlue.Engine.UI
     /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
+      base.Draw(spriteBatch);
+
       if ( BorderDisplayed ) {
         DrawBorder(spriteBatch);
       }
@@ -37,7 +39,7 @@ namespace MidnightBlue.Engine.UI
       var pos = Content.Rect.Location.ToVector2();
 
       if ( TextContent.Length > 0 ) {
-        var scale = FitChildVectorToParent(Font.MeasureString(TextContent), Content.Grid.CellSize);
+        var scale = Font.MeasureString(TextContent).FitInto(Content.Grid.CellSize, Fill);
 
         // Draws the TextContent to the window
         spriteBatch.DrawString(

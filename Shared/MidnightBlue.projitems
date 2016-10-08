@@ -10,11 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Content\.DS_Store" />
-    <None Include="$(MSBuildThisFileDirectory)Content\Arial.ttf" />
     <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
-    <None Include="$(MSBuildThisFileDirectory)Content\SourceCode.spritefont" />
-    <None Include="$(MSBuildThisFileDirectory)Content\SourceCode.xnb" />
-    <None Include="$(MSBuildThisFileDirectory)Content\SourceCodePro-Regular.ttf" />
     <None Include="$(MSBuildThisFileDirectory)Content\Images\Galaxy.png" />
     <None Include="$(MSBuildThisFileDirectory)Content\bin\DesktopGL\Images\.DS_Store" />
     <None Include="$(MSBuildThisFileDirectory)Content\bin\DesktopGL\Images\Galaxy.xnb" />
@@ -25,30 +21,19 @@
     <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\.mgcontent" />
     <None Include="$(MSBuildThisFileDirectory)Content\obj\Windows\Images\Galaxy.mgcontent" />
     <None Include="$(MSBuildThisFileDirectory)src\Engine\Test\GenTest.cs" />
-    <None Include="$(MSBuildThisFileDirectory)Content\Bender.spritefont">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)Content\Bender.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)Content\Bender.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Horatio.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Horatio.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\HoratioLarge.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SerifGothic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SerifGothicBlack.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Bender Large.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Bender Medium.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Bender.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SourceCode.xnb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Commands\MoveCommands.cs" />
@@ -73,8 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Util\IOUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIContent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Layout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Grid.cs" />
@@ -95,7 +79,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\StarSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\ShipController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\GalaxySystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\CollisionComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Systems\NavigationInputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\ShipInputSystem.cs" />
@@ -115,6 +98,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Util\Length.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Components\PhysicsComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\StarSystemScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\Vector2Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\ListControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\UITest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

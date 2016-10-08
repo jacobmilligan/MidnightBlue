@@ -89,7 +89,7 @@ namespace MidnightBlue.Engine.EntityComponent
 
           foreach ( var n in neighbours ) {
             var neighbourCollision = n.GetComponent<CollisionComponent>();
-            collision.Event = HandleCollisions(box, n, neighbourCollision);
+            collision.Event = HandleCollisions(box, neighbourCollision);
             if ( collision.Event ) {
               collision.Collider = n;
               neighbourCollision.Event = true;
@@ -102,13 +102,13 @@ namespace MidnightBlue.Engine.EntityComponent
     }
 
     /// <summary>
-    /// Handles collisions between a single Collision box and another
-    /// entity
+    /// Handles collisions between a single Collision box and each of another
+    /// entitys collision boxes
     /// </summary>
     /// <returns><c>true</c>, if a collision ocurred, <c>false</c> otherwise.</returns>
     /// <param name="box">Collision box.</param>
-    /// <param name="neighbour">Neighbour to check against.</param>
-    private bool HandleCollisions(RectangleF box, Entity neighbour, CollisionComponent neighbourCollision)
+    /// <param name="neighbourCollision">Neighbours collision boxes to check against.</param>
+    private bool HandleCollisions(RectangleF box, CollisionComponent neighbourCollision)
     {
       var hasCollision = false;
       var neighbourBoxes = neighbourCollision.Boxes;
@@ -121,17 +121,16 @@ namespace MidnightBlue.Engine.EntityComponent
       return hasCollision;
     }
 
-    protected override void PostProcess()
-    {
-      //TODO: Make console var
-      //MBGame.Console.Write("Collision comparisons: {0}", _comparisons);
-      Console.WriteLine(_comparisons);
-    }
-
     public CollisionMap CurrentMap
     {
       get { return _map; }
     }
+
+    public int NumberOfChecks
+    {
+      get { return _comparisons; }
+    }
+
 
   }
 }

@@ -101,6 +101,7 @@ namespace MidnightBlue.Engine.UI
     /// <param name="spriteBatch">Sprite batch to draw to</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
+      base.Draw(spriteBatch);
 
       var drawnTexture = NormalTexture;
       // Get the correct texture state to draw
@@ -118,8 +119,8 @@ namespace MidnightBlue.Engine.UI
 
       if ( drawnTexture != null ) {
 
-        var scale = FitChildVectorToParent(
-          drawnTexture.Bounds.Size.ToVector2(), Content.Grid.CellSize
+        var scale = drawnTexture.Bounds.Size.ToVector2().FitInto(
+          Content.Grid.CellSize, Fill
         );
 
         // Draw the current states texture
@@ -131,9 +132,8 @@ namespace MidnightBlue.Engine.UI
       }
 
       if ( TextContent.Length > 0 ) {
-
-        var scale = FitChildVectorToParent(
-          Font.MeasureString(TextContent), Content.Grid.CellSize
+        var scale = Font.MeasureString(TextContent).FitInto(
+          Content.Grid.CellSize, Fill
         );
 
         // Draw the TextContent to fit inside the element

@@ -30,6 +30,7 @@ namespace MidnightBlue
     public string Name { get; set; }
     public int Radius { get; set; }
     public bool Draw { get; set; }
+    public bool Scanned { get; set; }
     public string PlanetList
     {
       get
