@@ -16,17 +16,17 @@ namespace MidnightBlue.Engine.EntityComponent
 
   public class Movement : IComponent
   {
-    public Movement(float acceleration = 0.0f, float rotationSpeed = 0.0f)
+    public Movement(float speed = 0.0f, float rotationSpeed = 0.0f)
     {
-      Velocity = new Vector2(0, 0);
-      Acceleration = acceleration;
+      Speed = speed;
       RotationSpeed = rotationSpeed;
     }
 
-    public Vector2 Velocity { get; set; }
-    public float RotationAcceleration { get; set; }
-    public float Acceleration { get; set; }
+    public Vector2 Position { get; set; }
     public float RotationSpeed { get; set; }
     public RotationDirection RotationDirection { get; set; }
+    public float Speed { get; set; }
+    public Vector2 Heading { get; set; }
+    public float Angle { get; set; }
   }
 }

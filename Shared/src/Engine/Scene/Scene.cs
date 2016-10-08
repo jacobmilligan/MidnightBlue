@@ -37,15 +37,18 @@ namespace MidnightBlue.Engine.Scenes
     /// </summary>
     private EntityMap _gameObjects;
 
+    private ContentManager _content;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.Scenes.Scene"/> class
     /// </summary>
-    private Scene()
+    private Scene(ContentManager content)
     {
       _gameObjects = new EntityMap();
       WindowBackgroundColor = Color.MidnightBlue;
       _lastState = TransitionState.Null;
       TransitionState = TransitionState.Initializing;
+      _content = content;
     }
 
     /// <summary>
@@ -53,10 +56,11 @@ namespace MidnightBlue.Engine.Scenes
     /// with a pre-existing EntityMap
     /// </summary>
     /// <param name="gameObjects">EntityMap to assign to the scene.</param>
-    public Scene(EntityMap gameObjects)
+    public Scene(EntityMap gameObjects, ContentManager content)
     {
       _gameObjects = new EntityMap(gameObjects);
       _gameObjects.Clear();
+      _content = content;
     }
 
     public void UpdateTransition()
@@ -91,9 +95,12 @@ namespace MidnightBlue.Engine.Scenes
       get { return _lastState; }
     }
 
-    public ContentManager Content { get; set; }
     public Color WindowBackgroundColor { get; set; }
     public SceneStack SceneController { get; set; }
+    protected ContentManager Content
+    {
+      get { return _content; }
+    }
 
     public float DeltaTime { get; set; }
   }

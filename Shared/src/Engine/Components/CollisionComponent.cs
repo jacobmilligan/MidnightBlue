@@ -29,5 +29,6 @@ namespace MidnightBlue.Engine.EntityComponent
 
     public List<RectangleF> Boxes { get; set; }
     public bool Event { get; set; }
+    public Entity Collider { get; set; }
   }
 }

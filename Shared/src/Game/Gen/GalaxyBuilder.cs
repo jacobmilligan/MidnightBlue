@@ -27,6 +27,7 @@ namespace MidnightBlue
     private const int _jup = 71492;
 
     private int _size, _seed;
+    private bool _done;
     private Rectangle _bounds;
     private Texture2D _star;
     private List<StarSystem> _starSystems;
@@ -42,6 +43,7 @@ namespace MidnightBlue
       _star = _content.Load<Texture2D>("Images/starsystem");
       _starSystems = new List<StarSystem>();
       _bounds = new Rectangle();
+      _done = false;
 
       _availableColors = new List<Color> {
         Color.White,
@@ -110,6 +112,7 @@ namespace MidnightBlue
         }
       }
 
+      _done = true;
       return _starSystems;
     }
 
@@ -126,8 +129,9 @@ namespace MidnightBlue
         impact = _rand.Next(acceleration);
         if ( impact > 100 && impact < 200 ) {
 
-          // Convert distance for less overhead while calculating
-          // planet parameters = (actual / 1000000)
+          // Convert distance (d/1000000) for less overhead while calculating
+          // the planets parameters
+          // Range of valid distances to the sun: mercury - (2 * Pluto)
           var starDistance = _rand.Next(50, 1000000);
           var newPlanet = CreatePlanet(starDistance, impact);
           if ( newPlanet != null ) {
@@ -229,6 +233,11 @@ namespace MidnightBlue
     public int Size
     {
       get { return _size; }
+    }
+
+    public bool Done
+    {
+      get { return _done; }
     }
   }
 }

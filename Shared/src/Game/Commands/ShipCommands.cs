@@ -27,13 +27,22 @@ namespace MidnightBlue
           var fuel = inventory.Items[typeof(Fuel)];
           fuel.Consume();
           if ( fuel.Count <= 0 ) {
-            var movement = e.GetComponent<Movement>();
-            if ( movement != null ) {
-              movement.Acceleration = 0;
+            var physics = e.GetComponent<PhysicsComponent>();
+            if ( physics != null ) {
+              physics.Acceleration = new Vector2(0, 0);
             }
           }
         }
       }
+    }
+  }
+
+  public class Accept : Command
+  {
+    public Accept(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
     }
   }
 }

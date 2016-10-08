@@ -103,10 +103,7 @@ namespace MidnightBlue
         MBGame.ForceQuit = true;
       };
 
-      newGameBtn.OnPress += (sender, e) => scenes.ResetTo(
-              new GalaxyScene(gameObjects),
-              content
-            );
+      newGameBtn.OnPress += (sender, e) => scenes.ResetTo(new GalaxyScene(gameObjects, content));
 
       opts.Add(newGameBtn, 1, 2, 7, 20);
       opts.Add(continueBtn, 8, 4, 7, 15);

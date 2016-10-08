@@ -11,6 +11,7 @@
 
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using MidnightBlue.Engine;
@@ -24,17 +25,16 @@ namespace MidnightBlue
     private TitleView _ui;
     private Song _bgSong;
 
-    public TitleScene(EntityMap map) : base(map)
+    public TitleScene(EntityMap map, ContentManager content) : base(map, content)
     {
       WindowBackgroundColor = Color.Black;
+
+      _bgSong = content.Load<Song>("Audio/Title");
     }
 
     public override void Initialize()
     {
       _ui = new TitleView(Content, GameObjects, SceneController);
-
-      _bgSong = Content.Load<Song>("Audio/Title");
-
       if ( MediaPlayer.GameHasControl ) {
         MediaPlayer.Play(_bgSong);
         MediaPlayer.IsRepeating = true;
@@ -44,7 +44,7 @@ namespace MidnightBlue
 
     public override void HandleInput()
     {
-      GameObjects.GetSystem<NavigationInputSystem>().Run();
+      GameObjects.GetSystem<InputSystem>().Run();
     }
 
     public override void Update()

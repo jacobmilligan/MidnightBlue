@@ -8,8 +8,10 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MidnightBlue.Engine.Collision;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
@@ -41,10 +43,19 @@ namespace MidnightBlue.Engine.EntityComponent
 
         if ( collision != null ) {
           collision.Event = false;
-          var numBoxes = collision.Boxes.Count;
-          for ( int box = 0; box < numBoxes; box++ ) {
-            _map.Insert(collision.Boxes[box]);
-          }
+          collision.Collider = null;
+          _map.Insert(AssociatedEntities[e], collision);
+        }
+      }
+    }
+
+    protected override void ProcessingLoop()
+    {
+      var entityCount = AssociatedEntities.Count;
+      for ( int e = 0; e < entityCount; e++ ) {
+        var movement = AssociatedEntities[e].GetComponent<Movement>();
+        if ( movement != null ) {
+          Process(AssociatedEntities[e]);
         }
       }
     }
@@ -53,6 +64,7 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       var collision = entity.GetComponent<CollisionComponent>();
       var sprite = entity.GetComponent<SpriteComponent>();
+
       var center = Vector2.Zero;
 
       if ( sprite != null ) {
@@ -60,6 +72,8 @@ namespace MidnightBlue.Engine.EntityComponent
       }
 
       if ( collision != null ) {
+        var neighbours = _map.GetCollisions(entity, collision);
+
         var boxCount = collision.Boxes.Count;
         for ( int b = 0; b < boxCount; b++ ) {
           var box = collision.Boxes[b];
@@ -73,22 +87,45 @@ namespace MidnightBlue.Engine.EntityComponent
             collision.Boxes[b] = box;
           }
 
-          var neighbours = _map.GetCollisions(box);
-          var neighbourCount = neighbours.Count;
-          for ( int n = 0; n < neighbourCount; n++ ) {
-            if ( box.Intersects(neighbours[n]) ) {
-              collision.Event = true;
+          foreach ( var n in neighbours ) {
+            var neighbourCollision = n.GetComponent<CollisionComponent>();
+            collision.Event = HandleCollisions(box, n, neighbourCollision);
+            if ( collision.Event ) {
+              collision.Collider = n;
+              neighbourCollision.Event = true;
+              neighbourCollision.Collider = entity;
             }
           }
-          _comparisons++;
         }
+
       }
+    }
+
+    /// <summary>
+    /// Handles collisions between a single Collision box and another
+    /// entity
+    /// </summary>
+    /// <returns><c>true</c>, if a collision ocurred, <c>false</c> otherwise.</returns>
+    /// <param name="box">Collision box.</param>
+    /// <param name="neighbour">Neighbour to check against.</param>
+    private bool HandleCollisions(RectangleF box, Entity neighbour, CollisionComponent neighbourCollision)
+    {
+      var hasCollision = false;
+      var neighbourBoxes = neighbourCollision.Boxes;
+      for ( int n = 0; n < neighbourBoxes.Count; n++ ) {
+        if ( box.Intersects(neighbourBoxes[n]) ) {
+          hasCollision = true;
+        }
+        _comparisons++;
+      }
+      return hasCollision;
     }
 
     protected override void PostProcess()
     {
       //TODO: Make console var
       //MBGame.Console.Write("Collision comparisons: {0}", _comparisons);
+      Console.WriteLine(_comparisons);
     }
 
     public CollisionMap CurrentMap

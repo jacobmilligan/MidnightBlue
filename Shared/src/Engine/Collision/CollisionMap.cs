@@ -20,7 +20,7 @@ namespace MidnightBlue.Engine.Collision
   public class CollisionMap
   {
     private CollisionCell[,] _cells;
-    private LinkedList<RectangleF> _checkedRects;
+    private LinkedList<ulong> _checkedIDs;
     private List<CollisionCell> _nonEmptyCells;
     private int _cellSize;
     private Grid _grid;
@@ -40,7 +40,7 @@ namespace MidnightBlue.Engine.Collision
 
       _cellSize = cellSize;
 
-      _checkedRects = new LinkedList<RectangleF>();
+      _checkedIDs = new LinkedList<ulong>();
       _nonEmptyCells = new List<CollisionCell>();
     }
 
@@ -68,33 +68,42 @@ namespace MidnightBlue.Engine.Collision
       return IndexExists(index.X, index.Y);
     }
 
-    public void Insert(RectangleF bounds)
+    public void Insert(Entity entity, CollisionComponent collision)
     {
-      var corners = GetCorners(bounds);
 
-      foreach ( var corner in corners ) {
-        var index = IndexOf(corner);
-        if ( IndexExists(index) ) {
-          var cell = _cells[index.X, index.Y];
-          if ( cell == null ) {
-            _cells[index.X, index.Y] = new CollisionCell();
-            cell = _cells[index.X, index.Y];
-          }
-          if ( !cell.Contains(bounds) ) {
-            cell.Add(bounds);
-            _nonEmptyCells.Add(cell);
+      var boxes = collision.Boxes;
+      var numBoxes = boxes.Count;
+      for ( int b = 0; b < numBoxes; b++ ) {
+        var corners = GetCorners(boxes[b]);
+
+        foreach ( var corner in corners ) {
+          var index = IndexOf(corner);
+          if ( IndexExists(index) ) {
+            var cell = _cells[index.X, index.Y];
+            if ( cell == null ) {
+              _cells[index.X, index.Y] = new CollisionCell();
+              cell = _cells[index.X, index.Y];
+            }
+            if ( !cell.Contains(entity) ) {
+              cell.Add(entity);
+              _nonEmptyCells.Add(cell);
+            }
           }
         }
       }
     }
 
-    public List<RectangleF> GetCollisions(RectangleF bounds)
+    public List<Entity> GetCollisions(Entity entity, CollisionComponent collision)
     {
-      var result = new List<RectangleF>();
-      var corners = GetCorners(bounds);
+      var result = new List<Entity>();
+      var boxes = collision.Boxes;
+      Vector2[] corners = new Vector2[4];
+      for ( int b = 0; b < boxes.Count; b++ ) {
+        corners = GetCorners(boxes[b]);
+      }
 
       //TODO: Remove this once tested for larger collision amounts
-      //_checkedRects.Clear();
+      _checkedIDs.Clear();
 
       foreach ( var corner in corners ) {
         var index = IndexOf(corner);
@@ -102,10 +111,10 @@ namespace MidnightBlue.Engine.Collision
           var cell = _cells[index.X, index.Y];
           if ( cell != null ) {
             var maxItems = cell.Items.Count;
-            foreach ( var i in cell.Items ) {
-              if ( !_checkedRects.Contains(i) && i.Center != bounds.Center ) {
-                result.Add(i);
-                //_checkedRects.AddFirst(i);
+            foreach ( var e in cell.Items ) {
+              if ( !_checkedIDs.Contains(e.ID) && e.ID != entity.ID ) {
+                result.Add(e);
+                _checkedIDs.AddFirst(e.ID);
               }
             }
           }

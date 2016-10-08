@@ -17,26 +17,26 @@ namespace MidnightBlue.Engine.Collision
 {
   public class CollisionCell
   {
-    private LinkedList<RectangleF> _list;
+    private LinkedList<Entity> _list;
 
     public CollisionCell()
     {
-      _list = new LinkedList<RectangleF>();
+      _list = new LinkedList<Entity>();
     }
 
-    public void Add(RectangleF rect)
+    public void Add(Entity entity)
     {
-      _list.AddFirst(rect);
+      _list.AddFirst(entity);
     }
 
-    public void Remove(RectangleF rect)
+    public void Remove(Entity entity)
     {
-      _list.Remove(rect);
+      _list.Remove(entity);
     }
 
-    public bool Contains(RectangleF rect)
+    public bool Contains(Entity entity)
     {
-      return _list.Contains(rect);
+      return _list.Contains(entity);
     }
 
     public void Clear()
@@ -44,7 +44,7 @@ namespace MidnightBlue.Engine.Collision
       _list.Clear();
     }
 
-    public LinkedList<RectangleF> Items
+    public LinkedList<Entity> Items
     {
       get { return _list; }
     }

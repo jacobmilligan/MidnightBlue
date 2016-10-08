@@ -85,7 +85,7 @@ namespace MidnightBlue.Engine
       player.Attach<PlayerController>();
       player.Persistant = true;
 
-      _scenes.ResetTo(new TitleScene(_gameObjects), Content);
+      _scenes.ResetTo(new TitleScene(_gameObjects, Content));
       _fps.Reset();
     }
 
@@ -161,29 +161,28 @@ namespace MidnightBlue.Engine
         _scenes.Top.Draw(_spriteBatch, _uiSpriteBatch);
       }
 
-      _debugConsole.Draw(_spriteBatch);
 
       if ( (bool)_debugConsole.Vars["showCameraPos"] ) {
-        _spriteBatch.DrawString(
+        _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("SourceCode"),
           Camera.Position.ToString(),
-          new Vector2(Camera.Position.X + 100, Camera.Position.Y),
+          new Vector2(200, 0),
           Color.White
         );
       }
 
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
-        _spriteBatch.DrawString(
+        _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("SourceCode"),
           _fps.AverageFramesPerSecond.ToString("0"),
-          Camera.Position,
+          new Vector2(0, 0),
           Color.White
         );
 
-        _spriteBatch.DrawString(
+        _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("SourceCode"),
           _dt.ToString(),
-          new Vector2(Camera.Position.X + 50, Camera.Position.Y),
+          new Vector2(50, 0),
           Color.White
         );
       }
@@ -195,6 +194,8 @@ namespace MidnightBlue.Engine
           _spriteBatch.DrawGrid(collisionMap.Grid, collisionMap.Position.ToPoint(), Color.White);
         }
       }
+
+      _debugConsole.Draw(_uiSpriteBatch);
 
       _spriteBatch.End();
       _uiSpriteBatch.End();
@@ -215,11 +216,6 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("showCameraPos", false);
 
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
-
-      _debugConsole.AddFunc(
-        "UITest",
-        (string[] args) => _scenes.Push(new UITest(_gameObjects), Content)
-      );
 
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
     }

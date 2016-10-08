@@ -44,9 +44,10 @@ namespace MidnightBlue.Engine.IO
 
     protected override void OnKeyPress(Entity e = null)
     {
-      var sprite = e.GetComponent<SpriteComponent>();
+      var physics = e.GetComponent<PhysicsComponent>();
       var movement = e.GetComponent<Movement>();
-      movement.Velocity += (sprite.Direction * movement.Acceleration) * MBGame.DeltaTime;
+      physics.Velocity += (movement.Heading * movement.Speed) * MBGame.DeltaTime;
+      physics.Power = movement.Speed;
     }
   }
 
@@ -56,9 +57,10 @@ namespace MidnightBlue.Engine.IO
 
     protected override void OnKeyPress(Entity e = null)
     {
-      var sprite = e.GetComponent<SpriteComponent>();
       var movement = e.GetComponent<Movement>();
-      movement.Velocity -= (sprite.Direction * movement.Acceleration) * MBGame.DeltaTime;
+      var physics = e.GetComponent<PhysicsComponent>();
+      physics.Velocity -= (movement.Heading * movement.Speed) * MBGame.DeltaTime;
+      physics.Power = -movement.Speed;
     }
   }
 
@@ -69,10 +71,13 @@ namespace MidnightBlue.Engine.IO
     protected override void OnKeyPress(Entity e = null)
     {
       var movement = e.GetComponent<Movement>();
-      if ( movement.RotationDirection != RotationDirection.Right ) {
-        movement.RotationDirection = RotationDirection.Right;
-      } else {
-        movement.RotationAcceleration += movement.RotationSpeed * MBGame.DeltaTime;
+      var physics = e.GetComponent<PhysicsComponent>();
+      if ( movement != null ) {
+        if ( physics != null ) {
+          physics.RotationAcceleration += movement.RotationSpeed * MBGame.DeltaTime;
+        } else {
+          movement.Angle += movement.RotationSpeed * MBGame.DeltaTime;
+        }
       }
     }
   }
@@ -84,12 +89,14 @@ namespace MidnightBlue.Engine.IO
     protected override void OnKeyPress(Entity e = null)
     {
       var movement = e.GetComponent<Movement>();
-      if ( movement.RotationDirection != RotationDirection.Left ) {
-        movement.RotationDirection = RotationDirection.Left;
-      } else {
-        movement.RotationAcceleration += movement.RotationSpeed * MBGame.DeltaTime;
+      var physics = e.GetComponent<PhysicsComponent>();
+      if ( movement != null ) {
+        if ( physics != null ) {
+          physics.RotationAcceleration -= movement.RotationSpeed * MBGame.DeltaTime;
+        } else {
+          movement.Angle -= movement.RotationSpeed * MBGame.DeltaTime;
+        }
       }
-
     }
   }
 }

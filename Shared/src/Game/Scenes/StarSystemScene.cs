@@ -1,36 +1,31 @@
 ﻿//
-// 	UITest.cs
+// 	StarSystemScene.cs
 // 	Midnight Blue
 //
 // 	--------------------------------------------------------------
 //
-// 	Created by Jacob Milligan on 27/09/2016.
+// 	Created by Jacob Milligan on 8/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
-
 using System;
-using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
-using MidnightBlue.Engine.UI;
-using MonoGame.Extended.Animations;
-using MonoGame.Extended.Sprites;
-using MonoGame.Extended.TextureAtlases;
 
-namespace MidnightBlue.Engine.Testing
+namespace MidnightBlue
 {
-  public class UITest : Scene
+  public class StarSystemScene : Scene
   {
-    private TestUIView _ui;
 
-    public UITest(EntityMap map) : base(map)
+    public StarSystemScene(EntityMap map, ContentManager content) : base(map, content)
     {
     }
 
     public override void Initialize()
     {
-      _ui = new TestUIView(Content, 20, 20);
+      // End transition instantly
+      TransitionState = TransitionState.None;
     }
 
     public override void HandleInput()
@@ -40,24 +35,29 @@ namespace MidnightBlue.Engine.Testing
 
     public override void Update()
     {
-      _ui.Update();
     }
 
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
-      _ui.Draw(spriteBatch);
     }
 
     public override void Exit()
     {
+      // End transition instantly
+      TransitionState = TransitionState.Null;
     }
 
     public override void Pause()
     {
+      // End transition instantly
+      TransitionState = TransitionState.None;
     }
 
     public override void Resume()
     {
+      // End transition instantly
+      TransitionState = TransitionState.None;
     }
+
   }
 }

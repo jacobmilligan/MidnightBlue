@@ -42,9 +42,9 @@ namespace MidnightBlue
       get { return (ulong)(_meters * 0.001f); }
     }
 
-    public ulong AU
+    public float AU
     {
-      get { return (ulong)(Kilometers / AstronomicalUnit); }
+      get { return Kilometers / AstronomicalUnit; }
     }
   }
 }

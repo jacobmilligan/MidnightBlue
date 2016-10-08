@@ -66,7 +66,7 @@ namespace MidnightBlue.Engine
     /// <summary>
     /// The surface to render text to and show background on.
     /// </summary>
-    private RectangleF _surface;
+    private Rectangle _surface;
 
     /// <summary>
     /// The font to render the consoles text with
@@ -126,7 +126,7 @@ namespace MidnightBlue.Engine
     /// <param name="graphics">GraphicsDevice to use for rendering</param>
     public void InitWindow(GraphicsDevice graphics)
     {
-      _surface = MBGame.Camera.GetBoundingRectangle();
+      _surface = MBGame.Graphics.Viewport.Bounds;
       _surface.Height = 0;
     }
 
@@ -155,11 +155,10 @@ namespace MidnightBlue.Engine
     /// </summary>
     public void Update()
     {
-      _surface.Location = MBGame.Camera.Position;
       // Animate down. Not displayed so we need to display it
       if ( _animating && !Display ) {
         _surface.Height += _ANIM_SPEED;
-        if ( _surface.Height >= MBGame.Camera.GetBoundingRectangle().Height / 3 ) {
+        if ( _surface.Height >= MBGame.Graphics.Viewport.Height / 3 ) {
           _animating = false;
           Display = true; // show
         }
@@ -194,7 +193,7 @@ namespace MidnightBlue.Engine
         int i = _ioHistory.Count - 1;
         float y = _textOffset.Y;
         // print io history until top of screen or no more history
-        while ( y > MBGame.Camera.Position.Y && i >= 0 ) {
+        while ( y > _surface.Top && i >= 0 ) {
           y -= _font.MeasureString(_ioHistory[i]).Y + (_font.LineSpacing / 2);
           spriteBatch.DrawString(_font, _ioHistory[i], new Vector2(_textOffset.X, y), _txtColor);
           i--;

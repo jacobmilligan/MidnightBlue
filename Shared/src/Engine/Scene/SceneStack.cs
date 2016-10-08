@@ -24,9 +24,8 @@ namespace MidnightBlue.Engine.Scenes
       _scenes = new List<Scene>();
     }
 
-    public void Push(Scene scene, ContentManager content)
+    public void Push(Scene scene)
     {
-      scene.Content = content;
       scene.SceneController = this;
 
       if ( _scenes.Count > 0 ) {
@@ -75,7 +74,7 @@ namespace MidnightBlue.Engine.Scenes
       }
     }
 
-    public void ResetTo(Scene scene, ContentManager content)
+    public void ResetTo(Scene scene)
     {
       if ( _scenes.Count > 0 ) {
         _nextScene = scene;
@@ -85,7 +84,7 @@ namespace MidnightBlue.Engine.Scenes
           Update();
         }
       }
-      Push(scene, content);
+      Push(scene);
     }
 
     public Scene SceneAt(int index)

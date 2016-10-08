@@ -54,8 +54,8 @@ namespace MidnightBlue
         var strBuilder = new StringBuilder();
         foreach ( var p in star.Planets ) {
           var distance = p.StarDistance.Kilometers + "KM";
-          if ( p.StarDistance.Kilometers > Length.AstronomicalUnit ) {
-            distance = p.StarDistance.AU + "AU";
+          if ( p.StarDistance.AU > 0.1f ) {
+            distance = p.StarDistance.AU.ToString("N1") + "AU";
           }
           strBuilder.AppendFormat(
             "* {0} - Radius: {1}\n  Type: {2}\n   Surface Temperature: {3}\n   Density: {4}\n   Life Rating: {5}\n   Carbon: {6}\n   Water: {7}\n   Gas: {8}\n  Star Distance: {9}\n",

@@ -22,29 +22,19 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       var movement = entity.GetComponent<Movement>();
       var sprite = entity.GetComponent<SpriteComponent>();
+
       if ( movement != null && sprite != null ) {
         var lastPos = sprite.Target.Position;
         var lastSize = sprite.Bounds.Size;
 
-        sprite.Target.Position += movement.Velocity * MBGame.DeltaTime;
+        sprite.Target.Position = movement.Position;
 
-
-        switch ( movement.RotationDirection ) {
-          case RotationDirection.Right:
-            sprite.Rotation += movement.RotationAcceleration;
-            break;
-          case RotationDirection.Left:
-            sprite.Rotation -= movement.RotationAcceleration;
-            break;
-          default:
-            sprite.Rotation += 0.0f;
-            break;
-        }
-
+        sprite.Rotation = movement.Angle;
         sprite.Bounds = sprite.Target.GetBoundingRectangle();
 
         sprite.DeltaSize = sprite.Bounds.Size - lastSize;
         sprite.DeltaPosition = sprite.Target.Position - lastPos;
+        movement.Heading = sprite.Direction;
       }
     }
   }
