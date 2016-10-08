@@ -54,7 +54,7 @@ namespace MidnightBlue
 
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
-      _ui.Draw(uiSpriteBatch);
+      _ui.Draw(spriteBatch, uiSpriteBatch);
     }
 
     public override void Exit()

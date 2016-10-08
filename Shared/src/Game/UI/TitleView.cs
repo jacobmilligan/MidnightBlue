@@ -37,9 +37,9 @@ namespace MidnightBlue
 
       this.BackgroundTexture = content.Load<Texture2D>("Images/TitleBackground");
 
-      var opts = new Layout(20, 20);
+      var opts = new Layout(this, 20, 20);
 
-      var titleLayout = new Layout(5, 6) {
+      var titleLayout = new Layout(this, 5, 6) {
         BorderDisplayed = true,
         BorderColor = _superNovaYellow,
         BorderWidth = 2,

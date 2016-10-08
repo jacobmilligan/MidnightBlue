@@ -71,6 +71,8 @@ namespace MidnightBlue.Engine.UI
       _numCols = cols;
 
       _grid = new UIContent(1, 1, Rectangle.Empty);
+
+      Tag = string.Empty;
     }
 
     /// <summary>
@@ -275,5 +277,7 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     /// <value>The color of the border left.</value>
     public Color BorderLeftColor { get; set; }
+
+    public string Tag { get; set; }
   }
 }

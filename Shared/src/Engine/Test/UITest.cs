@@ -42,7 +42,7 @@ namespace MidnightBlue.Engine.Testing
 
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
-      _testUI.Draw(uiSpriteBatch);
+      _testUI.Draw(spriteBatch, uiSpriteBatch);
     }
 
     public override void Exit()

@@ -39,20 +39,22 @@ namespace MidnightBlue.Engine.UI
       var pos = Content.Rect.Location.ToVector2();
 
       if ( TextContent.Length > 0 ) {
-        var scale = Font.MeasureString(TextContent).FitInto(Content.Grid.CellSize, Fill);
+        if ( Font != null ) {
+          var scale = Font.MeasureString(TextContent).FitInto(Content.Grid.CellSize, Fill);
 
-        // Draws the TextContent to the window
-        spriteBatch.DrawString(
-          spriteFont: Font,
-          text: TextContent,
-          position: pos,
-          color: TextColor,
-          scale: scale,
-          rotation: 0,
-          origin: new Vector2(0, 0),
-          effects: SpriteEffects.None,
-          layerDepth: 0
-        );
+          // Draws the TextContent to the window
+          spriteBatch.DrawString(
+            spriteFont: Font,
+            text: TextContent,
+            position: pos,
+            color: TextColor,
+            scale: scale,
+            rotation: 0,
+            origin: new Vector2(0, 0),
+            effects: SpriteEffects.None,
+            layerDepth: 0
+          );
+        }
       }
     }
 

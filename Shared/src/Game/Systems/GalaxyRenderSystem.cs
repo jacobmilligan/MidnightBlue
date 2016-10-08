@@ -8,6 +8,7 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -22,6 +23,7 @@ namespace MidnightBlue
     private SpriteBatch _spriteBatch;
     private ContentManager _content;
     private SpriteFont _font;
+    private List<string> _starInfo;
 
     public GalaxyRenderSystem(SpriteBatch spriteBatch, ContentManager content)
       : base(typeof(StarSystem))
@@ -29,6 +31,12 @@ namespace MidnightBlue
       _content = content;
       _spriteBatch = spriteBatch;
       _font = _content.Load<SpriteFont>("Fonts/Bender");
+      _starInfo = new List<string>();
+    }
+
+    protected override void PreProcess()
+    {
+      _starInfo.Clear();
     }
 
     protected override void Process(Entity entity)
@@ -52,32 +60,27 @@ namespace MidnightBlue
           Color.White
         );
 
-        var strBuilder = new StringBuilder();
         foreach ( var p in star.Planets ) {
           var distance = p.StarDistance.Kilometers + "KM";
           if ( p.StarDistance.AU > 0.1f ) {
             distance = p.StarDistance.AU.ToString("N1") + "AU";
           }
-          strBuilder.AppendFormat(
+          _starInfo.Add(string.Format(
             "* {0} - Radius: {1}\n  Type: {2}\n   Surface Temperature: {3}\n   Density: {4}\n   Life Rating: {5}\n   Carbon: {6}\n   Water: {7}\n   Gas: {8}\n  Star Distance: {9}\n",
             p.Name, p.Radius, p.Type, p.SurfaceTemperature, p.Density, p.Habitable, p.Carbon, p.Water, p.Gas, distance
-          );
+          ));
         }
-
-        textPosition.Y -= 100;
-        textPosition.X = MBGame.Camera.Position.X;
-        _spriteBatch.DrawString(
-          _font,
-          strBuilder.ToString(),
-          textPosition,
-          Color.White
-        );
       }
     }
 
     private Vector2 GetCenter(Vector2 parentCenter, Vector2 childCenter)
     {
       return new Vector2(parentCenter.X - childCenter.X, parentCenter.Y - 200);
+    }
+
+    public List<string> InfoList
+    {
+      get { return _starInfo; }
     }
   }
 }

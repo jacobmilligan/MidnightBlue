@@ -20,6 +20,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
+using MidnightBlue.Engine.UI;
 using MonoGame.Extended.Shapes;
 using MonoGame.Extended.Sprites;
 
@@ -29,6 +30,7 @@ namespace MidnightBlue.Engine
   {
     private int _seed, _animFrame, _animTime;
     private bool _loading;
+    private List<string> _scanResults;
     private SpriteFont _bender, _benderLarge;
     private Texture2D _ship, _solarSystem, _background;
     private Song _bgSong;
@@ -45,6 +47,7 @@ namespace MidnightBlue.Engine
       _seed = 1005; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
+      _scanResults = new List<string>();
 
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = content.Load<Texture2D>("Images/starsystem");
@@ -143,8 +146,14 @@ namespace MidnightBlue.Engine
         spriteBatch.Draw(_background, MBGame.Camera.Position);
 
         GameObjects.GetSystem<RenderSystem>().Run();
-        GameObjects.GetSystem<GalaxyRenderSystem>().Run();
-        _hud.Draw(uiSpriteBatch);
+        var galaxyRenderer = GameObjects.GetSystem<GalaxyRenderSystem>() as GalaxyRenderSystem;
+        galaxyRenderer.Run();
+
+        if ( galaxyRenderer.InfoList.Count > 0 ) {
+          _scanResults = galaxyRenderer.InfoList;
+          (_hud["scan results"] as ListControl).Content = _scanResults;
+        }
+        _hud.Draw(spriteBatch, uiSpriteBatch);
       }
     }
 

@@ -30,20 +30,43 @@ namespace MidnightBlue.Engine
       _borderColor = _hudColor * 0.8f;
       _bender = content.Load<SpriteFont>("Fonts/Bender");
 
-      var bars = new Layout(10, 7) {
+      var bars = new Layout(this, 10, 7) {
         BackgroundColor = _backgroundColor,
         BorderTopColor = _borderColor,
         BorderBottomColor = _borderColor,
         BorderWidth = 3,
         BorderDisplayed = true
       };
-      this.Add(bars, 1, 20, 5, 4);
+      var scan = new Layout(this, 10, 7) {
+        BackgroundColor = _backgroundColor,
+        BorderTopColor = _borderColor,
+        BorderBottomColor = _borderColor,
+        BorderWidth = 3,
+        BorderDisplayed = true
+      };
+
+      this.Add(bars, 1, 19, 5, 4);
+      this.Add(scan, 7, 19, 5, 4);
 
       _fuel = new Label {
         Font = _bender,
         TextColor = Color.Yellow,
       };
       bars.Add(_fuel, 1, 1, 2, 7);
+
+      var scanHeader = new Label {
+        TextContent = "Scan results",
+        Font = _bender
+      };
+      var scanResults = new ListControl(_bender) {
+        BorderColor = Color.Tomato,
+        BorderDisplayed = true,
+        BorderWidth = 2,
+        ItemSpan = 200,
+        Tag = "scan results"
+      };
+      scan.Add(scanHeader, 1, 1, 2, 10);
+      scan.Add(scanResults, 3, 1, 7, 6);
     }
 
     public void Refresh(Inventory inventory)

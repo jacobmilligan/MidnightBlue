@@ -9,6 +9,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,6 +26,8 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     private UIContent _grid;
 
+    private Dictionary<string, UIElement> _elementLookup;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.UIView"/> class.
     /// Divides itself into the number of rows and columns evenly based on the size of the
@@ -35,6 +38,7 @@ namespace MidnightBlue.Engine.UI
     public UIView(int rows, int cols)
     {
       _grid = new UIContent(rows, cols, MBGame.Graphics.Viewport.Bounds);
+      _elementLookup = new Dictionary<string, UIElement>();
     }
 
     /// <summary>
@@ -57,12 +61,14 @@ namespace MidnightBlue.Engine.UI
     /// <summary>
     /// Draws the View and its elements to the window
     /// </summary>
-    /// <param name="spriteBatch">Sprite batch to draw to.</param>
-    public void Draw(SpriteBatch spriteBatch)
+    /// <param name="uiSpriteBatch">Sprite batch to draw to.</param>
+    public void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
+      spriteBatch.End();
+
       if ( BackgroundTexture != null ) {
         // Draws the background image if it exists
-        spriteBatch.Draw(
+        uiSpriteBatch.Draw(
           BackgroundTexture,
           position: new Vector2(0, 0)
         );
@@ -70,7 +76,7 @@ namespace MidnightBlue.Engine.UI
 
       // DEBUG: Draws the Views grid to the window
       if ( (bool)MBGame.Console.Vars["drawGrids"] ) {
-        spriteBatch.DrawGrid(_grid.Grid, new Point(0, 0), Color.Yellow);
+        uiSpriteBatch.DrawGrid(_grid.Grid, new Point(0, 0), Color.Yellow);
       }
 
       var rowLen = Content.GetLength(0);
@@ -81,10 +87,14 @@ namespace MidnightBlue.Engine.UI
         for ( int col = 0; col < colLen; col++ ) {
           var currGrid = _grid.Elements[row, col];
           if ( currGrid != null ) {
-            currGrid.Draw(spriteBatch);
+            currGrid.Draw(uiSpriteBatch);
           }
         }
       }
+
+      spriteBatch.Begin(
+        transformMatrix: MBGame.Camera.GetViewMatrix()
+      );
     }
 
     /// <summary>
@@ -99,6 +109,30 @@ namespace MidnightBlue.Engine.UI
     {
       element.SetRelativeSize(_grid, atRow, atCol, rowSpan, colSpan);
       _grid.Elements[atRow, atCol] = element;
+      AddToLookup(element);
+    }
+
+    public void AddToLookup(UIElement element)
+    {
+      var tag = element.Tag;
+      if ( tag == string.Empty ) {
+        tag = element.GetType().Name + _elementLookup.Count;
+      }
+      if ( !_elementLookup.ContainsKey(tag) ) {
+        _elementLookup.Add(tag, element);
+        if ( element.GetType() == typeof(Layout) ) {
+          foreach ( var e in element.Content.Elements ) {
+            if ( e != null ) {
+              AddToLookup(element);
+            }
+          }
+        }
+      }
+    }
+
+    public UIElement this[string key]
+    {
+      get { return _elementLookup[key]; }
     }
 
     /// <summary>

@@ -20,13 +20,18 @@ namespace MidnightBlue.Engine.UI
   /// </summary>
   public class Layout : UIElement
   {
+    private UIView _parent;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.Layout"/> class.
     /// Divides the layouts rows and columns into an even cell size based of its parents size.
     /// </summary>
     /// <param name="rows">Number of rows the layout has.</param>
     /// <param name="cols">Number of columns the layout has.</param>
-    public Layout(int rows, int cols) : base(rows, cols) { }
+    public Layout(UIView parentView, int rows, int cols) : base(rows, cols)
+    {
+      _parent = parentView;
+    }
 
     /// <summary>
     /// Update all elements contained within the layout.
@@ -96,6 +101,7 @@ namespace MidnightBlue.Engine.UI
     {
       element.SetRelativeSize(Content, atRow, atCol, rowSpan, colSpan);
       Content.Elements[atRow - 1, atCol - 1] = element;
+      _parent.AddToLookup(element);
     }
 
     public Texture2D BaseTexture { get; set; }

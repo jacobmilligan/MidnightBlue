@@ -27,7 +27,7 @@ namespace MidnightBlue.Engine.Testing
         TextColor = Color.White,
         TextContent = "Test Button"
       };
-      var layout1 = new Layout(20, 20) {
+      var layout1 = new Layout(this, 20, 20) {
         BorderColor = Color.Black,
         BorderWidth = 2,
       };

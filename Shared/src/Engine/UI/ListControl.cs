@@ -58,8 +58,6 @@ namespace MidnightBlue.Engine.UI
       }
 
       HandleScroll();
-
-
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -92,19 +90,20 @@ namespace MidnightBlue.Engine.UI
 
       spriteBatch.End();
       spriteBatch.Begin();
+      spriteBatch.GraphicsDevice.ScissorRectangle = MBGame.Graphics.Viewport.Bounds;
     }
 
     private void HandleScroll()
     {
       var mouse = Mouse.GetState();
       if ( _upArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
-        _offset--;
+        _offset++;
         if ( _offset < BoundingBox.Top ) {
           _startItem--;
         }
       }
       if ( _downArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
-        _offset++;
+        _offset--;
         if ( _offset > BoundingBox.Bottom ) {
           _startItem++;
         }
