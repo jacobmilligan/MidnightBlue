@@ -71,7 +71,7 @@ namespace MidnightBlue.Engine.Scenes
     /// <summary>
     /// Initialize this scene and loads all resources.
     /// </summary>
-    public abstract void Initialize();
+    public abstract void Initialize(); //TODO: Allow drawing using separate sprite batch for initialize
     public abstract void HandleInput();
     public abstract void Update();
     public abstract void Pause();

@@ -8,6 +8,7 @@ using MidnightBlue.Engine.IO;
 using MidnightBlue.Engine.Testing;
 using MonoGame.Extended.Shapes;
 using System;
+using MidnightBlue.Testing;
 
 namespace MidnightBlue.Engine
 {
@@ -229,6 +230,7 @@ namespace MidnightBlue.Engine
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
 
       _debugConsole.AddFunc("TestUI", (string[] args) => _scenes.Push(new UITest(_gameObjects, Content)));
+      _debugConsole.AddFunc("TestMap", (string[] args) => _scenes.Push(new MapTest2(_gameObjects, Content)));
     }
 
     private void RegisterSystems()

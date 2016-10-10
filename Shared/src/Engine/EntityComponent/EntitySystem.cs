@@ -96,7 +96,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+#if TESTING
+    public void Destroy(Entity entity)
+#else
     protected void Destroy(Entity entity)
+#endif
     {
       _toDestroy.Add(entity);
       _idEntityMap.Remove(entity.ID);

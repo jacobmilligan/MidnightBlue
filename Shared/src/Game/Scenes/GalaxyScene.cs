@@ -31,7 +31,7 @@ namespace MidnightBlue.Engine
     private int _seed, _animFrame, _animTime;
     private bool _loading;
     private List<string> _scanResults;
-    private SpriteFont _bender, _benderLarge;
+    private SpriteFont _benderLarge;
     private Texture2D _ship, _solarSystem, _background;
     private Song _bgSong;
     private SoundEffect _thrusterSound;
@@ -52,7 +52,6 @@ namespace MidnightBlue.Engine
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = content.Load<Texture2D>("Images/starsystem");
       _background = content.Load<Texture2D>("Images/stars");
-      _bender = content.Load<SpriteFont>("Fonts/Bender");
       _benderLarge = content.Load<SpriteFont>("Fonts/Bender Large");
 
       _bgSong = content.Load<Song>("Audio/galaxy");
@@ -251,7 +250,7 @@ namespace MidnightBlue.Engine
       player.Attach<PhysicsComponent>();
       var inventory = player.Attach<Inventory>() as Inventory;
       inventory.Items.Add(typeof(Fuel), new Fuel(10000));
-      player.Attach<Movement>(1.0f, 0.02f);
+      player.Attach<Movement>(3.0f, 0.02f);
 
       MBGame.Camera.LookAt(sprite.Target.Origin);
       GameObjects.UpdateSystems(player);

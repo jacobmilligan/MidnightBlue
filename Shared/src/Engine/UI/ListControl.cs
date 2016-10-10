@@ -57,6 +57,10 @@ namespace MidnightBlue.Engine.UI
         _offset = BoundingBox.Top;
       }
 
+      if ( Count <= 0 ) {
+        _offset = BoundingBox.Top;
+      }
+
       HandleScroll();
     }
 
