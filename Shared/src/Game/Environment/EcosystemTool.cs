@@ -33,7 +33,7 @@ namespace MidnightBlue
 
   public enum HeightLevel
   {
-    Depths,
+    Depths = 0,
     SeaLevel,
     Lowland,
     Mountainous,
@@ -43,7 +43,7 @@ namespace MidnightBlue
 
   public enum MoistureLevel
   {
-    Arid,
+    Arid = 0,
     Dry,
     SemiDry,
     SemiMoist,
@@ -53,7 +53,7 @@ namespace MidnightBlue
 
   public enum TemperatureLevel
   {
-    Freezing,
+    Freezing = 0,
     Polar,
     Tundra,
     Taiga,
@@ -71,7 +71,7 @@ namespace MidnightBlue
 
     internal static Biome GetBiome(MoistureLevel moisture, TemperatureLevel temperature, HeightLevel height)
     {
-      var biome = Biome.Barren;
+      var biome = Biome.TemeperateGrassland;
 
       if ( temperature == TemperatureLevel.Freezing ) {
         biome = Biome.Ice;
@@ -82,9 +82,9 @@ namespace MidnightBlue
       if ( temperature == TemperatureLevel.Taiga ) {
         switch ( moisture ) {
           case MoistureLevel.Arid:
-            biome = Biome.TemeperateGrassland;
+            biome = Biome.Tundra;
             break;
-          case MoistureLevel.Dry:
+          case MoistureLevel.Wet:
             biome = Biome.Woodland;
             break;
           default:
@@ -98,12 +98,12 @@ namespace MidnightBlue
             biome = Biome.Desert;
             break;
           case MoistureLevel.Dry:
-            biome = Biome.Shrubland;
-            break;
           case MoistureLevel.SemiDry:
-            biome = Biome.Woodland;
+            biome = Biome.TemeperateGrassland;
             break;
           case MoistureLevel.SemiMoist:
+            biome = Biome.Woodland;
+            break;
           case MoistureLevel.Moist:
             biome = Biome.TemperateSeasonalForest;
             break;
@@ -200,10 +200,10 @@ namespace MidnightBlue
         biome = Biome.Barren;
       }
 
-      if ( height == HeightLevel.Depths ) {
+      if ( height == HeightLevel.Depths && moisture > MoistureLevel.Arid ) {
         biome = Biome.Ocean;
       }
-      if ( height == HeightLevel.SeaLevel ) {
+      if ( height == HeightLevel.SeaLevel && moisture > MoistureLevel.Arid ) {
         biome = Biome.ShallowOcean;
       }
 
@@ -256,19 +256,19 @@ namespace MidnightBlue
         tempLevel = TemperatureLevel.Polar;
       } else if ( temperature >= 0.18 && temperature < 0.27 ) {
         tempLevel = TemperatureLevel.Tundra;
-      } else if ( temperature >= 0.27 && temperature < 0.36 ) {
+      } else if ( temperature >= 0.27 && temperature < 0.30 ) {
         tempLevel = TemperatureLevel.Taiga;
-      } else if ( temperature >= 0.36 && temperature < 0.45 ) {
+      } else if ( temperature >= 0.30 && temperature < 0.50 ) {
         tempLevel = TemperatureLevel.Temperate;
-      } else if ( temperature >= 0.45 && temperature < 0.54 ) {
+      } else if ( temperature >= 0.50 && temperature < 0.60 ) {
         tempLevel = TemperatureLevel.SubTropical;
-      } else if ( temperature >= 0.54 && temperature < 0.63 ) {
+      } else if ( temperature >= 0.60 && temperature < 0.70 ) {
         tempLevel = TemperatureLevel.Tropical;
-      } else if ( temperature >= 0.63 && temperature < 0.72 ) {
+      } else if ( temperature >= 0.70 && temperature < 0.80 ) {
         tempLevel = TemperatureLevel.Hot;
-      } else if ( temperature >= 0.72 && temperature < 0.81 ) {
+      } else if ( temperature >= 0.80 && temperature < 0.85 ) {
         tempLevel = TemperatureLevel.Harsh;
-      } else if ( temperature >= 0.81 && temperature < 0.90 ) {
+      } else if ( temperature >= 0.85 && temperature < 0.90 ) {
         tempLevel = TemperatureLevel.SuperHot;
       } else if ( temperature >= 0.90 ) {
         tempLevel = TemperatureLevel.Scorching;

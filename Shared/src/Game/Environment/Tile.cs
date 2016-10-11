@@ -8,6 +8,10 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
 namespace MidnightBlue
 {
   public class Tile

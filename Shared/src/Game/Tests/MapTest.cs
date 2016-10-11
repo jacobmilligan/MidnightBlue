@@ -11,6 +11,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
@@ -20,9 +21,11 @@ namespace MidnightBlue.Testing
   public class MapTest : Scene
   {
     private Planet _planet;
+    private SpriteFont _font;
 
     public MapTest(EntityMap map, ContentManager content) : base(map, content)
     {
+      _font = content.Load<SpriteFont>("Fonts/Bender Large");
     }
 
     public override void Initialize()
@@ -48,7 +51,7 @@ namespace MidnightBlue.Testing
         _planet = new Planet(
           new PlanetMetadata {
             Radius = 40000,
-            SurfaceTemperature = 210,
+            SurfaceTemperature = 20,
             Type = PlanetType.Terrestrial
           }, (int)DateTime.Now.Ticks
         );
@@ -58,6 +61,20 @@ namespace MidnightBlue.Testing
 
       //uiSpriteBatch.Draw(_planet.GetMapLayer("elevation"), new Vector2(0, 0));
       uiSpriteBatch.Draw(_planet.GetMapLayer("map"), new Vector2(0, 0));
+
+      //FIXME: Remove method after debugging
+      var mouse = Mouse.GetState().Position;
+      if ( new Rectangle(0, 0, _planet.Size.X, _planet.Size.Y).Contains(mouse) ) {
+        var tile = _planet.Tiles[mouse.X, mouse.Y];
+        var strSize = _font.MeasureString(tile.Biome.ToString());
+
+        uiSpriteBatch.DrawString(
+          _font,
+          tile.Biome.ToString(),
+          new Vector2(MBGame.Graphics.Viewport.Bounds.Right - strSize.X, 0),
+          Color.White
+        );
+      }
     }
 
     public override void Exit()

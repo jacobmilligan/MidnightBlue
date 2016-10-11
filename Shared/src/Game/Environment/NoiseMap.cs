@@ -93,53 +93,6 @@ namespace MidnightBlue
     public NoiseMap(ImplicitModuleBase fractal, int width, int height) : this(fractal, width, height, 0) { }
 
     /// <summary>
-    /// Generates a new noise map with a specified number of layers
-    /// and density
-    /// </summary>
-    /// <param name="octaves">Number of layer iterations to make</param>
-    /// <param name="frequency">The density of the resulting noise.</param>
-    public void Generate()
-    {
-      //
-      // Uses a 2D -> 4D mapping of each axis.
-      // Adapted from Jon Gallants original technique.
-      // Source: http://www.jgallant.com/procedurally-generating-wrapping-world-maps-in-unity-csharp-part-2/#wrap2
-      //
-      for ( int x = 0; x < _width; x++ ) {
-        for ( int y = 0; y < _height; y++ ) {
-
-          //Noise range
-          var x1 = 0;
-          var x2 = 2;
-          var y1 = 0;
-          var y2 = 2;
-          var dx = x2 - x1;
-          var dy = y2 - y1;
-
-          //Sample noise at smaller intervals
-          var s = x / (float)_width;
-          var t = y / (float)_height;
-
-          // Calculate our 4D coordinates
-          var nx = x1 + Math.Cos(s * 2 * Math.PI) * dx / (2 * Math.PI);
-          var ny = y1 + Math.Cos(t * 2 * Math.PI) * dy / (2 * Math.PI);
-          var nz = x1 + Math.Sin(s * 2 * Math.PI) * dx / (2 * Math.PI);
-          var nw = y1 + Math.Sin(t * 2 * Math.PI) * dy / (2 * Math.PI);
-
-          var noise = _fractal.Get(nx, ny, nz, nw);
-
-          // Keep track of the max and min values found
-          // to use for normalization
-          if ( noise > _max ) { _max = noise; }
-          if ( noise < _min ) { _min = noise; }
-
-          _values[x, y] = noise;
-        }
-      }
-
-    }
-
-    /// <summary>
     /// Gets a noise value at the specified x and y coordinates. Returned as a
     /// normalized value in the range of 0 - 1
     /// </summary>
@@ -149,8 +102,7 @@ namespace MidnightBlue
     public double GetValue(int x, int y)
     {
       var pos = MBMath.WrapGrid(x, y, _width, _height);
-      var noise = _values[pos.X, pos.Y];
-      return MBMath.Normalize(noise, 0, 1, _min, _max);
+      return _values[pos.X, pos.Y];
     }
 
     /// <summary>
@@ -162,6 +114,11 @@ namespace MidnightBlue
     /// <param name="y">The y coordinate.</param>
     public void SetValue(int x, int y, double value)
     {
+      // Keep track of the max and min values found
+      // to use for normalization
+      if ( value > _max ) { _max = value; }
+      if ( value < _min ) { _min = value; }
+
       _values[x, y] = MBMath.Normalize(value, 0, 1, _min, _max);
     }
 

@@ -31,10 +31,12 @@ namespace MidnightBlue
     private Color _shrubLand = new Color(194, 111, 80);
     private Color _woodland = new Color(53, 130, 71);
     private Color _temperateForest = new Color(145, 172, 121);
+    private Color _temperateSeasonalForest = new Color(174, 210, 0);
     private Color _temperateRainforest = new Color(126, 162, 119);
     private Color _subtropicalDesert = new Color(222, 188, 114);
     private Color _savana = new Color(157, 156, 53);
     private Color _tropicalRainforest = new Color(55, 113, 71);
+    private Color _temperateGrassland = new Color(126, 138, 50);
     private Color _ocean = new Color(17, 30, 82);
     private Color _shallows = new Color(11, 74, 130);
 
@@ -107,25 +109,13 @@ namespace MidnightBlue
 
     public void Generate()
     {
-      var elevationThread = new Thread(new ThreadStart(_elevation.Generate));
-      //_elevation.Generate();
+      var noiseWorker = new Thread(new ThreadStart(GenerateNoiseData));
       //CreateNoiseMapTexture("elevation", _elevation);
-
-      var moistureThread = new Thread(new ThreadStart(_moisture.Generate));
-      //_moisture.Generate();
       //CreateNoiseMapTexture("moisture", _temperature);
-
-      var temperatureThread = new Thread(new ThreadStart(_temperature.Generate));
-      //_temperature.Generate();
       //CreateNoiseMapTexture("temperature", _temperature);
 
-      elevationThread.Start();
-      moistureThread.Start();
-      temperatureThread.Start();
-
-      elevationThread.Join();
-      moistureThread.Join();
-      temperatureThread.Join();
+      noiseWorker.Start();
+      noiseWorker.Join();
 
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
@@ -135,35 +125,39 @@ namespace MidnightBlue
 
           // Adjust values based of generated average surface temperature
           // from galaxy view.
-          if ( _meta.SurfaceTemperature < -100 ) {
-            temperature -= 0.9f * temperature;
-          } else if ( _meta.SurfaceTemperature < -80 ) {
-            temperature -= 0.8f * temperature;
-          } else if ( _meta.SurfaceTemperature < -60 ) {
-            temperature -= 0.7f * temperature;
-          } else if ( _meta.SurfaceTemperature < -40 ) {
-            temperature -= 0.6f * temperature;
+          if ( _meta.SurfaceTemperature < -40 ) {
+            temperature -= temperature;
           } else if ( _meta.SurfaceTemperature < -20 ) {
-            temperature -= 0.5f * temperature;
+            temperature -= 0.8f * temperature;
           } else if ( _meta.SurfaceTemperature < 0 ) {
-            temperature -= 0.4f * temperature;
+            temperature -= 0.5f * temperature;
+            moisture += 0.3f * moisture;
           } else if ( _meta.SurfaceTemperature < 5 ) {
-            temperature -= 0.3f * temperature;
+            temperature -= 0.4f * temperature;
+            moisture += 0.3f * moisture;
           } else if ( _meta.SurfaceTemperature < 10 ) {
-            temperature -= 0.2f * temperature;
+            temperature -= 0.4f * temperature;
+            moisture += 0.2f * moisture;
           } else if ( _meta.SurfaceTemperature < 40 ) {
-            temperature -= 0.1f * temperature;
+            temperature -= 0.2f * temperature;
+            moisture += 0.1f * moisture;
           } else if ( _meta.SurfaceTemperature < 60 ) {
-            temperature += 0.1f * temperature;
+            temperature -= 0.1f * temperature;
+            moisture -= 0.2f * moisture;
           } else if ( _meta.SurfaceTemperature < 100 ) {
-            temperature += 0.3f * temperature;
+            temperature += 0.1f * temperature;
+            moisture -= 0.4f * moisture;
           } else if ( _meta.SurfaceTemperature < 120 ) {
-            temperature += 0.5f * temperature;
+            temperature += 0.3f * temperature;
+            moisture -= 0.7f * moisture;
           } else if ( _meta.SurfaceTemperature < 150 ) {
-            temperature += 0.7f * temperature;
+            temperature += 0.5f * temperature;
+            moisture -= 0.9f * moisture;
           } else if ( _meta.SurfaceTemperature < 200 ) {
-            temperature += 0.9f * temperature;
+            temperature += 0.7f * temperature;
+            moisture = 0;
           } else {
+            moisture = 0;
             temperature += temperature;
           }
 
@@ -171,12 +165,7 @@ namespace MidnightBlue
           switch ( _meta.Type ) {
             case PlanetType.Water:
               moisture += 0.5f * moisture;
-              moisture -= 0.3f * temperature;
               elevation -= 0.3f * moisture;
-              break;
-            case PlanetType.Terrestrial:
-              moisture += 0.1f * moisture;
-              moisture -= 0.5f * temperature;
               break;
             case PlanetType.Gas:
               moisture = 0;
@@ -227,6 +216,46 @@ namespace MidnightBlue
       _layers.Add("map", target);
       //_map = target;
       spriteBatch.Begin();
+    }
+
+    /// <summary>
+    /// Generates a new noise map with a specified number of layers
+    /// and density
+    /// </summary>
+    private void GenerateNoiseData()
+    {
+      //
+      // Uses a 2D -> 4D mapping of each axis.
+      // Adapted from Jon Gallants original technique.
+      // Source: http://www.jgallant.com/procedurally-generating-wrapping-world-maps-in-unity-csharp-part-2/#wrap2
+      //
+      for ( int x = 0; x < _width; x++ ) {
+        for ( int y = 0; y < _height; y++ ) {
+
+          //Noise range
+          var x1 = 0;
+          var x2 = 2;
+          var y1 = 0;
+          var y2 = 2;
+          var dx = x2 - x1;
+          var dy = y2 - y1;
+
+          //Sample noise at smaller intervals
+          var s = x / (float)_width;
+          var t = y / (float)_height;
+
+          // Calculate our 4D coordinates
+          var nx = x1 + Math.Cos(s * 2 * Math.PI) * dx / (2 * Math.PI);
+          var ny = y1 + Math.Cos(t * 2 * Math.PI) * dy / (2 * Math.PI);
+          var nz = x1 + Math.Sin(s * 2 * Math.PI) * dx / (2 * Math.PI);
+          var nw = y1 + Math.Sin(t * 2 * Math.PI) * dy / (2 * Math.PI);
+
+          _elevation.SetValue(x, y, _elevation.Map.Get(nx, ny, nz, nw));
+          _temperature.SetValue(x, y, _temperature.Map.Get(nx, ny, nz, nw));
+          _moisture.SetValue(x, y, _moisture.Map.Get(nx, ny, nz, nw));
+        }
+      }
+
     }
 
     //private void CreateNoiseMapTexture(string layerName, NoiseMap map)
@@ -293,7 +322,7 @@ namespace MidnightBlue
           clr = _shrubLand;
           break;
         case Biome.TemeperateGrassland:
-          clr = _shrubLand;
+          clr = _temperateGrassland;
           break;
         case Biome.Desert:
           clr = _desert;
@@ -309,8 +338,7 @@ namespace MidnightBlue
           clr.G += 10;
           break;
         case Biome.TemperateSeasonalForest:
-          clr = _temperateForest;
-          clr = _woodland;
+          clr = _temperateSeasonalForest;
           break;
         case Biome.TemperateRainforest:
           clr = _temperateRainforest;
@@ -335,6 +363,11 @@ namespace MidnightBlue
       }
 
       return clr;
+    }
+
+    public Tile[,] Tiles
+    {
+      get { return _tiles; }
     }
 
     public Point Size
