@@ -34,6 +34,7 @@ namespace MidnightBlue
 
       _inputMap.Assign<MoveShip>(Keys.W, CommandType.Hold);
       _inputMap.Assign<MoveShip>(Keys.S, CommandType.Hold);
+      _inputMap.Assign<EnterStarSystem>(Keys.E, CommandType.Trigger);
     }
 
     /// <summary>
@@ -46,5 +47,7 @@ namespace MidnightBlue
     }
 
     public ParticleEffect Particles { get; set; }
+
+    public bool WillEnter { get; set; }
   }
 }

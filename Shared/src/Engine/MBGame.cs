@@ -230,7 +230,7 @@ namespace MidnightBlue.Engine
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
 
       _debugConsole.AddFunc("TestUI", (string[] args) => _scenes.Push(new UITest(_gameObjects, Content)));
-      _debugConsole.AddFunc("TestMap", (string[] args) => _scenes.Push(new MapTest2(_gameObjects, Content)));
+      _debugConsole.AddFunc("TestMap", (string[] args) => _scenes.Push(new MapTest(_gameObjects, Content)));
     }
 
     private void RegisterSystems()

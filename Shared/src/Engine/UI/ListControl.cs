@@ -30,7 +30,7 @@ namespace MidnightBlue.Engine.UI
     public ListControl(SpriteFont font, Texture2D normal, Texture2D selected, Texture2D pressed)
       : base(normal, selected, pressed)
     {
-      Content = new List<string>();
+      Elements = new List<string>();
       _font = font;
       SeperaterColor = Color.LightGray;
       ControlSize = 10;
@@ -85,7 +85,7 @@ namespace MidnightBlue.Engine.UI
         var listEntry = new Vector2(BoundingBox.X, nextEntry);
         spriteBatch.DrawString(
           _font,
-          Content[item],
+          Elements[item],
           listEntry,
           SeperaterColor
         );
@@ -122,10 +122,10 @@ namespace MidnightBlue.Engine.UI
     }
 
 
-    public List<string> Content { get; set; }
+    public List<string> Elements { get; set; }
     public int Count
     {
-      get { return Content.Count; }
+      get { return Elements.Count; }
     }
     public Color SeperaterColor { get; set; }
     public int ControlSize { get; set; }

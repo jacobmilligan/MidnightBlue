@@ -1,10 +1,10 @@
 ﻿//
-// 	GeometryHelper.cs
+// 	MBMath.cs
 // 	Midnight Blue
 //
 // 	--------------------------------------------------------------
 //
-// 	Created by Jacob Milligan on 10/10/2016.
+// 	Created by Jacob Milligan on 11/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
@@ -12,12 +12,8 @@ using Microsoft.Xna.Framework;
 
 namespace MidnightBlue.Engine
 {
-  public static class GeometryHelper
+  public static class MBMath
   {
-    //public static int WrapGrid(int x, int y, int width, int height)
-    //{
-    //  return (x & (width - 1)) + (y & (height - 1)) * width;
-    //}
     public static Point WrapGrid(int x, int y, int width, int height)
     {
       var xResult = 0;
@@ -38,6 +34,14 @@ namespace MidnightBlue.Engine
       return new Point(xResult, yResult);
     }
 
+    public static float Normalize(float value, float low, float high, float dataMin, float dataMax)
+    {
+      return (high - low) * ((value - dataMin) / (dataMax - dataMin)) + low;
+    }
 
+    public static double Normalize(double value, double low, double high, double dataMin, double dataMax)
+    {
+      return (high - low) * ((value - dataMin) / (dataMax - dataMin)) + low;
+    }
   }
 }

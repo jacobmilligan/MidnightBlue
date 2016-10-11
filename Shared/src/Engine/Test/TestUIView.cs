@@ -38,7 +38,7 @@ namespace MidnightBlue.Engine.Testing
         BorderColor = Color.Tomato,
         BorderDisplayed = true,
         BorderWidth = 2,
-        Content = {
+        Elements = {
           "Test1",
           "Test2"
         },

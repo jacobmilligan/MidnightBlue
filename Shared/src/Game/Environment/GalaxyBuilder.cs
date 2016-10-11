@@ -116,9 +116,9 @@ namespace MidnightBlue
       return _starSystems;
     }
 
-    private List<Planet> GeneratePlanets(int nebulaSize, int starRadius)
+    private List<PlanetMetadata> GeneratePlanets(int nebulaSize, int starRadius)
     {
-      var planets = new List<Planet>();
+      var planets = new List<PlanetMetadata>();
       var availableMatter = starRadius - nebulaSize;
       var gravity = starRadius - _rand.Next(_jup);
       var acceleration = gravity / 1000;
@@ -145,7 +145,7 @@ namespace MidnightBlue
       return planets;
     }
 
-    private Planet CreatePlanet(int starDistance, int impactSpeed)
+    private PlanetMetadata CreatePlanet(int starDistance, int impactSpeed)
     {
       var maxDensity = 6;
       var density = maxDensity - (impactSpeed / 100);
@@ -172,14 +172,14 @@ namespace MidnightBlue
         life *= life;
       }
 
-      return new Planet {
+      return new PlanetMetadata {
         Name = GenerateName(),
         Density = density,
         Gas = gas,
         Water = water,
         Carbon = carbon,
         Type = type,
-        Radius = radius,
+        Radius = radius * 100000,
         SurfaceTemperature = temperature,
         Habitable = life,
         // convert distance back to actual kilometers

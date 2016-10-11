@@ -41,13 +41,16 @@ namespace MidnightBlue.Engine
     private GalaxyHud _hud;
     private Thread _galaxyBuildThread;
 
+    private Dictionary<string, Planet> _planetCache;
+
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 1005; //HACK: Hardcoded seed value for galaxy
+      _seed = 10490; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
       _scanResults = new List<string>();
+      _planetCache = new Dictionary<string, Planet>();
 
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = content.Load<Texture2D>("Images/starsystem");
@@ -114,7 +117,17 @@ namespace MidnightBlue.Engine
       if ( !_loading ) {
         GameObjects.GetSystem<NavigationInputSystem>().Run();
         GameObjects.GetSystem<InputSystem>().Run();
-        GameObjects.GetSystem<ShipInputSystem>().Run();
+        var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
+        shipInput.Run();
+
+        if ( shipInput.WillEnter ) {
+          var collision = GameObjects["player"].GetComponent<CollisionComponent>();
+          if ( collision != null ) {
+            var sys = collision.Collider.GetComponent<StarSystem>();
+
+            SceneController.Push(new StarSystemScene(GameObjects, Content, sys, _planetCache, _seed));
+          }
+        }
       }
     }
 
@@ -150,7 +163,7 @@ namespace MidnightBlue.Engine
 
         if ( galaxyRenderer.InfoList.Count > 0 ) {
           _scanResults = galaxyRenderer.InfoList;
-          (_hud["scan results"] as ListControl).Content = _scanResults;
+          (_hud["scan results"] as ListControl).Elements = _scanResults;
         }
         _hud.Draw(spriteBatch, uiSpriteBatch);
       }

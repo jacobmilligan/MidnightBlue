@@ -6,7 +6,7 @@
     <SharedGUID>{FCFA02AB-719C-427E-981B-CE0E15027300}</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>MidnightBlue.Engine</Import_RootNamespace>
+    <Import_RootNamespace>MidnightBlue</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Content\.DS_Store" />
@@ -34,6 +34,8 @@
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Bender Medium.xnb" />
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Bender.xnb" />
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SourceCode.xnb" />
+    <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll" />
+    <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll.mdb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Edge.cs" />
@@ -65,7 +67,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Label.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\GalaxyScene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\GalaxyBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\GalaxyBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\StarSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\ShipController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Systems\ShipInputSystem.cs" />
@@ -73,7 +75,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\CollisionRenderSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\Planet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Inventory\Collectable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Inventory\Fuel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Commands\ShipCommands.cs" />
@@ -101,12 +102,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\NavigationInputSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\PhysicsSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\RenderSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\Length.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\OpenSimplexNoise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\Length.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Tests\MapTest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Tests\MapTest2.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Gen\DiamondSquare.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\GeometryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\NoiseMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\Tile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\PlanetMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\Planet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\EcosystemTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

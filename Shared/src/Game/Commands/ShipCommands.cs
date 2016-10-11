@@ -38,12 +38,21 @@ namespace MidnightBlue
     }
   }
 
-  public class Accept : Command
+  public class EnterStarSystem : Command
   {
-    public Accept(Keys key, CommandType type) : base(key, type) { }
+    public EnterStarSystem(Keys key, CommandType type) : base(key, type) { }
 
     protected override void OnKeyPress(Entity e = null)
     {
+      var collision = e.GetComponent<CollisionComponent>();
+      var shipController = e.GetComponent<ShipController>();
+
+      if ( collision != null && collision.Event ) {
+        var sys = collision.Collider.GetComponent<StarSystem>();
+        if ( sys != null ) {
+          shipController.WillEnter = true;
+        }
+      }
     }
   }
 }

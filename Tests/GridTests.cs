@@ -25,8 +25,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 9;
       var expected = new Point(4, 9);
 
-      Assert.AreEqual(expected, GeometryHelper.WrapGrid2D(x, y, size, size));
-      Assert.AreEqual(expected.X + expected.Y * size, GeometryHelper.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
     }
 
     [Test]
@@ -36,8 +35,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 14;
       var expected = new Point(9, 4);
 
-      Assert.AreEqual(expected, GeometryHelper.WrapGrid2D(x, y, size, size));
-      Assert.AreEqual(expected.X + expected.Y * size, GeometryHelper.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
     }
 
     [Test]
@@ -47,8 +45,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 9;
       var expected = new Point(6, 9);
 
-      Assert.AreEqual(expected, GeometryHelper.WrapGrid2D(x, y, size, size));
-      Assert.AreEqual(expected.X + expected.Y * size, GeometryHelper.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
     }
 
     [Test]
@@ -58,8 +55,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 14;
       var expected = new Point(4, 4);
 
-      Assert.AreEqual(expected, GeometryHelper.WrapGrid2D(x, y, size, size));
-      Assert.AreEqual(expected.X + expected.Y * size, GeometryHelper.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
     }
   }
 }

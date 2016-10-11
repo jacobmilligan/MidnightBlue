@@ -16,7 +16,7 @@ namespace MidnightBlue
 
   public enum PlanetType { Water, Terrestrial, Gas }
 
-  public class Planet : IComponent
+  public class PlanetMetadata : IComponent
   {
     public string Name { get; set; }
     public int Radius { get; internal set; }

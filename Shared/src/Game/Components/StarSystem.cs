@@ -22,7 +22,7 @@ namespace MidnightBlue
     public StarSystem()
     {
       _stringBuilder = new StringBuilder();
-      Planets = new List<Planet>();
+      Planets = new List<PlanetMetadata>();
     }
 
     public Color Color { get; set; }
@@ -43,6 +43,6 @@ namespace MidnightBlue
         return _stringBuilder.ToString();
       }
     }
-    public List<Planet> Planets { get; set; }
+    public List<PlanetMetadata> Planets { get; set; }
   }
 }
