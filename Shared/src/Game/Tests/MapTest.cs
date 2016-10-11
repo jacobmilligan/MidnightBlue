@@ -53,6 +53,7 @@ namespace MidnightBlue.Testing
           }, 100
         );
         _planet.Generate();
+        _planet.CreateMapTexture(uiSpriteBatch);
       }
 
       //uiSpriteBatch.Draw(_planet.GetMapLayer("elevation"), new Vector2(0, 0));

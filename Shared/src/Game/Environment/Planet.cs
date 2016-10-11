@@ -9,6 +9,8 @@
 //
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -104,14 +106,25 @@ namespace MidnightBlue
 
     public void Generate()
     {
-      _elevation.Generate();
+      var elevationThread = new Thread(new ThreadStart(_elevation.Generate));
+      //_elevation.Generate();
       //CreateNoiseMapTexture("elevation", _elevation);
 
-      _moisture.Generate();
+      var moistureThread = new Thread(new ThreadStart(_moisture.Generate));
+      //_moisture.Generate();
       //CreateNoiseMapTexture("moisture", _temperature);
 
-      _temperature.Generate();
+      var temperatureThread = new Thread(new ThreadStart(_temperature.Generate));
+      //_temperature.Generate();
       //CreateNoiseMapTexture("temperature", _temperature);
+
+      elevationThread.Start();
+      moistureThread.Start();
+      temperatureThread.Start();
+
+      elevationThread.Join();
+      moistureThread.Join();
+      temperatureThread.Join();
 
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
