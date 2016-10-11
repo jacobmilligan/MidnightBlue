@@ -47,10 +47,10 @@ namespace MidnightBlue.Testing
       if ( _planet == null ) {
         _planet = new Planet(
           new PlanetMetadata {
-            Radius = 300000,
-            SurfaceTemperature = -80,
-            Type = PlanetType.Water
-          }, 100
+            Radius = 40000,
+            SurfaceTemperature = 210,
+            Type = PlanetType.Terrestrial
+          }, (int)DateTime.Now.Ticks
         );
         _planet.Generate();
         _planet.CreateMapTexture(uiSpriteBatch);

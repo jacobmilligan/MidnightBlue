@@ -28,14 +28,15 @@ namespace MidnightBlue
     private Color _tundra = new Color(185, 214, 227);
     private Color _boreal = new Color(153, 180, 157);
     private Color _desert = new Color(250, 214, 156);
-    private Color _woodland = new Color(194, 111, 80);
+    private Color _shrubLand = new Color(194, 111, 80);
+    private Color _woodland = new Color(53, 130, 71);
     private Color _temperateForest = new Color(145, 172, 121);
     private Color _temperateRainforest = new Color(126, 162, 119);
     private Color _subtropicalDesert = new Color(222, 188, 114);
     private Color _savana = new Color(157, 156, 53);
     private Color _tropicalRainforest = new Color(55, 113, 71);
-    private Color _ocean = new Color(17, 46, 76);
-    private Color _shallows = new Color(0, 150, 231);
+    private Color _ocean = new Color(17, 30, 82);
+    private Color _shallows = new Color(11, 74, 130);
 
     private int _width, _height;
     private string _name;
@@ -81,7 +82,7 @@ namespace MidnightBlue
         InterpolationType.Quintic
       );
       temperatureMap.Octaves = 6;
-      temperatureMap.Frequency = 4;
+      temperatureMap.Frequency = 1.8;
       temperatureMap.Seed = seed;
 
       var combiner = new ImplicitCombiner(CombinerType.Multiply);
@@ -96,8 +97,8 @@ namespace MidnightBlue
         BasisType.Simplex,
         InterpolationType.Quintic
       );
-      moistureMap.Octaves = 4;
-      moistureMap.Frequency = 3.0;
+      moistureMap.Octaves = 6;
+      moistureMap.Frequency = 1.8;
       moistureMap.Seed = seed;
       _moisture = new NoiseMap(moistureMap, _width, _height);
 
@@ -132,20 +133,6 @@ namespace MidnightBlue
           var moisture = _moisture.GetValue(x, y);
           var elevation = _elevation.GetValue(x, y);
 
-          // Adjust moisture based off planet type
-          switch ( _meta.Type ) {
-            case PlanetType.Water:
-              moisture += 0.5f * moisture;
-              elevation -= 0.3f * moisture;
-              break;
-            case PlanetType.Terrestrial:
-              moisture += 0.1f * moisture;
-              break;
-            case PlanetType.Gas:
-              moisture = 0;
-              break;
-          }
-
           // Adjust values based of generated average surface temperature
           // from galaxy view.
           if ( _meta.SurfaceTemperature < -100 ) {
@@ -169,14 +156,33 @@ namespace MidnightBlue
           } else if ( _meta.SurfaceTemperature < 60 ) {
             temperature += 0.1f * temperature;
           } else if ( _meta.SurfaceTemperature < 100 ) {
-            temperature += 0.2f * temperature;
-          } else if ( _meta.SurfaceTemperature < 120 ) {
             temperature += 0.3f * temperature;
-          } else if ( _meta.SurfaceTemperature < 150 ) {
-            temperature += 0.4f * temperature;
-          } else if ( _meta.SurfaceTemperature < 200 ) {
+          } else if ( _meta.SurfaceTemperature < 120 ) {
             temperature += 0.5f * temperature;
+          } else if ( _meta.SurfaceTemperature < 150 ) {
+            temperature += 0.7f * temperature;
+          } else if ( _meta.SurfaceTemperature < 200 ) {
+            temperature += 0.9f * temperature;
+          } else {
+            temperature += temperature;
           }
+
+          // Adjust moisture based off planet type
+          switch ( _meta.Type ) {
+            case PlanetType.Water:
+              moisture += 0.5f * moisture;
+              moisture -= 0.3f * temperature;
+              elevation -= 0.3f * moisture;
+              break;
+            case PlanetType.Terrestrial:
+              moisture += 0.1f * moisture;
+              moisture -= 0.5f * temperature;
+              break;
+            case PlanetType.Gas:
+              moisture = 0;
+              break;
+          }
+
 
           _tiles[x, y] = new Tile(elevation, moisture, temperature);
         }
@@ -284,10 +290,10 @@ namespace MidnightBlue
           clr = _woodland;
           break;
         case Biome.Shrubland:
-          clr = _savana;
+          clr = _shrubLand;
           break;
         case Biome.TemeperateGrassland:
-          clr = _desert;
+          clr = _shrubLand;
           break;
         case Biome.Desert:
           clr = _desert;
@@ -313,7 +319,7 @@ namespace MidnightBlue
           clr = _tropicalRainforest;
           break;
         case Biome.Barren:
-          clr = Color.Gray;
+          clr = Color.Black;
           break;
         case Biome.ShallowOcean:
           clr = _shallows;
