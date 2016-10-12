@@ -30,7 +30,6 @@ namespace MidnightBlue
     private Color _desert = new Color(250, 214, 156);
     private Color _shrubLand = new Color(194, 111, 80);
     private Color _woodland = new Color(53, 130, 71);
-    private Color _temperateForest = new Color(145, 172, 121);
     private Color _temperateSeasonalForest = new Color(174, 210, 0);
     private Color _temperateRainforest = new Color(126, 162, 119);
     private Color _subtropicalDesert = new Color(222, 188, 114);
@@ -45,6 +44,7 @@ namespace MidnightBlue
     private NoiseMap _elevation, _temperature, _moisture;
     private PlanetMetadata _meta;
     private Dictionary<string, Texture2D> _layers;
+    private Texture2D _planetMask;
 
     private Tile[,] _tiles;
 
@@ -53,7 +53,7 @@ namespace MidnightBlue
       _meta = meta;
       _name = _meta.Name;
 
-      var scaledRadius = (MathHelper.Pi * _meta.Radius * 2) / 1000;
+      var scaledRadius = (MathHelper.Pi * _meta.Radius * 2) / 10000;
       scaledRadius = scaledRadius + (scaledRadius / 2);
       if ( scaledRadius > 1050 ) {
         scaledRadius = 1050;
@@ -109,13 +109,10 @@ namespace MidnightBlue
 
     public void Generate()
     {
-      var noiseWorker = new Thread(new ThreadStart(GenerateNoiseData));
+      GenerateNoiseData();
       //CreateNoiseMapTexture("elevation", _elevation);
       //CreateNoiseMapTexture("moisture", _temperature);
       //CreateNoiseMapTexture("temperature", _temperature);
-
-      noiseWorker.Start();
-      noiseWorker.Join();
 
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
@@ -178,13 +175,17 @@ namespace MidnightBlue
       }
     }
 
-    public void CreateMapTexture(SpriteBatch spriteBatch)
+    public void CreateMapTexture(SpriteBatch spriteBatch, ContentManager content)
     {
       if ( _layers.ContainsKey("map") ) {
         return;
       }
+
       spriteBatch.End();
-      spriteBatch.Begin();
+
+      if ( _planetMask == null ) {
+        _planetMask = content.Load<Texture2D>("Images/planetmask");
+      }
 
       // Generates a texture for the map
       var target = new RenderTarget2D(
@@ -192,9 +193,16 @@ namespace MidnightBlue
         _width * _cellSize,
         _height * _cellSize
       );
+      var roundTarget = new RenderTarget2D(
+        MBGame.Graphics,
+        _width * _cellSize,
+        _height * _cellSize
+      );
+
+      spriteBatch.Begin();
 
       MBGame.Graphics.SetRenderTarget(target);
-      MBGame.Graphics.Clear(Color.Black);
+      MBGame.Graphics.Clear(Color.Transparent);
 
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
@@ -211,10 +219,47 @@ namespace MidnightBlue
       }
 
       spriteBatch.End();
+
+      MBGame.Graphics.SetRenderTarget(roundTarget);
+      MBGame.Graphics.Clear(Color.Transparent);
+
+      spriteBatch.Begin();
+
+      var circleMask = new CircleF(
+        target.Bounds.Center.ToVector2(),
+        target.Bounds.Width / 2
+      );
+
+      for ( int x = 0; x < _width; x++ ) {
+        for ( int y = 0; y < _height; y++ ) {
+          var tile = _tiles[x, y];
+          var clr = GetColor(tile.Biome);
+          if ( circleMask.Contains(x * _cellSize, y * _cellSize) ) {
+            spriteBatch.FillRectangle(
+              x * _cellSize,
+              y * _cellSize,
+              _cellSize,
+              _cellSize,
+              clr
+            );
+          }
+        }
+      }
+
+      var maskSize = target.Bounds.Size.ToVector2();
+      maskSize.X += 5f;
+      maskSize.Y += 5f;
+      var planetMaskScale = _planetMask.Bounds.Size.ToVector2().FitInto(maskSize);
+      spriteBatch.Draw(_planetMask, new Vector2(-2f, -2f), scale: planetMaskScale);
+
+      spriteBatch.End();
+
       MBGame.Graphics.SetRenderTarget(null);
 
       _layers.Add("map", target);
+      _layers.Add("planet map", roundTarget);
       //_map = target;
+
       spriteBatch.Begin();
     }
 
@@ -333,10 +378,6 @@ namespace MidnightBlue
         case Biome.Savana:
           clr = _savana;
           break;
-        case Biome.TropicalSeasonalForest:
-          clr = _savana;
-          clr.G += 10;
-          break;
         case Biome.TemperateSeasonalForest:
           clr = _temperateSeasonalForest;
           break;
@@ -347,7 +388,7 @@ namespace MidnightBlue
           clr = _tropicalRainforest;
           break;
         case Biome.Barren:
-          clr = Color.Black;
+          clr = Color.Gray;
           break;
         case Biome.ShallowOcean:
           clr = _shallows;
@@ -379,5 +420,7 @@ namespace MidnightBlue
     {
       get { return _name; }
     }
+
+    public Vector2 Position { get; set; }
   }
 }

@@ -46,7 +46,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 10490; //HACK: Hardcoded seed value for galaxy
+      _seed = 1029; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
       _scanResults = new List<string>();
@@ -288,6 +288,18 @@ namespace MidnightBlue.Engine
         newSystem.Attach(s);
 
         GameObjects.UpdateSystems(newSystem);
+      }
+
+      var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
+      if ( collision != null ) {
+        var collisionSize = _galaxy.Bounds;
+        collision.ResetGrid(
+          _galaxy.Bounds.Left,
+          _galaxy.Bounds.Right,
+          _galaxy.Bounds.Top,
+          _galaxy.Bounds.Bottom,
+          180
+        ); //HACK: Hardcoded collision cell size
       }
 
       _loading = false;

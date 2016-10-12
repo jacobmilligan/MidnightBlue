@@ -35,6 +35,8 @@ namespace MidnightBlue.Engine.EntityComponent
       _comparisons = 0;
 
       _map.Clear();
+      var pos = MBGame.Camera.Position.ToPoint();
+      //_map.UpdatePosition(pos.X, pos.Y);
 
       var maxEntities = AssociatedEntities.Count;
 

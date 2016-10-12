@@ -20,27 +20,22 @@ namespace MidnightBlue.Engine
   {
     private Label _fuel;
     private SpriteFont _bender;
-    private Color _hudColor = new Color(40, 107, 159);
-    private Color _backgroundColor;
-    private Color _borderColor;
 
     public GalaxyHud(ContentManager content) : base(25, 25)
     {
-      _backgroundColor = _hudColor * 0.2f;
-      _borderColor = _hudColor * 0.8f;
       _bender = content.Load<SpriteFont>("Fonts/Bender");
 
       var bars = new Layout(this, 10, 7) {
-        BackgroundColor = _backgroundColor,
-        BorderTopColor = _borderColor,
-        BorderBottomColor = _borderColor,
+        BackgroundColor = UIColors.Background,
+        BorderTopColor = UIColors.Border,
+        BorderBottomColor = UIColors.Border,
         BorderWidth = 3,
         BorderDisplayed = true
       };
       var scan = new Layout(this, 10, 7) {
-        BackgroundColor = _backgroundColor,
-        BorderTopColor = _borderColor,
-        BorderBottomColor = _borderColor,
+        BackgroundColor = UIColors.Background,
+        BorderTopColor = UIColors.Border,
+        BorderBottomColor = UIColors.Border,
         BorderWidth = 3,
         BorderDisplayed = true
       };

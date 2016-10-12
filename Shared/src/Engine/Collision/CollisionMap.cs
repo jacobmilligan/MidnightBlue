@@ -124,6 +124,14 @@ namespace MidnightBlue.Engine.Collision
       return result;
     }
 
+    public void UpdatePosition(int x, int y)
+    {
+      _min.X = x;
+      _min.Y = y;
+      _max.X = _max.X + x;
+      _max.Y = _max.Y + y;
+    }
+
     public void Clear()
     {
       var nonEmptySize = _nonEmptyCells.Count;

@@ -48,19 +48,22 @@ namespace MidnightBlue.Testing
       GameObjects.GetSystem<RenderSystem>().Run();
 
       if ( _planet == null ) {
+        var length = new Length((ulong)(Length.AstronomicalUnit * 5.9) * 1000);
         _planet = new Planet(
           new PlanetMetadata {
-            Radius = 40000,
+            Radius = 400000,
             SurfaceTemperature = 20,
-            Type = PlanetType.Terrestrial
-          }, (int)DateTime.Now.Ticks
+            Type = PlanetType.Terrestrial,
+            StarDistance = new Length(length.Kilometers)
+          }, 10490
         );
         _planet.Generate();
-        _planet.CreateMapTexture(uiSpriteBatch);
+        _planet.CreateMapTexture(uiSpriteBatch, Content);
       }
 
       //uiSpriteBatch.Draw(_planet.GetMapLayer("elevation"), new Vector2(0, 0));
       uiSpriteBatch.Draw(_planet.GetMapLayer("map"), new Vector2(0, 0));
+      uiSpriteBatch.Draw(_planet.GetMapLayer("planet map"), new Vector2(_planet.Size.X, 0));
 
       //FIXME: Remove method after debugging
       var mouse = Mouse.GetState().Position;

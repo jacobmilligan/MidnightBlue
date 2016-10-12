@@ -110,6 +110,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\PlanetMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\Planet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\EcosystemTool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\StarSystemHud.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\UIColors.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

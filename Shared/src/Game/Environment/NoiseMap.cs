@@ -101,8 +101,7 @@ namespace MidnightBlue
     /// <param name="y">The y coordinate.</param>
     public double GetValue(int x, int y)
     {
-      var pos = MBMath.WrapGrid(x, y, _width, _height);
-      return _values[pos.X, pos.Y];
+      return MBMath.Normalize(_values[x, y], 0, 1, _min, _max);
     }
 
     /// <summary>
@@ -119,7 +118,7 @@ namespace MidnightBlue
       if ( value > _max ) { _max = value; }
       if ( value < _min ) { _min = value; }
 
-      _values[x, y] = MBMath.Normalize(value, 0, 1, _min, _max);
+      _values[x, y] = value;
     }
 
     /// <summary>
