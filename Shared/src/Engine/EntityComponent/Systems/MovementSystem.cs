@@ -16,12 +16,12 @@ namespace MidnightBlue.Engine.EntityComponent
 {
   public class MovementSystem : EntitySystem
   {
-    public MovementSystem() : base(typeof(Movement), typeof(SpriteComponent)) { }
+    public MovementSystem() : base(typeof(Movement), typeof(SpriteTransform)) { }
 
     protected override void Process(Entity entity)
     {
       var movement = entity.GetComponent<Movement>();
-      var sprite = entity.GetComponent<SpriteComponent>();
+      var sprite = entity.GetComponent<SpriteTransform>();
 
       if ( movement != null && sprite != null ) {
         var lastPos = sprite.Target.Position;

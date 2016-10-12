@@ -83,7 +83,7 @@ namespace MidnightBlue.Engine
       RegisterSystems();
 
       Entity player = _gameObjects.CreateEntity("player");
-      player.Attach<PlayerController>();
+      player.Attach<UtilityController>();
       player.Persistant = true;
 
       _scenes.ResetTo(new TitleScene(_gameObjects, Content));
@@ -134,7 +134,7 @@ namespace MidnightBlue.Engine
       IOUtil.UpdateKeyState();
       IOUtil.UpdateMouseState();
 
-      var playerSprite = _gameObjects["player"].GetComponent<SpriteComponent>();
+      var playerSprite = _gameObjects["player"].GetComponent<SpriteTransform>();
       if ( playerSprite != null ) {
         _camera.LookAt(
           playerSprite.Target.Position
@@ -201,7 +201,7 @@ namespace MidnightBlue.Engine
         _gameObjects.GetSystem<CollisionRenderSystem>().Run();
         var collisionMap = (_gameObjects.GetSystem<CollisionSystem>() as CollisionSystem).CurrentMap;
         if ( collisionMap != null ) {
-          _spriteBatch.DrawGrid(collisionMap.Grid, collisionMap.Position.ToPoint(), Color.White);
+          _spriteBatch.DrawGrid(collisionMap.Grid, Camera.Position.ToPoint(), Color.White);
         }
       }
 
@@ -228,7 +228,45 @@ namespace MidnightBlue.Engine
 
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
+      _debugConsole.AddFunc("SetSpeed", (string[] args) => {
+        if ( args.Length > 0 ) {
+          var newSpeed = 0.0f;
+          var movement = _gameObjects["player"].GetComponent<Movement>();
+          if ( float.TryParse(args[0], out newSpeed) && movement != null ) {
+            movement.Speed = newSpeed;
+          }
+        }
+      });
+      _debugConsole.AddFunc("TestPlanet", (string[] args) => {
+        var player = _gameObjects["player"];
 
+        var sprite = player.Attach<SpriteTransform>(
+          Content.Load<Texture2D>("Images/playership_blue"),
+          new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
+          new Vector2(0.3f, 0.3f)
+        ) as SpriteTransform;
+        sprite.Z = 1;
+        player.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
+        player.Attach<ShipController>();
+        player.Attach<PhysicsComponent>();
+        var inventory = player.Attach<Inventory>() as Inventory;
+        inventory.Items.Add(typeof(Fuel), new Fuel(10000));
+        player.Attach<Movement>(3.0f, 0.02f);
+
+        Camera.LookAt(sprite.Target.Origin);
+        _gameObjects.UpdateSystems(player);
+
+        var length = new Length((ulong)(Length.AstronomicalUnit * 5.9) * 1000);
+        var planet = new Planet(
+            new PlanetMetadata {
+              Radius = 400000,
+              SurfaceTemperature = 20,
+              Type = PlanetType.Terrestrial,
+              StarDistance = new Length(length.Kilometers)
+            }, 10490);
+        planet.Generate();
+        _scenes.Push(new PlanetScene(_gameObjects, Content, planet));
+      });
       _debugConsole.AddFunc("TestUI", (string[] args) => _scenes.Push(new UITest(_gameObjects, Content)));
       _debugConsole.AddFunc("TestMap", (string[] args) => _scenes.Push(new MapTest(_gameObjects, Content)));
     }

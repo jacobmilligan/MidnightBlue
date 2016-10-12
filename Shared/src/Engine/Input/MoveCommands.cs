@@ -24,7 +24,11 @@ namespace MidnightBlue.Engine.IO
 
     protected override void OnKeyPress(Entity e = null)
     {
-      e.GetComponent<SpriteComponent>().Target.Position -= new Vector2(0, 20.0f * MBGame.DeltaTime);
+      var physics = e.GetComponent<PhysicsComponent>();
+      var movement = e.GetComponent<Movement>();
+      movement.Angle = MathHelper.ToRadians(270); // radians
+      physics.Velocity += new Vector2(0, -1 * movement.Speed) * MBGame.DeltaTime;
+      physics.Power = movement.Speed;
     }
   }
 
@@ -34,7 +38,39 @@ namespace MidnightBlue.Engine.IO
 
     protected override void OnKeyPress(Entity e = null)
     {
-      e.GetComponent<SpriteComponent>().Target.Position += new Vector2(20.0f * MBGame.DeltaTime, 0);
+      var physics = e.GetComponent<PhysicsComponent>();
+      var movement = e.GetComponent<Movement>();
+      movement.Angle = MathHelper.ToRadians(0); ; // radians
+      physics.Velocity += new Vector2(1 * movement.Speed, 0) * MBGame.DeltaTime;
+      physics.Power = movement.Speed;
+    }
+  }
+
+  public class MoveDown : Command
+  {
+    public MoveDown(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
+      var physics = e.GetComponent<PhysicsComponent>();
+      var movement = e.GetComponent<Movement>();
+      movement.Angle = MathHelper.ToRadians(90); ; // radians
+      physics.Velocity += new Vector2(0, 1 * movement.Speed) * MBGame.DeltaTime;
+      physics.Power = movement.Speed;
+    }
+  }
+
+  public class MoveLeft : Command
+  {
+    public MoveLeft(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
+      var physics = e.GetComponent<PhysicsComponent>();
+      var movement = e.GetComponent<Movement>();
+      movement.Angle = MathHelper.ToRadians(180);
+      physics.Velocity += new Vector2(-1 * movement.Speed, 0) * MBGame.DeltaTime;
+      physics.Power = movement.Speed;
     }
   }
 

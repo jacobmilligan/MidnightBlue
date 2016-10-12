@@ -22,7 +22,7 @@ namespace MidnightBlue.Engine.EntityComponent
     private RectangleF _cameraRect;
 
     public RenderSystem(SpriteBatch spriteBatch)
-      : base(typeof(SpriteComponent))
+      : base(typeof(SpriteTransform))
     {
       _spriteBatch = spriteBatch;
     }
@@ -31,14 +31,14 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       _drawn = 0;
       AssociatedEntities = AssociatedEntities.OrderBy(
-        entity => entity.GetComponent<SpriteComponent>().Z
+        entity => entity.GetComponent<SpriteTransform>().Z
       ).ToList();
       _cameraRect = MBGame.Camera.GetBoundingRectangle();
     }
 
     protected override void Process(Entity entity)
     {
-      var sprite = entity.GetComponent<SpriteComponent>();
+      var sprite = entity.GetComponent<SpriteTransform>();
 
       if ( sprite != null && _cameraRect.Intersects((Rectangle)sprite.Bounds) ) {
         _spriteBatch.Draw(sprite.Target);

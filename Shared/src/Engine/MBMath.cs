@@ -16,22 +16,9 @@ namespace MidnightBlue.Engine
   {
     public static Point WrapGrid(int x, int y, int width, int height)
     {
-      var xResult = 0;
-      var yResult = 0;
-
-      if ( x >= 0 ) {
-        xResult = x % width; // wrap right
-      } else {
-        xResult = (width + x % width) % width; // wrap left
-      }
-
-      if ( y >= 0 ) {
-        yResult = y % height; // wrap down
-      } else {
-        yResult = (height + y % height) % height; // wrap up
-      }
-
-      return new Point(xResult, yResult);
+      var newX = (x % width + width) % width;
+      var newY = (y % height + height) % height;
+      return new Point((int)newX, (int)newY);
     }
 
     public static float Normalize(float value, float low, float high, float dataMin, float dataMax)

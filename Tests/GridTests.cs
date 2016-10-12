@@ -16,14 +16,15 @@ namespace MidnightBlue.Engine.Testing
   [TestFixture]
   public class GridTests
   {
-    const int size = 10;
+    const int _size = 10;
 
     [Test]
     public void TestXWrapping()
     {
-      var x = 14;
-      var y = 9;
-      var expected = new Point(4, 9);
+      var x = -2000;
+      var y = -239;
+      var expected = new Point(30154, 31915);
+      var size = 32154;
 
       Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
     }
@@ -35,7 +36,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 14;
       var expected = new Point(9, 4);
 
-      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, _size, _size));
     }
 
     [Test]
@@ -45,7 +46,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 9;
       var expected = new Point(6, 9);
 
-      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, _size, _size));
     }
 
     [Test]
@@ -55,7 +56,7 @@ namespace MidnightBlue.Engine.Testing
       var y = 14;
       var expected = new Point(4, 4);
 
-      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, size, size));
+      Assert.AreEqual(expected, MBMath.WrapGrid(x, y, _size, _size));
     }
   }
 }

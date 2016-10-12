@@ -47,8 +47,8 @@ namespace MidnightBlue.Engine.Collision
     public Point IndexOf(Vector2 position)
     {
       return new Point {
-        X = (int)((position.X - _min.X) / _cellSize) - 1,
-        Y = (int)((position.Y - _min.Y) / _cellSize) - 1
+        X = (int)((position.X - _min.X) / _cellSize),
+        Y = (int)((position.Y - _min.Y) / _cellSize)
       };
     }
 

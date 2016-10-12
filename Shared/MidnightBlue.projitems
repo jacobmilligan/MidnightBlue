@@ -112,6 +112,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Environment\EcosystemTool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\StarSystemHud.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\UIColors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\PlanetScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\PlanetComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\UtilityController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

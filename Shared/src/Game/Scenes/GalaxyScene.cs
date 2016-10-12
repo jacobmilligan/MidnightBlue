@@ -10,7 +10,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -22,7 +21,6 @@ using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
 using MidnightBlue.Engine.UI;
 using MonoGame.Extended.Shapes;
-using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue.Engine
 {
@@ -46,7 +44,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 1029; //HACK: Hardcoded seed value for galaxy
+      _seed = 11090; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
       _scanResults = new List<string>();
@@ -187,6 +185,8 @@ namespace MidnightBlue.Engine
 
     public override void Resume()
     {
+      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
+      BuildGalaxy();
       TransitionState = TransitionState.None;
     }
 
@@ -252,11 +252,11 @@ namespace MidnightBlue.Engine
     {
       var player = GameObjects["player"];
 
-      var sprite = player.Attach<SpriteComponent>(
+      var sprite = player.Attach<SpriteTransform>(
         _ship,
         new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
         new Vector2(0.3f, 0.3f)
-      ) as SpriteComponent;
+      ) as SpriteTransform;
       sprite.Z = 1;
       player.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
       player.Attach<ShipController>();
@@ -271,16 +271,19 @@ namespace MidnightBlue.Engine
 
     private void BuildGalaxy()
     {
-      var systems = _galaxy.Generate(_galaxy.Size * 3);
+      var systems = _galaxy.StarSystems;
+      if ( !_galaxy.Done ) {
+        systems = _galaxy.Generate(_galaxy.Size * 3);
+      }
       var scale = 0.5f;
       foreach ( var s in systems ) {
 
         var newSystem = new Entity(GameObjects);
-        var sprite = newSystem.Attach<SpriteComponent>(
+        var sprite = newSystem.Attach<SpriteTransform>(
           _solarSystem,
           new Vector2(s.Bounds.X, s.Bounds.Y),
           new Vector2(scale, scale)
-        ) as SpriteComponent;
+        ) as SpriteTransform;
         newSystem.Attach<CollisionComponent>(new RectangleF[] {
           sprite.Target.GetBoundingRectangle()
         });

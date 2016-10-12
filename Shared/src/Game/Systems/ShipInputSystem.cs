@@ -16,19 +16,15 @@ namespace MidnightBlue
 {
   public class ShipInputSystem : EntitySystem
   {
-    private bool _willEnter;
-
     public ShipInputSystem() : base(
       typeof(ShipController)
     )
     {
-      _willEnter = false;
+      WillEnter = false;
     }
 
     protected override void Process(Entity entity)
     {
-      _willEnter = false;
-
       var keys = Keyboard.GetState().GetPressedKeys();
 
       var controller = entity.GetComponent<ShipController>();

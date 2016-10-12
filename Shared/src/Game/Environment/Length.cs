@@ -42,6 +42,11 @@ namespace MidnightBlue
       get { return (ulong)(_meters * 0.001f); }
     }
 
+    public int RelativeKilometers
+    {
+      get { return (int)Kilometers / 100000; }
+    }
+
     public float AU
     {
       get { return Kilometers / AstronomicalUnit; }

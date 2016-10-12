@@ -17,7 +17,7 @@ using MonoGame.Extended.TextureAtlases;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public class SpriteComponent : IComponent
+  public class SpriteTransform : IComponent
   {
     private void SetDefaults(Vector2 position, Vector2 scale)
     {
@@ -31,13 +31,13 @@ namespace MidnightBlue.Engine.EntityComponent
       Bounds = Target.GetBoundingRectangle();
     }
 
-    public SpriteComponent(Texture2D texture, Vector2 position, Vector2 scale)
+    public SpriteTransform(Texture2D texture, Vector2 position, Vector2 scale)
     {
       Target = new Sprite(texture);
       SetDefaults(position, scale);
     }
 
-    public SpriteComponent(TextureRegion2D texture, Vector2 position, Vector2 scale)
+    public SpriteTransform(TextureRegion2D texture, Vector2 position, Vector2 scale)
     {
       Target = new Sprite(texture);
       SetDefaults(position, scale);
@@ -47,7 +47,6 @@ namespace MidnightBlue.Engine.EntityComponent
 
     // Direction and Rotation implementation derived from Monogame.Extended SpaceGame Demo source code:
     // https://github.com/craftworkgames/MonoGame.Extended/blob/develop/Source/Demos/Demo.SpaceGame/Entities/Spaceship.cs
-
     public Vector2 Direction
     {
       get

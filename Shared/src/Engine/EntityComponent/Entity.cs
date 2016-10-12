@@ -95,7 +95,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _container.UpdateSystems(this);
     }
 
-    public void Remove<T>() where T : IComponent
+    public void Detach<T>() where T : IComponent
     {
       if ( _components.ContainsKey(typeof(T)) ) {
         _components.Remove(typeof(T));
@@ -164,6 +164,8 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     /// <value><c>true</c> if persistant; otherwise, <c>false</c>.</value>
     public bool Persistant { get; set; }
+
+    public bool Active { get; set; }
   }
 
 }

@@ -40,6 +40,7 @@ namespace MidnightBlue
     private Color _shallows = new Color(11, 74, 130);
 
     private int _width, _height;
+    private bool _generated;
     private string _name;
     private NoiseMap _elevation, _temperature, _moisture;
     private PlanetMetadata _meta;
@@ -52,6 +53,7 @@ namespace MidnightBlue
     {
       _meta = meta;
       _name = _meta.Name;
+      _generated = false;
 
       var scaledRadius = (MathHelper.Pi * _meta.Radius * 2) / 10000;
       scaledRadius = scaledRadius + (scaledRadius / 2);
@@ -173,15 +175,14 @@ namespace MidnightBlue
           _tiles[x, y] = new Tile(elevation, moisture, temperature);
         }
       }
+      _generated = true;
     }
 
-    public void CreateMapTexture(SpriteBatch spriteBatch, ContentManager content)
+    public void CreateMapTexture(ContentManager content)
     {
-      if ( _layers.ContainsKey("map") ) {
+      if ( _layers.ContainsKey("planet map") ) {
         return;
       }
-
-      spriteBatch.End();
 
       if ( _planetMask == null ) {
         _planetMask = content.Load<Texture2D>("Images/planetmask");
@@ -198,6 +199,8 @@ namespace MidnightBlue
         _width * _cellSize,
         _height * _cellSize
       );
+
+      var spriteBatch = new SpriteBatch(MBGame.Graphics);
 
       spriteBatch.Begin();
 
@@ -259,8 +262,6 @@ namespace MidnightBlue
       _layers.Add("map", target);
       _layers.Add("planet map", roundTarget);
       //_map = target;
-
-      spriteBatch.Begin();
     }
 
     /// <summary>
@@ -349,7 +350,7 @@ namespace MidnightBlue
       return result;
     }
 
-    private Color GetColor(Biome biome)
+    public Color GetColor(Biome biome)
     {
       Color clr = Color.Transparent;
 
@@ -421,6 +422,16 @@ namespace MidnightBlue
       get { return _name; }
     }
 
+    public PlanetMetadata Meta
+    {
+      get { return _meta; }
+    }
+
     public Vector2 Position { get; set; }
+
+    public bool Generated
+    {
+      get { return _generated; }
+    }
   }
 }

@@ -35,6 +35,9 @@
     <Reference Include="MonoGame.Extended">
       <HintPath>..\DesktopGL\packages\MonoGame.Extended.0.5.149\lib\MonoGame.Extended.dll</HintPath>
     </Reference>
+    <Reference Include="TinkerWorX.AccidentalNoiseLibrary">
+      <HintPath>..\Shared\src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ECSTest.cs" />

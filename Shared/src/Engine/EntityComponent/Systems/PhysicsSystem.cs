@@ -38,7 +38,7 @@ namespace MidnightBlue.Engine.EntityComponent
           decay = 0.98f;
           break;
         case PhysicsEnvironement.Planet:
-          decay = 0.50f;
+          decay = 0.80f;
           break;
       }
 

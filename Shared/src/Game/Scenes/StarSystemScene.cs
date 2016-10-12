@@ -29,7 +29,6 @@ namespace MidnightBlue
     private bool _loading;
     private int _animFrame, _animTime;
     private Texture2D _ship, _background, _star;
-    private Sprite _starSprite;
     private List<Texture2D> _loadingTextures;
     private SoundEffect _thrusterSound;
     private SoundEffectInstance _thrusterInstance;
@@ -38,11 +37,14 @@ namespace MidnightBlue
     private Thread _planetLoader;
     private SpriteFont _bender;
     private StarSystemHud _hud;
+    private Random _rand;
+    private Rectangle _bounds;
 
     public StarSystemScene(
       EntityMap map, ContentManager content, StarSystem starSystem, Dictionary<string, Planet> cache, int seed
     ) : base(map, content)
     {
+      _rand = new Random(seed);
       _loading = true;
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _background = content.Load<Texture2D>("Images/stars");
@@ -54,7 +56,6 @@ namespace MidnightBlue
 
       _starSystem = starSystem;
       _planets = new Planet[starSystem.Planets.Count];
-      _starSprite = new Sprite(_star);
 
       var player = GameObjects["player"];
       var movement = player.GetComponent<Movement>();
@@ -63,14 +64,22 @@ namespace MidnightBlue
 
       var maxPlanetDistance = 1000;
       if ( _starSystem.Planets.Count > 0 ) {
-        maxPlanetDistance = (int)(_starSystem.Planets.Max(meta => meta.StarDistance).Kilometers / 100000);
+        maxPlanetDistance = (
+          _starSystem.Planets.Max(meta => meta.StarDistance.RelativeKilometers)
+        );
       }
-      _starSprite.Position = new Vector2(
-        movement.Position.X - maxPlanetDistance,
-        movement.Position.Y
-      );
-      _starSprite.Scale = new Vector2(2, 2);
 
+      var star = GameObjects.CreateEntity(_starSystem.Name);
+      var starSprite = star.Attach<SpriteTransform>(
+        _star,
+        new Vector2(
+          movement.Position.X - maxPlanetDistance,
+          movement.Position.Y
+        ), new Vector2(2, 2)
+      ) as SpriteTransform;
+      star.Attach<CollisionComponent>(starSprite.Bounds);
+
+      //TODO: Replace with for loop
       var p = 0;
       foreach ( var planet in _starSystem.Planets ) {
         if ( !cache.ContainsKey(planet.Name) ) {
@@ -92,7 +101,9 @@ namespace MidnightBlue
         );
       }
 
-      _planetLoader = new Thread(new ThreadStart(LoadPlanets));
+      _planetLoader = new Thread(
+        new ThreadStart(LoadPlanets)
+      );
       _planetLoader.Start();
 
       _hud = new StarSystemHud(Content, GameObjects, SceneController);
@@ -106,63 +117,104 @@ namespace MidnightBlue
 
     public override void HandleInput()
     {
+      if ( !_loading ) {
+        GameObjects.GetSystem<InputSystem>().Run();
+        var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
+        shipInput.Run();
+      }
       GameObjects.GetSystem<NavigationInputSystem>().Run();
-      GameObjects.GetSystem<InputSystem>().Run();
-      var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
-      shipInput.Run();
     }
 
     public override void Update()
     {
-      GameObjects.GetSystem<CollisionSystem>().Run();
+      if ( !_loading ) {
+        GameObjects.GetSystem<CollisionSystem>().Run();
 
-      UpdateSounds(GameObjects["player"]);
+        UpdateSounds(GameObjects["player"]);
 
-      GameObjects.GetSystem<PhysicsSystem>().Run();
-      GameObjects.GetSystem<MovementSystem>().Run();
-      GameObjects.GetSystem<DepthSystem>().Run();
+        GameObjects.GetSystem<PhysicsSystem>().Run();
+        GameObjects.GetSystem<MovementSystem>().Run();
+        GameObjects.GetSystem<DepthSystem>().Run();
 
-      _hud.Update();
+        _hud.Update();
+
+        var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
+        if ( shipInput.WillEnter ) {
+          var collision = GameObjects["player"].GetComponent<CollisionComponent>();
+          if ( collision != null && collision.Collider != null ) {
+            var planet = collision.Collider.GetComponent<PlanetComponent>();
+
+            SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
+          }
+        }
+      }
     }
 
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
-      spriteBatch.Draw(_background, MBGame.Camera.Position);
-
-      if ( _loading ) {
-        var loadingTexture = _loadingTextures[_animFrame];
-
-        var viewRect = MBGame.Graphics.Viewport.Bounds;
-        var pos = new Vector2(viewRect.Width - loadingTexture.Width, viewRect.Height - loadingTexture.Height);
-
-        uiSpriteBatch.Draw(_loadingTextures[_animFrame], pos, scale: new Vector2(0.5f, 0.5f));
-
-        _animTime++;
-
-        if ( _animTime > 2 ) {
-          _animTime = 0;
-          _animFrame++;
-          if ( _animFrame > _loadingTextures.Count - 1 ) {
-            _animFrame = 0;
-          }
-        }
+      if ( TransitionState != TransitionState.Pausing ) {
+        DrawNormal(spriteBatch, uiSpriteBatch);
       }
+    }
 
+    private void DrawNormal(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
+    {
       if ( !_loading && !_planetLoader.IsAlive ) {
+        spriteBatch.Draw(_background, MBGame.Camera.Position);
+
         foreach ( var p in _planets ) {
           if ( p.GetMapLayer("planet map") == null ) {
-            p.CreateMapTexture(uiSpriteBatch, Content);
-            p.Position = MBGame.Camera.Position;
+            UpdateDrawSpace(p);
           }
-          spriteBatch.Draw(p.GetMapLayer("planet map"), p.Position);
         }
       }
 
-      spriteBatch.Draw(_starSprite);
-      GameObjects.GetSystem<RenderSystem>().Run();
+      if ( _loading || _planetLoader.IsAlive ) {
+        AnimateLoading(uiSpriteBatch);
+      } else {
+        GameObjects.GetSystem<RenderSystem>().Run();
 
-      _hud.Draw(spriteBatch, uiSpriteBatch);
-      DrawMap(uiSpriteBatch);
+        _hud.Draw(spriteBatch, uiSpriteBatch);
+        DrawMap(uiSpriteBatch);
+      }
+    }
+
+    private void UpdateDrawSpace(Planet p)
+    {
+      p.CreateMapTexture(Content);
+      var sign = _rand.Next(-1, 1);
+      p.Position = new Vector2(
+        sign * p.Meta.StarDistance.RelativeKilometers,
+        sign * p.Meta.StarDistance.RelativeKilometers
+      );
+
+      var planetEntity = new Entity(GameObjects);
+      var planetSprite = planetEntity.Attach<SpriteTransform>(
+        p.GetMapLayer("planet map"), p.Position, new Vector2(1, 1)
+      ) as SpriteTransform;
+      var planet = planetEntity.Attach<PlanetComponent>() as PlanetComponent;
+      planet.Data = p;
+      planetEntity.Attach<CollisionComponent>(new RectangleF[] { planetSprite.Target.GetBoundingRectangle() });
+
+      GameObjects.UpdateSystems(planetEntity);
+
+      if ( p.Position.X > _bounds.Right ) {
+        _bounds.Inflate(p.Position.X - _bounds.Right, 0);
+      }
+      if ( p.Position.X < _bounds.Left ) {
+        _bounds.Inflate(_bounds.Right - p.Position.X, 0);
+      }
+      if ( p.Position.Y > _bounds.Bottom ) {
+        _bounds.Inflate(0, p.Position.Y - _bounds.Bottom);
+      }
+      if ( p.Position.Y < _bounds.Top ) {
+        _bounds.Inflate(0, _bounds.Top - p.Position.Y);
+      }
+      var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
+      if ( collision != null ) {
+        //HACK: Hardcoded cell size
+        collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 180);
+      }
     }
 
     public void DrawMap(SpriteBatch uiSpriteBatch)
@@ -180,12 +232,16 @@ namespace MidnightBlue
         );
       }
 
-      normalizedPos = (_starSprite.Position / hudBounds.Width);
-      uiSpriteBatch.FillRectangle(
-        hudBounds.Center.ToVector2() + normalizedPos,
-        new Vector2(3, 3),
-        Color.Red
-      );
+      var star = GameObjects[_starSystem.Name];
+      if ( star != null ) {
+        var starSprite = star.GetComponent<SpriteTransform>() as SpriteTransform;
+        normalizedPos = (starSprite.Target.Position / hudBounds.Width);
+        uiSpriteBatch.FillRectangle(
+          hudBounds.Center.ToVector2() + normalizedPos,
+          new Vector2(3, 3),
+          Color.Red
+        );
+      }
 
       var player = GameObjects["player"].GetComponent<Movement>();
       normalizedPos = (player.Position / hudBounds.Width);
@@ -210,16 +266,57 @@ namespace MidnightBlue
 
     public override void Resume()
     {
+      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment = PhysicsEnvironement.System;
       // End transition instantly
       TransitionState = TransitionState.None;
     }
 
+    private void AnimateLoading(SpriteBatch uiSpriteBatch)
+    {
+      var loadingTexture = _loadingTextures[_animFrame];
+
+      var viewRect = MBGame.Graphics.Viewport.Bounds;
+      var pos = new Vector2(viewRect.Width - loadingTexture.Width, viewRect.Height - loadingTexture.Height);
+
+      if ( _loading ) {
+        uiSpriteBatch.DrawString(
+          _bender,
+          "Loading...",
+          new Vector2(0, 0),
+          Color.White
+        );
+      }
+
+      uiSpriteBatch.Draw(_loadingTextures[_animFrame], pos, scale: new Vector2(0.5f, 0.5f));
+
+      _animTime++;
+
+      if ( _animTime > 2 ) {
+        _animTime = 0;
+        _animFrame++;
+        if ( _animFrame > _loadingTextures.Count - 1 ) {
+          _animFrame = 0;
+        }
+      }
+    }
+
     private void LoadPlanets()
     {
-      for ( int i = 0; i < _planets.Length; i++ ) {
-        _planets[i].Generate();
-      }
+      var movement = GameObjects["player"].GetComponent<Movement>();
+
+      var closestPlanet = _planets.OrderBy(
+        planet => Vector2.Distance(movement.Position, planet.Position)
+      ).Last();
+
+      closestPlanet.Generate();
+
       _loading = false;
+
+      for ( int i = 0; i < _planets.Length; i++ ) {
+        if ( !_planets[i].Generated ) {
+          _planets[i].Generate();
+        }
+      }
     }
 
     private void UpdateSounds(Entity player)

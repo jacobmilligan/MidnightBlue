@@ -15,6 +15,9 @@ using System.Diagnostics;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+
+  public enum EntityAssociation { Strict, Vague }
+
   /// <summary>
   /// Performs logic on an entity.
   /// </summary>
@@ -35,6 +38,8 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     protected Dictionary<ulong, Entity> _idEntityMap;
 
+    protected EntityAssociation _associationType;
+
     private Stopwatch _timer;
 
     /// <summary>
@@ -49,6 +54,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _toDestroy = new List<Entity>();
       _components = new List<Type>();
       _idEntityMap = new Dictionary<ulong, Entity>();
+      _associationType = EntityAssociation.Strict;
 
       ID = 0;
 
@@ -68,6 +74,7 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     public void Run()
     {
+      //TODO: Remove when finished debugging
       _timer = Stopwatch.StartNew();
 
       _toDestroy.Clear();
@@ -162,6 +169,11 @@ namespace MidnightBlue.Engine.EntityComponent
     public List<Entity> DestroyList
     {
       get { return _toDestroy; }
+    }
+
+    public EntityAssociation Association
+    {
+      get { return _associationType; }
     }
   }
 }

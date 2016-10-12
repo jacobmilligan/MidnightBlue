@@ -12,12 +12,12 @@ namespace MidnightBlue.Engine.EntityComponent
 {
   public class DepthSystem : EntitySystem
   {
-    public DepthSystem() : base(typeof(Depth), typeof(SpriteComponent)) { }
+    public DepthSystem() : base(typeof(Depth), typeof(SpriteTransform)) { }
 
     protected override void Process(Entity entity)
     {
       var depth = entity.GetComponent<Depth>();
-      var sprite = entity.GetComponent<SpriteComponent>();
+      var sprite = entity.GetComponent<SpriteTransform>();
       if ( depth != null && sprite != null ) {
         sprite.Z = sprite.Bounds.Top;
       }

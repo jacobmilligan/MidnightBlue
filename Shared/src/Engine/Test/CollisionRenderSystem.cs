@@ -19,7 +19,7 @@ namespace MidnightBlue.Engine.Testing
   {
     private SpriteBatch _spriteBatch;
     public CollisionRenderSystem(SpriteBatch spriteBatch)
-      : base(typeof(CollisionComponent), typeof(StarSystem), typeof(SpriteComponent))
+      : base(typeof(CollisionComponent), typeof(SpriteTransform))
     {
       _spriteBatch = spriteBatch;
     }
@@ -27,9 +27,9 @@ namespace MidnightBlue.Engine.Testing
     protected override void Process(Entity entity)
     {
       var collision = entity.GetComponent<CollisionComponent>();
-      var sprite = entity.GetComponent<SpriteComponent>();
+      var sprite = entity.GetComponent<SpriteTransform>();
 
-      if ( sprite != null && MBGame.Camera.Contains(sprite.Target.Position) == ContainmentType.Contains ) {
+      if ( sprite != null && MBGame.Camera.GetBoundingRectangle().Intersects(sprite.Target.GetBoundingRectangle()) ) {
         _spriteBatch.DrawRectangle(sprite.Target.GetBoundingRectangle(), Color.Yellow);
         if ( collision != null ) {
           foreach ( var b in collision.Boxes ) {

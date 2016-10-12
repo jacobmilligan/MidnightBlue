@@ -20,7 +20,7 @@ namespace MidnightBlue.Testing
 {
   public class MapTest : Scene
   {
-    private Planet _planet;
+    private Planet _planet, _planet2;
     private SpriteFont _font;
 
     public MapTest(EntityMap map, ContentManager content) : base(map, content)
@@ -58,12 +58,29 @@ namespace MidnightBlue.Testing
           }, 10490
         );
         _planet.Generate();
-        _planet.CreateMapTexture(uiSpriteBatch, Content);
+        _planet.CreateMapTexture(Content);
+      }
+
+      if ( _planet2 == null ) {
+        var length = new Length((ulong)(Length.AstronomicalUnit * 5.9) * 1000);
+        _planet2 = new Planet(
+          new PlanetMetadata {
+            Radius = 400000,
+            SurfaceTemperature = 20,
+            Type = PlanetType.Terrestrial,
+            StarDistance = new Length(length.Kilometers)
+          }, 10490
+        );
+        _planet2.Generate();
+        _planet2.CreateMapTexture(Content);
       }
 
       //uiSpriteBatch.Draw(_planet.GetMapLayer("elevation"), new Vector2(0, 0));
       uiSpriteBatch.Draw(_planet.GetMapLayer("map"), new Vector2(0, 0));
       uiSpriteBatch.Draw(_planet.GetMapLayer("planet map"), new Vector2(_planet.Size.X, 0));
+
+      uiSpriteBatch.Draw(_planet2.GetMapLayer("map"), new Vector2(0, _planet2.Size.Y));
+      uiSpriteBatch.Draw(_planet2.GetMapLayer("planet map"), new Vector2(_planet2.Size.X, _planet2.Size.Y));
 
       //FIXME: Remove method after debugging
       var mouse = Mouse.GetState().Position;

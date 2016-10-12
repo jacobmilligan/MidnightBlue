@@ -20,7 +20,7 @@ namespace MidnightBlue.Engine.EntityComponent
     private CollisionMap _map;
     private int _comparisons;
 
-    public CollisionSystem() : base(typeof(CollisionComponent), typeof(SpriteComponent))
+    public CollisionSystem() : base(typeof(CollisionComponent))
     {
       ResetGrid(0, 0, 0, 0, 1);
     }
@@ -35,9 +35,6 @@ namespace MidnightBlue.Engine.EntityComponent
       _comparisons = 0;
 
       _map.Clear();
-      var pos = MBGame.Camera.Position.ToPoint();
-      //_map.UpdatePosition(pos.X, pos.Y);
-
       var maxEntities = AssociatedEntities.Count;
 
       for ( int e = 0; e < maxEntities; e++ ) {
@@ -55,7 +52,8 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       var entityCount = AssociatedEntities.Count;
       for ( int e = 0; e < entityCount; e++ ) {
-        var movement = AssociatedEntities[e].GetComponent<Movement>();
+        var entity = AssociatedEntities[e];
+        var movement = entity.GetComponent<Movement>();
         if ( movement != null ) {
           Process(AssociatedEntities[e]);
         }
@@ -65,7 +63,7 @@ namespace MidnightBlue.Engine.EntityComponent
     protected override void Process(Entity entity)
     {
       var collision = entity.GetComponent<CollisionComponent>();
-      var sprite = entity.GetComponent<SpriteComponent>();
+      var sprite = entity.GetComponent<SpriteTransform>();
 
       var center = Vector2.Zero;
 
@@ -96,6 +94,7 @@ namespace MidnightBlue.Engine.EntityComponent
               collision.Collider = n;
               neighbourCollision.Event = true;
               neighbourCollision.Collider = entity;
+              Console.WriteLine("collision");
             }
           }
         }

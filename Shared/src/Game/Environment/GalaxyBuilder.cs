@@ -127,7 +127,7 @@ namespace MidnightBlue
       var planetSize = 1;
       for ( int nebulaLeft = availableMatter; nebulaLeft > 0; nebulaLeft -= planetSize + (impact * impact) ) {
         impact = _rand.Next(acceleration);
-        if ( impact > 100 && impact < 200 ) {
+        if ( impact > 100 && impact < 400 ) {
 
           // Convert distance (d/1000000) for less overhead while calculating
           // the planets parameters
@@ -238,6 +238,11 @@ namespace MidnightBlue
     public bool Done
     {
       get { return _done; }
+    }
+
+    public List<StarSystem> StarSystems
+    {
+      get { return _starSystems; }
     }
   }
 }

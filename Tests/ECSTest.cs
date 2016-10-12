@@ -126,7 +126,7 @@ namespace MidnightBlue.Engine.Testing
     {
       var e = _map["persistant entity"];
       if ( e != null ) {
-        e.Remove<Position>();
+        e.Detach<Position>();
         Assert.Null(e.GetComponent<Position>());
         Assert.False(_map.GetSystem<TestSystem>().AssociatedEntities.Contains(e));
       }

@@ -49,7 +49,8 @@ namespace MidnightBlue
 
       if ( collision != null && collision.Event ) {
         var sys = collision.Collider.GetComponent<StarSystem>();
-        if ( sys != null ) {
+        var planet = collision.Collider.GetComponent<PlanetComponent>();
+        if ( sys != null || planet != null ) {
           shipController.WillEnter = true;
         }
       }

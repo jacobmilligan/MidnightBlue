@@ -152,10 +152,20 @@ namespace MidnightBlue.Engine.EntityComponent
     public void UpdateSystems(Entity entity)
     {
       foreach ( var sys in _systems.Values ) {
-        if ( (entity.Mask & sys.ID) == sys.ID ) {
-          sys.AssociateEntity(entity);
-        } else {
-          sys.AssociatedEntities.Remove(entity);
+        if ( sys.Association == EntityAssociation.Strict ) {
+          if ( (entity.Mask & sys.ID) == sys.ID ) {
+            sys.AssociateEntity(entity);
+          } else {
+            sys.AssociatedEntities.Remove(entity);
+          }
+        }
+
+        if ( sys.Association == EntityAssociation.Vague ) {
+          if ( (entity.Mask & sys.ID) != 0 ) {
+            sys.AssociateEntity(entity);
+          } else {
+            sys.AssociatedEntities.Remove(entity);
+          }
         }
       }
     }

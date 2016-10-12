@@ -16,7 +16,7 @@ namespace MidnightBlue.Engine.EntityComponent
   /// <summary>
   /// Defines the attached entity as controllable
   /// </summary>
-  public class PlayerController : IComponent
+  public class UtilityController : IComponent
   {
     /// <summary>
     /// The input map for the player controller. 
@@ -28,13 +28,10 @@ namespace MidnightBlue.Engine.EntityComponent
     /// Initializes a new instance of the <see cref="T:MidnightBlue.PlayerController"/> component
     /// with default input assignment
     /// </summary>
-    public PlayerController()
+    public UtilityController()
     {
       _inputMap = new InputMap();
-      _inputMap.Assign<MoveUp>(Keys.W, CommandType.Hold);
-      _inputMap.Assign<MoveRight>(Keys.D, CommandType.Hold);
-      _inputMap.Assign<MoveDown>(Keys.S, CommandType.Hold);
-      _inputMap.Assign<MoveLeft>(Keys.A, CommandType.Hold);
+      _inputMap.Assign<ConsoleCommand>(Keys.OemTilde, CommandType.Trigger);
     }
 
     /// <summary>
