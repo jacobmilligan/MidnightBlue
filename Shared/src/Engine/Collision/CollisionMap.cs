@@ -44,11 +44,16 @@ namespace MidnightBlue.Engine.Collision
       _nonEmptyCells = new List<CollisionCell>();
     }
 
-    public Point IndexOf(Vector2 position)
+    public Point IndexOf(Point position)
     {
+      var pos = MBMath.WrapGrid(position.X / _cellSize, position.Y / _cellSize, (int)_max.X, (int)_max.Y);
+      //return new Point {
+      //  X = (int)((position.X - _min.X) / _cellSize),
+      //  Y = (int)((position.Y - _min.Y) / _cellSize)
+      //};
       return new Point {
-        X = (int)((position.X - _min.X) / _cellSize),
-        Y = (int)((position.Y - _min.Y) / _cellSize)
+        X = pos.X,
+        Y = pos.Y
       };
     }
 
@@ -77,7 +82,7 @@ namespace MidnightBlue.Engine.Collision
         var corners = GetCorners(boxes[b]);
 
         foreach ( var corner in corners ) {
-          var index = IndexOf(corner);
+          var index = IndexOf(corner.ToPoint());
           if ( IndexExists(index) ) {
             var cell = _cells[index.X, index.Y];
             if ( cell == null ) {
@@ -106,7 +111,7 @@ namespace MidnightBlue.Engine.Collision
       _checkedIDs.Clear();
 
       foreach ( var corner in corners ) {
-        var index = IndexOf(corner);
+        var index = IndexOf(corner.ToPoint());
         if ( IndexExists(index) ) {
           var cell = _cells[index.X, index.Y];
           if ( cell != null ) {

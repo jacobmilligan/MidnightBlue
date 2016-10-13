@@ -10,22 +10,33 @@
 using System;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
+using MidnightBlue.Engine.Tiles;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
 {
   public class PlanetScene : Scene
   {
-    Planet _planet;
+    private Planet _planet;
+    private TileMap _tiles;
+    private SoundTrigger _thrusterSound;
 
     public PlanetScene(EntityMap map, ContentManager content, Planet planet) : base(map, content)
     {
       _planet = planet;
+
+      _tiles = new TileMap(content.Load<Texture2D>("Images/terrain"), 32, scale: 2);
+      _tiles.Fill(planet.Tiles);
+
+      _thrusterSound = new SoundTrigger(content.Load<SoundEffect>("Audio/engine"));
+      _thrusterSound.IsLooped = true;
+
       map.Clear();
 
       var collision = map.GetSystem<CollisionSystem>() as CollisionSystem;
@@ -38,18 +49,14 @@ namespace MidnightBlue
 
     public override void Initialize()
     {
-      var physicsSystem = GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem;
-      physicsSystem.Environment = PhysicsEnvironement.Planet;
-
       var player = GameObjects["player"];
-      var movement = player.GetComponent<Movement>();
-      var physics = player.GetComponent<PhysicsComponent>();
-      movement.Position = new Vector2(0, 0);
-      movement.Speed = 350;
-      physics.Velocity = new Vector2(0, 0);
+      BecomeShip(player);
 
-      player.Detach<ShipController>();
-      player.Attach<PlayerController>();
+      var physicsSystem = GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem;
+      physicsSystem.Environment = new PhysicsEnvironment {
+        Inertia = 0.92f,
+        RotationInertia = 0.95f
+      };
 
       // End transition instantly
       TransitionState = TransitionState.None;
@@ -57,59 +64,43 @@ namespace MidnightBlue
 
     public override void HandleInput()
     {
+      GameObjects.GetSystem<ShipInputSystem>().Run();
       GameObjects.GetSystem<InputSystem>().Run();
     }
 
     public override void Update()
     {
+      var player = GameObjects["player"];
+      UpdateSounds(player);
+
+      //FIXME: Weird flash of sprite when wrapping
+      _tiles.HandleWrapping(player.GetComponent<Movement>());
+
       GameObjects.GetSystem<CollisionSystem>().Run();
       GameObjects.GetSystem<PhysicsSystem>().Run();
       GameObjects.GetSystem<MovementSystem>().Run();
       GameObjects.GetSystem<DepthSystem>().Run();
-
-      HandleWrapping();
     }
 
-    private void HandleWrapping()
+    private void UpdateSounds(Entity player)
     {
-      var movement = GameObjects["player"].GetComponent<Movement>();
-      if ( movement.Position.X < 0 ) {
-        movement.Position = new Vector2(_planet.Size.X * 32, movement.Position.Y);
-      }
-      if ( movement.Position.X > _planet.Size.X * 32 ) {
-        movement.Position = new Vector2(0, movement.Position.Y);
-      }
-      if ( movement.Position.Y > _planet.Size.Y * 32 ) {
-        movement.Position = new Vector2(movement.Position.X, 0);
-      }
-      if ( movement.Position.Y < 0 ) {
-        movement.Position = new Vector2(movement.Position.X, _planet.Size.Y * 32);
+      var physics = player.GetComponent<PhysicsComponent>();
+      var ship = player.GetComponent<ShipController>();
+
+      if ( ship != null && physics != null ) {
+        if ( physics.Power > 0 || physics.Power < 0 ) {
+          _thrusterSound.FadeUp();
+        } else {
+          _thrusterSound.FadeDown();
+        }
+      } else {
+        _thrusterSound.FadeDown();
       }
     }
 
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
-      var cameraBounds = MBGame.Camera.GetBoundingRectangle();
-      var startX = (int)(-cameraBounds.Location.X / 32);
-      var startY = (int)(-cameraBounds.Location.Y / 32);
-      var endX = startX + (cameraBounds.Width / 32);
-      var endY = startY + (cameraBounds.Height / 32);
-
-      for ( int x = 0; x < _planet.Size.X; x++ ) {
-        for ( int y = 0; y < _planet.Size.X; y++ ) {
-          var drawPos = MBMath.WrapGrid((int)(x + cameraBounds.Width), (int)(y + cameraBounds.Height), _planet.Size.X, _planet.Size.Y);
-          var viewRect = new RectangleF(x * 32, y * 32, 32, 32);
-          if ( cameraBounds.Contains(viewRect) ) {
-            spriteBatch.FillRectangle(
-              viewRect,
-              _planet.GetColor(_planet.Tiles[drawPos.X, drawPos.Y].Biome)
-            );
-          } else {
-
-          }
-        }
-      }
-
+      _tiles.Draw(spriteBatch);
       GameObjects.GetSystem<RenderSystem>().Run();
     }
 
@@ -129,6 +120,43 @@ namespace MidnightBlue
     {
       // End transition instantly
       TransitionState = TransitionState.None;
+    }
+
+    private void BecomeShip(Entity entity)
+    {
+      entity.DetachAll();
+
+      var sprite = entity.Attach<SpriteTransform>(
+        Content.Load<Texture2D>("Images/playership_blue"),
+        new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
+        new Vector2(0.8f, 0.8f)
+      ) as SpriteTransform;
+      sprite.Z = 1;
+      entity.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
+      entity.Attach<PhysicsComponent>();
+      var inventory = entity.Attach<Inventory>() as Inventory;
+      inventory.Items.Add(typeof(Fuel), new Fuel(10000));
+      entity.Attach<Movement>(1000.0f, 0.1f);
+
+      entity.Attach<ShipController>();
+      entity.Attach<UtilityController>();
+
+      GameObjects.UpdateSystems(entity);
+    }
+
+    private void BecomePlayer(Entity entity)
+    {
+      entity.DetachAll();
+
+      var movement = entity.GetComponent<Movement>();
+      var physics = entity.GetComponent<PhysicsComponent>();
+      movement.Position = new Vector2(0, 0);
+      movement.Speed = 350;
+      physics.Velocity = new Vector2(0, 0);
+
+      entity.Detach<ShipController>();
+      entity.Attach<PlayerController>();
+      entity.Attach<UtilityController>();
     }
 
   }

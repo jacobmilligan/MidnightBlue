@@ -78,15 +78,6 @@
     <None Include="libSDL2-2.0.0.dylib" />
     <None Include="libopenal.1.dylib" />
     <None Include="packages.config" />
-    <None Include="..\Shared\Content\Arial.ttf">
-      <Link>Content\Arial.ttf</Link>
-    </None>
-    <None Include="..\Shared\Content\SourceCode.spritefont">
-      <Link>Content\SourceCode.spritefont</Link>
-    </None>
-    <None Include="..\Shared\Content\SourceCodePro-Regular.ttf">
-      <Link>Content\SourceCodePro-Regular.ttf</Link>
-    </None>
     <None Include="..\Shared\Content\bin\DesktopGL\Images\.DS_Store">
       <Link>Content\bin\DesktopGL\Images\.DS_Store</Link>
     </None>
@@ -108,12 +99,13 @@
     <None Include="..\Shared\Content\obj\Windows\Images\Galaxy.mgcontent">
       <Link>Content\obj\Windows\Images\Galaxy.mgcontent</Link>
     </None>
-    <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
-    <MonoGameContentReference Include="..\Shared\Content\Content.mgcb" />
     <MonoGameContentReference Include="..\Shared\Content\Content.mgcb">
       <Link>Content\Content.mgcb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </MonoGameContentReference>
+    <None Include="..\Shared\Content\Fonts\.DS_Store">
+      <Link>Content\Fonts\.DS_Store</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -124,10 +116,6 @@
     </Content>
     <Content Include="..\Shared\Content\bin\DesktopGL\Images\Galaxy.xnb">
       <Link>Content\bin\DesktopGL\Images\Galaxy.xnb</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Shared\Content\SourceCode.xnb">
-      <Link>Content\SourceCode.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -146,6 +134,34 @@
   <ItemGroup>
     <BundleResource Include="..\Shared\Content\Images\Galaxy.png">
       <Link>Content\Images\Galaxy.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\HoratioLarge.xnb">
+      <Link>Content\Fonts\HoratioLarge.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\Horatio.xnb">
+      <Link>Content\Fonts\Horatio.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\Bender Medium.xnb">
+      <Link>Content\Fonts\Bender Medium.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\Bender Large.xnb">
+      <Link>Content\Fonts\Bender Large.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\Bender.xnb">
+      <Link>Content\Fonts\Bender.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\SerifGothicBlack.xnb">
+      <Link>Content\Fonts\SerifGothicBlack.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="..\Shared\Content\Fonts\SourceCode.xnb">
+      <Link>Content\Fonts\SourceCode.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

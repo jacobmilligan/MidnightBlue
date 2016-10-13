@@ -156,7 +156,7 @@ namespace MidnightBlue.Engine.EntityComponent
           if ( (entity.Mask & sys.ID) == sys.ID ) {
             sys.AssociateEntity(entity);
           } else {
-            sys.AssociatedEntities.Remove(entity);
+            sys.RemoveAssociation(entity);
           }
         }
 
@@ -164,7 +164,7 @@ namespace MidnightBlue.Engine.EntityComponent
           if ( (entity.Mask & sys.ID) != 0 ) {
             sys.AssociateEntity(entity);
           } else {
-            sys.AssociatedEntities.Remove(entity);
+            sys.RemoveAssociation(entity);
           }
         }
       }

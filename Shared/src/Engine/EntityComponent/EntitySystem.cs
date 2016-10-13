@@ -99,7 +99,9 @@ namespace MidnightBlue.Engine.EntityComponent
     {
       var entityCount = _entities.Count;
       for ( int i = 0; i < entityCount; i++ ) {
-        Process(_entities[i]);
+        if ( _entities[i].Active ) {
+          Process(_entities[i]);
+        }
       }
     }
 
@@ -124,6 +126,12 @@ namespace MidnightBlue.Engine.EntityComponent
         _idEntityMap.Add(entity.ID, entity);
       }
       PostAssociate(entity);
+    }
+
+    public void RemoveAssociation(Entity entity)
+    {
+      _entities.Remove(entity);
+      _idEntityMap.Remove(entity.ID);
     }
 
     protected virtual void PreProcess() { }

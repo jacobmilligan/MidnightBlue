@@ -8,6 +8,8 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.IO;
@@ -26,6 +28,7 @@ namespace MidnightBlue
     public ShipController()
     {
       _inputMap = new InputMap();
+
       _inputMap.Assign<MoveForward>(Keys.W, CommandType.Hold);
       _inputMap.Assign<MoveBackward>(Keys.S, CommandType.Hold);
 
@@ -45,8 +48,6 @@ namespace MidnightBlue
     {
       get { return _inputMap; }
     }
-
-    public ParticleEffect Particles { get; set; }
 
     public bool WillEnter { get; set; }
   }

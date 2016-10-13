@@ -38,14 +38,18 @@ namespace MidnightBlue.Engine.IO
     /// <param name="key">Key to assign the command to</param>
     /// <param name="type">Type of trigger</param>
     /// <typeparam name="T">The command to assign</typeparam>
-    public void Assign<T>(Keys key, CommandType type) where T : Command
+    public Command Assign<T>(Keys key, CommandType type) where T : Command
     {
+      var newCommand = NewCommand<T>(key, type);
+
       if ( _inputMap.ContainsKey(key) ) {
-        _inputMap[key].Add(NewCommand<T>(key, type));
+        _inputMap[key].Add(newCommand);
       } else {
         _inputMap.Add(key, new List<Command>());
-        _inputMap[key].Add(NewCommand<T>(key, type));
+        _inputMap[key].Add(newCommand);
       }
+
+      return newCommand;
     }
 
     /// <summary>

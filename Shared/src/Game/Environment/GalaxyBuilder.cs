@@ -150,7 +150,11 @@ namespace MidnightBlue
       var maxDensity = 6;
       var density = maxDensity - (impactSpeed / 100);
       density = _rand.Next(density);
-      var radius = density + (_jup * (impactSpeed / 1000));
+      var radius = density + (_jup * (impactSpeed / 100));
+
+      if ( radius <= 0 ) {
+        Console.WriteLine(radius);
+      }
 
       var gas = _rand.Next(radius + impactSpeed);
       var water = _rand.Next(starDistance);
@@ -179,7 +183,7 @@ namespace MidnightBlue
         Water = water,
         Carbon = carbon,
         Type = type,
-        Radius = radius * 100000,
+        Radius = radius,
         SurfaceTemperature = temperature,
         Habitable = life,
         // convert distance back to actual kilometers

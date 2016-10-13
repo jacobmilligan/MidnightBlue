@@ -56,6 +56,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _tag = tag;
       Mask = 0;
       Persistant = false;
+      Active = true;
     }
 
     /// <summary>
@@ -78,9 +79,13 @@ namespace MidnightBlue.Engine.EntityComponent
     public IComponent Attach<T>(params object[] args) where T : IComponent
     {
       var component = NewComponent<T>(args);
-      _components.Add(typeof(T), component);
-      _container.UpdateEntityMask(this);
-      _container.UpdateSystems(this);
+      if ( !_components.ContainsKey(typeof(T)) ) {
+        _components.Add(typeof(T), component);
+        _container.UpdateEntityMask(this);
+        _container.UpdateSystems(this);
+      } else {
+        component = _components[typeof(T)];
+      }
       return component;
     }
 
@@ -102,6 +107,13 @@ namespace MidnightBlue.Engine.EntityComponent
         _container.UpdateEntityMask(this);
         _container.UpdateSystems(this);
       }
+    }
+
+    public void DetachAll()
+    {
+      _components.Clear();
+      _container.UpdateEntityMask(this);
+      _container.UpdateSystems(this);
     }
 
     /// <summary>

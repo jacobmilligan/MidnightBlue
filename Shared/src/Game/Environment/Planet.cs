@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine;
+using MidnightBlue.Engine.Tiles;
 using MonoGame.Extended.Shapes;
 using TinkerWorX.AccidentalNoiseLibrary;
 
@@ -25,20 +26,6 @@ namespace MidnightBlue
 
     private const int _cellSize = 1;
 
-    private Color _tundra = new Color(185, 214, 227);
-    private Color _boreal = new Color(153, 180, 157);
-    private Color _desert = new Color(250, 214, 156);
-    private Color _shrubLand = new Color(194, 111, 80);
-    private Color _woodland = new Color(53, 130, 71);
-    private Color _temperateSeasonalForest = new Color(174, 210, 0);
-    private Color _temperateRainforest = new Color(126, 162, 119);
-    private Color _subtropicalDesert = new Color(222, 188, 114);
-    private Color _savana = new Color(157, 156, 53);
-    private Color _tropicalRainforest = new Color(55, 113, 71);
-    private Color _temperateGrassland = new Color(126, 138, 50);
-    private Color _ocean = new Color(17, 30, 82);
-    private Color _shallows = new Color(11, 74, 130);
-
     private int _width, _height;
     private bool _generated;
     private string _name;
@@ -47,7 +34,7 @@ namespace MidnightBlue
     private Dictionary<string, Texture2D> _layers;
     private Texture2D _planetMask;
 
-    private Tile[,] _tiles;
+    private PlanetTile[,] _tiles;
 
     public Planet(PlanetMetadata meta, int seed)
     {
@@ -62,7 +49,7 @@ namespace MidnightBlue
       }
       _height = _width = (int)scaledRadius;
 
-      _tiles = new Tile[_width, _height];
+      _tiles = new PlanetTile[_width, _height];
 
       // Setup elevation map
       var elevationMap = new ImplicitFractal(
@@ -109,7 +96,7 @@ namespace MidnightBlue
       _layers = new Dictionary<string, Texture2D>();
     }
 
-    public void Generate()
+    public void Generate(Random rand)
     {
       GenerateNoiseData();
       //CreateNoiseMapTexture("elevation", _elevation);
@@ -172,7 +159,7 @@ namespace MidnightBlue
           }
 
 
-          _tiles[x, y] = new Tile(elevation, moisture, temperature);
+          _tiles[x, y] = new PlanetTile(elevation, moisture, temperature, rand);
         }
       }
       _generated = true;
@@ -210,7 +197,7 @@ namespace MidnightBlue
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
           var tile = _tiles[x, y];
-          var clr = GetColor(tile.Biome);
+          var clr = tile.TintColor;
           spriteBatch.FillRectangle(
             x * _cellSize,
             y * _cellSize,
@@ -236,7 +223,7 @@ namespace MidnightBlue
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
           var tile = _tiles[x, y];
-          var clr = GetColor(tile.Biome);
+          var clr = tile.TintColor;
           if ( circleMask.Contains(x * _cellSize, y * _cellSize) ) {
             spriteBatch.FillRectangle(
               x * _cellSize,
@@ -350,64 +337,7 @@ namespace MidnightBlue
       return result;
     }
 
-    public Color GetColor(Biome biome)
-    {
-      Color clr = Color.Transparent;
-
-      switch ( biome ) {
-        case Biome.Tundra:
-          clr = _tundra;
-          break;
-        case Biome.Taiga:
-          clr = _boreal;
-          break;
-        case Biome.Woodland:
-          clr = _woodland;
-          break;
-        case Biome.Shrubland:
-          clr = _shrubLand;
-          break;
-        case Biome.TemeperateGrassland:
-          clr = _temperateGrassland;
-          break;
-        case Biome.Desert:
-          clr = _desert;
-          break;
-        case Biome.SubtropicalDesert:
-          clr = _subtropicalDesert;
-          break;
-        case Biome.Savana:
-          clr = _savana;
-          break;
-        case Biome.TemperateSeasonalForest:
-          clr = _temperateSeasonalForest;
-          break;
-        case Biome.TemperateRainforest:
-          clr = _temperateRainforest;
-          break;
-        case Biome.TropicalRainforest:
-          clr = _tropicalRainforest;
-          break;
-        case Biome.Barren:
-          clr = Color.Gray;
-          break;
-        case Biome.ShallowOcean:
-          clr = _shallows;
-          break;
-        case Biome.Ocean:
-          clr = _ocean;
-          break;
-        case Biome.Ice:
-          clr = Color.White;
-          break;
-        default:
-          break;
-      }
-
-      return clr;
-    }
-
-    public Tile[,] Tiles
+    public PlanetTile[,] Tiles
     {
       get { return _tiles; }
     }

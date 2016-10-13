@@ -30,8 +30,7 @@ namespace MidnightBlue
     private int _animFrame, _animTime;
     private Texture2D _ship, _background, _star;
     private List<Texture2D> _loadingTextures;
-    private SoundEffect _thrusterSound;
-    private SoundEffectInstance _thrusterInstance;
+    private SoundTrigger _thrusterSound;
     private StarSystem _starSystem;
     private Planet[] _planets;
     private Thread _planetLoader;
@@ -48,11 +47,10 @@ namespace MidnightBlue
       _loading = true;
       _ship = content.Load<Texture2D>("Images/playership_blue");
       _background = content.Load<Texture2D>("Images/stars");
-      _thrusterSound = content.Load<SoundEffect>("Audio/engine");
       _bender = content.Load<SpriteFont>("Fonts/Bender Large");
       _star = content.Load<Texture2D>("Images/star");
-      _thrusterInstance = _thrusterSound.CreateInstance();
-      _thrusterInstance.IsLooped = true;
+      _thrusterSound = new SoundTrigger(content.Load<SoundEffect>("Audio/engine"));
+      _thrusterSound.IsLooped = true;
 
       _starSystem = starSystem;
       _planets = new Planet[starSystem.Planets.Count];
@@ -120,7 +118,6 @@ namespace MidnightBlue
         var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
         shipInput.Run();
       }
-      GameObjects.GetSystem<NavigationInputSystem>().Run();
     }
 
     public override void Update()
@@ -266,7 +263,11 @@ namespace MidnightBlue
 
     public override void Resume()
     {
-      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment = PhysicsEnvironement.System;
+      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment =
+        new PhysicsEnvironment {
+          Inertia = 0.98f,
+          RotationInertia = 0.98f
+        };
       // End transition instantly
       TransitionState = TransitionState.None;
     }
@@ -308,38 +309,25 @@ namespace MidnightBlue
         planet => Vector2.Distance(movement.Position, planet.Position)
       ).Last();
 
-      closestPlanet.Generate();
+      closestPlanet.Generate(_rand);
 
       _loading = false;
 
       for ( int i = 0; i < _planets.Length; i++ ) {
         if ( !_planets[i].Generated ) {
-          _planets[i].Generate();
+          _planets[i].Generate(_rand);
         }
       }
     }
 
     private void UpdateSounds(Entity player)
     {
-      const float fadeSpeed = 0.05f;
-      const float maxVolume = 0.5f;
-
       var physics = player.GetComponent<PhysicsComponent>();
 
       if ( physics != null && (physics.Power > 0 || physics.Power < 0) ) {
-        if ( _thrusterInstance.State == SoundState.Stopped ) {
-          _thrusterInstance.Play();
-          _thrusterInstance.Volume = 0.0f;
-        }
-        if ( _thrusterInstance.Volume < maxVolume ) {
-          _thrusterInstance.Volume += fadeSpeed;
-        }
+        _thrusterSound.FadeUp();
       } else {
-        if ( _thrusterInstance.Volume > fadeSpeed ) {
-          _thrusterInstance.Volume -= fadeSpeed;
-        } else {
-          _thrusterInstance.Stop();
-        }
+        _thrusterSound.FadeDown();
       }
     }
 

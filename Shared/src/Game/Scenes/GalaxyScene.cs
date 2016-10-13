@@ -32,8 +32,9 @@ namespace MidnightBlue.Engine
     private SpriteFont _benderLarge;
     private Texture2D _ship, _solarSystem, _background;
     private Song _bgSong;
-    private SoundEffect _thrusterSound;
-    private SoundEffectInstance _thrusterInstance;
+    //private SoundEffect _thrusterSound;
+    //private SoundEffectInstance _thrusterInstance;
+    private SoundTrigger _thrusterSound;
     private List<Texture2D> _loadingTextures;
     private GalaxyBuilder _galaxy;
     private GalaxyHud _hud;
@@ -44,7 +45,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 11090; //HACK: Hardcoded seed value for galaxy
+      _seed = 11131100; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
       _scanResults = new List<string>();
@@ -56,9 +57,10 @@ namespace MidnightBlue.Engine
       _benderLarge = content.Load<SpriteFont>("Fonts/Bender Large");
 
       _bgSong = content.Load<Song>("Audio/galaxy");
-      _thrusterSound = content.Load<SoundEffect>("Audio/engine");
-      _thrusterInstance = _thrusterSound.CreateInstance();
-      _thrusterInstance.IsLooped = true;
+      _thrusterSound = new SoundTrigger(content.Load<SoundEffect>("Audio/engine"));
+      _thrusterSound.IsLooped = true;
+      //_thrusterInstance = _thrusterSound.CreateInstance();
+      //_thrusterInstance.IsLooped = true;
 
       _loadingTextures = new List<Texture2D>();
       var animDir = content.RootDirectory + "/Images/loading_galaxy";
@@ -87,7 +89,10 @@ namespace MidnightBlue.Engine
 
         var physics = GameObjects.GetSystem<PhysicsSystem>();
         if ( physics != null ) {
-          (physics as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
+          (physics as PhysicsSystem).Environment = new PhysicsEnvironment {
+            Inertia = 0.999f,
+            RotationInertia = 0.98f
+          };
         }
 
         var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
@@ -113,7 +118,6 @@ namespace MidnightBlue.Engine
     public override void HandleInput()
     {
       if ( !_loading ) {
-        GameObjects.GetSystem<NavigationInputSystem>().Run();
         GameObjects.GetSystem<InputSystem>().Run();
         var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
         shipInput.Run();
@@ -185,32 +189,22 @@ namespace MidnightBlue.Engine
 
     public override void Resume()
     {
-      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment = PhysicsEnvironement.Galaxy;
+      (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment = new PhysicsEnvironment {
+        Inertia = 0.999f,
+        RotationInertia = 0.98f
+      };
       BuildGalaxy();
       TransitionState = TransitionState.None;
     }
 
     private void UpdateSounds(Entity player)
     {
-      const float fadeSpeed = 0.05f;
-      const float maxVolume = 0.5f;
-
       var physics = player.GetComponent<PhysicsComponent>();
 
       if ( physics != null && (physics.Power > 0 || physics.Power < 0) ) {
-        if ( _thrusterInstance.State == SoundState.Stopped ) {
-          _thrusterInstance.Play();
-          _thrusterInstance.Volume = 0.0f;
-        }
-        if ( _thrusterInstance.Volume < maxVolume ) {
-          _thrusterInstance.Volume += fadeSpeed;
-        }
+        _thrusterSound.FadeUp();
       } else {
-        if ( _thrusterInstance.Volume > fadeSpeed ) {
-          _thrusterInstance.Volume -= fadeSpeed;
-        } else {
-          _thrusterInstance.Stop();
-        }
+        _thrusterSound.FadeDown();
       }
     }
 

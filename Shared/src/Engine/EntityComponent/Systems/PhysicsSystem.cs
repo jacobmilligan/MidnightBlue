@@ -13,14 +13,21 @@ using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
-  public enum PhysicsEnvironement { Galaxy, System, Planet }
+  public class PhysicsEnvironment
+  {
+    public float Inertia { get; set; }
+    public float RotationInertia { get; set; }
+  }
 
   public class PhysicsSystem : EntitySystem
   {
     public PhysicsSystem()
       : base(typeof(PhysicsComponent), typeof(Movement))
     {
-      Environment = PhysicsEnvironement.Galaxy;
+      Environment = new PhysicsEnvironment {
+        Inertia = 0.999f,
+        RotationInertia = 0.98f
+      };
     }
 
     protected override void Process(Entity entity)
@@ -28,21 +35,7 @@ namespace MidnightBlue.Engine.EntityComponent
       var physics = entity.GetComponent<PhysicsComponent>();
       var movement = entity.GetComponent<Movement>();
 
-      var decay = 0.0f;
-
-      switch ( Environment ) {
-        case PhysicsEnvironement.Galaxy:
-          decay = 0.999f;
-          break;
-        case PhysicsEnvironement.System:
-          decay = 0.98f;
-          break;
-        case PhysicsEnvironement.Planet:
-          decay = 0.80f;
-          break;
-      }
-
-      physics.RotationAcceleration *= 0.98f;
+      physics.RotationAcceleration *= Environment.RotationInertia;
       movement.Angle += physics.RotationAcceleration;
 
       // Newtons law except without mass - just some arbitrary 'power' value
@@ -52,13 +45,13 @@ namespace MidnightBlue.Engine.EntityComponent
       physics.Velocity += physics.Acceleration * MBGame.DeltaTime;
       movement.Position += physics.Velocity * MBGame.DeltaTime;
 
-      physics.Velocity *= decay;
+      physics.Velocity *= Environment.Inertia;
 
       // Reset every frame as power should be only on or off
       // not decaying
       physics.Power = 0;
     }
 
-    public PhysicsEnvironement Environment { get; set; }
+    public PhysicsEnvironment Environment { get; set; }
   }
 }
