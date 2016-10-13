@@ -57,10 +57,6 @@ namespace MidnightBlue
       _starSystem = starSystem;
       _planets = new Planet[starSystem.Planets.Count];
 
-      var player = GameObjects["player"];
-      var movement = player.GetComponent<Movement>();
-      movement.Speed = 25.0f;
-      movement.RotationSpeed = 0.05f;
 
       var maxPlanetDistance = 1000;
       if ( _starSystem.Planets.Count > 0 ) {
@@ -69,13 +65,15 @@ namespace MidnightBlue
         );
       }
 
+      var player = GameObjects["player"];
+      var movement = player.GetComponent<Movement>();
+      movement.Speed = 25.0f;
+      movement.RotationSpeed = 0.05f;
+      movement.Position = new Vector2(maxPlanetDistance, maxPlanetDistance);
+
       var star = GameObjects.CreateEntity(_starSystem.Name);
       var starSprite = star.Attach<SpriteTransform>(
-        _star,
-        new Vector2(
-          movement.Position.X - maxPlanetDistance,
-          movement.Position.Y
-        ), new Vector2(2, 2)
+        _star, new Vector2(0, 0), new Vector2(2, 2)
       ) as SpriteTransform;
       star.Attach<CollisionComponent>(starSprite.Bounds);
 
@@ -182,11 +180,13 @@ namespace MidnightBlue
     private void UpdateDrawSpace(Planet p)
     {
       p.CreateMapTexture(Content);
-      var sign = _rand.Next(-1, 1);
-      p.Position = new Vector2(
-        sign * p.Meta.StarDistance.RelativeKilometers,
-        sign * p.Meta.StarDistance.RelativeKilometers
-      );
+      // Get a random point on the planets orbit to place it at
+      var randAngle = _rand.Next() * MathHelper.Pi * 2;
+      var orbitX = (float)Math.Cos(randAngle) * p.Meta.StarDistance.RelativeKilometers;
+      var orbitY = (float)Math.Sin(randAngle) * p.Meta.StarDistance.RelativeKilometers;
+      // Get a random negative or positive 1
+      var sign = _rand.Next(0, 1) * 2 - 1;
+      p.Position = new Vector2(sign * orbitX, sign * orbitY);
 
       var planetEntity = new Entity(GameObjects);
       var planetSprite = planetEntity.Attach<SpriteTransform>(
