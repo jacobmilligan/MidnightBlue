@@ -214,13 +214,13 @@ namespace MidnightBlue
     {
       var heightLevel = HeightLevel.Depths;
 
-      if ( height >= 0.24 && height < 0.32 ) {
+      if ( height >= 0.35 && height < 0.4 ) {
         heightLevel = HeightLevel.SeaLevel;
-      } else if ( height >= 0.32 && height < 0.48 ) {
+      } else if ( height >= 0.4 && height < 0.6 ) {
         heightLevel = HeightLevel.Lowland;
-      } else if ( height >= 0.48 && height < 0.64 ) {
+      } else if ( height >= 0.6 && height < 0.7 ) {
         heightLevel = HeightLevel.Mountainous;
-      } else if ( height >= 0.64 && height < 0.80 ) {
+      } else if ( height >= 0.70 && height < 0.80 ) {
         heightLevel = HeightLevel.Alpine;
       } else if ( height >= 80 ) {
         heightLevel = HeightLevel.Snow;

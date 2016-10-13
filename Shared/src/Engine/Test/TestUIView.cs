@@ -38,9 +38,20 @@ namespace MidnightBlue.Engine.Testing
         BorderColor = Color.Tomato,
         BorderDisplayed = true,
         BorderWidth = 2,
+        BackgroundColor = UIColors.Background,
         Elements = {
           "Test1",
-          "Test2"
+          "Test2",
+          "Test3",
+          "Test4",
+          "Test5",
+          "Test6",
+          "Test1",
+          "Test2",
+          "Test3",
+          "Test4",
+          "Test5",
+          "Test6"
         },
         ItemSpan = 30
       };

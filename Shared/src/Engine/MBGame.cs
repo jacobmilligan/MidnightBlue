@@ -239,15 +239,22 @@ namespace MidnightBlue.Engine
         }
       });
 
+      _debugConsole.AddFunc("TestPlanet", (string[] args) => {
+        _scenes.Push(new MapTest(_gameObjects, Content));
+      });
+
       _debugConsole.AddFunc("TestMap", (string[] args) => {
         var seed = 1090;
-        var length = new Length((ulong)(Length.AstronomicalUnit * 5.9) * 1000);
+        var length = new Length((ulong)(Length.AstronomicalUnit * 0.6359717) * 1000);
         var planet = new Planet(
             new PlanetMetadata {
-              Radius = 400000,
-              SurfaceTemperature = 20,
+              Radius = 142987,
+              SurfaceTemperature = (float)-1.293776E+10,
               Type = PlanetType.Terrestrial,
-              StarDistance = new Length(length.Kilometers)
+              StarDistance = new Length(length.Kilometers),
+              Water = 77704,
+              Carbon = 80432,
+              Density = 3
             }, seed);
         planet.Generate(new Random(seed));
         _scenes.Push(new PlanetScene(_gameObjects, Content, planet));

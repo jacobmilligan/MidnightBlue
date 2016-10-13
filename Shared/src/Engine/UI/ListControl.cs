@@ -20,8 +20,10 @@ namespace MidnightBlue.Engine.UI
   public class ListControl : UIControlElement
   {
     private SpriteFont _font;
-    private int _offset, _startItem;
+    private int _selectedItem;
     private Rectangle _upArrow, _downArrow;
+    private Rectangle _listRect;
+    private List<string> _elements;
 
     public ListControl(SpriteFont font)
       : this(font, null, null, null)
@@ -30,12 +32,20 @@ namespace MidnightBlue.Engine.UI
     public ListControl(SpriteFont font, Texture2D normal, Texture2D selected, Texture2D pressed)
       : base(normal, selected, pressed)
     {
-      Elements = new List<string>();
-      _font = font;
+      _elements = new List<string>();
+
       SeperaterColor = Color.LightGray;
       ControlSize = 10;
       ItemSpan = 1;
-      _startItem = 0;
+      _selectedItem = -1;
+      _font = font;
+
+      _listRect = new Rectangle(
+        BoundingBox.Location.X,
+        BoundingBox.Location.Y,
+        BoundingBox.Size.X - ControlSize,
+        BoundingBox.Size.Y
+      );
     }
 
 
@@ -48,20 +58,24 @@ namespace MidnightBlue.Engine.UI
           ControlSize,
           ControlSize
         );
+
         _downArrow = new Rectangle(
           BoundingBox.Right - ControlSize - BorderWidth,
           BoundingBox.Bottom - ControlSize - BorderWidth,
           ControlSize,
           ControlSize
         );
-        _offset = BoundingBox.Top;
-      }
 
-      if ( Count <= 0 ) {
-        _offset = BoundingBox.Top;
+        _listRect = new Rectangle(
+          BoundingBox.Location.X,
+          BoundingBox.Location.Y,
+          BoundingBox.Size.X - ControlSize,
+          BoundingBox.Size.Y
+        );
       }
 
       HandleScroll();
+      HandleClick();
     }
 
     public override void Draw(SpriteBatch spriteBatch)
@@ -78,54 +92,93 @@ namespace MidnightBlue.Engine.UI
       spriteBatch.DrawRectangle(_upArrow, SeperaterColor, 2);
       spriteBatch.DrawRectangle(_downArrow, SeperaterColor, 2);
 
+      if ( _selectedItem >= 0 ) {
+        spriteBatch.FillRectangle(
+          BoundingBox.X,
+          _listRect.Top + (_selectedItem * ItemSpan),
+          BoundingBox.Width,
+          ItemSpan,
+          BackgroundColor
+        );
+      }
+
       var nextEntry = 0;
       var itemY = 0;
+
       for ( int item = 0; item < Count && nextEntry < BoundingBox.Bottom; item++ ) {
-        nextEntry = _offset + (ItemSpan * itemY);
+
+        nextEntry = _listRect.Location.Y + (ItemSpan * itemY);
         var listEntry = new Vector2(BoundingBox.X, nextEntry);
+
         spriteBatch.DrawString(
           _font,
           Elements[item],
           listEntry,
           SeperaterColor
         );
+
         itemY++;
       }
+
 
       spriteBatch.End();
       spriteBatch.Begin();
       spriteBatch.GraphicsDevice.ScissorRectangle = MBGame.Graphics.Viewport.Bounds;
     }
 
-    private void HandleScroll()
+    private void HandleClick()
     {
       var mouse = Mouse.GetState();
-      if ( _upArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
-        _offset++;
-        if ( _offset < BoundingBox.Top ) {
-          _startItem--;
-        }
-      }
-      if ( _downArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
-        _offset--;
-        if ( _offset > BoundingBox.Bottom ) {
-          _startItem++;
-        }
-      }
 
-      if ( _startItem < 0 ) {
-        _startItem = 0;
-      }
-      if ( _offset > Count - 1 ) {
-        _startItem = Count - 1;
+      for ( int element = 0; element < Count; element++ ) {
+
+        var listItemRect = new Rectangle(
+          BoundingBox.X,
+          _listRect.Y + (ItemSpan * element),
+          _listRect.Width,
+          ItemSpan
+        );
+
+        if ( IOUtil.LeftMouseClicked() && listItemRect.Contains(mouse.Position) ) {
+          _selectedItem = element;
+        }
+
       }
     }
 
+    private void HandleScroll()
+    {
+      var mouse = Mouse.GetState();
+      var listPos = _listRect.Location;
 
-    public List<string> Elements { get; set; }
+      if ( _upArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
+        if ( listPos.Y <= BoundingBox.Top ) {
+          _listRect.Location = new Point(listPos.X, listPos.Y + 1);
+        }
+      }
+      if ( _downArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
+        if ( listPos.Y + _listRect.Height > BoundingBox.Bottom ) {
+          _listRect.Location = new Point(listPos.X, listPos.Y - 1);
+        }
+      }
+
+    }
+
+    public List<string> Elements
+    {
+      get
+      {
+        return _elements;
+      }
+      set
+      {
+        _elements = value;
+        _listRect.Height = Count * ItemSpan;
+      }
+    }
     public int Count
     {
-      get { return Elements.Count; }
+      get { return _elements.Count; }
     }
     public Color SeperaterColor { get; set; }
     public int ControlSize { get; set; }

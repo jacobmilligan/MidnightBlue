@@ -185,7 +185,7 @@ namespace MidnightBlue
       var sign = _rand.Next(0, 1) * 2 - 1;
       p.Position = new Vector2(sign * orbitX, sign * orbitY);
 
-      var planetEntity = new Entity(GameObjects);
+      var planetEntity = GameObjects.CreateEntity(p.Name);
       var planetSprite = planetEntity.Attach<SpriteTransform>(
         p.GetMapLayer("planet map"), p.Position, new Vector2(1, 1)
       ) as SpriteTransform;
