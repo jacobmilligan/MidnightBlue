@@ -46,7 +46,7 @@ namespace MidnightBlue.Engine.Collision
 
     public Point IndexOf(Point position)
     {
-      var pos = MBMath.WrapGrid(position.X / _cellSize, position.Y / _cellSize, (int)_max.X, (int)_max.Y);
+      var pos = MBMath.WrapGrid(position.X / _cellSize, position.Y / _cellSize, _grid.ColCount, _grid.RowCount);
       //return new Point {
       //  X = (int)((position.X - _min.X) / _cellSize),
       //  Y = (int)((position.Y - _min.Y) / _cellSize)

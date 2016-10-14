@@ -34,6 +34,9 @@ namespace MidnightBlue.Engine.Testing
         if ( collision != null ) {
           foreach ( var b in collision.Boxes ) {
             _spriteBatch.DrawRectangle(b, Color.Red);
+            if ( collision.Event ) {
+              _spriteBatch.DrawRectangle(b, Color.Green);
+            }
           }
         }
       }

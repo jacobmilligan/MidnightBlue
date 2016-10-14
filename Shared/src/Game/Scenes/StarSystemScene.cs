@@ -133,15 +133,21 @@ namespace MidnightBlue
 
         _hud.Update();
 
-        var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
-        if ( shipInput.WillEnter ) {
-          var collision = GameObjects["player"].GetComponent<CollisionComponent>();
-          if ( collision != null && collision.Collider != null ) {
+        var player = GameObjects["player"];
+        var shipController = player.GetComponent<ShipController>();
+
+        if ( shipController.State == ShipState.Landing ) {
+          var collision = player.GetComponent<CollisionComponent>();
+
+          if ( collision != null ) {
             var planet = collision.Collider.GetComponent<PlanetComponent>();
 
+            shipController.State = ShipState.Normal;
             SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
           }
+
         }
+
       }
     }
 

@@ -19,9 +19,7 @@ namespace MidnightBlue
     public ShipInputSystem() : base(
       typeof(ShipController)
     )
-    {
-      WillEnter = false;
-    }
+    { }
 
     protected override void Process(Entity entity)
     {
@@ -41,13 +39,9 @@ namespace MidnightBlue
             }
           }
         }
-
-        WillEnter = controller.WillEnter;
-        controller.WillEnter = false;
       }
     }
 
-    public bool WillEnter { get; set; }
   }
 
 }

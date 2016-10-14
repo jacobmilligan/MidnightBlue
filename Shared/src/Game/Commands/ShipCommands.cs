@@ -38,6 +38,20 @@ namespace MidnightBlue
     }
   }
 
+  public class LandCommand : Command
+  {
+    public LandCommand(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
+      var shipController = e.GetComponent<ShipController>();
+
+      if ( shipController != null && shipController.IsLandable ) {
+        shipController.State = ShipState.Landing;
+      }
+    }
+  }
+
   public class EnterStarSystem : Command
   {
     public EnterStarSystem(Keys key, CommandType type) : base(key, type) { }
@@ -51,7 +65,7 @@ namespace MidnightBlue
         var sys = collision.Collider.GetComponent<StarSystem>();
         var planet = collision.Collider.GetComponent<PlanetComponent>();
         if ( sys != null || planet != null ) {
-          shipController.WillEnter = true;
+          shipController.State = ShipState.Landing;
         }
       }
     }

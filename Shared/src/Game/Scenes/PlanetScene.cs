@@ -64,7 +64,9 @@ namespace MidnightBlue
 
     public override void HandleInput()
     {
-      GameObjects.GetSystem<ShipInputSystem>().Run();
+      var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
+      shipInput.Run();
+
       GameObjects.GetSystem<InputSystem>().Run();
     }
 
@@ -73,13 +75,49 @@ namespace MidnightBlue
       var player = GameObjects["player"];
       UpdateSounds(player);
 
-      //FIXME: Weird flash of sprite when wrapping
+      var shipController = player.GetComponent<ShipController>();
+
+      if ( shipController != null ) {
+        UpdateShip(shipController);
+      }
+
+
+      GameObjects.GetSystem<PhysicsSystem>().Run();
+
       _tiles.HandleWrapping(player.GetComponent<Movement>());
 
-      GameObjects.GetSystem<CollisionSystem>().Run();
-      GameObjects.GetSystem<PhysicsSystem>().Run();
       GameObjects.GetSystem<MovementSystem>().Run();
+      GameObjects.GetSystem<CollisionSystem>().Run();
       GameObjects.GetSystem<DepthSystem>().Run();
+    }
+
+
+    private void UpdateShip(ShipController shipController)
+    {
+      var player = GameObjects["player"];
+      var movement = player.GetComponent<Movement>();
+
+      if ( shipController.State == ShipState.Landing ) {
+        var sprite = player.GetComponent<SpriteTransform>();
+        sprite.Target.Scale = new Vector2(sprite.Target.Scale.X - 0.01f, sprite.Target.Scale.Y - 0.01f);
+        if ( sprite.Target.Scale.X < 0.5f ) {
+          BecomePlayer(player);
+        }
+      } else {
+
+        var tilePos = new Point(
+          (int)(movement.Position.X / _planet.Size.X),
+          (int)(movement.Position.Y / _planet.Size.Y)
+        );
+
+        var biome = _planet.Tiles[tilePos.X, tilePos.Y].Biome;
+
+        if ( biome == Biome.Ocean || biome == Biome.ShallowOcean ) {
+          shipController.IsLandable = false;
+        } else {
+          shipController.IsLandable = true;
+        }
+      }
     }
 
     private void UpdateSounds(Entity player)
@@ -146,11 +184,8 @@ namespace MidnightBlue
 
     private void BecomePlayer(Entity entity)
     {
-      entity.DetachAll();
-
       var movement = entity.GetComponent<Movement>();
       var physics = entity.GetComponent<PhysicsComponent>();
-      movement.Position = new Vector2(0, 0);
       movement.Speed = 350;
       physics.Velocity = new Vector2(0, 0);
 

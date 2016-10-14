@@ -17,6 +17,8 @@ using MonoGame.Extended.Particles;
 
 namespace MidnightBlue
 {
+  public enum ShipState { Normal, Landing, Launching, Warping }
+
   public class ShipController : IComponent
   {
     /// <summary>
@@ -29,6 +31,9 @@ namespace MidnightBlue
     {
       _inputMap = new InputMap();
 
+      State = ShipState.Normal;
+      IsLandable = false;
+
       _inputMap.Assign<MoveForward>(Keys.W, CommandType.Hold);
       _inputMap.Assign<MoveBackward>(Keys.S, CommandType.Hold);
 
@@ -37,7 +42,9 @@ namespace MidnightBlue
 
       _inputMap.Assign<MoveShip>(Keys.W, CommandType.Hold);
       _inputMap.Assign<MoveShip>(Keys.S, CommandType.Hold);
+
       _inputMap.Assign<EnterStarSystem>(Keys.E, CommandType.Trigger);
+      _inputMap.Assign<LandCommand>(Keys.Space, CommandType.Trigger);
     }
 
     /// <summary>
@@ -49,6 +56,7 @@ namespace MidnightBlue
       get { return _inputMap; }
     }
 
-    public bool WillEnter { get; set; }
+    public ShipState State { get; set; }
+    public bool IsLandable { get; set; }
   }
 }

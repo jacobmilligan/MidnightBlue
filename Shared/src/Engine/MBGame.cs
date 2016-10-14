@@ -222,7 +222,7 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("showFramerate", true);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
-      _debugConsole.AddVar("drawCollision", false);
+      _debugConsole.AddVar("drawCollision", true);
       _debugConsole.AddVar("collisionChecks", true);
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);

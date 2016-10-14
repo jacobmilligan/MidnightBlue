@@ -80,10 +80,11 @@ namespace MidnightBlue.Engine.EntityComponent
 
           // Move the box to align with the players new position
           if ( sprite != null ) {
-            box.X += sprite.DeltaPosition.X;
-            box.Y += sprite.DeltaPosition.Y;
-            box.Width += sprite.DeltaSize.X;
-            box.Height += sprite.DeltaSize.Y;
+            box.Width += sprite.Bounds.Width - box.Width;
+            box.Height += sprite.Bounds.Height - box.Height;
+            box.X += sprite.Target.Position.X - box.X - (sprite.Bounds.Width / 2);
+            box.Y += sprite.Target.Position.Y - box.Y - (sprite.Bounds.Height / 2);
+
             collision.Boxes[b] = box;
           }
 

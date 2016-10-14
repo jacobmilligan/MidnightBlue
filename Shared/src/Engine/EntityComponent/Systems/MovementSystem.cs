@@ -24,16 +24,11 @@ namespace MidnightBlue.Engine.EntityComponent
       var sprite = entity.GetComponent<SpriteTransform>();
 
       if ( movement != null && sprite != null ) {
-        var lastPos = sprite.Target.Position;
-        var lastSize = sprite.Bounds.Size;
-
         sprite.Target.Position = movement.Position;
 
         sprite.Rotation = movement.Angle;
         sprite.Bounds = sprite.Target.GetBoundingRectangle();
 
-        sprite.DeltaSize = sprite.Bounds.Size - lastSize;
-        sprite.DeltaPosition = sprite.Target.Position - lastPos;
         movement.Heading = sprite.Direction;
       }
     }

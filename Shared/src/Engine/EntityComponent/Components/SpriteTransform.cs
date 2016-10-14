@@ -21,9 +21,6 @@ namespace MidnightBlue.Engine.EntityComponent
   {
     private void SetDefaults(Vector2 position, Vector2 scale)
     {
-      DeltaPosition = new Vector2(0, 0);
-      DeltaSize = new Vector2(0, 0);
-
       Target.Position = position;
       Target.Scale = scale;
       Rotation = 0.0f;
@@ -60,9 +57,6 @@ namespace MidnightBlue.Engine.EntityComponent
       get { return Target.Rotation - MathHelper.ToRadians(90); }
       set { Target.Rotation = value + MathHelper.ToRadians(90); }
     }
-
-    public Vector2 DeltaPosition { get; set; }
-    public Vector2 DeltaSize { get; set; }
 
     public RectangleF Bounds { get; set; }
 

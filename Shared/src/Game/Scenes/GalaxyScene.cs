@@ -122,11 +122,14 @@ namespace MidnightBlue.Engine
         var shipInput = GameObjects.GetSystem<ShipInputSystem>() as ShipInputSystem;
         shipInput.Run();
 
-        if ( shipInput.WillEnter ) {
-          var collision = GameObjects["player"].GetComponent<CollisionComponent>();
+        var player = GameObjects["player"];
+        var shipController = player.GetComponent<ShipController>();
+        if ( shipController.State == ShipState.Landing ) {
+          var collision = player.GetComponent<CollisionComponent>();
           if ( collision != null ) {
             var sys = collision.Collider.GetComponent<StarSystem>();
 
+            shipController.State = ShipState.Normal;
             SceneController.Push(new StarSystemScene(GameObjects, Content, sys, _planetCache, _seed));
           }
         }
