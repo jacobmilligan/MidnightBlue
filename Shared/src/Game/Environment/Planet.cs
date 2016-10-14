@@ -111,17 +111,17 @@ namespace MidnightBlue
 
           // Adjust values based of generated average surface temperature
           // from galaxy view.
-          if ( _meta.SurfaceTemperature < -40 ) {
+          if ( _meta.SurfaceTemperature < -100 ) {
             temperature -= temperature;
-          } else if ( _meta.SurfaceTemperature < -20 ) {
+          } else if ( _meta.SurfaceTemperature < -80 ) {
             temperature -= 0.8f * temperature;
-          } else if ( _meta.SurfaceTemperature < 0 ) {
+          } else if ( _meta.SurfaceTemperature < -50 ) {
             temperature -= 0.5f * temperature;
             moisture += 0.3f * moisture;
-          } else if ( _meta.SurfaceTemperature < 5 ) {
+          } else if ( _meta.SurfaceTemperature < -30 ) {
             temperature -= 0.4f * temperature;
             moisture += 0.3f * moisture;
-          } else if ( _meta.SurfaceTemperature < 10 ) {
+          } else if ( _meta.SurfaceTemperature < -10 ) {
             temperature -= 0.4f * temperature;
             moisture += 0.2f * moisture;
           } else if ( _meta.SurfaceTemperature < 40 ) {

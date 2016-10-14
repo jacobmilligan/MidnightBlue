@@ -132,7 +132,7 @@ namespace MidnightBlue
           // Convert distance (d/1000000) for less overhead while calculating
           // the planets parameters
           // Range of valid distances to the sun: mercury - (2 * Pluto)
-          var starDistance = _rand.Next(50, 1000000);
+          var starDistance = _rand.Next(500, 1000000);
           var newPlanet = CreatePlanet(starDistance, impact);
           if ( newPlanet != null ) {
             planetSize = newPlanet.Radius;
@@ -152,10 +152,6 @@ namespace MidnightBlue
       density = _rand.Next(density);
       var radius = density + (_jup * (impactSpeed / 100));
 
-      if ( radius <= 0 ) {
-        Console.WriteLine(radius);
-      }
-
       var gas = _rand.Next(radius + impactSpeed);
       var water = _rand.Next(starDistance);
       var carbon = _rand.Next(radius + impactSpeed + density);
@@ -168,8 +164,20 @@ namespace MidnightBlue
         type = PlanetType.Water;
       }
 
-      var surfaceArea = (4 * MathHelper.Pi * (radius * radius));
-      var temperature = (surfaceArea * (int)type) - (starDistance / 10000) + _rand.Next(30);
+      var nr = radius / 1000;
+      var surfaceArea = (4 * MathHelper.Pi * (nr * nr));
+      var normalizedStarDistance = starDistance / 10000;
+      var temperatureOffset = normalizedStarDistance;
+      if ( normalizedStarDistance < 0 ) {
+        temperatureOffset = -temperatureOffset;
+      } else if ( normalizedStarDistance > 0 && normalizedStarDistance < 100 ) {
+        temperatureOffset = 0;
+      }
+      var temperature = (temperatureOffset + _rand.Next(30));
+
+      if ( temperature < 0 ) {
+        Console.WriteLine();
+      }
 
       var life = 30 - Math.Abs(temperature) + _rand.Next(density);
       if ( type == PlanetType.Terrestrial && life > 0 ) {

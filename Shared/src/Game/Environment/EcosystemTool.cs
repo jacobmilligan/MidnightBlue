@@ -187,9 +187,9 @@ namespace MidnightBlue
           case MoistureLevel.Dry:
           case MoistureLevel.SemiDry:
           case MoistureLevel.SemiMoist:
-          case MoistureLevel.Moist:
             biome = Biome.Barren;
             break;
+          case MoistureLevel.Moist:
           case MoistureLevel.Wet:
             biome = Biome.Desert;
             break;
@@ -197,7 +197,11 @@ namespace MidnightBlue
       }
 
       if ( temperature == TemperatureLevel.Scorching ) {
-        biome = Biome.Barren;
+        if ( moisture == MoistureLevel.Wet || moisture == MoistureLevel.Moist ) {
+          biome = Biome.Desert;
+        } else {
+          biome = Biome.Barren;
+        }
       }
 
       if ( height == HeightLevel.Depths && moisture > MoistureLevel.Arid ) {
@@ -214,9 +218,9 @@ namespace MidnightBlue
     {
       var heightLevel = HeightLevel.Depths;
 
-      if ( height >= 0.35 && height < 0.4 ) {
+      if ( height >= 0.30 && height < 0.35 ) {
         heightLevel = HeightLevel.SeaLevel;
-      } else if ( height >= 0.4 && height < 0.6 ) {
+      } else if ( height >= 0.35 && height < 0.6 ) {
         heightLevel = HeightLevel.Lowland;
       } else if ( height >= 0.6 && height < 0.7 ) {
         heightLevel = HeightLevel.Mountainous;
@@ -252,11 +256,11 @@ namespace MidnightBlue
     {
       var tempLevel = TemperatureLevel.Freezing;
 
-      if ( temperature >= 0.09 && temperature < 0.18 ) {
+      if ( temperature >= 0.05 && temperature < 0.10 ) {
         tempLevel = TemperatureLevel.Polar;
-      } else if ( temperature >= 0.18 && temperature < 0.27 ) {
+      } else if ( temperature >= 0.10 && temperature < 0.15 ) {
         tempLevel = TemperatureLevel.Tundra;
-      } else if ( temperature >= 0.27 && temperature < 0.30 ) {
+      } else if ( temperature >= 0.15 && temperature < 0.20 ) {
         tempLevel = TemperatureLevel.Taiga;
       } else if ( temperature >= 0.30 && temperature < 0.50 ) {
         tempLevel = TemperatureLevel.Temperate;
@@ -264,13 +268,13 @@ namespace MidnightBlue
         tempLevel = TemperatureLevel.SubTropical;
       } else if ( temperature >= 0.60 && temperature < 0.70 ) {
         tempLevel = TemperatureLevel.Tropical;
-      } else if ( temperature >= 0.70 && temperature < 0.80 ) {
+      } else if ( temperature >= 0.70 && temperature < 0.90 ) {
         tempLevel = TemperatureLevel.Hot;
-      } else if ( temperature >= 0.80 && temperature < 0.85 ) {
+      } else if ( temperature >= 0.90 && temperature < 1.1 ) {
         tempLevel = TemperatureLevel.Harsh;
-      } else if ( temperature >= 0.85 && temperature < 0.90 ) {
+      } else if ( temperature >= 1.1 && temperature < 1.5 ) {
         tempLevel = TemperatureLevel.SuperHot;
-      } else if ( temperature >= 0.90 ) {
+      } else if ( temperature >= 1.5 ) {
         tempLevel = TemperatureLevel.Scorching;
       }
 

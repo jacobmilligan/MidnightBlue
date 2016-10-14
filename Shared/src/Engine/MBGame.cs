@@ -222,7 +222,7 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("showFramerate", true);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
-      _debugConsole.AddVar("drawCollision", true);
+      _debugConsole.AddVar("drawCollision", false);
       _debugConsole.AddVar("collisionChecks", true);
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);
@@ -249,7 +249,7 @@ namespace MidnightBlue.Engine
         var planet = new Planet(
             new PlanetMetadata {
               Radius = 142987,
-              SurfaceTemperature = (float)-1.293776E+10,
+              SurfaceTemperature = 20,
               Type = PlanetType.Terrestrial,
               StarDistance = new Length(length.Kilometers),
               Water = 77704,

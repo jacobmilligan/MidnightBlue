@@ -45,7 +45,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 11131100; //HACK: Hardcoded seed value for galaxy
+      _seed = 7800; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
       _scanResults = new List<string>();

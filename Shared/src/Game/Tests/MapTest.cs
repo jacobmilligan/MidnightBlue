@@ -49,19 +49,19 @@ namespace MidnightBlue.Testing
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
       if ( _planet == null ) {
-        var seed = 1050;
+        var seed = DateTime.Now.Ticks;
         var length = new Length((ulong)(Length.AstronomicalUnit * 0.6359717) * 1000);
         _planet = new Planet(
             new PlanetMetadata {
-              Radius = 142987,
-              SurfaceTemperature = (float)-1.293776E+10,
+              Radius = 142487,
+              SurfaceTemperature = 20.0f,
               Type = PlanetType.Terrestrial,
               StarDistance = new Length(length.Kilometers),
               Water = 77704,
               Carbon = 80432,
               Density = 3
-            }, seed);
-        _planet.Generate(new Random(seed));
+            }, (int)seed);
+        _planet.Generate(new Random((int)seed));
         _planet.CreateMapTexture(Content);
       }
 

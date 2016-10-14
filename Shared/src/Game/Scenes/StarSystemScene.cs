@@ -79,7 +79,7 @@ namespace MidnightBlue
       var p = 0;
       foreach ( var planet in _starSystem.Planets ) {
         if ( !cache.ContainsKey(planet.Name) ) {
-          _planets[p] = new Planet(planet, seed);
+          _planets[p] = new Planet(planet, _rand.Next(seed));
           cache.Add(planet.Name, _planets[p]);
         } else {
           _planets[p] = cache[planet.Name];
@@ -315,13 +315,13 @@ namespace MidnightBlue
         planet => Vector2.Distance(movement.Position, planet.Position)
       ).Last();
 
-      closestPlanet.Generate(_rand);
+      closestPlanet.Generate(new Random(_rand.Next()));
 
       _loading = false;
 
       for ( int i = 0; i < _planets.Length; i++ ) {
         if ( !_planets[i].Generated ) {
-          _planets[i].Generate(_rand);
+          _planets[i].Generate(new Random(_rand.Next()));
         }
       }
     }

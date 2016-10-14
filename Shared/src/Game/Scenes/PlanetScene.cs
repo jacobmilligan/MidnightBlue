@@ -26,6 +26,9 @@ namespace MidnightBlue
 {
   public class PlanetScene : Scene
   {
+    private const float _playerScale = 0.4f;
+    private const float _shipScale = 0.8f;
+
     private Planet _planet;
     private TileMap _tiles;
     private SoundTrigger _thrusterSound;
@@ -34,7 +37,7 @@ namespace MidnightBlue
     {
       _planet = planet;
 
-      _tiles = new TileMap(content.Load<Texture2D>("Images/terrain"), 32, scale: 2);
+      _tiles = new TileMap(content.Load<Texture2D>("Images/terrain"), 32, scale: 1.5f);
       _tiles.Fill(planet.Tiles);
       (GameObjects.GetSystem<CollisionSystem>() as CollisionSystem).SetTileMap(_tiles);
 
@@ -106,7 +109,7 @@ namespace MidnightBlue
       if ( shipController.State == ShipState.Landing ) {
         var sprite = player.GetComponent<SpriteTransform>();
         sprite.Target.Scale = new Vector2(sprite.Target.Scale.X - 0.01f, sprite.Target.Scale.Y - 0.01f);
-        if ( sprite.Target.Scale.X < 0.5f ) {
+        if ( sprite.Target.Scale.X < _playerScale ) {
           BecomePlayer(player);
         }
       } else if ( shipController.State == ShipState.Launching ) {
@@ -115,11 +118,12 @@ namespace MidnightBlue
           BecomeShip(player);
           var newController = player.GetComponent<ShipController>();
           newController.State = ShipState.Launching;
+          player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(_playerScale, _playerScale);
         }
 
         var sprite = player.GetComponent<SpriteTransform>();
 
-        if ( sprite.Target.Scale.X < 0.8f ) {
+        if ( sprite.Target.Scale.X < _shipScale ) {
           sprite.Target.Scale = new Vector2(sprite.Target.Scale.X + 0.01f, sprite.Target.Scale.Y + 0.01f);
         }
       }
@@ -203,7 +207,7 @@ namespace MidnightBlue
       var sprite = entity.Attach<SpriteTransform>(
         Content.Load<Texture2D>("Images/playership_blue"),
         new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
-        new Vector2(0.5f, 0.5f)
+        new Vector2(_shipScale, _shipScale)
       ) as SpriteTransform;
       sprite.Z = 1;
       sprite.Rotation = lastAngle;
@@ -227,10 +231,10 @@ namespace MidnightBlue
       var sprite = entity.Attach<SpriteTransform>(
         Content.Load<Texture2D>("Images/bkspr01"),
         new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
-        new Vector2(0.5f, 0.5f)
+        new Vector2(_playerScale, _playerScale)
       ) as SpriteTransform;
       entity.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
-      movement.Speed = 350;
+      movement.Speed = 200;
       physics.Velocity = new Vector2(0, 0);
 
       entity.Detach<ShipController>();
