@@ -28,5 +28,6 @@ namespace MidnightBlue.Engine.EntityComponent
     public float Speed { get; set; }
     public Vector2 Heading { get; set; }
     public float Angle { get; set; }
+    public Vector2 LastPosition { get; set; }
   }
 }

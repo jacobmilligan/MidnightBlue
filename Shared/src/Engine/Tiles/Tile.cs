@@ -12,12 +12,15 @@ using Microsoft.Xna.Framework;
 
 namespace MidnightBlue
 {
+  public enum TileFlag { Passable, Impassable }
+
   public class Tile
   {
     public Tile(int textureID, Color color)
     {
       ID = textureID;
       TintColor = color;
+      Flag = TileFlag.Passable;
     }
 
     public Tile() : this(1, Color.Transparent) { }
@@ -25,5 +28,7 @@ namespace MidnightBlue
     public int ID { get; protected set; }
 
     public Color TintColor { get; protected set; }
+
+    public TileFlag Flag { get; set; }
   }
 }

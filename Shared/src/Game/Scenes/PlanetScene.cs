@@ -13,11 +13,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
+using MidnightBlue.Engine.IO;
 using MidnightBlue.Engine.Scenes;
 using MidnightBlue.Engine.Tiles;
 using MonoGame.Extended.Shapes;
+using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue
 {
@@ -33,6 +36,7 @@ namespace MidnightBlue
 
       _tiles = new TileMap(content.Load<Texture2D>("Images/terrain"), 32, scale: 2);
       _tiles.Fill(planet.Tiles);
+      (GameObjects.GetSystem<CollisionSystem>() as CollisionSystem).SetTileMap(_tiles);
 
       _thrusterSound = new SoundTrigger(content.Load<SoundEffect>("Audio/engine"));
       _thrusterSound.IsLooped = true;
@@ -51,6 +55,8 @@ namespace MidnightBlue
     {
       var player = GameObjects["player"];
       BecomeShip(player);
+      player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(0.8f, 0.8f);
+      player.GetComponent<Movement>().Position = new Vector2(_planet.Size.X / 2, _planet.Size.Y / 2);
 
       var physicsSystem = GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem;
       physicsSystem.Environment = new PhysicsEnvironment {
@@ -80,14 +86,14 @@ namespace MidnightBlue
       if ( shipController != null ) {
         UpdateShip(shipController);
       }
+      UpdateBiome();
 
-
+      GameObjects.GetSystem<CollisionSystem>().Run();
       GameObjects.GetSystem<PhysicsSystem>().Run();
 
       _tiles.HandleWrapping(player.GetComponent<Movement>());
 
       GameObjects.GetSystem<MovementSystem>().Run();
-      GameObjects.GetSystem<CollisionSystem>().Run();
       GameObjects.GetSystem<DepthSystem>().Run();
     }
 
@@ -103,15 +109,37 @@ namespace MidnightBlue
         if ( sprite.Target.Scale.X < 0.5f ) {
           BecomePlayer(player);
         }
-      } else {
+      } else if ( shipController.State == ShipState.Launching ) {
 
-        var tilePos = new Point(
-          (int)(movement.Position.X / _planet.Size.X),
-          (int)(movement.Position.Y / _planet.Size.Y)
+        if ( player.HasComponent<PlayerController>() ) {
+          BecomeShip(player);
+          var newController = player.GetComponent<ShipController>();
+          newController.State = ShipState.Launching;
+        }
+
+        var sprite = player.GetComponent<SpriteTransform>();
+
+        if ( sprite.Target.Scale.X < 0.8f ) {
+          sprite.Target.Scale = new Vector2(sprite.Target.Scale.X + 0.01f, sprite.Target.Scale.Y + 0.01f);
+        }
+      }
+    }
+
+    private void UpdateBiome()
+    {
+      var shipController = GameObjects["player"].GetComponent<ShipController>();
+      var movement = GameObjects["player"].GetComponent<Movement>();
+
+      var tilePos = MBMath.WrapGrid(
+          (int)(movement.Position.X / _tiles.TileSize.X),
+          (int)(movement.Position.Y / _tiles.TileSize.Y),
+          _tiles.MapSize.X,
+          _tiles.MapSize.Y
         );
 
-        var biome = _planet.Tiles[tilePos.X, tilePos.Y].Biome;
+      var biome = _planet.Tiles[tilePos.X, tilePos.Y].Biome;
 
+      if ( shipController != null ) {
         if ( biome == Biome.Ocean || biome == Biome.ShallowOcean ) {
           shipController.IsLandable = false;
         } else {
@@ -162,19 +190,27 @@ namespace MidnightBlue
 
     private void BecomeShip(Entity entity)
     {
+      var lastPos = MBGame.Camera.GetBoundingRectangle().Center;
+      var lastAngle = 0.0f;
+
+      if ( entity.HasComponent<Movement>() ) {
+        lastPos = entity.GetComponent<Movement>().Position;
+        lastAngle = entity.GetComponent<Movement>().Angle;
+      }
+
       entity.DetachAll();
 
       var sprite = entity.Attach<SpriteTransform>(
         Content.Load<Texture2D>("Images/playership_blue"),
         new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
-        new Vector2(0.8f, 0.8f)
+        new Vector2(0.5f, 0.5f)
       ) as SpriteTransform;
       sprite.Z = 1;
-      entity.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
+      sprite.Rotation = lastAngle;
+
       entity.Attach<PhysicsComponent>();
-      var inventory = entity.Attach<Inventory>() as Inventory;
-      inventory.Items.Add(typeof(Fuel), new Fuel(10000));
-      entity.Attach<Movement>(1000.0f, 0.1f);
+      var movement = entity.Attach<Movement>(1000.0f, 0.1f) as Movement;
+      movement.Position = lastPos;
 
       entity.Attach<ShipController>();
       entity.Attach<UtilityController>();
@@ -184,13 +220,22 @@ namespace MidnightBlue
 
     private void BecomePlayer(Entity entity)
     {
+      entity.Detach<SpriteTransform>();
+
       var movement = entity.GetComponent<Movement>();
       var physics = entity.GetComponent<PhysicsComponent>();
+      var sprite = entity.Attach<SpriteTransform>(
+        Content.Load<Texture2D>("Images/bkspr01"),
+        new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
+        new Vector2(0.5f, 0.5f)
+      ) as SpriteTransform;
+      entity.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
       movement.Speed = 350;
       physics.Velocity = new Vector2(0, 0);
 
       entity.Detach<ShipController>();
-      entity.Attach<PlayerController>();
+      var playerController = entity.Attach<PlayerController>() as PlayerController;
+      playerController.InputMap.Assign<LaunchCommand>(Keys.Space, CommandType.Trigger);
       entity.Attach<UtilityController>();
     }
 

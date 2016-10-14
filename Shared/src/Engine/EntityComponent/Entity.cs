@@ -131,6 +131,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    public bool HasComponent<T>() where T : IComponent
+    {
+      return _components.ContainsKey(typeof(T));
+    }
+
     /// <summary>
     /// Creates a new instance of an object derived from IComponent
     /// </summary>

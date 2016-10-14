@@ -104,6 +104,15 @@ namespace MidnightBlue.Engine.Tiles
       }
     }
 
+    public Tile this[int x, int y]
+    {
+      get
+      {
+        var pos = MBMath.WrapGrid(x, y, _width, _height);
+        return _tiles[pos.X, pos.Y];
+      }
+    }
+
     public Texture2D Texture
     {
       get { return _atlas.Texture; }

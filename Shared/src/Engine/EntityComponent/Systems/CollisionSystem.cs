@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MidnightBlue.Engine.Collision;
+using MidnightBlue.Engine.Tiles;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.EntityComponent
@@ -18,6 +19,9 @@ namespace MidnightBlue.Engine.EntityComponent
   public class CollisionSystem : EntitySystem
   {
     private CollisionMap _map;
+
+    private TileMap _tileMap;
+
     private int _comparisons;
 
     public CollisionSystem() : base(typeof(CollisionComponent))
@@ -98,8 +102,64 @@ namespace MidnightBlue.Engine.EntityComponent
               Console.WriteLine("collision");
             }
           }
+
+          if ( _tileMap != null ) {
+            //HandleTileCollision(entity, box.X, box.Y);
+            //HandleTileCollision(entity, box.X + box.Width, box.Y);
+            //HandleTileCollision(entity, box.X + box.Width, box.Y + box.Height);
+            //HandleTileCollision(entity, box.X, box.Y + box.Height);
+            var physics = entity.GetComponent<PhysicsComponent>();
+            var movement = entity.GetComponent<Movement>();
+            if ( physics != null && movement != null ) {
+
+              var top = (int)Math.Floor(box.Top / _tileMap.TileSize.Y);
+              var left = (int)Math.Floor(box.Left / _tileMap.TileSize.X);
+              var right = Math.Ceiling(box.Right / _tileMap.TileSize.X) - 1;
+              var bottom = Math.Ceiling(box.Bottom / _tileMap.TileSize.X) - 1;
+
+              int xSide = 1;
+              int ySide = 1;
+
+              for ( int x = left; x <= right; x++ ) {
+                for ( int y = top; y <= bottom; y++ ) {
+                  var tileRect = new Rectangle(
+                    x * _tileMap.TileSize.X,
+                    y * _tileMap.TileSize.Y,
+                    _tileMap.TileSize.X,
+                    _tileMap.TileSize.Y
+                  );
+                  if ( _tileMap[x, y].Flag == TileFlag.Impassable && box.Intersects(tileRect) ) {
+                    physics.Velocity = new Vector2(xSide * 5, ySide * 5);
+                    movement.Position = movement.LastPosition;
+                  }
+                  ySide -= 2;
+                }
+                xSide -= 2;
+              }
+            }
+          }
         }
 
+      }
+    }
+
+    private void HandleTileCollision(Entity entity, float x, float y)
+    {
+      var physics = entity.GetComponent<PhysicsComponent>();
+      if ( physics != null ) {
+        x += physics.Velocity.X * MBGame.DeltaTime;
+        y += physics.Velocity.Y * MBGame.DeltaTime;
+
+        var tilePos = new Point(
+          (int)(x / _tileMap.TileSize.X),
+          (int)(y / _tileMap.TileSize.Y)
+        );
+
+        if ( _tileMap[tilePos.X, tilePos.Y].Flag == TileFlag.Impassable ) {
+          physics.Velocity = -physics.Velocity;
+          physics.Power = 0;
+          physics.Acceleration = new Vector2(0, 0);
+        }
       }
     }
 
@@ -121,6 +181,11 @@ namespace MidnightBlue.Engine.EntityComponent
         _comparisons++;
       }
       return hasCollision;
+    }
+
+    public void SetTileMap(TileMap tileMap)
+    {
+      _tileMap = tileMap;
     }
 
     public CollisionMap CurrentMap

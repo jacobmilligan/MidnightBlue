@@ -52,6 +52,21 @@ namespace MidnightBlue
     }
   }
 
+  public class LaunchCommand : Command
+  {
+    public LaunchCommand(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
+      var shipController = e.GetComponent<ShipController>();
+
+      if ( shipController == null ) {
+        shipController = e.Attach<ShipController>() as ShipController;
+        shipController.State = ShipState.Launching;
+      }
+    }
+  }
+
   public class EnterStarSystem : Command
   {
     public EnterStarSystem(Keys key, CommandType type) : base(key, type) { }

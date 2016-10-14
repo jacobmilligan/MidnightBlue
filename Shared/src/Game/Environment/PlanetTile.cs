@@ -42,6 +42,10 @@ namespace MidnightBlue
       _temperature = EcosystemTool.GetTemperature(temperature);
       _biome = EcosystemTool.GetBiome(Moisture, Temperature, Height);
 
+      if ( _biome == Biome.Ocean || _biome == Biome.ShallowOcean ) {
+        Flag = TileFlag.Impassable;
+      }
+
       ID = GetTextureID(_biome, rand);
       TintColor = GetColor(_biome);
     }

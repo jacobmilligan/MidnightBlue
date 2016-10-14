@@ -24,6 +24,7 @@ namespace MidnightBlue.Engine.EntityComponent
       var sprite = entity.GetComponent<SpriteTransform>();
 
       if ( movement != null && sprite != null ) {
+        movement.LastPosition = movement.Position;
         sprite.Target.Position = movement.Position;
 
         sprite.Rotation = movement.Angle;
