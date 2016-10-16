@@ -16,7 +16,7 @@ using System.Diagnostics;
 namespace MidnightBlue.Engine.EntityComponent
 {
 
-  public enum EntityAssociation { Strict, Vague }
+  public enum EntityAssociation { Strict, Loose }
 
   /// <summary>
   /// Performs logic on an entity.
@@ -32,14 +32,24 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     private List<Type> _components;
 
+    /// <summary>
+    /// The list of entities to destroy next frame
+    /// </summary>
     private List<Entity> _toDestroy;
+
     /// <summary>
     /// All GUID's of entities this system knows about
     /// </summary>
     protected Dictionary<ulong, Entity> _idEntityMap;
 
+    /// <summary>
+    /// Defines if this system should be Loose or Strict
+    /// </summary>
     protected EntityAssociation _associationType;
 
+    /// <summary>
+    /// Used for timing runtime of a system. Used for debugging
+    /// </summary>
     private Stopwatch _timer;
 
     /// <summary>
@@ -58,6 +68,7 @@ namespace MidnightBlue.Engine.EntityComponent
 
       ID = 0;
 
+      // Check if entities components are valid
       foreach ( var c in components ) {
         if ( !(typeof(IComponent).IsAssignableFrom(c)) ) {
           Console.WriteLine("Midnight Blue: '{0}' is not a valid component.", c);
@@ -79,12 +90,13 @@ namespace MidnightBlue.Engine.EntityComponent
 
       _toDestroy.Clear();
 
-      PreProcess();
-      ProcessingLoop();
-      PostProcess();
+      PreProcess(); // execute logic to setup data before processing all entities
+      ProcessingLoop(); // process entities
+      PostProcess(); // cleanup
 
       _timer.Stop();
 #if !TESTING
+      // Displays the runtime of the current system in the debug console
       if ( MBGame.Console.Vars.ContainsKey("systemRuntime") ) {
         var rtVar = (bool)MBGame.Console.Vars["systemRuntime"];
         if ( rtVar ) {
@@ -95,6 +107,9 @@ namespace MidnightBlue.Engine.EntityComponent
       _timer.Reset();
     }
 
+    /// <summary>
+    /// Executes Process() on all AssociatedEntities.
+    /// </summary>
     protected virtual void ProcessingLoop()
     {
       var entityCount = _entities.Count;
@@ -105,6 +120,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Adds the specific entity to the destroy list to be cleaned up the
+    /// next time a system is run
+    /// </summary>
+    /// <param name="entity">Entity to destroy.</param>
 #if TESTING
     public void Destroy(Entity entity)
 #else
@@ -128,15 +148,31 @@ namespace MidnightBlue.Engine.EntityComponent
       PostAssociate(entity);
     }
 
+    /// <summary>
+    /// Decouples an association with this system
+    /// </summary>
+    /// <param name="entity">Entity to decouple.</param>
     public void RemoveAssociation(Entity entity)
     {
       _entities.Remove(entity);
       _idEntityMap.Remove(entity.ID);
     }
 
+    /// <summary>
+    /// Used to setup any data needed before processing all entities, such as sorting a list ahead
+    /// of time 
+    /// </summary>
     protected virtual void PreProcess() { }
+
+    /// <summary>
+    /// Used to cleanup or execute any teardown logic needed
+    /// </summary>
     protected virtual void PostProcess() { }
 
+    /// <summary>
+    /// Used to define any logic or extra data needed after an entity is associated with the system.
+    /// </summary>
+    /// <param name="entity">Entity.</param>
     protected virtual void PostAssociate(Entity entity) { }
 
     /// <summary>
@@ -174,11 +210,19 @@ namespace MidnightBlue.Engine.EntityComponent
     /// <value>The identifier mask.</value>
     public ulong ID { get; set; }
 
+    /// <summary>
+    /// Gets the destroy list.
+    /// </summary>
+    /// <value>The destroy list.</value>
     public List<Entity> DestroyList
     {
       get { return _toDestroy; }
     }
 
+    /// <summary>
+    /// Gets the systems association level.
+    /// </summary>
+    /// <value>The association level.</value>
     public EntityAssociation Association
     {
       get { return _associationType; }

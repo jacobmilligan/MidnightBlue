@@ -16,24 +16,51 @@ using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Checks collisions. Uses a spatial indexing grid for broad-phase collision checking
+  /// and AABB checks for narrow phase
+  /// </summary>
   public class CollisionSystem : EntitySystem
   {
+    /// <summary>
+    /// The current collision map
+    /// </summary>
     private CollisionMap _map;
 
+    /// <summary>
+    /// The current tile map, used for checking terrain collisions
+    /// </summary>
     private TileMap _tileMap;
 
+    /// <summary>
+    /// The number of comparisons made in the last frame. Used for debugging
+    /// </summary>
     private int _comparisons;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.CollisionSystem"/> class.
+    /// </summary>
     public CollisionSystem() : base(typeof(CollisionComponent))
     {
       ResetGrid(0, 0, 0, 0, 1);
     }
 
+    /// <summary>
+    /// Resets the grid position in the world.
+    /// </summary>
+    /// <param name="xMin">The grids left most x coordinate.</param>
+    /// <param name="xMax">Right most x coordinae.</param>
+    /// <param name="yMin">Top most y coordinate.</param>
+    /// <param name="yMax">Bottom most y coordinate.</param>
+    /// <param name="cellSize">The size of each cell in the grid.</param>
     public void ResetGrid(int xMin, int xMax, int yMin, int yMax, int cellSize)
     {
       _map = new CollisionMap(xMin, xMax, yMin, yMax, cellSize);
     }
 
+    /// <summary>
+    /// Clears the collision grid and inserts all entities before checking collisions
+    /// </summary>
     protected override void PreProcess()
     {
       _comparisons = 0;
@@ -42,28 +69,38 @@ namespace MidnightBlue.Engine.EntityComponent
       var maxEntities = AssociatedEntities.Count;
 
       for ( int e = 0; e < maxEntities; e++ ) {
-        var collision = AssociatedEntities[e].GetComponent<CollisionComponent>();
 
-        if ( collision != null ) {
+        // Insert all entities with collision components
+        if ( AssociatedEntities[e].HasComponent<CollisionComponent>() ) {
+
+          var collision = AssociatedEntities[e].GetComponent<CollisionComponent>();
           collision.Event = false;
           collision.Collider = null;
           _map.Insert(AssociatedEntities[e], collision);
+
         }
       }
     }
 
+    /// <summary>
+    /// Override. Only processes entities with movement components.
+    /// Still considers static entities, but only as possible neighbours.
+    /// </summary>
     protected override void ProcessingLoop()
     {
       var entityCount = AssociatedEntities.Count;
       for ( int e = 0; e < entityCount; e++ ) {
         var entity = AssociatedEntities[e];
-        var movement = entity.GetComponent<Movement>();
-        if ( movement != null ) {
-          Process(AssociatedEntities[e]);
+        if ( entity.HasComponent<Movement>() ) {
+          Process(entity);
         }
       }
     }
 
+    /// <summary>
+    /// Checks all collisions within the entities known collision cells
+    /// </summary>
+    /// <param name="entity">Entity to check.</param>
     protected override void Process(Entity entity)
     {
       var collision = entity.GetComponent<CollisionComponent>();
@@ -79,10 +116,12 @@ namespace MidnightBlue.Engine.EntityComponent
         var neighbours = _map.GetCollisions(entity, collision);
 
         var boxCount = collision.Boxes.Count;
+
+        // Check collisions for all of the entities AABB's for all neighbours
         for ( int b = 0; b < boxCount; b++ ) {
           var box = collision.Boxes[b];
 
-          // Move the box to align with the players new position
+          // Move the box to align with the entities new position
           if ( sprite != null ) {
             box.Width += sprite.Bounds.Width - box.Width;
             box.Height += sprite.Bounds.Height - box.Height;
@@ -92,17 +131,22 @@ namespace MidnightBlue.Engine.EntityComponent
             collision.Boxes[b] = box;
           }
 
+          // Do narrow phase checking for each neighbour
           foreach ( var n in neighbours ) {
             var neighbourCollision = n.GetComponent<CollisionComponent>();
             collision.Event = HandleCollisions(box, neighbourCollision);
+
             if ( collision.Event ) {
+              // Update collision information for other systems' use
               collision.Collider = n;
               neighbourCollision.Event = true;
               neighbourCollision.Collider = entity;
               Console.WriteLine("collision");
             }
+
           }
 
+          // Do tilemap collision checking
           if ( _tileMap != null ) {
             //HandleTileCollision(entity, box.X, box.Y);
             //HandleTileCollision(entity, box.X + box.Width, box.Y);
@@ -112,6 +156,7 @@ namespace MidnightBlue.Engine.EntityComponent
             var movement = entity.GetComponent<Movement>();
             if ( physics != null && movement != null ) {
 
+              // Get all tiles surrounding the entity
               var top = (int)Math.Floor(box.Top / _tileMap.TileSize.Y);
               var left = (int)Math.Floor(box.Left / _tileMap.TileSize.X);
               var right = Math.Ceiling(box.Right / _tileMap.TileSize.X) - 1;
@@ -120,20 +165,27 @@ namespace MidnightBlue.Engine.EntityComponent
               int xSide = 1;
               int ySide = 1;
 
+              // Check all the tiles around the entity, updating the negative velocity
+              // of their movement based on the direction a collision was found
               for ( int x = left; x <= right; x++ ) {
                 for ( int y = top; y <= bottom; y++ ) {
-                  var tileRect = new Rectangle(
+
+                  var tileAABB = new Rectangle(
                     x * _tileMap.TileSize.X,
                     y * _tileMap.TileSize.Y,
                     _tileMap.TileSize.X,
                     _tileMap.TileSize.Y
                   );
-                  if ( _tileMap[x, y].Flag == TileFlag.Impassable && box.Intersects(tileRect) ) {
+
+                  // Check collision for that tile and alter velocity if collision was found
+                  if ( _tileMap[x, y].Flag == TileFlag.Impassable && box.Intersects(tileAABB) ) {
                     physics.Velocity = new Vector2(xSide * 5, ySide * 5);
                     movement.Position = movement.LastPosition;
                   }
+
                   ySide -= 2;
                 }
+
                 xSide -= 2;
               }
             }
@@ -143,6 +195,7 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    //TODO: I have no idea if I even need this method anymore
     private void HandleTileCollision(Entity entity, float x, float y)
     {
       var physics = entity.GetComponent<PhysicsComponent>();
@@ -164,8 +217,7 @@ namespace MidnightBlue.Engine.EntityComponent
     }
 
     /// <summary>
-    /// Handles collisions between a single Collision box and each of another
-    /// entitys collision boxes
+    /// Handles narrow-phase collisions using basic seperating axis
     /// </summary>
     /// <returns><c>true</c>, if a collision ocurred, <c>false</c> otherwise.</returns>
     /// <param name="box">Collision box.</param>
@@ -183,16 +235,28 @@ namespace MidnightBlue.Engine.EntityComponent
       return hasCollision;
     }
 
+    /// <summary>
+    /// Sets the current tile map to check for collisions
+    /// </summary>
+    /// <param name="tileMap">Tile map.</param>
     public void SetTileMap(TileMap tileMap)
     {
       _tileMap = tileMap;
     }
 
+    /// <summary>
+    /// Gets the current collision map.
+    /// </summary>
+    /// <value>The current map.</value>
     public CollisionMap CurrentMap
     {
       get { return _map; }
     }
 
+    /// <summary>
+    /// Gets the number of collision checks made last frame. Used for debugging.
+    /// </summary>
+    /// <value>The number of collision checks.</value>
     public int NumberOfChecks
     {
       get { return _comparisons; }

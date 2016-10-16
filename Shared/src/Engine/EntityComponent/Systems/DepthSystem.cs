@@ -10,15 +10,24 @@
 using System;
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Changes an entities z-index based on the y coordinate of the top of their sprite
+  /// </summary>
   public class DepthSystem : EntitySystem
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.DepthSystem"/> class.
+    /// </summary>
     public DepthSystem() : base(typeof(Depth), typeof(SpriteTransform)) { }
 
+    /// <summary>
+    /// Changes the z index based on the y coordinate of the entities bounds top
+    /// </summary>
+    /// <param name="entity">Entity to process.</param>
     protected override void Process(Entity entity)
     {
-      var depth = entity.GetComponent<Depth>();
-      var sprite = entity.GetComponent<SpriteTransform>();
-      if ( depth != null && sprite != null ) {
+      if ( entity.HasComponent<Depth>() && entity.HasComponent<SpriteTransform>() ) {
+        var sprite = entity.GetComponent<SpriteTransform>();
         sprite.Z = sprite.Bounds.Top;
       }
     }

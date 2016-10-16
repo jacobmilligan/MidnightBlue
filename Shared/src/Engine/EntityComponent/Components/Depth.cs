@@ -10,5 +10,9 @@
 using System;
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// A tag class used to define an entity that should be draw
+  /// sorted according to its current z-index
+  /// </summary>
   public class Depth : IComponent { }
 }

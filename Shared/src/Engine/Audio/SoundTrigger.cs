@@ -12,11 +12,25 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace MidnightBlue.Engine
 {
+  /// <summary>
+  /// Triggers a sound effect
+  /// </summary>
   public class SoundTrigger
   {
+    /// <summary>
+    /// The sound effect to play
+    /// </summary>
     private SoundEffect _sound;
+    /// <summary>
+    /// The sound effects instance used to fade and play/stop
+    /// </summary>
     private SoundEffectInstance _instance;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.SoundTrigger"/> class
+    /// using the specified SoundEffect
+    /// </summary>
+    /// <param name="sound">Sound to use.</param>
     public SoundTrigger(SoundEffect sound)
     {
       _sound = sound;
@@ -25,6 +39,9 @@ namespace MidnightBlue.Engine
       MaxVolume = 0.5f;
     }
 
+    /// <summary>
+    /// Plays the sound if it's not already playing
+    /// </summary>
     public void Trigger()
     {
       if ( _instance.State == SoundState.Stopped ) {
@@ -32,6 +49,10 @@ namespace MidnightBlue.Engine
       }
     }
 
+    /// <summary>
+    /// Increases the sounds volume one step based on the 
+    /// specified FadeSpeed
+    /// </summary>
     public void FadeUp()
     {
       if ( _instance.State == SoundState.Stopped ) {
@@ -43,6 +64,10 @@ namespace MidnightBlue.Engine
       }
     }
 
+    /// <summary>
+    /// Decreases the volume based on the specified
+    /// FadeSpeed. Stops the sound once the volume reaches 0
+    /// </summary>
     public void FadeDown()
     {
       if ( _instance.Volume > FadeSpeed ) {
@@ -52,8 +77,23 @@ namespace MidnightBlue.Engine
       }
     }
 
+    /// <summary>
+    /// Gets or sets the fade speed.
+    /// </summary>
+    /// <value>The fade speed.</value>
     public float FadeSpeed { get; set; }
+
+    /// <summary>
+    /// Determines the maximum volume to FadeUp
+    /// </summary>
+    /// <value>The max volume.</value>
     public float MaxVolume { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:MidnightBlue.Engine.SoundTrigger"/> is looped
+    /// or one-shot.
+    /// </summary>
+    /// <value><c>true</c> if is looped; otherwise, <c>false</c>.</value>
     public bool IsLooped
     {
       get { return _instance.IsLooped; }

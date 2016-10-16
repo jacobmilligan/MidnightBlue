@@ -14,24 +14,38 @@ using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Processes the change in position, rotation, and sprite transform for an entity
+  /// </summary>
   public class MovementSystem : EntitySystem
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.MovementSystem"/> class.
+    /// </summary>
     public MovementSystem() : base(typeof(Movement), typeof(SpriteTransform)) { }
 
+    /// <summary>
+    /// Processes the movement for the specific entity
+    /// </summary>
+    /// <param name="entity">Entity to operate on.</param>
     protected override void Process(Entity entity)
     {
-      var movement = entity.GetComponent<Movement>();
-      var sprite = entity.GetComponent<SpriteTransform>();
+      if ( entity.HasComponent<Movement>() && entity.HasComponent<SpriteTransform>() ) {
 
-      if ( movement != null && sprite != null ) {
+        var movement = entity.GetComponent<Movement>();
+        var sprite = entity.GetComponent<SpriteTransform>();
+        // Update position
         movement.LastPosition = movement.Position;
         sprite.Target.Position = movement.Position;
 
+        // Update bounds and rotation
         sprite.Rotation = movement.Angle;
         sprite.Bounds = sprite.Target.GetBoundingRectangle();
 
+        // Update heading
         movement.Heading = sprite.Direction;
       }
     }
+
   }
 }

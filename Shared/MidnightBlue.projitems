@@ -63,9 +63,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\PlanetComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Edge.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Graph.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Containers\Node.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\CollisionComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\Depth.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\Inventory.cs" />
@@ -129,7 +126,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Tests\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Collision\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Containers\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Input\" />

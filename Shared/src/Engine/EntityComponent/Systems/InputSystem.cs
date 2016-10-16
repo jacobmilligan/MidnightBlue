@@ -14,15 +14,23 @@ using MidnightBlue.Engine.IO;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Processes input for PlayerController and UtilityController entities.
+  /// Can operate on an entity with either or both components
+  /// </summary>
   public class InputSystem : EntitySystem
   {
     public InputSystem() : base(
       typeof(PlayerController), typeof(UtilityController)
     )
     {
-      _associationType = EntityAssociation.Vague;
+      _associationType = EntityAssociation.Loose;
     }
 
+    /// <summary>
+    /// Processes the controllers inputs
+    /// </summary>
+    /// <param name="entity">Entity to process.</param>
     protected override void Process(Entity entity)
     {
       var keys = Keyboard.GetState().GetPressedKeys();
@@ -30,15 +38,16 @@ namespace MidnightBlue.Engine.EntityComponent
       var controller = entity.GetComponent<PlayerController>();
       var utilityController = entity.GetComponent<UtilityController>();
 
-      if ( keys.Length > 1 ) {
-        Console.WriteLine("combo");
-      }
+      // Handle input commands for both controllers for all pressed keys
       for ( int k = 0; k < keys.Length; k++ ) {
+        // Player controller
         if ( controller != null ) {
           HandleInput(
             controller.InputMap[keys[k]], entity
           );
         }
+
+        // Utility controller
         if ( utilityController != null ) {
           HandleInput(
             utilityController.InputMap[keys[k]], entity
@@ -47,7 +56,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
-
+    /// <summary>
+    /// Handles calling a list of commands on a specific entity
+    /// </summary>
+    /// <param name="commands">Commands to process.</param>
+    /// <param name="entity">Entity to operate on.</param>
     private void HandleInput(List<Command> commands, Entity entity)
     {
       if ( commands != null ) {

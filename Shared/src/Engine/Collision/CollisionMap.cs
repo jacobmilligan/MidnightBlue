@@ -17,16 +17,59 @@ using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.Collision
 {
+  /// <summary>
+  /// A 2D Grid that represents a particular space in the game world to check for collisions.
+  /// Uses spatial indexing to determine where an entity will be located at any given time.
+  /// For best results, the cellsize and overall size of the map should be tweaked for each
+  /// individual game screen and environment.
+  /// </summary>
   public class CollisionMap
   {
+    /// <summary>
+    /// The grid of cells containing all known entities
+    /// </summary>
     private CollisionCell[,] _cells;
+
+    /// <summary>
+    /// List of Entity ID's checked for collisions this iteration.
+    /// </summary>
     private LinkedList<ulong> _checkedIDs;
+
+    /// <summary>
+    /// All non-empty cells since the last insert operation. Improves performance by 
+    /// limiting the number of clear operations called as only cells with 
+    /// entities in them will have their Clear() method called, rather than all the cells.
+    /// </summary>
     private List<CollisionCell> _nonEmptyCells;
+
+    /// <summary>
+    /// The size of each cell (width and height).
+    /// </summary>
     private int _cellSize;
+
+    /// <summary>
+    /// The geometric grid structure used for debugging purposes
+    /// </summary>
     private Grid _grid;
+
+    /// <summary>
+    /// The minimum x and y coordinates in the grid
+    /// </summary>
     private Vector2 _min;
+
+    /// <summary>
+    /// The maximum x and y coordinates to use in the grid
+    /// </summary>
     private Vector2 _max;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.Collision.CollisionMap"/> class.
+    /// </summary>
+    /// <param name="xMin">The grids left most x coordinate.</param>
+    /// <param name="xMax">Right most x coordinae.</param>
+    /// <param name="yMin">Top most y coordinate.</param>
+    /// <param name="yMax">Bottom most y coordinate.</param>
+    /// <param name="cellSize">The size of each cell in the grid.</param>
     public CollisionMap(int xMin, int xMax, int yMin, int yMax, int cellSize)
     {
       var width = (xMax - xMin) / cellSize;
@@ -44,19 +87,31 @@ namespace MidnightBlue.Engine.Collision
       _nonEmptyCells = new List<CollisionCell>();
     }
 
+    /// <summary>
+    /// Indexes a world-based coordinate into the collision grid
+    /// </summary>
+    /// <returns>The grid-based position.</returns>
+    /// <param name="position">World-based position to index.</param>
     public Point IndexOf(Point position)
     {
-      var pos = MBMath.WrapGrid(position.X / _cellSize, position.Y / _cellSize, _grid.ColCount, _grid.RowCount);
-      //return new Point {
-      //  X = (int)((position.X - _min.X) / _cellSize),
-      //  Y = (int)((position.Y - _min.Y) / _cellSize)
-      //};
+      //TODO: Check if this can be changed to min.X + position.X instead to allow moving grid
+      var pos = MBMath.WrapGrid(
+        position.X / _cellSize,
+        position.Y / _cellSize,
+        _grid.ColCount, _grid.RowCount
+      );
       return new Point {
         X = pos.X,
         Y = pos.Y
       };
     }
 
+    /// <summary>
+    /// Checks if a particular index exists in the grid
+    /// </summary>
+    /// <returns><c>true</c>, if index exists, <c>false</c> otherwise.</returns>
+    /// <param name="x">The x coordinate.</param>
+    /// <param name="y">The y coordinate.</param>
     public bool IndexExists(int x, int y)
     {
       var result = false;
@@ -68,67 +123,106 @@ namespace MidnightBlue.Engine.Collision
       return result;
     }
 
+    /// <summary>
+    /// Checks if a particular index exists in the grid
+    /// </summary>
+    /// <returns><c>true</c>, if index exists, <c>false</c> otherwise.</returns>
+    /// <param name="index">Index to check.</param>
     public bool IndexExists(Point index)
     {
       return IndexExists(index.X, index.Y);
     }
 
+    /// <summary>
+    /// Inserts an entity and its associated collision component into the grid
+    /// </summary>
+    /// <param name="entity">Entity to insert.</param>
+    /// <param name="collision">The entities collision component.</param>
     public void Insert(Entity entity, CollisionComponent collision)
     {
-
       var boxes = collision.Boxes;
       var numBoxes = boxes.Count;
-      for ( int b = 0; b < numBoxes; b++ ) {
-        var corners = GetCorners(boxes[b]);
 
+      // Check all AABB's for their cells
+      for ( int b = 0; b < numBoxes; b++ ) {
+
+        var corners = boxes[b].GetCorners();
+
+        // Check the four corners of each AABB to see what cells they exist in
         foreach ( var corner in corners ) {
+
           var index = IndexOf(corner.ToPoint());
           if ( IndexExists(index) ) {
+            // The corner is inside the grid space so insert the entity
             var cell = _cells[index.X, index.Y];
+            // Builds up the cells over time rather than all upfront
+            // to prevent situations with big grids and not many entities.
             if ( cell == null ) {
               _cells[index.X, index.Y] = new CollisionCell();
               cell = _cells[index.X, index.Y];
             }
+            // Check if the cell doesn't already have the entity
+            // and insert
             if ( !cell.Contains(entity) ) {
               cell.Add(entity);
               _nonEmptyCells.Add(cell);
             }
           }
+
         }
+
       }
     }
 
+    /// <summary>
+    /// Gets a list of all entities located in the same cell/s as a specific single entity
+    /// </summary>
+    /// <returns>The entities neighbours.</returns>
+    /// <param name="entity">Entity to get collisions for.</param>
+    /// <param name="collision">Collision component to use in checking.</param>
     public List<Entity> GetCollisions(Entity entity, CollisionComponent collision)
     {
       var result = new List<Entity>();
       var boxes = collision.Boxes;
+
+      //TODO: This needs looking into - the corners are being reset for every AABB. Why?
       Vector2[] corners = new Vector2[4];
       for ( int b = 0; b < boxes.Count; b++ ) {
-        corners = GetCorners(boxes[b]);
+        corners = boxes[b].GetCorners();
       }
 
       //TODO: Remove this once tested for larger collision amounts
       _checkedIDs.Clear();
 
+      // Check each corner of the entities AABB for neighbours
       foreach ( var corner in corners ) {
         var index = IndexOf(corner.ToPoint());
         if ( IndexExists(index) ) {
           var cell = _cells[index.X, index.Y];
+
           if ( cell != null ) {
             var maxItems = cell.Items.Count;
+            // Valid cell, grab all the neighbours if they haven't already been checked
             foreach ( var e in cell.Items ) {
               if ( !_checkedIDs.Contains(e.ID) && e.ID != entity.ID ) {
                 result.Add(e);
-                _checkedIDs.AddFirst(e.ID);
+                _checkedIDs.AddFirst(e.ID); // fast insert
               }
             }
+
           }
+
         }
       }
 
       return result;
     }
 
+    /// <summary>
+    /// Updates the position of the collision grid.
+    /// </summary>
+    /// <param name="x">The x coordinate.</param>
+    /// <param name="y">The y coordinate.</param>
     public void UpdatePosition(int x, int y)
     {
       _min.X = x;
@@ -137,6 +231,9 @@ namespace MidnightBlue.Engine.Collision
       _max.Y = _max.Y + y;
     }
 
+    /// <summary>
+    /// Clears all non-empty cells of the grid from their entities
+    /// </summary>
     public void Clear()
     {
       var nonEmptySize = _nonEmptyCells.Count;
@@ -146,31 +243,28 @@ namespace MidnightBlue.Engine.Collision
       _nonEmptyCells.Clear();
     }
 
-    private Vector2[] GetCorners(RectangleF bounds)
-    {
-      return new Vector2[4]
-      {
-        // Top left
-        new Vector2(bounds.Left, bounds.Top),
-        // Top right
-        new Vector2(bounds.Right, bounds.Top),
-        // Bottom right
-        new Vector2(bounds.Right, bounds.Bottom),
-        // Bottom left
-        new Vector2(bounds.Left, bounds.Bottom),
-      };
-    }
-
+    /// <summary>
+    /// Gets the geometric representation of the grid
+    /// </summary>
+    /// <value>The grid.</value>
     public Grid Grid
     {
       get { return _grid; }
     }
 
+    /// <summary>
+    /// Gets the current position of the grid.
+    /// </summary>
+    /// <value>The position.</value>
     public Vector2 Position
     {
       get { return _min; }
     }
 
+    /// <summary>
+    /// Gets the upper bounds of the x and y coordinates in the grid
+    /// </summary>
+    /// <value>The max coordinates.</value>
     public Vector2 Max
     {
       get { return _max; }

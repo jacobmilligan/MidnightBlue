@@ -14,18 +14,18 @@ using MidnightBlue.Engine.IO;
 namespace MidnightBlue.Engine.EntityComponent
 {
   /// <summary>
-  /// Defines the attached entity as controllable
+  /// Declares the attached entity as able to control utility 
+  /// commands such as opening the debug console
   /// </summary>
   public class UtilityController : IComponent
   {
     /// <summary>
-    /// The input map for the player controller. 
-    /// Allows different input for different entities.
+    /// The input map for the controller. 
     /// </summary>
     private InputMap _inputMap;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:MidnightBlue.PlayerController"/> component
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.UtilityController"/> component
     /// with default input assignment
     /// </summary>
     public UtilityController()

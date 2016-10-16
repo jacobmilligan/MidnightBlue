@@ -12,6 +12,9 @@ using System.Collections.Generic;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
+  /// <summary>
+  /// Defines a dictionary of Collectable types used for entities
+  /// </summary>
   public class Inventory : IComponent
   {
     public Inventory()
@@ -19,6 +22,10 @@ namespace MidnightBlue.Engine.EntityComponent
       Items = new Dictionary<Type, Collectable>();
     }
 
+    /// <summary>
+    /// The items currently in the inventory
+    /// </summary>
+    /// <value>The items.</value>
     public Dictionary<Type, Collectable> Items { get; set; }
   }
 }

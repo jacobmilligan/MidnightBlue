@@ -152,6 +152,7 @@ namespace MidnightBlue.Engine.EntityComponent
     public void UpdateSystems(Entity entity)
     {
       foreach ( var sys in _systems.Values ) {
+        // For Strict systems - all bits must be the same
         if ( sys.Association == EntityAssociation.Strict ) {
           if ( (entity.Mask & sys.ID) == sys.ID ) {
             sys.AssociateEntity(entity);
@@ -160,7 +161,8 @@ namespace MidnightBlue.Engine.EntityComponent
           }
         }
 
-        if ( sys.Association == EntityAssociation.Vague ) {
+        // For loose systems, only one of the bits needs to be set
+        if ( sys.Association == EntityAssociation.Loose ) {
           if ( (entity.Mask & sys.ID) != 0 ) {
             sys.AssociateEntity(entity);
           } else {
@@ -214,6 +216,8 @@ namespace MidnightBlue.Engine.EntityComponent
       }
 
       if ( result != null && result.DestroyList.Count > 0 ) {
+        // If the system was found, cleanup destroyed entities 
+        // before the next system is run
         foreach ( var e in result.DestroyList ) {
           result.AssociatedEntities.Remove(e);
           _entities.Remove(e);
@@ -249,6 +253,12 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Creates a new instance of an EntitySystem
+    /// </summary>
+    /// <returns>The system instance.</returns>
+    /// <param name="args">The systems constructor args.</param>
+    /// <typeparam name="T">Type of system to create.</typeparam>
     private EntitySystem CreateSystemInstance<T>(params object[] args) where T : EntitySystem
     {
       return (T)Activator.CreateInstance(typeof(T), args);
@@ -316,10 +326,15 @@ namespace MidnightBlue.Engine.EntityComponent
       get { return ++_nextID; }
     }
 
+    /// <summary>
+    /// Gets the next valid mask.
+    /// </summary>
+    /// <value>The next mask.</value>
     private ulong NextMask
     {
       get
       {
+        // ensure powers of two
         if ( _lastMask < 1 ) {
           _lastMask = 1;
         } else {

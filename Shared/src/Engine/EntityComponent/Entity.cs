@@ -79,6 +79,8 @@ namespace MidnightBlue.Engine.EntityComponent
     public IComponent Attach<T>(params object[] args) where T : IComponent
     {
       var component = NewComponent<T>(args);
+      // Add to dict if new component, otherwise just 
+      // reassign the current one to be the new one
       if ( !_components.ContainsKey(typeof(T)) ) {
         _components.Add(typeof(T), component);
         _container.UpdateEntityMask(this);
@@ -100,6 +102,10 @@ namespace MidnightBlue.Engine.EntityComponent
       _container.UpdateSystems(this);
     }
 
+    /// <summary>
+    /// Detatches a specific component from the entity
+    /// </summary>
+    /// <typeparam name="T">The type of component to detatch.</typeparam>
     public void Detach<T>() where T : IComponent
     {
       if ( _components.ContainsKey(typeof(T)) ) {
@@ -109,6 +115,9 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Detachs all of the entities attached components.
+    /// </summary>
     public void DetachAll()
     {
       _components.Clear();
@@ -131,6 +140,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    /// <summary>
+    /// Checks if an entity has a specific component attached
+    /// </summary>
+    /// <returns><c>true</c>, if component is attached, <c>false</c> otherwise.</returns>
+    /// <typeparam name="T">The type of component to check.</typeparam>
     public bool HasComponent<T>() where T : IComponent
     {
       return _components.ContainsKey(typeof(T));
@@ -182,6 +196,12 @@ namespace MidnightBlue.Engine.EntityComponent
     /// <value><c>true</c> if persistant; otherwise, <c>false</c>.</value>
     public bool Persistant { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:MidnightBlue.Engine.EntityComponent.Entity"/> is active.
+    /// Inactive entities are skipped over in each EntitySystems Process() method but aren't destroyed. Allowing semi-persistant
+    /// entities.
+    /// </summary>
+    /// <value><c>true</c> if the entity is active; otherwise, <c>false</c>.</value>
     public bool Active { get; set; }
   }
 
