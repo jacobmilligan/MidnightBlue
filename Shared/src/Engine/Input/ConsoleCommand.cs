@@ -19,8 +19,17 @@ namespace MidnightBlue.Engine.IO
   public class ConsoleCommand : Command
   {
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.ConsoleCommand"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign the command to.</param>
+    /// <param name="type">Type of command trigger.</param>
     public ConsoleCommand(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Toggles the debug console open/closed
+    /// </summary>
+    /// <param name="e">Entity with the controller component. Unused.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       MBGame.Console.Toggle();

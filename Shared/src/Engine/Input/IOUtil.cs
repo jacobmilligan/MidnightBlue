@@ -14,11 +14,27 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.IO
 {
+  /// <summary>
+  /// Utility methods for working with the keyboard and mouse
+  /// </summary>
   public static class IOUtil
   {
+    /// <summary>
+    /// The last known state of the keyboard
+    /// </summary>
     private static KeyboardState _previousState;
+
+    /// <summary>
+    /// The last known state of the mouse
+    /// </summary>
     private static MouseState _lastMouseState;
 
+    /// <summary>
+    /// Checks if the specific key was typed (aka not pressed down in the previous frame).
+    /// </summary>
+    /// <returns><c>true</c>, if the key was up in the last frame and down in the current one,
+    /// <c>false</c> otherwise.</returns>
+    /// <param name="key">Key.</param>
     public static bool KeyTyped(Keys key)
     {
       var result = false;
@@ -29,6 +45,10 @@ namespace MidnightBlue.Engine.IO
       return result;
     }
 
+    /// <summary>
+    /// Checks if the left mouse was clicked this frame and not held down
+    /// </summary>
+    /// <returns><c>true</c>, if left mouse was clicked, <c>false</c> otherwise.</returns>
     public static bool LeftMouseClicked()
     {
       var result = false;
@@ -39,21 +59,27 @@ namespace MidnightBlue.Engine.IO
       return result;
     }
 
+    /// <summary>
+    /// Updates the known keyboard state. Called once per frame.
+    /// </summary>
     public static void UpdateKeyState()
     {
       _previousState = Keyboard.GetState();
     }
 
+    /// <summary>
+    /// Updates the known mouse state. Called once per frame.
+    /// </summary>
     public static void UpdateMouseState()
     {
       _lastMouseState = Mouse.GetState();
     }
 
-    public static char LastChar()
-    {
-      return 'c';
-    }
-
+    /// <summary>
+    /// Converts a number of strings into a single CSV formatted line
+    /// </summary>
+    /// <returns>The CSV formatted line.</returns>
+    /// <param name="values">Values to take and format into a single line.</param>
     public static string LineToCSV(params string[] values)
     {
       var result = string.Empty;
@@ -71,6 +97,10 @@ namespace MidnightBlue.Engine.IO
       return result;
     }
 
+    /// <summary>
+    /// Gets the last key typed.
+    /// </summary>
+    /// <value>The last key typed.</value>
     public static Keys LastKeyTyped
     {
       get
@@ -87,6 +117,10 @@ namespace MidnightBlue.Engine.IO
       }
     }
 
+    /// <summary>
+    /// Gets the last key held down.
+    /// </summary>
+    /// <value>The last key held down.</value>
     public static Keys LastKeyDown
     {
       get

@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>MacOSX</RootNamespace>
-    <AssemblyName>MacOSX</AssemblyName>
+    <AssemblyName>Midnight Blue</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
@@ -49,6 +49,9 @@
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>None</LinkMode>
     <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+  	<ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -108,9 +111,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -163,6 +163,13 @@
       <Link>Content\Fonts\SourceCode.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.icns">
+      <LogicalName>Icon.icns</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icon.ico" />
+    <EmbeddedResource Include="Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

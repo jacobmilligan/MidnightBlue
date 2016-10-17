@@ -42,16 +42,12 @@ namespace MidnightBlue.Engine.EntityComponent
       for ( int k = 0; k < keys.Length; k++ ) {
         // Player controller
         if ( controller != null ) {
-          HandleInput(
-            controller.InputMap[keys[k]], entity
-          );
+          HandleInput(controller.InputMap[keys[k]], entity);
         }
 
         // Utility controller
         if ( utilityController != null ) {
-          HandleInput(
-            utilityController.InputMap[keys[k]], entity
-          );
+          HandleInput(utilityController.InputMap[keys[k]], entity);
         }
       }
     }

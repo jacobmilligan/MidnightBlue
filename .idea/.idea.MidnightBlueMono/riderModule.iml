@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RIDER_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../..">
+      <sourceFolder url="file://$MODULE_DIR$/../../Shared" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../Tests" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DesktopGL" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../MacOSX" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DesktopGL/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DesktopGL/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../MacOSX/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../MacOSX/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Tests/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../Tests/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../packages" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

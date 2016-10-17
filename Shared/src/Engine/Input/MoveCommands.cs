@@ -20,8 +20,17 @@ namespace MidnightBlue.Engine.IO
   /// </summary>
   public class MoveUp : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveUp"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveUp(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity up
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var physics = e.GetComponent<PhysicsComponent>();
@@ -32,10 +41,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Moves an entity right
+  /// </summary>
   public class MoveRight : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveRight"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveRight(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity right
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var physics = e.GetComponent<PhysicsComponent>();
@@ -46,10 +67,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Moves an entity down
+  /// </summary>
   public class MoveDown : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveDown"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveDown(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity down
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var physics = e.GetComponent<PhysicsComponent>();
@@ -60,10 +93,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Moves an entity left.
+  /// </summary>
   public class MoveLeft : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveLeft"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveLeft(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity up
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var physics = e.GetComponent<PhysicsComponent>();
@@ -74,10 +119,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Moves an entity forward. Only runs on entities with a physics component
+  /// </summary>
   public class MoveForward : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveForward"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveForward(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity forward based on their velocity
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var physics = e.GetComponent<PhysicsComponent>();
@@ -87,10 +144,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Moves an entity backward. Only runs on entities with a physics component
+  /// </summary>
   public class MoveBackward : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.MoveBackward"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public MoveBackward(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Move an entity forward based on their velocity
+    /// </summary>
+    /// <param name="e">Entity to move.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var movement = e.GetComponent<Movement>();
@@ -100,10 +169,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Rotates an entity right
+  /// </summary>
   public class RotateRight : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.RotateRight"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public RotateRight(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Rotates an entity right
+    /// </summary>
+    /// <param name="e">Entity to rotate.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var movement = e.GetComponent<Movement>();
@@ -118,10 +199,22 @@ namespace MidnightBlue.Engine.IO
     }
   }
 
+  /// <summary>
+  /// Rotates an entity left
+  /// </summary>
   public class RotateLeft : Command
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.IO.RotateLeft"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
     public RotateLeft(Keys key, CommandType type) : base(key, type) { }
 
+    /// <summary>
+    /// Rotates an entity left
+    /// </summary>
+    /// <param name="e">Entity to rotate.</param>
     protected override void OnKeyPress(Entity e = null)
     {
       var movement = e.GetComponent<Movement>();

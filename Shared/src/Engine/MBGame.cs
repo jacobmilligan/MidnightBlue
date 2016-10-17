@@ -37,8 +37,15 @@ namespace MidnightBlue.Engine
     /// </summary>
     private SceneStack _scenes;
 
+    /// <summary>
+    /// All entities known by the game, passed around as a reference to new scenes.
+    /// </summary>
     private EntityMap _gameObjects;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.MBGame"/> class and
+    /// defines essential graphics settings.
+    /// </summary>
     public MBGame()
     {
       _graphics = new GraphicsDeviceManager(this);
@@ -91,8 +98,7 @@ namespace MidnightBlue.Engine
     }
 
     /// <summary>
-    /// LoadContent will be called once per game and is the place to load
-    /// all of your content.
+    /// Loads content at the beginning of the game
     /// </summary>
     protected override void LoadContent()
     {
@@ -145,7 +151,7 @@ namespace MidnightBlue.Engine
     }
 
     /// <summary>
-    /// This is called when the game should draw itself.
+    /// Draws the current scene to the window
     /// </summary>
     /// <param name="gameTime">Provides a snapshot of timing values.</param>
     protected override void Draw(GameTime gameTime)

@@ -16,13 +16,35 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue.Engine.Scenes
 {
+  /// <summary>
+  /// Defines a valid transition state to move into. Once set, the scene stack will automatically
+  /// move the current scene into that state the next frame.
+  /// </summary>
   public enum TransitionState
   {
+    /// <summary>
+    /// The scene hasn't intitialized yet
+    /// </summary>
     Null,
+    /// <summary>
+    /// The normal state
+    /// </summary>
     None,
+    /// <summary>
+    /// The scene is currently pausing. Set state to None to end transition.
+    /// </summary>
     Pausing,
+    /// <summary>
+    /// The scene is resuming from the paused state. Set state to None to end transition.
+    /// </summary>
     Resuming,
+    /// <summary>
+    /// The scene is exiting to be destroyed. Set state to Null to end transition.
+    /// </summary>
     Exiting,
+    /// <summary>
+    /// The scene is initializing from the an unconstructed state. Set state to None to end.
+    /// </summary>
     Initializing
   }
 
@@ -69,40 +91,103 @@ namespace MidnightBlue.Engine.Scenes
     }
 
     /// <summary>
-    /// Initialize this scene and loads all resources.
+    /// Initialize this scene and loads all resources. Runs logic to execute 
+    /// during the Initializing state. Set state to None to end.
     /// </summary>
     public abstract void Initialize(); //TODO: Allow drawing using separate sprite batch for initialize
+
+    /// <summary>
+    /// Handles all input for the scene
+    /// </summary>
     public abstract void HandleInput();
+
+    /// <summary>
+    /// Updates game logic and changes scene state.
+    /// </summary>
     public abstract void Update();
+
+    /// <summary>
+    /// Runs logic to execute while the scene is in the Pausing state. Set state to None to end.
+    /// </summary>
     public abstract void Pause();
+
+    /// <summary>
+    /// Runs logic to execute while the scene is in the Resuming state. Set state to None to end.
+    /// </summary>
     public abstract void Resume();
+
+    /// <summary>
+    /// Draws entities and UI elements to the specfied SpriteBatches
+    /// </summary>
+    /// <param name="spriteBatch">World-coordinate based sprite batch.</param>
+    /// <param name="uiSpriteBatch">Camera-based User Interface sprite batch.</param>
     public abstract void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch);
+
+    /// <summary>
+    /// Runs logic to execute while the scene is in the Exiting state. Set state to Null to end.
+    /// </summary>
     public abstract void Exit();
 
+    /// <summary>
+    /// Cleans up the scene and unloads content.
+    /// </summary>
     public void Cleanup()
     {
       _gameObjects.Clear();
+      Content.Unload();
     }
 
+    /// <summary>
+    /// Gets all entities allocated to the scene
+    /// </summary>
+    /// <value>The game objects.</value>
     protected EntityMap GameObjects
     {
       get { return _gameObjects; }
     }
 
+    /// <summary>
+    /// Gets or sets the current transition state of the scene. This causes
+    /// the scene stack to change the scenes state on the next frame.
+    /// </summary>
+    /// <value>The transition state.</value>
     public TransitionState TransitionState { get; set; }
+
+    /// <summary>
+    /// Gets the state the scene was in during the last frame.
+    /// </summary>
+    /// <value>The state of the previous transition.</value>
     public TransitionState PreviousTransitionState
     {
       get { return _lastState; }
     }
 
+    /// <summary>
+    /// Gets or sets the color of the window background for this scene.
+    /// </summary>
+    /// <value>The color of the window background.</value>
     public Color WindowBackgroundColor { get; set; }
-    public SceneStack SceneController { get; set; }
+
+    /// <summary>
+    /// Gets or sets the scene controller.
+    /// </summary>
+    /// <value>The scene controller.</value>
+    public SceneStack SceneController { get; set; } //TODO: Should be a getter only
+
+    /// <summary>
+    /// Gets the content manager for loading and unloading resources.
+    /// </summary>
+    /// <value>The content manager.</value>
     protected ContentManager Content
     {
       get { return _content; }
     }
 
-    public float DeltaTime { get; set; }
+    /// <summary>
+    /// Gets or sets the delta time value.
+    /// </summary>
+    /// <value>The delta time.</value>
+    public float DeltaTime { get; set; } //TODO: Should be a getter only
   }
 }
 
