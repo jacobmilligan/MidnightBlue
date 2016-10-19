@@ -17,12 +17,39 @@ using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue.Engine.UI
 {
+  /// <summary>
+  /// A scrollable list box. Items can be added and interactied with.
+  /// </summary>
   public class ListControl : UIControlElement
   {
+    /// <summary>
+    /// Font to render in the list box
+    /// </summary>
     private SpriteFont _font;
+
+    /// <summary>
+    /// The index in the List of the currently selected item
+    /// </summary>
     private int _selectedItem;
-    private Rectangle _upArrow, _downArrow;
+
+    /// <summary>
+    /// The up arrow box
+    /// </summary>
+    private Rectangle _upArrow,
+    /// <summary>
+    /// The down arrow box
+    /// </summary>
+    _downArrow;
+
+    /// <summary>
+    /// The rectangle encompassing the entire list. Culled by the outer, visible bounding box
+    /// of the list.
+    /// </summary>
     private Rectangle _listRect;
+
+    /// <summary>
+    /// All elements currently in the list.
+    /// </summary>
     private List<string> _elements;
 
     public ListControl(SpriteFont font)

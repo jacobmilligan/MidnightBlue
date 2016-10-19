@@ -117,6 +117,10 @@ namespace MidnightBlue.Engine
     /// <param name="gameTime">Provides a snapshot of timing values.</param>
     protected override void Update(GameTime gameTime)
     {
+      // Update frame time
+      _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+      _fps.Update(_dt);
+
       // For Mobile devices, this logic will close the Game when the Back button is pressed
       // Exit() is obsolete on iOS
 #if !__IOS__ && !__TVOS__
@@ -216,9 +220,6 @@ namespace MidnightBlue.Engine
 
       _spriteBatch.End();
       _uiSpriteBatch.End();
-
-      _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-      _fps.Update(_dt);
 
       base.Draw(gameTime);
     }
