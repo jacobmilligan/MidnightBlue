@@ -52,15 +52,29 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     private List<string> _elements;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.ListControl"/> class
+    /// using the specified font to draw elements.
+    /// </summary>
+    /// <param name="font">Font to use.</param>
     public ListControl(SpriteFont font)
       : this(font, null, null, null)
     { }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.ListControl"/> class
+    /// with a font to use when drawing elements alongside state textures.
+    /// </summary>
+    /// <param name="font">Font to use.</param>
+    /// <param name="normal">Normal state texture.</param>
+    /// <param name="selected">Selected stae texture.</param>
+    /// <param name="pressed">Pressed state texture.</param>
     public ListControl(SpriteFont font, Texture2D normal, Texture2D selected, Texture2D pressed)
       : base(normal, selected, pressed)
     {
       _elements = new List<string>();
 
+      // Setup default styles
       SeperaterColor = Color.LightGray;
       ControlSize = 10;
       ItemSpan = 1;
@@ -75,9 +89,14 @@ namespace MidnightBlue.Engine.UI
       );
     }
 
-
+    /// <summary>
+    /// Updates the element to handle scrolling and clicking. Must be called
+    /// once per frame.
+    /// </summary>
     public override void Update()
     {
+      // If none of the visuals have been preset
+      // setup the default arrow and list box graphics
       if ( _upArrow == Rectangle.Empty || _downArrow == Rectangle.Empty ) {
         _upArrow = new Rectangle(
           BoundingBox.Right - ControlSize - BorderWidth,
@@ -105,20 +124,28 @@ namespace MidnightBlue.Engine.UI
       HandleClick();
     }
 
+    /// <summary>
+    /// Draws the list control to the window
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw to.</param>
     public override void Draw(SpriteBatch spriteBatch)
     {
       base.Draw(spriteBatch);
 
       spriteBatch.End();
 
+      // Creates a rasterize state for clipping elements outside the outer
+      // box of the control
       var rasterizeState = new RasterizerState() { ScissorTestEnable = true };
 
       spriteBatch.Begin(rasterizerState: rasterizeState);
-      spriteBatch.GraphicsDevice.ScissorRectangle = BoundingBox;
+      spriteBatch.GraphicsDevice.ScissorRectangle = BoundingBox; // the outer box of the list control
 
+      // Draw arrows
       spriteBatch.DrawRectangle(_upArrow, SeperaterColor, 2);
       spriteBatch.DrawRectangle(_downArrow, SeperaterColor, 2);
 
+      // Draw the selected element with a special color
       if ( _selectedItem >= 0 ) {
         spriteBatch.FillRectangle(
           BoundingBox.X,
@@ -132,10 +159,12 @@ namespace MidnightBlue.Engine.UI
       var nextEntry = 0;
       var itemY = 0;
 
+      // Draws all the other list elements to the box - clips them if they aren't
+      // in the visible area
       for ( int item = 0; item < Count && nextEntry < BoundingBox.Bottom; item++ ) {
 
         nextEntry = _listRect.Location.Y + (ItemSpan * itemY);
-        var listEntry = new Vector2(BoundingBox.X, nextEntry);
+        var listEntry = new Vector2(BoundingBox.X, nextEntry); // clip!
 
         spriteBatch.DrawString(
           _font,
@@ -153,12 +182,16 @@ namespace MidnightBlue.Engine.UI
       spriteBatch.GraphicsDevice.ScissorRectangle = MBGame.Graphics.Viewport.Bounds;
     }
 
+    /// <summary>
+    /// Handles click events on list control elements.
+    /// </summary>
     private void HandleClick()
     {
       var mouse = Mouse.GetState();
 
+      // Check all elements to see if they've been clicked
       for ( int element = 0; element < Count; element++ ) {
-
+        // Create a temporary rectangle for checking click event
         var listItemRect = new Rectangle(
           BoundingBox.X,
           _listRect.Y + (ItemSpan * element),
@@ -173,17 +206,24 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Handles scrolling the list control up and down.
+    /// </summary>
     private void HandleScroll()
     {
       var mouse = Mouse.GetState();
       var listPos = _listRect.Location;
 
+      // Scroll up
       if ( _upArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
+        // Only if the list hasn't reached the bottom
         if ( listPos.Y <= BoundingBox.Top ) {
           _listRect.Location = new Point(listPos.X, listPos.Y + 1);
         }
       }
+      // Scroll down
       if ( _downArrow.Contains(mouse.Position) && mouse.LeftButton == ButtonState.Pressed ) {
+        // Only if the list hasn't reached the top
         if ( listPos.Y + _listRect.Height > BoundingBox.Bottom ) {
           _listRect.Location = new Point(listPos.X, listPos.Y - 1);
         }
@@ -191,6 +231,10 @@ namespace MidnightBlue.Engine.UI
 
     }
 
+    /// <summary>
+    /// Gets or sets a list of all of the list control elements
+    /// </summary>
+    /// <value>The elements.</value>
     public List<string> Elements
     {
       get
@@ -203,13 +247,32 @@ namespace MidnightBlue.Engine.UI
         _listRect.Height = Count * ItemSpan;
       }
     }
+
+    /// <summary>
+    /// Gets the count of list control elements.
+    /// </summary>
+    /// <value>The count.</value>
     public int Count
     {
       get { return _elements.Count; }
     }
+
+    /// <summary>
+    /// Gets or sets the color of the seperater between list elements.
+    /// </summary>
+    /// <value>The color of the seperater.</value>
     public Color SeperaterColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the size of the up and down arrow controls.
+    /// </summary>
+    /// <value>The size of the controls.</value>
     public int ControlSize { get; set; }
 
+    /// <summary>
+    /// Gets or sets the span of each item vertically in px.
+    /// </summary>
+    /// <value>The item span.</value>
     public int ItemSpan { get; set; }
   }
 }

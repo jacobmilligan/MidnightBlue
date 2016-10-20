@@ -26,6 +26,9 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     private UIContent _grid;
 
+    /// <summary>
+    /// Allows fast lookup of all elements in all layouts in the view
+    /// </summary>
     private Dictionary<string, UIElement> _elementLookup;
 
     /// <summary>
@@ -112,14 +115,20 @@ namespace MidnightBlue.Engine.UI
       AddToLookup(element);
     }
 
+    /// <summary>
+    /// Adds an element to the lookup table used by the view
+    /// </summary>
+    /// <param name="element">Element to add.</param>
     public void AddToLookup(UIElement element)
     {
       var tag = element.Tag;
       if ( tag == string.Empty ) {
         tag = element.GetType().Name + _elementLookup.Count;
       }
+      // Only add if they're not already in the table
       if ( !_elementLookup.ContainsKey(tag) ) {
         _elementLookup.Add(tag, element);
+        // Search all elements if this is a layout and not a regular element
         if ( element.GetType() == typeof(Layout) ) {
           foreach ( var e in element.Content.Elements ) {
             if ( e != null ) {
@@ -130,6 +139,10 @@ namespace MidnightBlue.Engine.UI
       }
     }
 
+    /// <summary>
+    /// Gets the <see cref="T:MidnightBlue.Engine.UI.UIElement"/> with the specified key.
+    /// </summary>
+    /// <param name="key">Tag of the element.</param>
     public UIElement this[string key]
     {
       get { return _elementLookup[key]; }

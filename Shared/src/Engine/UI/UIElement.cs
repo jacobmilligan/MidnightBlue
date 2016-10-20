@@ -192,11 +192,10 @@ namespace MidnightBlue.Engine.UI
       get { return new Vector2(_numCols, _numRows); }
     }
 
-    public Point GridPosition
-    {
-      get { return _gridPos; }
-    }
-
+    /// <summary>
+    /// Gets the bounding box of this element
+    /// </summary>
+    /// <value>The bounding box.</value>
     public Rectangle BoundingBox
     {
       get { return _borderRect; }
@@ -278,6 +277,10 @@ namespace MidnightBlue.Engine.UI
     /// <value>The color of the border left.</value>
     public Color BorderLeftColor { get; set; }
 
+    /// <summary>
+    /// Gets or sets the tag used to quickly access this element and uniquely identify it.
+    /// </summary>
+    /// <value>The tag.</value>
     public string Tag { get; set; }
   }
 }

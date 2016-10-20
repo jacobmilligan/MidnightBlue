@@ -17,12 +17,39 @@ namespace MidnightBlue.Engine
   /// </summary>
   public class MBGame : Game
   {
+    /// <summary>
+    /// The main graphics adapter used in the game.
+    /// </summary>
     private static GraphicsDeviceManager _graphics;
+
+    /// <summary>
+    /// Holds the current frames per second of the game.
+    /// </summary>
     private static FramesPerSecondCounter _fps;
+
+    /// <summary>
+    /// Delta Time. Holds the time it took to complete the last frame.
+    /// </summary>
     private static float _dt;
+
+    /// <summary>
+    /// The main 2D camera used in the game. Other cameras can be used
+    /// but this should always be active.
+    /// </summary>
     private static Camera2D _camera;
 
-    private SpriteBatch _spriteBatch, _uiSpriteBatch;
+    /// <summary>
+    /// The SpriteBatch for drawing all world-based textures
+    /// </summary>
+    private SpriteBatch _spriteBatch,
+    /// <summary>
+    /// SpriteBatch for drawing all screen-based textures
+    /// </summary>
+    _uiSpriteBatch;
+
+    /// <summary>
+    /// Color used when refreshing the window
+    /// </summary>
     private Color _bgColor;
 
     /// <summary>
@@ -49,13 +76,14 @@ namespace MidnightBlue.Engine
     public MBGame()
     {
       _graphics = new GraphicsDeviceManager(this);
-      Content.RootDirectory = "Content";
-
-      _scenes = new SceneStack();
-      ForceQuit = false;
+      _scenes = new SceneStack(); // main scene stack
       _gameObjects = new EntityMap();
       _fps = new FramesPerSecondCounter();
 
+      ForceQuit = false;
+      Content.RootDirectory = "Content";
+
+      // 720p
       _graphics.PreferredBackBufferWidth = 1280;
       _graphics.PreferredBackBufferHeight = 720;
       _graphics.ApplyChanges();
@@ -70,8 +98,9 @@ namespace MidnightBlue.Engine
     protected override void Initialize()
     {
 
-      this.IsMouseVisible = true;
+      this.IsMouseVisible = true; // show mouse
 
+      // Setup main viewport for camera use
       _graphics.GraphicsDevice.Viewport = new Viewport {
         X = 0,
         Y = 0,
@@ -79,9 +108,11 @@ namespace MidnightBlue.Engine
         Height = _graphics.PreferredBackBufferHeight,
       };
 
+      // Initialize camera at viewport location
       _camera = new Camera2D(Graphics);
       _camera.LookAt(new Vector2(0, 0));
-      base.Initialize();
+
+      base.Initialize(); // MonoGame setup
 
       _bgColor = Color.MidnightBlue;
       Window.Title = "Midnight Blue";
@@ -89,6 +120,7 @@ namespace MidnightBlue.Engine
       SetUpDebugVals();
       RegisterSystems();
 
+      // Setup player
       Entity player = _gameObjects.CreateEntity("player");
       player.Attach<UtilityController>();
       player.Persistant = true;
@@ -102,7 +134,6 @@ namespace MidnightBlue.Engine
     /// </summary>
     protected override void LoadContent()
     {
-      // Create a new SpriteBatch, which can be used to draw textures.
       _spriteBatch = new SpriteBatch(GraphicsDevice);
       _uiSpriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -128,22 +159,26 @@ namespace MidnightBlue.Engine
         Exit();
 #endif
 
+      // Update the current scene
       if ( _scenes.Top != null ) {
         _bgColor = _scenes.Top.WindowBackgroundColor;
         _scenes.Top.DeltaTime = _dt;
       }
 
+      // Check for quit request
       if ( ForceQuit ) {
         Exit();
       }
 
-      _scenes.Update();
+      _scenes.Update(); //FIXME: There was a divide by zero error here. Plz fix
 
       _debugConsole.Update();
 
+      // Update IO states
       IOUtil.UpdateKeyState();
       IOUtil.UpdateMouseState();
 
+      // Update the camera position to look at the player
       var playerMovement = _gameObjects["player"].GetComponent<Movement>();
       if ( playerMovement != null ) {
         _camera.LookAt(
@@ -151,7 +186,7 @@ namespace MidnightBlue.Engine
         );
       }
 
-      base.Update(gameTime);
+      base.Update(gameTime); // Monogame update
     }
 
     /// <summary>
@@ -164,15 +199,36 @@ namespace MidnightBlue.Engine
 
       _uiSpriteBatch.Begin();
 
+      // Setup to draw relative to the cameras view matrix
+      // and clamp coords to int points to avoid weird floating
+      // point stutters
       _spriteBatch.Begin(
         transformMatrix: _camera.GetViewMatrix(),
         samplerState: SamplerState.PointClamp
       );
 
+      // Draw the current scene
       if ( _scenes.Top != null ) {
         _scenes.Top.Draw(_spriteBatch, _uiSpriteBatch);
       }
 
+      CheckDebugVars();
+
+      _debugConsole.Draw(_uiSpriteBatch);
+
+      _spriteBatch.End();
+      _uiSpriteBatch.End();
+
+      base.Draw(gameTime);
+    }
+
+    /// <summary>
+    /// Checks if the debug variables are set and then executes appropriate render
+    /// logic 
+    /// </summary>
+    private void CheckDebugVars()
+    {
+      // Draw framerate
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
         _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("Fonts/SourceCode"),
@@ -181,6 +237,7 @@ namespace MidnightBlue.Engine
           Color.White
         );
 
+        // Draw DT
         _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("Fonts/SourceCode"),
           _dt.ToString(),
@@ -189,6 +246,7 @@ namespace MidnightBlue.Engine
         );
       }
 
+      // Draw camera position
       if ( (bool)_debugConsole.Vars["showCameraPos"] ) {
         _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("Fonts/SourceCode"),
@@ -198,6 +256,7 @@ namespace MidnightBlue.Engine
         );
       }
 
+      // Draw amount of collision checks last frame
       if ( (bool)_debugConsole.Vars["collisionChecks"] ) {
         var collision = _gameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
         _uiSpriteBatch.DrawString(
@@ -208,6 +267,7 @@ namespace MidnightBlue.Engine
         );
       }
 
+      // Draw the collision grid and boxes
       if ( (bool)_debugConsole.Vars["drawCollision"] ) {
         _gameObjects.GetSystem<CollisionRenderSystem>().Run();
         var collisionMap = (_gameObjects.GetSystem<CollisionSystem>() as CollisionSystem).CurrentMap;
@@ -215,17 +275,14 @@ namespace MidnightBlue.Engine
           _spriteBatch.DrawGrid(collisionMap.Grid, Camera.Position.ToPoint(), Color.White);
         }
       }
-
-      _debugConsole.Draw(_uiSpriteBatch);
-
-      _spriteBatch.End();
-      _uiSpriteBatch.End();
-
-      base.Draw(gameTime);
     }
 
+    /// <summary>
+    /// Sets up all the initial debug console variables and functions used in the game.
+    /// </summary>
     private void SetUpDebugVals()
     {
+      // Add all variables
       _debugConsole.AddVar("showFramerate", true);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
@@ -234,6 +291,7 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);
 
+      // Add all functions
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
       _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
       _debugConsole.AddFunc("SetSpeed", (string[] args) => {
@@ -270,6 +328,9 @@ namespace MidnightBlue.Engine
       _debugConsole.AddFunc("TestUI", (string[] args) => _scenes.Push(new UITest(_gameObjects, Content)));
     }
 
+    /// <summary>
+    /// Registers all EntitySystems used in the engine
+    /// </summary>
     private void RegisterSystems()
     {
       _gameObjects.AddSystem<InputSystem>();
@@ -283,31 +344,55 @@ namespace MidnightBlue.Engine
       _gameObjects.AddSystem<CollisionRenderSystem>(_spriteBatch);
     }
 
+    /// <summary>
+    /// Gets the main graphics device.
+    /// </summary>
+    /// <value>The graphics device.</value>
     public static GraphicsDevice Graphics
     {
       get { return _graphics.GraphicsDevice; }
     }
 
+    /// <summary>
+    /// Gets the main camera.
+    /// </summary>
+    /// <value>The main camera.</value>
     public static Camera2D Camera
     {
       get { return _camera; }
     }
 
+    /// <summary>
+    /// Gets the debug console for reading and writing to. There should only ever be one of these
+    /// </summary>
+    /// <value>The debug console.</value>
     public static MBConsole Console
     {
       get { return _debugConsole; }
     }
 
+    /// <summary>
+    /// Gets time it took to complete the last frame
+    /// </summary>
+    /// <value>The delta time.</value>
     public static float DeltaTime
     {
       get { return _dt; }
     }
 
+    /// <summary>
+    /// Gets the current average frames per second
+    /// </summary>
+    /// <value>The fps.</value>
     public static float FPS
     {
       get { return _fps.AverageFramesPerSecond; }
     }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:MidnightBlue.Engine.MBGame"/> should quit.
+    /// </summary>
+    /// <value><c>true</c> if the game should quit; otherwise, <c>false</c>.</value>
     public static bool ForceQuit { get; set; }
   }
 }
