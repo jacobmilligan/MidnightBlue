@@ -89,6 +89,7 @@ namespace MidnightBlue
       if ( shipController != null ) {
         UpdateShip(shipController);
       }
+
       UpdateBiome();
 
       GameObjects.GetSystem<CollisionSystem>().Run();
@@ -104,19 +105,23 @@ namespace MidnightBlue
     private void UpdateShip(ShipController shipController)
     {
       var player = GameObjects["player"];
-      var movement = player.GetComponent<Movement>();
 
       if ( shipController.State == ShipState.Landing ) {
+        
         var sprite = player.GetComponent<SpriteTransform>();
         sprite.Target.Scale = new Vector2(sprite.Target.Scale.X - 0.01f, sprite.Target.Scale.Y - 0.01f);
+
         if ( sprite.Target.Scale.X < _playerScale ) {
           BecomePlayer(player);
         }
+
       } else if ( shipController.State == ShipState.Launching ) {
 
         if ( player.HasComponent<PlayerController>() ) {
           BecomeShip(player);
+
           var newController = player.GetComponent<ShipController>();
+
           newController.State = ShipState.Launching;
           player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(_playerScale, _playerScale);
         }

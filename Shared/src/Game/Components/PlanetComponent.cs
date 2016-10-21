@@ -12,8 +12,15 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue
 {
+  /// <summary>
+  /// Represents a planet entity with pre-generated metadata
+  /// </summary>
   public class PlanetComponent : IComponent
   {
+    /// <summary>
+    /// All pre-generated arguments used when generating a planets map
+    /// </summary>
+    /// <value>The data.</value>
     public Planet Data { get; set; }
   }
 }

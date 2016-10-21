@@ -17,8 +17,20 @@ using MonoGame.Extended.Particles;
 
 namespace MidnightBlue
 {
-  public enum ShipState { Normal, Landing, Launching, Warping }
+  /// <summary>
+  /// Represents the current travelling state of the ship
+  /// </summary>
+  public enum ShipState 
+  { 
+    Normal,
+    Landing,
+    Launching,
+    Warping 
+  }
 
+  /// <summary>
+  /// Controls a ships movement and actions
+  /// </summary>
   public class ShipController : IComponent
   {
     /// <summary>
@@ -27,6 +39,10 @@ namespace MidnightBlue
     /// </summary>
     private InputMap _inputMap;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.ShipController"/> class
+    /// and assigns all default input and key mappings.
+    /// </summary>
     public ShipController()
     {
       _inputMap = new InputMap();
@@ -56,7 +72,17 @@ namespace MidnightBlue
       get { return _inputMap; }
     }
 
+    /// <summary>
+    /// Gets or sets the current travel state of the ship.
+    /// </summary>
+    /// <value>The ships travelling state.</value>
     public ShipState State { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:MidnightBlue.ShipController"/> is able to
+    /// be landed when the entity calls their LandCommand.
+    /// </summary>
+    /// <value><c>true</c> if is landable; otherwise, <c>false</c>.</value>
     public bool IsLandable { get; set; }
   }
 }

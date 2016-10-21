@@ -157,6 +157,10 @@ namespace MidnightBlue
       get { return _min; }
     }
 
+    /// <summary>
+    /// Gets the internal map.
+    /// </summary>
+    /// <value>The map.</value>
     public ImplicitModuleBase Map
     {
       get { return _fractal; }
