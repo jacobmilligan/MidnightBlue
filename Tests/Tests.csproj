@@ -38,10 +38,14 @@
     <Reference Include="TinkerWorX.AccidentalNoiseLibrary">
       <HintPath>..\Shared\src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ECSTest.cs" />
     <Compile Include="GridTests.cs" />
+    <Compile Include="EnvironmentTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

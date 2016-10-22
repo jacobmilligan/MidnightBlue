@@ -11,6 +11,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json.Linq;
 
 namespace MidnightBlue
 {
@@ -34,6 +35,7 @@ namespace MidnightBlue
     private MoistureLevel _moisture;
     private TemperatureLevel _temperature;
     private Biome _biome;
+    //private EcosystemTool _ecosystemTool;
 
     public PlanetTile(double height, double moisture, double temperature, Random rand)
     {
@@ -64,7 +66,7 @@ namespace MidnightBlue
         case Biome.Shrubland:
           id = 298;
           break;
-        case Biome.TemeperateGrassland:
+        case Biome.TemperateGrassland:
           id = 301;
           break;
         case Biome.Desert:
@@ -125,7 +127,7 @@ namespace MidnightBlue
         case Biome.Shrubland:
           clr = _shrubLand;
           break;
-        case Biome.TemeperateGrassland:
+        case Biome.TemperateGrassland:
           clr = _temperateGrassland;
           break;
         case Biome.Desert:

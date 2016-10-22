@@ -33,7 +33,7 @@ namespace MidnightBlue.Engine
     /// <summary>
     /// The seed to use in generating the galaxy and star systems
     /// </summary>
-    private int _seed, 
+    private int _seed,
     /// <summary>
     /// The current frame in the loading animation
     /// </summary>
@@ -117,7 +117,7 @@ namespace MidnightBlue.Engine
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
       //TODO: Load from file here
-      _seed = 7800; //HACK: Hardcoded seed value for galaxy
+      _seed = 7822800; //HACK: Hardcoded seed value for galaxy
       _loading = true;
       _animTime = _animFrame = 0;
 
@@ -164,7 +164,7 @@ namespace MidnightBlue.Engine
       // Check if galaxy has been generated and generate it on another thread
       // if it hasn't
       if ( _galaxy == null ) {
-        
+
         _galaxy = new GalaxyBuilder(Content, 4000, _seed);
         _galaxyBuildThread.Start();
 
@@ -366,7 +366,7 @@ namespace MidnightBlue.Engine
       // Go to next frame if current cells finished animation
       _animTime++;
       if ( _animTime > 2 ) {
-        
+
         _animTime = 0;
         _animFrame++;
 

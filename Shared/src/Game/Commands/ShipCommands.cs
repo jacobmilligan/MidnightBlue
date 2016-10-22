@@ -143,4 +143,25 @@ namespace MidnightBlue
       }
     }
   }
+
+  public class LeaveStarSystem : Command
+  {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.LeaveStarSystem"/> class.
+    /// </summary>
+    /// <param name="key">Key to assign to.</param>
+    /// <param name="type">Trigger type.</param>
+    public LeaveStarSystem(Keys key, CommandType type) : base(key, type) { }
+
+    protected override void OnKeyPress(Entity e = null)
+    {
+      var shipController = e.GetComponent<ShipController>();
+
+      // Leave screen
+      if ( shipController != null ) {
+        shipController = e.Attach<ShipController>() as ShipController;
+        shipController.State = ShipState.LeavingScreen;
+      }
+    }
+  }
 }

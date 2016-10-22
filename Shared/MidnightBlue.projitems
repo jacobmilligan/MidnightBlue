@@ -136,6 +136,9 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Tiles\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Audio\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Content\JSON\biomes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Folder>
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

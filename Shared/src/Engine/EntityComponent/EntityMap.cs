@@ -12,6 +12,7 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
@@ -228,6 +229,11 @@ namespace MidnightBlue.Engine.EntityComponent
       }
 
       return result;
+    }
+
+    public List<Entity> EntitiesWithComponent<T>() where T : IComponent
+    {
+      return _entities.Where(entity => entity.HasComponent<T>()).ToList();
     }
 
     /// <summary>

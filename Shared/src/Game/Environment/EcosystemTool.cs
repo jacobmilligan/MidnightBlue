@@ -7,7 +7,7 @@
 // 	Created by Jacob Milligan on 11/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
-using System;
+
 namespace MidnightBlue
 {
 
@@ -17,7 +17,7 @@ namespace MidnightBlue
     Taiga,
     Woodland,
     Shrubland,
-    TemeperateGrassland,
+    TemperateGrassland,
     Desert,
     SubtropicalDesert,
     Savana,
@@ -71,7 +71,7 @@ namespace MidnightBlue
 
     internal static Biome GetBiome(MoistureLevel moisture, TemperatureLevel temperature, HeightLevel height)
     {
-      var biome = Biome.TemeperateGrassland;
+      var biome = Biome.TemperateGrassland;
 
       if ( temperature == TemperatureLevel.Freezing ) {
         biome = Biome.Ice;
@@ -99,7 +99,7 @@ namespace MidnightBlue
             break;
           case MoistureLevel.Dry:
           case MoistureLevel.SemiDry:
-            biome = Biome.TemeperateGrassland;
+            biome = Biome.TemperateGrassland;
             break;
           case MoistureLevel.SemiMoist:
             biome = Biome.Woodland;

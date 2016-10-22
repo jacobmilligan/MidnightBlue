@@ -20,12 +20,13 @@ namespace MidnightBlue
   /// <summary>
   /// Represents the current travelling state of the ship
   /// </summary>
-  public enum ShipState 
-  { 
+  public enum ShipState
+  {
     Normal,
     Landing,
     Launching,
-    Warping 
+    LeavingScreen,
+    Warping
   }
 
   /// <summary>
@@ -61,6 +62,7 @@ namespace MidnightBlue
 
       _inputMap.Assign<EnterStarSystem>(Keys.E, CommandType.Trigger);
       _inputMap.Assign<LandCommand>(Keys.Space, CommandType.Trigger);
+      _inputMap.Assign<LeaveStarSystem>(Keys.Q, CommandType.Trigger);
     }
 
     /// <summary>

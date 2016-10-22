@@ -1,0 +1,129 @@
+{
+	"biomes" :
+	[
+		{
+			"name" : "Ice",
+			"cases": [{ "temperature" : "Freezing", "moisture" : "All" }]
+		},
+		{
+			"name" : "Tundra",
+			"cases": 
+			[
+				{ "temperature" : "Polar", "moisture" : ["All"] },
+				{ "temperature" : "Tundra", "moisture" : ["All"] },
+				{ "temperature" : "Taiga", "moisture" : ["Arid"] }
+			]
+		},
+		{
+			"name" : "Taiga",
+			"cases": 
+			[
+				{ "temperature" : "Taiga", "moisture" : ["Dry", "SemiDry", "SemiMoist", "Moist"] },
+			]
+		},
+		{
+			"name" : "Woodland",
+			"cases": 
+			[
+				{ "temperature" : "Taiga", "moisture" : ["Wet"] },
+				{ "temperature" : "Temperate", "moisture" : ["SemiMoist"] },
+				{ "temperature" : "SubTropical", "moisture" : ["SemiDry"] },
+			]
+		},
+		{
+			"name" : "Shrubland",
+			"cases": 
+			[
+				{ "temperature" : "SubTropical", "moisture" : ["Dry"] },
+			]
+		},
+		{
+			"name" : "TemperateGrassland",
+			"cases": 
+			[
+				{ "temperature" : "Temperate", "moisture" : ["Dry", "SemiDry"] },
+			]
+		},
+		{
+			"name" : "Desert",
+			"cases": 
+			[
+				{ "temperature" : "Temperate", "moisture" : ["Arid"] },
+				{ "temperature" : "Hot", "moisture" : ["Arid", "Dry", "SemiDry"] },
+				{ "temperature" : "Harsh", "moisture" : ["Dry", "SemiDry", "SemiMoist", "Moist"] },
+				{ "temperature" : "SuperHot", "moisture" : ["Moist", "Wet"] },
+				{ "temperature" : "Scorching", "moisture" : ["Moist", "Wet"] },
+			]
+		},
+		{
+			"name" : "SubtropicalDesert",
+			"cases": 
+			[
+				{ "temperature" : "SubTropical", "moisture" : ["Arid"] },
+				{ "temperature" : "Tropical", "moisture" : ["Arid", "Dry"] },
+				{ "temperature" : "Hot", "moisture" : ["SemiMoist", "Moist"] },
+				{ "temperature" : "Harsh", "moisture" : ["Wet"] },
+			]
+		},
+		{
+			"name" : "Savana",
+			"cases": 
+			[
+				{ "temperature" : "Tropical", "moisture" : ["SemiDry", "SemiMoist"] },
+			]
+		},
+		{
+			"name" : "TropicalSeasonalForest",
+			"cases": 
+			[
+				{ "temperature" : "Hot", "moisture" : ["Wet"] },
+			]
+		},
+		{
+			"name" : "TemperateSeasonalForest",
+			"cases": 
+			[
+				{ "temperature" : "Temperate", "moisture" : ["Moist"] },
+				{ "temperature" : "SubTropical", "moisture" : ["SemiMoist", "Moist"] }
+			]
+		},
+		{
+			"name" : "TemperateRainforest",
+			"cases": 
+			[
+				{ "temperature" : "Temperate", "moisture" : ["Wet"] },
+				{ "temperature" : "SubTropical", "moisture" : ["Wet"] },
+			]
+		},
+		{
+			"name" : "TropicalRainforest",
+			"cases": 
+			[
+				{ "temperature" : "Tropical", "moisture" : ["Moist", "Wet"] },
+			]
+		},
+		{
+			"name" : "Barren",
+			"cases": 
+			[
+				{ "temperature" : "Harsh", "moisture" : ["Arid"] },
+				{ "temperature" : "SuperHot", "moisture" : ["Arid", "Dry", "SemiDry", "SemiMoist"] },
+				{ "temperature" : "Scorching", "moisture" : ["Aris", "Dry", "SemiDry", "SemiMoist"] },
+			]
+		},
+		{
+			"name" : "ShallowOcean",
+			"cases": 
+			[
+				{ "height" : "SeaLevel", "moisture" : ["Dry", "SemiDry", "SemiMoist", "Moist", "Wet"] },
+			]
+		},
+		{
+			"name" : "Ocean",
+			"cases": 
+			[
+				{ "height" : "Depths", "moisture" : ["Dry", "SemiDry", "SemiMoist", "Moist", "Wet"] },
+			]
+		},
+	]
+}

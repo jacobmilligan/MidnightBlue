@@ -38,6 +38,7 @@ namespace MidnightBlue
     private StarSystemHud _hud;
     private Random _rand;
     private Rectangle _bounds;
+    private Vector2 _lasPos;
 
     public StarSystemScene(
       EntityMap map, ContentManager content, StarSystem starSystem, Dictionary<string, Planet> cache, int seed
@@ -63,17 +64,14 @@ namespace MidnightBlue
         );
       }
 
-      var player = GameObjects["player"];
-      var movement = player.GetComponent<Movement>();
-      movement.Speed = 25.0f;
-      movement.RotationSpeed = 0.05f;
-      movement.Position = new Vector2(maxPlanetDistance, maxPlanetDistance);
+      BuildPlayer(maxPlanetDistance, maxPlanetDistance);
 
       var star = GameObjects.CreateEntity(_starSystem.Name);
       var starSprite = star.Attach<SpriteTransform>(
         _star, new Vector2(0, 0), new Vector2(2, 2)
       ) as SpriteTransform;
       star.Attach<CollisionComponent>(starSprite.Bounds);
+      star.Persistant = true;
 
       //TODO: Replace with for loop
       var p = 0;
@@ -141,8 +139,16 @@ namespace MidnightBlue
 
           if ( collision != null ) {
             var planet = collision.Collider.GetComponent<PlanetComponent>();
-
+            _lasPos = player.GetComponent<Movement>().Position;
             shipController.State = ShipState.Normal;
+
+            var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
+            foreach ( var p in planetEntities ) {
+              p.Active = false;
+            }
+
+            GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
+
             SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
           }
 
@@ -198,6 +204,7 @@ namespace MidnightBlue
       var planet = planetEntity.Attach<PlanetComponent>() as PlanetComponent;
       planet.Data = p;
       planetEntity.Attach<CollisionComponent>(new RectangleF[] { planetSprite.Target.GetBoundingRectangle() });
+      planetEntity.Persistant = true;
 
       GameObjects.UpdateSystems(planetEntity);
 
@@ -274,6 +281,16 @@ namespace MidnightBlue
           Inertia = 0.98f,
           RotationInertia = 0.98f
         };
+
+      BuildPlayer((int)_lasPos.X, (int)_lasPos.Y);
+
+      var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
+      foreach ( var p in planetEntities ) {
+        p.Active = true;
+      }
+
+      GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
+
       // End transition instantly
       TransitionState = TransitionState.None;
     }
@@ -311,18 +328,24 @@ namespace MidnightBlue
     {
       var movement = GameObjects["player"].GetComponent<Movement>();
 
-      var closestPlanet = _planets.OrderBy(
+      var planets = _planets.OrderBy(
         planet => Vector2.Distance(movement.Position, planet.Position)
-      ).Last();
+      );
 
-      closestPlanet.Generate(new Random(_rand.Next()));
+      if ( planets.Count() > 0 ) {
+        var closestPlanet = planets.Last();
 
-      _loading = false;
+        closestPlanet.Generate(new Random(_rand.Next()));
 
-      for ( int i = 0; i < _planets.Length; i++ ) {
-        if ( !_planets[i].Generated ) {
-          _planets[i].Generate(new Random(_rand.Next()));
+        _loading = false;
+
+        for ( int i = 0; i < _planets.Length; i++ ) {
+          if ( !_planets[i].Generated ) {
+            _planets[i].Generate(new Random(_rand.Next()));
+          }
         }
+      } else {
+        _loading = false;
       }
     }
 
@@ -335,6 +358,17 @@ namespace MidnightBlue
       } else {
         _thrusterSound.FadeDown();
       }
+    }
+
+    private void BuildPlayer(int x, int y)
+    {
+      var player = GameObjects["player"];
+      var movement = player.GetComponent<Movement>();
+      movement.Speed = 25.0f;
+      movement.RotationSpeed = 0.05f;
+      movement.Position = new Vector2(x, y);
+
+      player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(0.3f, 0.3f);
     }
 
   }
