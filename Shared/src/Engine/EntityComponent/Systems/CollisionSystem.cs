@@ -148,10 +148,6 @@ namespace MidnightBlue.Engine.EntityComponent
 
           // Do tilemap collision checking
           if ( _tileMap != null ) {
-            //HandleTileCollision(entity, box.X, box.Y);
-            //HandleTileCollision(entity, box.X + box.Width, box.Y);
-            //HandleTileCollision(entity, box.X + box.Width, box.Y + box.Height);
-            //HandleTileCollision(entity, box.X, box.Y + box.Height);
             var physics = entity.GetComponent<PhysicsComponent>();
             var movement = entity.GetComponent<Movement>();
             if ( physics != null && movement != null ) {

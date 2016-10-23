@@ -71,7 +71,6 @@ namespace MidnightBlue
         _star, new Vector2(0, 0), new Vector2(2, 2)
       ) as SpriteTransform;
       star.Attach<CollisionComponent>(starSprite.Bounds);
-      star.Persistant = true;
 
       //TODO: Replace with for loop
       var p = 0;
@@ -145,15 +144,19 @@ namespace MidnightBlue
             var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
             foreach ( var p in planetEntities ) {
               p.Active = false;
+              p.Persistant = true;
             }
+            GameObjects[_starSystem.Name].Active = false;
+            GameObjects[_starSystem.Name].Persistant = true;
 
             GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
 
             SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
           }
 
+        } else if ( shipController.State == ShipState.LeavingScreen ) {
+          SceneController.Pop();
         }
-
       }
     }
 
@@ -204,7 +207,6 @@ namespace MidnightBlue
       var planet = planetEntity.Attach<PlanetComponent>() as PlanetComponent;
       planet.Data = p;
       planetEntity.Attach<CollisionComponent>(new RectangleF[] { planetSprite.Target.GetBoundingRectangle() });
-      planetEntity.Persistant = true;
 
       GameObjects.UpdateSystems(planetEntity);
 
@@ -278,7 +280,7 @@ namespace MidnightBlue
     {
       (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment =
         new PhysicsEnvironment {
-          Inertia = 0.98f,
+          Inertia = 0.999f,
           RotationInertia = 0.98f
         };
 
@@ -287,9 +289,17 @@ namespace MidnightBlue
       var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
       foreach ( var p in planetEntities ) {
         p.Active = true;
+        p.Persistant = false;
       }
 
       GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
+      GameObjects[_starSystem.Name].Active = false;
+      GameObjects[_starSystem.Name].Persistant = false;
+
+      var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
+      if ( collision != null ) {
+        collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 180);
+      }
 
       // End transition instantly
       TransitionState = TransitionState.None;
@@ -369,6 +379,7 @@ namespace MidnightBlue
       movement.Position = new Vector2(x, y);
 
       player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(0.3f, 0.3f);
+      player.GetComponent<ShipController>().State = ShipState.Normal;
     }
 
   }

@@ -48,6 +48,8 @@ namespace MidnightBlue.Engine
     /// </summary>
     private bool _loading;
 
+    private Vector2 _lastPos;
+
     /// <summary>
     /// The last results of the players scan
     /// </summary>
@@ -169,7 +171,7 @@ namespace MidnightBlue.Engine
         _galaxyBuildThread.Start();
 
         // Setup the player and physics environment
-        BuildPlayerShip();
+        BuildPlayerShip(0, 0);
 
         var physics = GameObjects.GetSystem<PhysicsSystem>();
         if ( physics != null ) {
@@ -218,6 +220,8 @@ namespace MidnightBlue.Engine
 
         // Check for request to enter star system and transition scenes if they have
         if ( shipController.State == ShipState.Landing && player.HasComponent<CollisionComponent>() ) {
+          _lastPos = player.GetComponent<Movement>().Position;
+
           var collision = player.GetComponent<CollisionComponent>();
           var sys = collision.Collider.GetComponent<StarSystem>();
 
@@ -306,12 +310,16 @@ namespace MidnightBlue.Engine
     /// </summary>
     public override void Resume()
     {
+      GameObjects.Clear();
+
       var physics = GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem;
       physics.Environment = new PhysicsEnvironment {
         Inertia = 0.999f,
         RotationInertia = 0.98f
       };
+      BuildPlayerShip((int)_lastPos.X, (int)_lastPos.Y);
       BuildGalaxy();
+
       TransitionState = TransitionState.None;
     }
 
@@ -379,7 +387,7 @@ namespace MidnightBlue.Engine
     /// <summary>
     /// Builds the player entity as a ship.
     /// </summary>
-    private void BuildPlayerShip()
+    private void BuildPlayerShip(int x, int y)
     {
       var player = GameObjects["player"];
 
@@ -396,14 +404,23 @@ namespace MidnightBlue.Engine
         new RectangleF[] { sprite.Target.GetBoundingRectangle() }
       );
 
-      player.Attach<ShipController>();
-      player.Attach<PhysicsComponent>();
+      var shipController = player.Attach<ShipController>() as ShipController;
+      shipController.State = ShipState.Normal;
+
+      var physics = player.Attach<PhysicsComponent>() as PhysicsComponent;
+      physics.Power = 0;
+      physics.Velocity = new Vector2(0, 0);
 
       // Setup initial inventory
       var inventory = player.Attach<Inventory>() as Inventory;
-      inventory.Items.Add(typeof(Fuel), new Fuel(10000));
+      if ( !inventory.Items.ContainsKey(typeof(Fuel)) ) {
+        inventory.Items.Add(typeof(Fuel), new Fuel(10000));
+      }
 
-      player.Attach<Movement>(3.0f, 0.02f);
+      var movement = player.Attach<Movement>(3.0f, 0.02f) as Movement;
+      movement.Position = new Vector2(x, y);
+      movement.Speed = 3.0f;
+      movement.RotationSpeed = 0.02f;
 
       // Refocus camera
       MBGame.Camera.LookAt(sprite.Target.Origin);

@@ -123,24 +123,26 @@ namespace MidnightBlue
     /// </summary>
     public override void Update()
     {
-      var player = GameObjects["player"];
-      UpdateSounds(player);
+      if ( TransitionState == TransitionState.None ) {
+        var player = GameObjects["player"];
+        UpdateSounds(player);
 
-      var shipController = player.GetComponent<ShipController>();
+        var shipController = player.GetComponent<ShipController>();
 
-      if ( shipController != null ) {
-        UpdateShip(shipController);
+        if ( shipController != null ) {
+          UpdateShip(shipController);
+        }
+
+        UpdateBiome();
+
+        GameObjects.GetSystem<CollisionSystem>().Run();
+        GameObjects.GetSystem<PhysicsSystem>().Run();
+
+        _tiles.HandleWrapping(player.GetComponent<Movement>());
+
+        GameObjects.GetSystem<MovementSystem>().Run();
+        GameObjects.GetSystem<DepthSystem>().Run();
       }
-
-      UpdateBiome();
-
-      GameObjects.GetSystem<CollisionSystem>().Run();
-      GameObjects.GetSystem<PhysicsSystem>().Run();
-
-      _tiles.HandleWrapping(player.GetComponent<Movement>());
-
-      GameObjects.GetSystem<MovementSystem>().Run();
-      GameObjects.GetSystem<DepthSystem>().Run();
     }
 
 

@@ -101,7 +101,8 @@ namespace MidnightBlue.Engine.Scenes
         }
         // Resume next available scene
         if ( _scenes.Count > 1 ) {
-          _scenes[_scenes.Count - 2].TransitionState = TransitionState.Resuming;
+          _nextScene = _scenes[_scenes.Count - 2];
+          _nextScene.TransitionState = TransitionState.Resuming;
         }
       } else {
         MBGame.Console.Debug("Midnight Blue: Cannot pop scene from empty stack");
@@ -211,7 +212,7 @@ namespace MidnightBlue.Engine.Scenes
         // Handles:
         // * Resuming -> None
         if ( last == TransitionState.Resuming ) {
-          if ( current == TransitionState.None ) {
+          if ( current == TransitionState.None && _scenes.Count > 1 ) {
             _scenes.RemoveAt(_scenes.Count - 1);
           }
         }
