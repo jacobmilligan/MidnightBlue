@@ -18,27 +18,53 @@ using MidnightBlue.Engine.EntityComponent;
 
 namespace MidnightBlue
 {
+  /// <summary>
+  /// Renders all information into the main HUD's list box on the hovered star system. Also
+  /// displays the name of all the star systems planets.
+  /// </summary>
   public class GalaxyRenderSystem : EntitySystem
   {
+    /// <summary>
+    /// The sprite batch to draw to.
+    /// </summary>
     private SpriteBatch _spriteBatch;
-    private ContentManager _content;
+
+    /// <summary>
+    /// Font to display the information with.
+    /// </summary>
     private SpriteFont _font;
+
+    /// <summary>
+    /// The list of each planets information
+    /// </summary>
     private List<string> _starInfo;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.GalaxyRenderSystem"/> class.
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw to.</param>
+    /// <param name="content">Content to load fonts from.</param>
     public GalaxyRenderSystem(SpriteBatch spriteBatch, ContentManager content)
       : base(typeof(StarSystem))
     {
-      _content = content;
       _spriteBatch = spriteBatch;
-      _font = _content.Load<SpriteFont>("Fonts/Bender");
+      _font = content.Load<SpriteFont>("Fonts/Bender");
       _starInfo = new List<string>();
     }
 
+    /// <summary>
+    /// Clears the starsystems info list before processing all entities.
+    /// </summary>
     protected override void PreProcess()
     {
       _starInfo.Clear();
     }
 
+    /// <summary>
+    /// Checks for collisions with a star system in the galaxy view and
+    /// renders any information associated with that star re:planets.
+    /// </summary>
+    /// <param name="entity">Entity to check collisions with.</param>
     protected override void Process(Entity entity)
     {
       var star = entity.GetComponent<StarSystem>();
@@ -73,11 +99,21 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Gets the center point to render the stars planet list to.
+    /// </summary>
+    /// <returns>The center point.</returns>
+    /// <param name="parentCenter">Parent bounding box's center.</param>
+    /// <param name="childCenter">Child bouding box's center.</param>
     private Vector2 GetCenter(Vector2 parentCenter, Vector2 childCenter)
     {
       return new Vector2(parentCenter.X - childCenter.X, parentCenter.Y - 200);
     }
 
+    /// <summary>
+    /// Gets the list of all planets in the star system's information.
+    /// </summary>
+    /// <value>The info list.</value>
     public List<string> InfoList
     {
       get { return _starInfo; }

@@ -16,11 +16,24 @@ using MidnightBlue.Engine.UI;
 
 namespace MidnightBlue.Engine
 {
+  /// <summary>
+  /// HUD to show in the galaxy view.
+  /// </summary>
   public class GalaxyHud : UIView
   {
+    /// <summary>
+    /// Label used to display the current fuel amount
+    /// </summary>
     private Label _fuel;
+    /// <summary>
+    /// Font to use in displaying elements.
+    /// </summary>
     private SpriteFont _bender;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.GalaxyHud"/> class.
+    /// </summary>
+    /// <param name="content">Content to use in loading fonts and textures.</param>
     public GalaxyHud(ContentManager content) : base(25, 25)
     {
       _bender = content.Load<SpriteFont>("Fonts/Bender");
@@ -64,6 +77,10 @@ namespace MidnightBlue.Engine
       scan.Add(scanResults, 3, 1, 7, 6);
     }
 
+    /// <summary>
+    /// Refreshed the HUD with the specified inventory values.
+    /// </summary>
+    /// <param name="inventory">Inventory to use to refresh the display.</param>
     public void Refresh(Inventory inventory)
     {
       if ( inventory.Items.ContainsKey(typeof(Fuel)) ) {

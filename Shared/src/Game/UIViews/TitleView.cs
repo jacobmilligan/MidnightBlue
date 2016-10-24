@@ -21,13 +21,45 @@ using MidnightBlue.Engine.UI;
 
 namespace MidnightBlue
 {
+  /// <summary>
+  /// The title screens UI view
+  /// </summary>
   public class TitleView : UIView
   {
+    /// <summary>
+    /// Color to render accented elements with.
+    /// </summary>
     private Color _superNovaYellow = new Color(251, 186, 48);
-    private Color _grayBlue = new Color(142, 189, 245);
-    private SpriteFont _benderLarge, _serifGothic;
-    private SoundEffect _select, _confirm;
 
+    /// <summary>
+    /// Color to render normal elements with.
+    /// </summary>
+    private Color _grayBlue = new Color(142, 189, 245);
+
+    /// <summary>
+    /// The main UI font for the title screen.
+    /// </summary>
+    private SpriteFont _benderLarge,
+    /// <summary>
+    /// Font to use with headers.
+    /// </summary>
+    _serifGothic;
+
+    /// <summary>
+    /// Sound effect to play when hovering over an item.
+    /// </summary>
+    private SoundEffect _select,
+    /// <summary>
+    /// Sound effect to play when clicking on an item.
+    /// </summary>
+    _confirm;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.TitleView"/> class.
+    /// </summary>
+    /// <param name="content">Content to load sounds, fonts, and textures from.</param>
+    /// <param name="gameObjects">Game objects to track.</param>
+    /// <param name="scenes">Scenes to use in UI interactions.</param>
     public TitleView(ContentManager content, EntityMap gameObjects, SceneStack scenes) : base(25, 25)
     {
       _benderLarge = content.Load<SpriteFont>("Fonts/Bender Large");

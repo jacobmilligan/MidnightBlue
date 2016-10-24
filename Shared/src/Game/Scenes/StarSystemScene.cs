@@ -24,22 +24,96 @@ using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue
 {
+  /// <summary>
+  /// Scene to display a star system with planets and a star.
+  /// </summary>
   public class StarSystemScene : Scene
   {
+    /// <summary>
+    /// Indicates whether the planets generation is loading or not.
+    /// </summary>
     private bool _loading;
-    private int _animFrame, _animTime;
-    private Texture2D _ship, _background, _star;
+    /// <summary>
+    /// The current frame in the loading animation sprite.
+    /// </summary>
+    private int _animFrame,
+    /// <summary>
+    /// The current time in the current animation frame
+    /// </summary>
+    _animTime;
+
+    /// <summary>
+    /// The ships texture
+    /// </summary>
+    private Texture2D _ship,
+    /// <summary>
+    /// The background star field texture
+    /// </summary>
+    _background,
+    /// <summary>
+    /// The texture used for the systems star
+    /// </summary>
+    _star;
+
+    /// <summary>
+    /// All the textures in the current loading animation
+    /// </summary>
     private List<Texture2D> _loadingTextures;
+
+    /// <summary>
+    /// The sound used for the ships thruster
+    /// </summary>
     private SoundTrigger _thrusterSound;
+
+    /// <summary>
+    /// The current star systems information data.
+    /// </summary>
     private StarSystem _starSystem;
+
+    /// <summary>
+    /// All the planet ojects in the star system after being generated.
+    /// </summary>
     private Planet[] _planets;
+
+    /// <summary>
+    /// Used for generating and loading the planets.
+    /// </summary>
     private Thread _planetLoader;
+
+    /// <summary>
+    /// The font used in the UI
+    /// </summary>
     private SpriteFont _bender;
+
+    /// <summary>
+    /// The hud to display in the scene. Contains a map with all the planets, start, ship location.
+    /// </summary>
     private StarSystemHud _hud;
+
+    /// <summary>
+    /// The random number generator used to generate the star systems planets.
+    /// </summary>
     private Random _rand;
+
+    /// <summary>
+    /// The world-coordinates boundary of the star system
+    /// </summary>
     private Rectangle _bounds;
+
+    /// <summary>
+    /// The las position of the player before entering a planet.
+    /// </summary>
     private Vector2 _lasPos;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.StarSystemScene"/> class.
+    /// 
+    /// </summary>
+    /// <param name="map">Entity map to load entities into.</param>
+    /// <param name="content">Content manager for loading resources.</param>
+    /// <param name="starSystem">Star system information to use for the scene.</param>
+    /// <param name="cache">Planet cache used for quickly loading recently-visited star systems.</param>
+    /// <param name="seed">Seed to use in random generation.</param>
     public StarSystemScene(
       EntityMap map, ContentManager content, StarSystem starSystem, Dictionary<string, Planet> cache, int seed
     ) : base(map, content)
@@ -102,12 +176,18 @@ namespace MidnightBlue
       _hud = new StarSystemHud(Content, GameObjects, SceneController);
     }
 
+    /// <summary>
+    /// Ends initializing instantly.
+    /// </summary>
     public override void Initialize()
     {
       // End transition instantly
       TransitionState = TransitionState.None;
     }
 
+    /// <summary>
+    /// Handles moving the players ship.
+    /// </summary>
     public override void HandleInput()
     {
       if ( !_loading ) {
@@ -117,6 +197,10 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Updates all systems in the game and handles the ocurrance of the
+    /// player entering a planet.
+    /// </summary>
     public override void Update()
     {
       if ( !_loading ) {
@@ -160,6 +244,11 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Draws the star system to the sprite batch and the HUD to the UI spritebatch.
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw world-based entities to.</param>
+    /// <param name="uiSpriteBatch">User interface sprite batch.</param>
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
       if ( TransitionState != TransitionState.Pausing ) {
@@ -167,6 +256,12 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Draws the normal state of the star system when not loading. Handles drawing all entities.
+    /// Updates the minimap based on players position.
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw world-based entities to.</param>
+    /// <param name="uiSpriteBatch">User interface sprite batch.</param>
     private void DrawNormal(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
       if ( !_loading && !_planetLoader.IsAlive ) {
@@ -174,7 +269,7 @@ namespace MidnightBlue
 
         foreach ( var p in _planets ) {
           if ( p.GetMapLayer("planet map") == null ) {
-            UpdateDrawSpace(p);
+            UpdateSpace(p);
           }
         }
       }
@@ -189,7 +284,12 @@ namespace MidnightBlue
       }
     }
 
-    private void UpdateDrawSpace(Planet p)
+    /// <summary>
+    /// Updates the star system world space when planets finish being generated during gameplay
+    /// and collision map and systems boundaries when finished loading.
+    /// </summary>
+    /// <param name="p">Planet to update.</param>
+    private void UpdateSpace(Planet p)
     {
       p.CreateMapTexture(Content);
       // Get a random point on the planets orbit to place it at
@@ -229,6 +329,10 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Draws the minimap to the window.
+    /// </summary>
+    /// <param name="uiSpriteBatch">User interface sprite batch to draw to.</param>
     public void DrawMap(SpriteBatch uiSpriteBatch)
     {
       var hudBounds = _hud["Map"].BoundingBox;
@@ -264,18 +368,28 @@ namespace MidnightBlue
       );
     }
 
+    /// <summary>
+    /// Exits the scene instantly.
+    /// </summary>
     public override void Exit()
     {
       // End transition instantly
       TransitionState = TransitionState.Null;
     }
 
+    /// <summary>
+    /// Pauses the scene instantly.
+    /// </summary>
     public override void Pause()
     {
       // End transition instantly
       TransitionState = TransitionState.None;
     }
 
+    /// <summary>
+    /// Resumes the star system scene after leaving a planet. Handles resetting the physics
+    /// environment, players ship settings and reactivates all planets and the star.
+    /// </summary>
     public override void Resume()
     {
       (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment =
@@ -305,6 +419,10 @@ namespace MidnightBlue
       TransitionState = TransitionState.None;
     }
 
+    /// <summary>
+    /// Animates the loading sprite displayed when generating planets.
+    /// </summary>
+    /// <param name="uiSpriteBatch">User interface sprite batch to draw to.</param>
     private void AnimateLoading(SpriteBatch uiSpriteBatch)
     {
       var loadingTexture = _loadingTextures[_animFrame];
@@ -334,6 +452,11 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Loads all planets for the star system. Checks if they've been generated already, and if
+    /// not generates them and updates their position and collision components. Should be handled
+    /// on a different thread as this is a lengthy, blocking process.
+    /// </summary>
     private void LoadPlanets()
     {
       var movement = GameObjects["player"].GetComponent<Movement>();
@@ -359,6 +482,10 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Updates the player ships thruster sounds.
+    /// </summary>
+    /// <param name="player">Player to update.</param>
     private void UpdateSounds(Entity player)
     {
       var physics = player.GetComponent<PhysicsComponent>();
@@ -370,6 +497,11 @@ namespace MidnightBlue
       }
     }
 
+    /// <summary>
+    /// Builds the player entity each time they need to be reset.
+    /// </summary>
+    /// <param name="x">The x coordinate to place the player at.</param>
+    /// <param name="y">The y coordinate to place the player at.</param>
     private void BuildPlayer(int x, int y)
     {
       var player = GameObjects["player"];

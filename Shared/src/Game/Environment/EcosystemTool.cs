@@ -10,37 +10,111 @@
 
 namespace MidnightBlue
 {
-
+  /// <summary>
+  /// Represents a biome type in a planets tile map.
+  /// </summary>
   public enum Biome
   {
+    /// <summary>
+    /// Super cold environment.
+    /// </summary>
     Tundra,
+    /// <summary>
+    /// Most common cold environment.
+    /// </summary>
     Taiga,
+    /// <summary>
+    /// Cold forest biome.
+    /// </summary>
     Woodland,
+    /// <summary>
+    /// Shrubland - can be cold or hot.
+    /// </summary>
     Shrubland,
+    /// <summary>
+    /// Most common temperate biome.
+    /// </summary>
     TemperateGrassland,
+    /// <summary>
+    /// Desert biome.
+    /// </summary>
     Desert,
+    /// <summary>
+    /// Desert biome akin to southern californian deserts.
+    /// </summary>
     SubtropicalDesert,
+    /// <summary>
+    /// Savana biome - flatlands with grass.
+    /// </summary>
     Savana,
+    /// <summary>
+    /// Biome similar to Australian outback forests.
+    /// </summary>
     TropicalSeasonalForest,
+    /// <summary>
+    /// Biome similar to canadian redwood forests.
+    /// </summary>
     TemperateSeasonalForest,
+    /// <summary>
+    /// Biome like southern Australian rainforests - colder environment rainforest.
+    /// </summary>
     TemperateRainforest,
+    /// <summary>
+    /// Classic rainforest biome.
+    /// </summary>
     TropicalRainforest,
+    /// <summary>
+    /// Completely cracked, barren environment most present in inhospitable location.
+    /// </summary>
     Barren,
+    /// <summary>
+    /// Shallow water biome - lighter in color than deep water.
+    /// </summary>
     ShallowOcean,
+    /// <summary>
+    /// Deep ocean biome.
+    /// </summary>
     Ocean,
+    /// <summary>
+    /// Ice biome - mostly present in inhospitable cold planets.
+    /// </summary>
     Ice
   }
 
+  /// <summary>
+  /// Represents height categories for biomes.
+  /// </summary>
   public enum HeightLevel
   {
+    /// <summary>
+    /// Will always be ocean biome unless super cold where it will be ice.
+    /// </summary>
     Depths = 0,
+    /// <summary>
+    /// Will always be shallow ocean biome unless super cold where it will be ice.
+    /// </summary>
     SeaLevel,
+    /// <summary>
+    /// Will contain all forest and grassland biomes.
+    /// </summary>
     Lowland,
+    /// <summary>
+    /// Will contain all mountaineous biomes - will be colder than other biomes, too.
+    /// </summary>
     Mountainous,
+    /// <summary>
+    /// Will contain all mountaineous biomes - will be much colder than other biomes, too.
+    /// </summary>
     Alpine,
+    /// <summary>
+    /// Heighest level of elevation, super cold and only mountaineous biomes.
+    /// </summary>
     Snow
   }
 
+  /// <summary>
+  /// Represents moisture categories for biomes used in generation.
+  /// </summary>
   public enum MoistureLevel
   {
     Arid = 0,
@@ -51,24 +125,71 @@ namespace MidnightBlue
     Wet
   }
 
+  /// <summary>
+  /// Represents categories of temperature used in generating biomes and player interactions.
+  /// </summary>
   public enum TemperatureLevel
   {
+    /// <summary>
+    /// Super cold - only on uninhabitable planets
+    /// </summary>
     Freezing = 0,
+    /// <summary>
+    /// Coldest temperature found on inhabitable planets.
+    /// </summary>
     Polar,
+    /// <summary>
+    /// Coldest temperature to produce varied biomes.
+    /// </summary>
     Tundra,
+    /// <summary>
+    /// Most common cold temperature across inhabitable planets.
+    /// </summary>
     Taiga,
+    /// <summary>
+    /// Most inhabitable temperature that produces the most varied biomes.
+    /// </summary>
     Temperate,
+    /// <summary>
+    /// Temperature most commonly found for 'hot' biomes.
+    /// </summary>
     SubTropical,
+    /// <summary>
+    /// Produces simultaneously very moist, green biomes, and very dry, arid biomes.
+    /// </summary>
     Tropical,
+    /// <summary>
+    /// Hottest inhabitable temperature.
+    /// </summary>
     Hot,
+    /// <summary>
+    /// Hottest temperature to produce varied biomes.
+    /// </summary>
     Harsh,
+    /// <summary>
+    /// Will only produce barren or desert biomes - no water
+    /// </summary>
     SuperHot,
+    /// <summary>
+    /// Will only produce barren biomes - no water. This is like 200+ degrees
+    /// </summary>
     Scorching
   }
 
+  /// <summary>
+  /// Takes numeric inputs and produces temperature, height, and moisture categories. Also produces biomes based on
+  /// the three outputs.
+  /// </summary>
   public static class EcosystemTool
   {
-
+    /// <summary>
+    /// Produces a biome based on temperature, moisture, and height categories produced from other generation
+    /// algorithms.
+    /// </summary>
+    /// <returns>The biome.</returns>
+    /// <param name="moisture">Pre-generated moisture category.</param>
+    /// <param name="temperature">Pre-generated temperature category.</param>
+    /// <param name="height">Pre-generated height category.</param>
     internal static Biome GetBiome(MoistureLevel moisture, TemperatureLevel temperature, HeightLevel height)
     {
       var biome = Biome.TemperateGrassland;
@@ -214,6 +335,12 @@ namespace MidnightBlue
       return biome;
     }
 
+    /// <summary>
+    /// Gets a height category for a given numeric height value generated from
+    /// other algorithms.
+    /// </summary>
+    /// <returns>The height category.</returns>
+    /// <param name="height">Pre-generated numeric height value.</param>
     internal static HeightLevel GetHeight(double height)
     {
       var heightLevel = HeightLevel.Depths;
@@ -233,6 +360,12 @@ namespace MidnightBlue
       return heightLevel;
     }
 
+    /// <summary>
+    /// Gets a height category for a given numeric moisture value generated from
+    /// other algorithms.
+    /// </summary>
+    /// <returns>The moisture category.</returns>
+    /// <param name="moisture">Pre-generated numeric moisture value.</param>
     internal static MoistureLevel GetMoisture(double moisture)
     {
       var moistureLevel = MoistureLevel.Arid;
@@ -252,6 +385,12 @@ namespace MidnightBlue
       return moistureLevel;
     }
 
+    /// <summary>
+    /// Gets a temperature category for a given numeric height value generated from
+    /// other algorithms.
+    /// </summary>
+    /// <returns>The temperature category.</returns>
+    /// <param name="temperature">Pre-generated numeric temperature value.</param>
     internal static TemperatureLevel GetTemperature(double temperature)
     {
       var tempLevel = TemperatureLevel.Freezing;

@@ -15,8 +15,17 @@ using MidnightBlue.Engine.UI;
 
 namespace MidnightBlue
 {
+  /// <summary>
+  /// Star system hud with minimap.
+  /// </summary>
   public class StarSystemHud : UIView
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:MidnightBlue.StarSystemHud"/> class.
+    /// </summary>
+    /// <param name="content">Content to load fonts and textures with.</param>
+    /// <param name="gameObjects">Game objects to track in the minimap.</param>
+    /// <param name="scenes">Scene stack to use in UI interactions.</param>
     public StarSystemHud(ContentManager content, EntityMap gameObjects, SceneStack scenes) : base(25, 25)
     {
       var map = new Layout(this, 10, 7) {
