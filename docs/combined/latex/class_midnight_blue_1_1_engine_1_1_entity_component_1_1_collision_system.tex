@@ -1,0 +1,211 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system}{}\section{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system}\index{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System@{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System}}
+
+
+Checks collisions. Uses a spatial indexing grid for broad-\/phase collision checking and A\+A\+BB checks for narrow phase  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a5554a62d950263148006d2e5f907da15}{Collision\+System} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System class. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a2a394fb18708d26f3748d8006b4f692d}{Reset\+Grid} (int x\+Min, int x\+Max, int y\+Min, int y\+Max, int cell\+Size)
+\begin{DoxyCompactList}\small\item\em Resets the grid position in the world. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7168bae1bfd6cd157b41b6f8cbe8c83d}{Set\+Tile\+Map} (\hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}{Tile\+Map} tile\+Map)
+\begin{DoxyCompactList}\small\item\em Sets the current tile map to check for collisions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_ab85ff8fd81369e705c461f58014f5ec2}{Pre\+Process} ()
+\begin{DoxyCompactList}\small\item\em Clears the collision grid and inserts all entities before checking collisions \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a31ce790a36d5948868df3fd352338194}{Processing\+Loop} ()
+\begin{DoxyCompactList}\small\item\em Override. Only processes entities with movement components. Still considers static entities, but only as possible neighbours. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0fe9a2023d5fabc7861b50abfc607def}{Process} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Checks all collisions within the entities known collision cells \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map}{Collision\+Map} \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7467afd10338c1c475442d49d3ba0652}{Current\+Map}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current collision map. \end{DoxyCompactList}\item 
+int \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0375b2432a276123371e5616c51df971}{Number\+Of\+Checks}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of collision checks made last frame. Used for debugging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Checks collisions. Uses a spatial indexing grid for broad-\/phase collision checking and A\+A\+BB checks for narrow phase 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a5554a62d950263148006d2e5f907da15}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a5554a62d950263148006d2e5f907da15} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Collision\+System@{Collision\+System}}
+\index{Collision\+System@{Collision\+System}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Collision\+System()}{CollisionSystem()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Collision\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System class. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_ab85ff8fd81369e705c461f58014f5ec2}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_ab85ff8fd81369e705c461f58014f5ec2} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Pre\+Process@{Pre\+Process}}
+\index{Pre\+Process@{Pre\+Process}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Pre\+Process()}{PreProcess()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Pre\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Clears the collision grid and inserts all entities before checking collisions 
+
+
+
+Reimplemented from \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_system_a779da2924653b4402ca386dbc52bd3b1}{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Entity\+System}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_ab85ff8fd81369e705c461f58014f5ec2_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0fe9a2023d5fabc7861b50abfc607def}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0fe9a2023d5fabc7861b50abfc607def} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Process@{Process}}
+\index{Process@{Process}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Process()}{Process()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Process (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Checks all collisions within the entities known collision cells 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} to check.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_system_a94aa715ac6bfe9a720c3d12d56c7598c}{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Entity\+System}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0fe9a2023d5fabc7861b50abfc607def_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a31ce790a36d5948868df3fd352338194}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a31ce790a36d5948868df3fd352338194} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Processing\+Loop@{Processing\+Loop}}
+\index{Processing\+Loop@{Processing\+Loop}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Processing\+Loop()}{ProcessingLoop()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Processing\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Override. Only processes entities with movement components. Still considers static entities, but only as possible neighbours. 
+
+
+
+Reimplemented from \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_system_a3c740dc07a8f53fb9a1ae0769833d5ad}{Midnight\+Blue.\+Engine.\+Entity\+Component.\+Entity\+System}.
+
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a2a394fb18708d26f3748d8006b4f692d}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a2a394fb18708d26f3748d8006b4f692d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Reset\+Grid@{Reset\+Grid}}
+\index{Reset\+Grid@{Reset\+Grid}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Reset\+Grid()}{ResetGrid()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Reset\+Grid (\begin{DoxyParamCaption}\item[{int}]{x\+Min,  }\item[{int}]{x\+Max,  }\item[{int}]{y\+Min,  }\item[{int}]{y\+Max,  }\item[{int}]{cell\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the grid position in the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Min} & The grids left most x coordinate.\\
+\hline
+{\em x\+Max} & Right most x coordinae.\\
+\hline
+{\em y\+Min} & Top most y coordinate.\\
+\hline
+{\em y\+Max} & Bottom most y coordinate.\\
+\hline
+{\em cell\+Size} & The size of each cell in the grid.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a2a394fb18708d26f3748d8006b4f692d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7168bae1bfd6cd157b41b6f8cbe8c83d}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7168bae1bfd6cd157b41b6f8cbe8c83d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Set\+Tile\+Map@{Set\+Tile\+Map}}
+\index{Set\+Tile\+Map@{Set\+Tile\+Map}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Set\+Tile\+Map()}{SetTileMap()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Set\+Tile\+Map (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}{Tile\+Map}}]{tile\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current tile map to check for collisions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile\+Map} & \hyperlink{class_midnight_blue_1_1_tile}{Tile} map.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7467afd10338c1c475442d49d3ba0652}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a7467afd10338c1c475442d49d3ba0652} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Current\+Map@{Current\+Map}}
+\index{Current\+Map@{Current\+Map}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Current\+Map}{CurrentMap}}
+{\footnotesize\ttfamily \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map}{Collision\+Map} Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Current\+Map\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the current collision map. 
+
+The current map.\hypertarget{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0375b2432a276123371e5616c51df971}{}\label{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system_a0375b2432a276123371e5616c51df971} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}!Number\+Of\+Checks@{Number\+Of\+Checks}}
+\index{Number\+Of\+Checks@{Number\+Of\+Checks}!Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System@{Midnight\+Blue\+::\+Engine\+::\+Entity\+Component\+::\+Collision\+System}}
+\subsubsection{\texorpdfstring{Number\+Of\+Checks}{NumberOfChecks}}
+{\footnotesize\ttfamily int Midnight\+Blue.\+Engine.\+Entity\+Component.\+Collision\+System.\+Number\+Of\+Checks\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the number of collision checks made last frame. Used for debugging. 
+
+The number of collision checks.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/\+Entity\+Component/\+Systems/Collision\+System.\+cs\end{DoxyCompactItemize}

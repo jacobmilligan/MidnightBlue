@@ -1,0 +1,4 @@
+<map id="MidnightBlue.NoiseMap.SetValue" name="MidnightBlue.NoiseMap.SetValue">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet.html#ae39b013905369f01902b4f28d4fc031e" title="Creates the biome map texture and planet mask texture to use for rendering to star system view and to..." alt="" coords="239,5,423,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="471,12,715,37"/>
+</map>

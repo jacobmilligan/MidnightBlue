@@ -1,0 +1,229 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game}{}\section{Midnight\+Blue.\+Engine.\+M\+B\+Game Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_m_b_game}\index{Midnight\+Blue.\+Engine.\+M\+B\+Game@{Midnight\+Blue.\+Engine.\+M\+B\+Game}}
+
+
+This is the main type for your game.  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Engine.\+M\+B\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_midnight_blue_1_1_engine_1_1_m_b_game__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+M\+B\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_midnight_blue_1_1_engine_1_1_m_b_game__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_ab2e659408b8dc4793c370c436e3f5f0f}{M\+B\+Game} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+M\+B\+Game class and defines essential graphics settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a0e02fa538b3344104374f61a058516f8}{Initialize} ()
+\begin{DoxyCompactList}\small\item\em Allows the game to perform any initialization it needs to before starting to run. This is where it can query for any required services and load any non-\/graphic related content. Calling base.\+Initialize will enumerate through any components and initialize them as well. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_ad37b75158d6181720f57cad9cb78df56}{Load\+Content} ()
+\begin{DoxyCompactList}\small\item\em Loads content at the beginning of the game \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a10a451d83e4163e9bb1c9bcdc6719db3}{Update} (Game\+Time game\+Time)
+\begin{DoxyCompactList}\small\item\em Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a28dd0bac108b77fe04164ff81acf9881}{Draw} (Game\+Time game\+Time)
+\begin{DoxyCompactList}\small\item\em Draws the current scene to the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Graphics\+Device \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a634a292296cdc4df062c0769d76e21b1}{Graphics}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the main graphics device. \end{DoxyCompactList}\item 
+static Camera2D \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a5fffc745c017e76c148816493f7d0cbb}{Camera}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the main camera. \end{DoxyCompactList}\item 
+static \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console}{M\+B\+Console} \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_ad258df9f554e120fee5db56513248845}{Console}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the debug console for reading and writing to. There should only ever be one of these \end{DoxyCompactList}\item 
+static float \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a8d74b0cdb60f27e8a1934854f540a7bc}{Delta\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets time it took to complete the last frame \end{DoxyCompactList}\item 
+static float \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a6385d036d9230a1e08f669b340951e55}{F\+PS}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current average frames per second \end{DoxyCompactList}\item 
+static bool \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_game_a444312fc226de72869013fa8d055add1}{Force\+Quit}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether this T\+:\+Midnight\+Blue.\+Engine.\+M\+B\+Game should quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the main type for your game. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_ab2e659408b8dc4793c370c436e3f5f0f}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_ab2e659408b8dc4793c370c436e3f5f0f} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!M\+B\+Game@{M\+B\+Game}}
+\index{M\+B\+Game@{M\+B\+Game}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{M\+B\+Game()}{MBGame()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+M\+B\+Game.\+M\+B\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+M\+B\+Game class and defines essential graphics settings. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a28dd0bac108b77fe04164ff81acf9881}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a28dd0bac108b77fe04164ff81acf9881} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Draw (\begin{DoxyParamCaption}\item[{Game\+Time}]{game\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Draws the current scene to the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Time} & Provides a snapshot of timing values.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_game_a28dd0bac108b77fe04164ff81acf9881_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a0e02fa538b3344104374f61a058516f8}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a0e02fa538b3344104374f61a058516f8} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Allows the game to perform any initialization it needs to before starting to run. This is where it can query for any required services and load any non-\/graphic related content. Calling base.\+Initialize will enumerate through any components and initialize them as well. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_game_a0e02fa538b3344104374f61a058516f8_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_ad37b75158d6181720f57cad9cb78df56}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_ad37b75158d6181720f57cad9cb78df56} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Load\+Content@{Load\+Content}}
+\index{Load\+Content@{Load\+Content}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Load\+Content()}{LoadContent()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Load\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Loads content at the beginning of the game 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_game_ad37b75158d6181720f57cad9cb78df56_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a10a451d83e4163e9bb1c9bcdc6719db3}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a10a451d83e4163e9bb1c9bcdc6719db3} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Update (\begin{DoxyParamCaption}\item[{Game\+Time}]{game\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Time} & Provides a snapshot of timing values.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_game_a10a451d83e4163e9bb1c9bcdc6719db3_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a5fffc745c017e76c148816493f7d0cbb}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a5fffc745c017e76c148816493f7d0cbb} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Camera@{Camera}}
+\index{Camera@{Camera}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Camera}{Camera}}
+{\footnotesize\ttfamily Camera2D Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Camera\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the main camera. 
+
+The main camera.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_ad258df9f554e120fee5db56513248845}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_ad258df9f554e120fee5db56513248845} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Console@{Console}}
+\index{Console@{Console}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Console}{Console}}
+{\footnotesize\ttfamily \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console}{M\+B\+Console} Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Console\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the debug console for reading and writing to. There should only ever be one of these 
+
+The debug console.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a8d74b0cdb60f27e8a1934854f540a7bc}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a8d74b0cdb60f27e8a1934854f540a7bc} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Delta\+Time@{Delta\+Time}}
+\index{Delta\+Time@{Delta\+Time}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Delta\+Time}{DeltaTime}}
+{\footnotesize\ttfamily float Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Delta\+Time\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets time it took to complete the last frame 
+
+The delta time.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a444312fc226de72869013fa8d055add1}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a444312fc226de72869013fa8d055add1} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Force\+Quit@{Force\+Quit}}
+\index{Force\+Quit@{Force\+Quit}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Force\+Quit}{ForceQuit}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Force\+Quit\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether this T\+:\+Midnight\+Blue.\+Engine.\+M\+B\+Game should quit. 
+
+{\ttfamily true} if the game should quit; otherwise, {\ttfamily false}.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a6385d036d9230a1e08f669b340951e55}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a6385d036d9230a1e08f669b340951e55} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!F\+PS@{F\+PS}}
+\index{F\+PS@{F\+PS}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{F\+PS}{FPS}}
+{\footnotesize\ttfamily float Midnight\+Blue.\+Engine.\+M\+B\+Game.\+F\+PS\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the current average frames per second 
+
+The fps.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_game_a634a292296cdc4df062c0769d76e21b1}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_game_a634a292296cdc4df062c0769d76e21b1} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}!Graphics@{Graphics}}
+\index{Graphics@{Graphics}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Game}}
+\subsubsection{\texorpdfstring{Graphics}{Graphics}}
+{\footnotesize\ttfamily Graphics\+Device Midnight\+Blue.\+Engine.\+M\+B\+Game.\+Graphics\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the main graphics device. 
+
+The graphics device.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/M\+B\+Game.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,387 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console}{}\section{Midnight\+Blue.\+Engine.\+M\+B\+Console Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_m_b_console}\index{Midnight\+Blue.\+Engine.\+M\+B\+Console@{Midnight\+Blue.\+Engine.\+M\+B\+Console}}
+
+
+Midnight Blue debug console class. Executes attached methods and changes attached variables.  
+
+
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+M\+B\+Console\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_midnight_blue_1_1_engine_1_1_m_b_console__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_ae4761c55bdd60ce3a49e6bb06b7c53af}{M\+B\+Console} (Color bg\+Color, Color txt\+Color, Sprite\+Font font)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+M\+B\+Console class. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a08a6230b8a61577552243f30fa3b07a2}{Init\+Window} (Graphics\+Device graphics)
+\begin{DoxyCompactList}\small\item\em Initializes a graphics target to render the console to \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a5438a91f83cf6082a20e8d2c417e6ce1}{Add\+Func} (string name, Action$<$ string\mbox{[}$\,$\mbox{]}$>$ func)
+\begin{DoxyCompactList}\small\item\em Adds a new function to the console for executing in game \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a7533b96118e74197ac3f3085e026a591}{Add\+Var} (string name, object variable)
+\begin{DoxyCompactList}\small\item\em Adds a new variable to the console for altering in game \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a94e6b48373f8dda4137ad79ecea8a40d}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates any animation until no longer in an animation state. Otherwise calls Process\+Input() \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a807e956ca8a90cbcefb785e062d72b2d}{Draw} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the console and associated text to the attached window \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_ac1a75f46018d9e2c1132f2e77160ea48}{Write} (string line)
+\begin{DoxyCompactList}\small\item\em Writes a line to the console to display \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_af2f6965b500048bb867b822ce99006fe}{Write} (string line, params string\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a line to the console to display with specified string format information. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a1c6f02e42d8c57e933cebf6022ec3389}{Write} (string line, params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a line to the console to display with specified string format information. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a99525d45031da45b97230010d767eb0a}{Debug} (string line, params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a debug line to the console with the specified string format information \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a335cd63ac3668739453d757c82f107bb}{Debug} (int line, params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a debug line to the console with the specified string format information \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a42e214eb86728d3c7d9628fb11292854}{Debug} (uint line, params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a debug line to the console with the specified string format information \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a5895255e34603b7957c05313cc0e5639}{Debug} (float line, params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Writes a debug line to the console with the specified string format information \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a502833c7c57a512688da2e7771401df8}{Toggle} ()
+\begin{DoxyCompactList}\small\item\em Toggles the display/hide state of the console \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_aa47a4c245dd21a4cd18a3348119e7757}{Display}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Determines if the console is currently shown or hidden \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a159d6456b6408549cab4e96c83ccac74}{B\+G\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the background color of the console \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a4acc1ac4ccea1003f4a0d8f878f91a23}{Text\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the color of the console text. \end{DoxyCompactList}\item 
+Dictionary$<$ string, object $>$ \hyperlink{class_midnight_blue_1_1_engine_1_1_m_b_console_a504f6353e1d2ad63f4cb471e4107ba50}{Vars}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the consoles game variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Midnight Blue debug console class. Executes attached methods and changes attached variables. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_ae4761c55bdd60ce3a49e6bb06b7c53af}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_ae4761c55bdd60ce3a49e6bb06b7c53af} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!M\+B\+Console@{M\+B\+Console}}
+\index{M\+B\+Console@{M\+B\+Console}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{M\+B\+Console()}{MBConsole()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+M\+B\+Console.\+M\+B\+Console (\begin{DoxyParamCaption}\item[{Color}]{bg\+Color,  }\item[{Color}]{txt\+Color,  }\item[{Sprite\+Font}]{font }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+M\+B\+Console class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg\+Color} & Background color for rendering the console\\
+\hline
+{\em txt\+Color} & Text color\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a5438a91f83cf6082a20e8d2c417e6ce1}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a5438a91f83cf6082a20e8d2c417e6ce1} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Add\+Func@{Add\+Func}}
+\index{Add\+Func@{Add\+Func}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Add\+Func()}{AddFunc()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Add\+Func (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{Action$<$ string\mbox{[}$\,$\mbox{]}$>$}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new function to the console for executing in game 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name to use when calling the function in game\\
+\hline
+{\em func} & Function to attach\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a5438a91f83cf6082a20e8d2c417e6ce1_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a7533b96118e74197ac3f3085e026a591}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a7533b96118e74197ac3f3085e026a591} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Add\+Var@{Add\+Var}}
+\index{Add\+Var@{Add\+Var}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Add\+Var()}{AddVar()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Add\+Var (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{object}]{variable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new variable to the console for altering in game 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name to use when altering the variable in game\\
+\hline
+{\em variable} & Variable to attach\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a7533b96118e74197ac3f3085e026a591_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a99525d45031da45b97230010d767eb0a}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a99525d45031da45b97230010d767eb0a} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Debug@{Debug}}
+\index{Debug@{Debug}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Debug()}{Debug()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Debug (\begin{DoxyParamCaption}\item[{string}]{line,  }\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a debug line to the console with the specified string format information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to format into string\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a99525d45031da45b97230010d767eb0a_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a335cd63ac3668739453d757c82f107bb}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a335cd63ac3668739453d757c82f107bb} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Debug@{Debug}}
+\index{Debug@{Debug}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Debug()}{Debug()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Debug (\begin{DoxyParamCaption}\item[{int}]{line,  }\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a debug line to the console with the specified string format information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to format into string\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a42e214eb86728d3c7d9628fb11292854}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a42e214eb86728d3c7d9628fb11292854} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Debug@{Debug}}
+\index{Debug@{Debug}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Debug()}{Debug()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Debug (\begin{DoxyParamCaption}\item[{uint}]{line,  }\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a debug line to the console with the specified string format information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to format into string\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a5895255e34603b7957c05313cc0e5639}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a5895255e34603b7957c05313cc0e5639} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Debug@{Debug}}
+\index{Debug@{Debug}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Debug()}{Debug()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Debug (\begin{DoxyParamCaption}\item[{float}]{line,  }\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a debug line to the console with the specified string format information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to format into string\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a807e956ca8a90cbcefb785e062d72b2d}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a807e956ca8a90cbcefb785e062d72b2d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the console and associated text to the attached window 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a807e956ca8a90cbcefb785e062d72b2d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a08a6230b8a61577552243f30fa3b07a2}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a08a6230b8a61577552243f30fa3b07a2} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Init\+Window@{Init\+Window}}
+\index{Init\+Window@{Init\+Window}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Init\+Window()}{InitWindow()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Init\+Window (\begin{DoxyParamCaption}\item[{Graphics\+Device}]{graphics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a graphics target to render the console to 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & Graphics\+Device to use for rendering\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a08a6230b8a61577552243f30fa3b07a2_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a502833c7c57a512688da2e7771401df8}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a502833c7c57a512688da2e7771401df8} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Toggle@{Toggle}}
+\index{Toggle@{Toggle}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Toggle()}{Toggle()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Toggle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Toggles the display/hide state of the console 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a502833c7c57a512688da2e7771401df8_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a94e6b48373f8dda4137ad79ecea8a40d}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a94e6b48373f8dda4137ad79ecea8a40d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates any animation until no longer in an animation state. Otherwise calls Process\+Input() 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_m_b_console_a94e6b48373f8dda4137ad79ecea8a40d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_ac1a75f46018d9e2c1132f2e77160ea48}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_ac1a75f46018d9e2c1132f2e77160ea48} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Write@{Write}}
+\index{Write@{Write}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Write (\begin{DoxyParamCaption}\item[{string}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a line to the console to display 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_af2f6965b500048bb867b822ce99006fe}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_af2f6965b500048bb867b822ce99006fe} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Write@{Write}}
+\index{Write@{Write}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Write (\begin{DoxyParamCaption}\item[{string}]{line,  }\item[{params string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a line to the console to display with specified string format information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to add to string format\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a1c6f02e42d8c57e933cebf6022ec3389}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a1c6f02e42d8c57e933cebf6022ec3389} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Write@{Write}}
+\index{Write@{Write}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Write (\begin{DoxyParamCaption}\item[{string}]{line,  }\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes a line to the console to display with specified string format information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Line to write\\
+\hline
+{\em args} & Arguments to format into a string\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a159d6456b6408549cab4e96c83ccac74}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a159d6456b6408549cab4e96c83ccac74} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!B\+G\+Color@{B\+G\+Color}}
+\index{B\+G\+Color@{B\+G\+Color}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{B\+G\+Color}{BGColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+M\+B\+Console.\+B\+G\+Color\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the background color of the console 
+
+The background color.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_aa47a4c245dd21a4cd18a3348119e7757}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_aa47a4c245dd21a4cd18a3348119e7757} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Display@{Display}}
+\index{Display@{Display}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Display}{Display}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Display\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Determines if the console is currently shown or hidden 
+
+{\ttfamily true} if shown; otherwise, {\ttfamily false}.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a4acc1ac4ccea1003f4a0d8f878f91a23}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a4acc1ac4ccea1003f4a0d8f878f91a23} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Text\+Color@{Text\+Color}}
+\index{Text\+Color@{Text\+Color}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Text\+Color}{TextColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Text\+Color\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the color of the console text. 
+
+The color of the text.\hypertarget{class_midnight_blue_1_1_engine_1_1_m_b_console_a504f6353e1d2ad63f4cb471e4107ba50}{}\label{class_midnight_blue_1_1_engine_1_1_m_b_console_a504f6353e1d2ad63f4cb471e4107ba50} 
+\index{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}!Vars@{Vars}}
+\index{Vars@{Vars}!Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console@{Midnight\+Blue\+::\+Engine\+::\+M\+B\+Console}}
+\subsubsection{\texorpdfstring{Vars}{Vars}}
+{\footnotesize\ttfamily Dictionary$<$string, object$>$ Midnight\+Blue.\+Engine.\+M\+B\+Console.\+Vars\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the consoles game variables. 
+
+The variables.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/M\+B\+Console.\+cs\end{DoxyCompactItemize}

@@ -91,7 +91,7 @@ namespace MidnightBlue
     {
       // Setup player
       var player = GameObjects["player"];
-      BecomeShip(player);
+      GameObjects.UseBlueprint("planet ship", player);
       player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(_shipScale, _shipScale);
       player.GetComponent<Movement>().Position = new Vector2(_planet.Size.X / 2, _planet.Size.Y / 2);
 
@@ -165,13 +165,13 @@ namespace MidnightBlue
 
         // Check to see if reached min scale
         if ( sprite.Target.Scale.X < _playerScale ) {
-          BecomePlayer(player);
+          GameObjects.UseBlueprint("player", player);
         }
 
       } else if ( shipController.State == ShipState.Launching ) {
         // Animate launching transition - move further from ground
         if ( player.HasComponent<PlayerController>() ) {
-          BecomeShip(player);
+          GameObjects.UseBlueprint("planet ship", player);
 
           var newController = player.GetComponent<ShipController>();
 
@@ -277,76 +277,5 @@ namespace MidnightBlue
       // End transition instantly
       TransitionState = TransitionState.None;
     }
-
-    /// <summary>
-    /// Gives the entity the correct components to become a controllable ship
-    /// </summary>
-    /// <param name="entity">Entity to change.</param>
-    private void BecomeShip(Entity entity)
-    {
-      var lastPos = MBGame.Camera.GetBoundingRectangle().Center;
-      var lastAngle = 0.0f;
-
-      // Remember position and angle from being a non-ship
-      // for setting up the new sprite transform
-      if ( entity.HasComponent<Movement>() ) {
-        lastPos = entity.GetComponent<Movement>().Position;
-        lastAngle = entity.GetComponent<Movement>().Angle;
-      }
-
-      entity.DetachAll();
-
-      // Setup sprite transform facing the same way as before in the same position
-      var sprite = entity.Attach<SpriteTransform>(
-        Content.Load<Texture2D>("Images/playership_blue"),
-        new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
-        new Vector2(_shipScale, _shipScale)
-      ) as SpriteTransform;
-
-      sprite.Z = 1;
-      sprite.Rotation = lastAngle;
-
-      entity.Attach<PhysicsComponent>();
-
-      // Attach movement component
-      var movement = entity.Attach<Movement>(1000.0f, 0.1f) as Movement;
-      movement.Position = lastPos;
-
-      entity.Attach<ShipController>();
-      entity.Attach<UtilityController>();
-
-      GameObjects.UpdateSystems(entity);
-    }
-
-    /// <summary>
-    /// Gives the entity the necessary components to become a controllable player
-    /// </summary>
-    /// <param name="entity">Entity to change.</param>
-    private void BecomePlayer(Entity entity)
-    {
-      entity.Detach<SpriteTransform>(); // resets the sprite
-      entity.Detach<ShipController>(); // remove any other controllers if they exist
-
-      var movement = entity.GetComponent<Movement>();
-      movement.Speed = 200;
-
-      var physics = entity.GetComponent<PhysicsComponent>();
-      physics.Velocity = new Vector2(0, 0);
-
-      var sprite = entity.Attach<SpriteTransform>(
-        Content.Load<Texture2D>("Images/bkspr01"),
-        new Vector2(MBGame.Camera.Position.X, MBGame.Camera.Position.Y),
-        new Vector2(_playerScale, _playerScale)
-      ) as SpriteTransform;
-
-      entity.Attach<CollisionComponent>(new RectangleF[] { sprite.Target.GetBoundingRectangle() });
-
-      // Setup new controller components
-      var playerController = entity.Attach<PlayerController>() as PlayerController;
-      playerController.InputMap.Assign<LaunchCommand>(Keys.Space, CommandType.Trigger);
-
-      entity.Attach<UtilityController>();
-    }
-
   }
 }

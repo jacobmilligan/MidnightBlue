@@ -17,6 +17,7 @@ using Microsoft.Xna.Framework.Media;
 using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
 {
@@ -57,6 +58,7 @@ namespace MidnightBlue
         MediaPlayer.Play(_bgSong);
         MediaPlayer.IsRepeating = true;
       }
+
       TransitionState = TransitionState.None;
     }
 

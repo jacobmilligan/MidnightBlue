@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.UI;
 
-namespace MidnightBlue.Engine
+namespace MidnightBlue
 {
   /// <summary>
   /// HUD to show in the galaxy view.

@@ -13,6 +13,9 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MidnightBlue.Engine.EntityComponent
 {
@@ -48,6 +51,8 @@ namespace MidnightBlue.Engine.EntityComponent
     /// </summary>
     private List<Entity> _entities;
 
+    private Dictionary<string, Action<Entity>> _blueprints;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.EntityComponent.EntityMap"/> class.
     /// </summary>
@@ -58,6 +63,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _entities = new List<Entity>();
       _components = new Dictionary<Type, ulong>();
       _tags = new Dictionary<string, int>();
+      _blueprints = new Dictionary<string, Action<Entity>>();
     }
 
     /// <summary>
@@ -73,6 +79,7 @@ namespace MidnightBlue.Engine.EntityComponent
       _systems = new Dictionary<Type, EntitySystem>(map._systems);
       _entities = new List<Entity>(map._entities);
       _components = new Dictionary<Type, ulong>(map._components);
+      _blueprints = map._blueprints;
       _tags = new Dictionary<string, int>(map._tags);
     }
 
@@ -87,6 +94,24 @@ namespace MidnightBlue.Engine.EntityComponent
         // Couldn't get this to fail tests but just in case any bitwise-related bugs
         // I didn't think of crop up, make this increase by a power of 2 instead
         _components.Add(type, NextMask);
+      }
+    }
+
+    /// <summary>
+    /// Registers a new component type to the EntityMap
+    /// </summary>
+    /// <param name="componentType">Type of component to register</param>
+    public void AddComponent(Type componentType)
+    {
+      if ( typeof(IComponent).IsAssignableFrom(componentType) ) {
+        return;
+      }
+
+      if ( !_components.ContainsKey(componentType) ) {
+        // Couldn't get this to fail tests but 
+        // just in case any bitwise-related bugs
+        // I didn't think of crop up, make this increase by a power of 2 instead
+        _components.Add(componentType, NextMask);
       }
     }
 
@@ -256,6 +281,22 @@ namespace MidnightBlue.Engine.EntityComponent
           _tags.Add(_entities[i].Tag, i);
         }
         UpdateSystems(_entities[i]);
+      }
+    }
+
+    public void MakeBlueprint(string id, Action<Entity> buildFunction)
+    {
+      if ( !_blueprints.ContainsKey(id) ) {
+        _blueprints.Add(id, buildFunction);
+      }
+    }
+
+    public void UseBlueprint(string name, Entity entity)
+    {
+      if ( _blueprints.ContainsKey(name) ) {
+        _blueprints[name](entity);
+      } else {
+        Console.WriteLine("No blueprint with that name exists.");
       }
     }
 

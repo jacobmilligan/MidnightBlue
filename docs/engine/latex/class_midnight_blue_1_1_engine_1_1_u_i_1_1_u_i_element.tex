@@ -1,0 +1,390 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element}{}\section{Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element}\index{Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element@{Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element}}
+
+
+Defines a \hyperlink{namespace_midnight_blue_1_1_engine_1_1_u_i}{UI} object that can be contained within Views and Layouts, drawn, updated, and moved about  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae111ac1d2f348f78f689a7619ac47853}{Set\+Relative\+Size} (\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} parent, Point at, Point span)
+\begin{DoxyCompactList}\small\item\em Sets the size of the element relative to its parent \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adbd99f47b33236a076914cc8a7787e24}{Set\+Relative\+Size} (\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} parent, int at\+Row, int at\+Col, int row\+Span, int col\+Span)
+\begin{DoxyCompactList}\small\item\em Sets the size of the element relative to its parent \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0faa27f642478cd428c4718f66263325}{Draw} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the element to the window. Overriden in derived classes \end{DoxyCompactList}\item 
+abstract void \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5b2bff6eed644fc33bc3e1ffaa8bfc70}{Update} ()
+\begin{DoxyCompactList}\small\item\em Update the elements state and handles input. Overriden in derived classes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a89589f3049d81f74716e979f9db8b6d5}{U\+I\+Element} (int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element class. Sets default property values \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae92b745064ca9810ce516d884f701e0e}{Draw\+Border} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the elements border to the window. Skips sides that have color set to Color.\+Transparent \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a82648add05ebacdf8a2b47317b97e827}{Content}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} of the element, only available in container elements \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a68f0fdf9795a81e8d67040531e04f63e}{Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the column and row count of the element \end{DoxyCompactList}\item 
+Rectangle \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a28bf82f271376162bab18a758871aca1}{Bounding\+Box}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of this element \end{DoxyCompactList}\item 
+bool \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49f08f416fb8b80bc0fd09d8c7e5d77c}{Fill}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value that indicates the element should be stretched or shrunk to fill its parents bounds exactly \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae6b8bade95c87535e03228f2d0277b21}{Background\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the elements background. \end{DoxyCompactList}\item 
+string \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49bc3d1da069a0da5c39218c9538d64f}{Text\+Content}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the string rendered by the element. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ad8a234b2f0042ba37f73d805f7ab2746}{Text\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the current color of the text. \end{DoxyCompactList}\item 
+Sprite\+Font \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a71ad458953ae5fb4655051cda7a809f7}{Font}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the font used in rendering the elements Text\+Content \end{DoxyCompactList}\item 
+bool \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a8631ee4e0cc1d664fdc086364a296ad2}{Border\+Displayed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether this T\+:\+Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element has itsborder displayed. \end{DoxyCompactList}\item 
+int \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ab3b26497b32ce0c7f474898e7bd1ea8e}{Border\+Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the width of the border. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a9a743302f1b3978328c85ecae3f6adcb}{Border\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a6eb674d26e9970557dc5d55f41ad3010}{Border\+Top\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border top. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49304800447f5a482ec55bd338187791}{Border\+Right\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border right. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0714670ed29238fcbb24b9d4beaae2e3}{Border\+Bottom\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border bottom. \end{DoxyCompactList}\item 
+Color \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5bc05ca69b1d8678de07a8fa6c903c7a}{Border\+Left\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border left. \end{DoxyCompactList}\item 
+string \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adddf1a9824fdd14771685ac3c188bb6b}{Tag}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the tag used to quickly access this element and uniquely identify it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a \hyperlink{namespace_midnight_blue_1_1_engine_1_1_u_i}{UI} object that can be contained within Views and Layouts, drawn, updated, and moved about 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a89589f3049d81f74716e979f9db8b6d5}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a89589f3049d81f74716e979f9db8b6d5} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!U\+I\+Element@{U\+I\+Element}}
+\index{U\+I\+Element@{U\+I\+Element}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{U\+I\+Element()}{UIElement()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+U\+I\+Element (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element class. Sets default property values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows this element should span -\/ used only be used for container elements \\
+\hline
+{\em cols} & Number of columns this element should span -\/ used only be used for container elements. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0faa27f642478cd428c4718f66263325}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0faa27f642478cd428c4718f66263325} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draws the element to the window. Overriden in derived classes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_list_control_a2f1c5c5f59bfc8c1850d8f3d29334781}{Midnight\+Blue.\+Engine.\+U\+I.\+List\+Control}, \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_control_element_ab279864be71adda238d2a54648ae237e}{Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Control\+Element}, \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_layout_a79151b83463cab0debd506caf8e46bff}{Midnight\+Blue.\+Engine.\+U\+I.\+Layout}, and \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_label_a9ec463bec9d804cd92ec889b002619f6}{Midnight\+Blue.\+Engine.\+U\+I.\+Label}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0faa27f642478cd428c4718f66263325_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae92b745064ca9810ce516d884f701e0e}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae92b745064ca9810ce516d884f701e0e} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Draw\+Border@{Draw\+Border}}
+\index{Draw\+Border@{Draw\+Border}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Draw\+Border()}{DrawBorder()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Draw\+Border (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Draws the elements border to the window. Skips sides that have color set to Color.\+Transparent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw the border to.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae111ac1d2f348f78f689a7619ac47853}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae111ac1d2f348f78f689a7619ac47853} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Set\+Relative\+Size@{Set\+Relative\+Size}}
+\index{Set\+Relative\+Size@{Set\+Relative\+Size}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Set\+Relative\+Size()}{SetRelativeSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Set\+Relative\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content}}]{parent,  }\item[{Point}]{at,  }\item[{Point}]{span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the size of the element relative to its parent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent content to align to\\
+\hline
+{\em at} & Position element should be set to\\
+\hline
+{\em span} & Number of columns/rows the element should span.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae111ac1d2f348f78f689a7619ac47853_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adbd99f47b33236a076914cc8a7787e24}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adbd99f47b33236a076914cc8a7787e24} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Set\+Relative\+Size@{Set\+Relative\+Size}}
+\index{Set\+Relative\+Size@{Set\+Relative\+Size}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Set\+Relative\+Size()}{SetRelativeSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Set\+Relative\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content}}]{parent,  }\item[{int}]{at\+Row,  }\item[{int}]{at\+Col,  }\item[{int}]{row\+Span,  }\item[{int}]{col\+Span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the size of the element relative to its parent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent content to align to\\
+\hline
+{\em at\+Row} & Row position the element should align to.\\
+\hline
+{\em at\+Col} & Column position the element should align to.\\
+\hline
+{\em row\+Span} & Number of rows in the parent the element should span.\\
+\hline
+{\em col\+Span} & Number of columns in the parent the element should span.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5b2bff6eed644fc33bc3e1ffaa8bfc70}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5b2bff6eed644fc33bc3e1ffaa8bfc70} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily abstract void Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update the elements state and handles input. Overriden in derived classes 
+
+
+
+Implemented in \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_list_control_a062289ffbf721905fb4f8aabadbef5fc}{Midnight\+Blue.\+Engine.\+U\+I.\+List\+Control}, \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_control_element_a646726d45236a7b770493f987a8ef1d2}{Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Control\+Element}, \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_label_a781cdf493fe8f9af8433635ea9aa97b5}{Midnight\+Blue.\+Engine.\+U\+I.\+Label}, \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_button_af3c04862d1bdc4e558966bcd7945b9fe}{Midnight\+Blue.\+Engine.\+U\+I.\+Button}, and \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_layout_a7f7c86af6689c117db5d106aa9fadcf2}{Midnight\+Blue.\+Engine.\+U\+I.\+Layout}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5b2bff6eed644fc33bc3e1ffaa8bfc70_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae6b8bade95c87535e03228f2d0277b21}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ae6b8bade95c87535e03228f2d0277b21} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Background\+Color@{Background\+Color}}
+\index{Background\+Color@{Background\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Background\+Color}{BackgroundColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Background\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the elements background. 
+
+The color of the background.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0714670ed29238fcbb24b9d4beaae2e3}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a0714670ed29238fcbb24b9d4beaae2e3} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Bottom\+Color@{Border\+Bottom\+Color}}
+\index{Border\+Bottom\+Color@{Border\+Bottom\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Bottom\+Color}{BorderBottomColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Bottom\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border bottom. 
+
+The color of the border bottom.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a9a743302f1b3978328c85ecae3f6adcb}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a9a743302f1b3978328c85ecae3f6adcb} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Color@{Border\+Color}}
+\index{Border\+Color@{Border\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Color}{BorderColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border. 
+
+The color of the border. Resets all border sides\textquotesingle{} colors to this color.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a8631ee4e0cc1d664fdc086364a296ad2}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a8631ee4e0cc1d664fdc086364a296ad2} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Displayed@{Border\+Displayed}}
+\index{Border\+Displayed@{Border\+Displayed}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Displayed}{BorderDisplayed}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Displayed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether this T\+:\+Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element has itsborder displayed. 
+
+{\ttfamily true} if border should be displayed; otherwise, {\ttfamily false}.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5bc05ca69b1d8678de07a8fa6c903c7a}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a5bc05ca69b1d8678de07a8fa6c903c7a} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Left\+Color@{Border\+Left\+Color}}
+\index{Border\+Left\+Color@{Border\+Left\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Left\+Color}{BorderLeftColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Left\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border left. 
+
+The color of the border left.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49304800447f5a482ec55bd338187791}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49304800447f5a482ec55bd338187791} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Right\+Color@{Border\+Right\+Color}}
+\index{Border\+Right\+Color@{Border\+Right\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Right\+Color}{BorderRightColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Right\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border right. 
+
+The color of the border right.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a6eb674d26e9970557dc5d55f41ad3010}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a6eb674d26e9970557dc5d55f41ad3010} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Top\+Color@{Border\+Top\+Color}}
+\index{Border\+Top\+Color@{Border\+Top\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Top\+Color}{BorderTopColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Top\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border top. 
+
+The color of the border top.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ab3b26497b32ce0c7f474898e7bd1ea8e}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ab3b26497b32ce0c7f474898e7bd1ea8e} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Border\+Width@{Border\+Width}}
+\index{Border\+Width@{Border\+Width}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Width}{BorderWidth}}
+{\footnotesize\ttfamily int Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Border\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the width of the border. 
+
+The width of the border.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a28bf82f271376162bab18a758871aca1}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a28bf82f271376162bab18a758871aca1} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Bounding\+Box@{Bounding\+Box}}
+\index{Bounding\+Box@{Bounding\+Box}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Bounding\+Box}{BoundingBox}}
+{\footnotesize\ttfamily Rectangle Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Bounding\+Box\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the bounding box of this element 
+
+The bounding box.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a82648add05ebacdf8a2b47317b97e827}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a82648add05ebacdf8a2b47317b97e827} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Content@{Content}}
+\index{Content@{Content}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Content}{Content}}
+{\footnotesize\ttfamily \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Content\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the \hyperlink{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_content}{U\+I\+Content} of the element, only available in container elements 
+
+The content.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49f08f416fb8b80bc0fd09d8c7e5d77c}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49f08f416fb8b80bc0fd09d8c7e5d77c} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Fill@{Fill}}
+\index{Fill@{Fill}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Fill}{Fill}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Fill\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value that indicates the element should be stretched or shrunk to fill its parents bounds exactly 
+
+{\ttfamily true} if set to fill parent; otherwise, {\ttfamily false}.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a71ad458953ae5fb4655051cda7a809f7}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a71ad458953ae5fb4655051cda7a809f7} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Font@{Font}}
+\index{Font@{Font}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Font}{Font}}
+{\footnotesize\ttfamily Sprite\+Font Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Font\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the font used in rendering the elements Text\+Content 
+
+The font.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a68f0fdf9795a81e8d67040531e04f63e}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a68f0fdf9795a81e8d67040531e04f63e} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Size@{Size}}
+\index{Size@{Size}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Size}{Size}}
+{\footnotesize\ttfamily Vector2 Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the column and row count of the element 
+
+The elements grid size.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adddf1a9824fdd14771685ac3c188bb6b}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_adddf1a9824fdd14771685ac3c188bb6b} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Tag@{Tag}}
+\index{Tag@{Tag}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Tag}{Tag}}
+{\footnotesize\ttfamily string Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Tag\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the tag used to quickly access this element and uniquely identify it. 
+
+The tag.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ad8a234b2f0042ba37f73d805f7ab2746}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_ad8a234b2f0042ba37f73d805f7ab2746} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Text\+Color@{Text\+Color}}
+\index{Text\+Color@{Text\+Color}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Text\+Color}{TextColor}}
+{\footnotesize\ttfamily Color Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Text\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the current color of the text. 
+
+The text contents current color value.\hypertarget{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49bc3d1da069a0da5c39218c9538d64f}{}\label{class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element_a49bc3d1da069a0da5c39218c9538d64f} 
+\index{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}!Text\+Content@{Text\+Content}}
+\index{Text\+Content@{Text\+Content}!Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element@{Midnight\+Blue\+::\+Engine\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Text\+Content}{TextContent}}
+{\footnotesize\ttfamily string Midnight\+Blue.\+Engine.\+U\+I.\+U\+I\+Element.\+Text\+Content\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the string rendered by the element. 
+
+The content of the text.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/\+U\+I/U\+I\+Element.\+cs\end{DoxyCompactItemize}

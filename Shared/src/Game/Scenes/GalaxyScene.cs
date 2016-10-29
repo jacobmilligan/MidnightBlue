@@ -17,12 +17,13 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using MidnightBlue.Engine;
 using MidnightBlue.Engine.EntityComponent;
 using MidnightBlue.Engine.Scenes;
 using MidnightBlue.Engine.UI;
 using MonoGame.Extended.Shapes;
 
-namespace MidnightBlue.Engine
+namespace MidnightBlue
 {
   /// <summary>
   /// The scene displayed at the galaxy view - handles the control over all systems, loading, and
@@ -390,40 +391,10 @@ namespace MidnightBlue.Engine
     private void BuildPlayerShip(int x, int y)
     {
       var player = GameObjects["player"];
-
-      // Setup sprite
-      var sprite = player.Attach<SpriteTransform>(
-        _ship,
-        new Vector2(MBGame.Camera.Position.X + 100, MBGame.Camera.Position.Y + 100),
-        new Vector2(0.3f, 0.3f)
-      ) as SpriteTransform;
-      sprite.Z = 1;
-
-      // Setup AABB
-      player.Attach<CollisionComponent>(
-        new RectangleF[] { sprite.Target.GetBoundingRectangle() }
-      );
-
-      var shipController = player.Attach<ShipController>() as ShipController;
-      shipController.State = ShipState.Normal;
-
-      var physics = player.Attach<PhysicsComponent>() as PhysicsComponent;
-      physics.Power = 0;
-      physics.Velocity = new Vector2(0, 0);
-
-      // Setup initial inventory
-      var inventory = player.Attach<Inventory>() as Inventory;
-      if ( !inventory.Items.ContainsKey(typeof(Fuel)) ) {
-        inventory.Items.Add(typeof(Fuel), new Fuel(10000));
-      }
-
-      var movement = player.Attach<Movement>(3.0f, 0.02f) as Movement;
-      movement.Position = new Vector2(x, y);
-      movement.Speed = 3.0f;
-      movement.RotationSpeed = 0.02f;
-
+      GameObjects.UseBlueprint("galaxy playership", player);
+      player.GetComponent<Movement>().Position = new Vector2(x, y);
       // Refocus camera
-      MBGame.Camera.LookAt(sprite.Target.Origin);
+      MBGame.Camera.LookAt(player.GetComponent<SpriteTransform>().Target.Origin);
 
       GameObjects.UpdateSystems(player);
     }
@@ -455,6 +426,7 @@ namespace MidnightBlue.Engine
           new Vector2(scale, scale)
         ) as SpriteTransform;
         sprite.Target.Color = sysComponent.Color;
+        sprite.Target.Position = new Vector2(sysComponent.Bounds.X, sysComponent.Bounds.Y);
 
         // Setup AABB
         newSystem.Attach<CollisionComponent>(new RectangleF[] {

@@ -1,0 +1,7 @@
+<map id="MidnightBlue.Engine.MBGame.Initialize" name="MidnightBlue.Engine.MBGame.Initialize">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#acb6bf0e0819a14f67678fe5d79582579" title="Creates a new Entity with the given tag in this map. Auto&#45;Registers the entity with all systems and u..." alt="" coords="261,5,491,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#a03dd4fbb29f2a0be51589726304725df" title="Attaches a new component to the entity. " alt="" coords="286,68,466,107"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a8bddd32efa3f6133aa3899a164160431" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="278,131,474,169"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#ae719ec7cdc2b4311590ca22674d47bf0" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="539,37,804,76"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#abecc0cc62b145f8d44661b56e06fb06e" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="546,100,797,139"/>
+</map>

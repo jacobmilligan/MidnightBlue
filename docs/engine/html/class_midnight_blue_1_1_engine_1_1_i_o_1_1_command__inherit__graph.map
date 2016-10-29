@@ -1,0 +1,11 @@
+<map id="MidnightBlue.Engine.IO.Command" name="MidnightBlue.Engine.IO.Command">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_console_command.html" title="Shows or hides the debug console " alt="" coords="5,167,219,267"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_backward.html" title="Moves an entity backward. Only runs on entities with a physics component " alt="" coords="243,167,441,267"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_down.html" title="Moves an entity down " alt="" coords="464,173,696,260"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_forward.html" title="Moves an entity forward. Only runs on entities with a physics component " alt="" coords="720,167,918,267"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_left.html" title="Moves an entity left. " alt="" coords="942,173,1162,260"/>
+<area shape="rect" id="node7" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_right.html" title="Moves an entity right " alt="" coords="1187,167,1385,267"/>
+<area shape="rect" id="node8" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_up.html" title="Moves a player controller up " alt="" coords="1409,173,1624,260"/>
+<area shape="rect" id="node9" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_rotate_left.html" title="Rotates an entity left " alt="" coords="1648,173,1875,260"/>
+<area shape="rect" id="node10" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_rotate_right.html" title="Rotates an entity right " alt="" coords="1899,167,2104,267"/>
+</map>

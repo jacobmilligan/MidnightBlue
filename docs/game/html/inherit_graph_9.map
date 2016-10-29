@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet_component.html" title="Represents a planet entity with pre&#45;generated metadata " alt="" coords="147,5,356,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet_metadata.html" title="Planet metadata used as information and arguments for generating the actual biome map of a planet..." alt="" coords="154,55,349,80"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_ship_controller.html" title="Controls a ships movement and actions " alt="" coords="158,104,345,129"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system.html" title="Represents an star system entity to be used in the galaxy view " alt="" coords="166,153,337,179"/>
+</map>

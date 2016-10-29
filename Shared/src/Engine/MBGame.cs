@@ -114,7 +114,7 @@ namespace MidnightBlue.Engine
 
       base.Initialize(); // MonoGame setup
 
-      _bgColor = Color.MidnightBlue;
+      _bgColor = Color.Black;
       Window.Title = "Midnight Blue";
 
       SetUpDebugVals();
@@ -125,7 +125,7 @@ namespace MidnightBlue.Engine
       player.Attach<UtilityController>();
       player.Persistant = true;
 
-      _scenes.ResetTo(new TitleScene(_gameObjects, Content));
+      _scenes.ResetTo(new InitScene(_gameObjects, Content));
       _fps.Reset();
     }
 

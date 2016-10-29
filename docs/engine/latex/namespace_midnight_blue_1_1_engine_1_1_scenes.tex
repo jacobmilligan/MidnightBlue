@@ -1,0 +1,61 @@
+\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes}{}\section{Midnight\+Blue.\+Engine.\+Scenes Namespace Reference}
+\label{namespace_midnight_blue_1_1_engine_1_1_scenes}\index{Midnight\+Blue.\+Engine.\+Scenes@{Midnight\+Blue.\+Engine.\+Scenes}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene}{Scene}
+\begin{DoxyCompactList}\small\item\em Holds all logic and data for a single game screen \end{DoxyCompactList}\item 
+class \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack}{Scene\+Stack}
+\begin{DoxyCompactList}\small\item\em Holds the games scenes in a stack structure running the top scene every frame. Handles switching state for scenes and popping/pushing new scenes on top of one another. Allows the current scene to access other scenes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557}{Transition\+State} \{ \newline
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557abbb93ef26e3c101ff11cdd21cab08a94}{Transition\+State.\+Null}, 
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a6adf97f83acf6453d4a6a4b1070f3754}{Transition\+State.\+None}, 
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557af89bf2973f11fc8bac3db5669252725a}{Transition\+State.\+Pausing}, 
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a69f55169cdb3caab27ba9f347bf05354}{Transition\+State.\+Resuming}, 
+\newline
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a0657d962b72e6f1f37dda8dad3684cb8}{Transition\+State.\+Exiting}, 
+\hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a32b169f72b293ef80d35435e9894f8e2}{Transition\+State.\+Initializing}
+ \}\begin{DoxyCompactList}\small\item\em Defines a valid transition state to move into. Once set, the scene stack will automatically move the current scene into that state the next frame. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Transition\+State@{Transition\+State}}
+\index{Transition\+State@{Transition\+State}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}
+\subsubsection{\texorpdfstring{Transition\+State}{TransitionState}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557}{Midnight\+Blue.\+Engine.\+Scenes.\+Transition\+State}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Defines a valid transition state to move into. Once set, the scene stack will automatically move the current scene into that state the next frame. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null@{Null}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Null@{Null}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557abbb93ef26e3c101ff11cdd21cab08a94}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557abbb93ef26e3c101ff11cdd21cab08a94} 
+Null&The scene hasn\textquotesingle{}t intitialized yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!None@{None}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a6adf97f83acf6453d4a6a4b1070f3754}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a6adf97f83acf6453d4a6a4b1070f3754} 
+None&The normal state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pausing@{Pausing}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Pausing@{Pausing}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557af89bf2973f11fc8bac3db5669252725a}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557af89bf2973f11fc8bac3db5669252725a} 
+Pausing&The scene is currently pausing. Set state to None to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Resuming@{Resuming}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Resuming@{Resuming}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a69f55169cdb3caab27ba9f347bf05354}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a69f55169cdb3caab27ba9f347bf05354} 
+Resuming&The scene is resuming from the paused state. Set state to None to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Exiting@{Exiting}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Exiting@{Exiting}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a0657d962b72e6f1f37dda8dad3684cb8}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a0657d962b72e6f1f37dda8dad3684cb8} 
+Exiting&The scene is exiting to be destroyed. Set state to Null to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Initializing@{Initializing}!Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}}\index{Midnight\+Blue\+::\+Engine\+::\+Scenes@{Midnight\+Blue\+::\+Engine\+::\+Scenes}!Initializing@{Initializing}}}\hypertarget{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a32b169f72b293ef80d35435e9894f8e2}{}\label{namespace_midnight_blue_1_1_engine_1_1_scenes_a829c47ebe553886b3b3e92db386e2557a32b169f72b293ef80d35435e9894f8e2} 
+Initializing&The scene is initializing from the an unconstructed state. Set state to None to end. \\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,4 @@
+<map id="MidnightBlue.Engine.UI.UIElement.Update" name="MidnightBlue.Engine.UI.UIElement.Update">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#aba1d6f02ef75ed1a595f448acef47915" title="Updates and handles input for all elements in the View. " alt="" coords="284,5,493,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_u_i_test.html#a9866becb1e9b6bf9b9edb0f732b46250" title="Updates game logic and changes scene state. " alt="" coords="541,5,734,44"/>
+</map>

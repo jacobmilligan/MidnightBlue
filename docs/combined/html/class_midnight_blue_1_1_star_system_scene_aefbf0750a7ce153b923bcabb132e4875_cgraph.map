@@ -1,0 +1,7 @@
+<map id="MidnightBlue.StarSystemScene.Resume" name="MidnightBlue.StarSystemScene.Resume">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_system.html#a2a394fb18708d26f3748d8006b4f692d" title="Resets the grid position in the world. " alt="" coords="266,5,518,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet.html#ac7264aea3a992afb4cab0ad99c96dbb8" title="Generates the planet after setting up with pre&#45;defined metadata parameters. " alt="" coords="293,68,492,93"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_sound_trigger.html#a97b79ca1906cdb3138da1f120d4c64fd" title="Increases the sounds volume one step based on the specified FadeSpeed " alt="" coords="299,117,485,156"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_sound_trigger.html#ac3df1f278adce8dac56f94cc9de8eaca" title="Decreases the volume based on the specified FadeSpeed. Stops the sound once the volume reaches 0 ..." alt="" coords="299,180,485,219"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_noise_map.html#a70d9e8d99e157143eb3d1dbc3895cb9a" title="Gets a noise value at the specified x and y coordinates. Returned as a normalized value in the range ..." alt="" coords="566,61,754,100"/>
+</map>

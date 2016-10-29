@@ -1,0 +1,172 @@
+\hypertarget{class_midnight_blue_1_1_galaxy_scene}{}\section{Midnight\+Blue.\+Galaxy\+Scene Class Reference}
+\label{class_midnight_blue_1_1_galaxy_scene}\index{Midnight\+Blue.\+Galaxy\+Scene@{Midnight\+Blue.\+Galaxy\+Scene}}
+
+
+The scene displayed at the galaxy view -\/ handles the control over all systems, loading, and content management for the scene.  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Galaxy\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_midnight_blue_1_1_galaxy_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Galaxy\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_midnight_blue_1_1_galaxy_scene__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_galaxy_scene_acdd82e3464ea18ca77bcf4694e9803a5}{Galaxy\+Scene} (Entity\+Map map, Content\+Manager content)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Galaxy\+Scene class. Loads all resources and sets up the galaxy for generation. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_a97d97e56a73d9a4b7caf6dd6ce86647e}{Initialize} ()
+\begin{DoxyCompactList}\small\item\em Initializes the galaxy generation and background music -\/ sets up the players ship and the collision bounds. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_afd7f8c9f6d0cf6ded10299d4b0015c29}{Handle\+Input} ()
+\begin{DoxyCompactList}\small\item\em Handles all input for the player ship and moves between galaxy and star system scenes if the player enters a star system. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_a9dfa66406143ed20f4d534c768f05a78}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates the galaxy view and fuel consumption if not loading. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_a3646fcf97e067bac267d42aad66e71c4}{Draw} (Sprite\+Batch sprite\+Batch, Sprite\+Batch ui\+Sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draw the game world and UI to the specified sprite\+Batch and ui\+Sprite\+Batch. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_a7a96978e050da997330bcc0f3cd00f9e}{Exit} ()
+\begin{DoxyCompactList}\small\item\em Exit this scene instantly. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_aeb44afaeda2cccd225e64908bb76bee4}{Pause} ()
+\begin{DoxyCompactList}\small\item\em Fades the sound out when transitioning to another scene. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_galaxy_scene_ab641e6727cdb64dc6487e9a229521692}{Resume} ()
+\begin{DoxyCompactList}\small\item\em Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The scene displayed at the galaxy view -\/ handles the control over all systems, loading, and content management for the scene. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_acdd82e3464ea18ca77bcf4694e9803a5}{}\label{class_midnight_blue_1_1_galaxy_scene_acdd82e3464ea18ca77bcf4694e9803a5} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Galaxy\+Scene@{Galaxy\+Scene}}
+\index{Galaxy\+Scene@{Galaxy\+Scene}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Galaxy\+Scene()}{GalaxyScene()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Galaxy\+Scene.\+Galaxy\+Scene (\begin{DoxyParamCaption}\item[{Entity\+Map}]{map,  }\item[{Content\+Manager}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Galaxy\+Scene class. Loads all resources and sets up the galaxy for generation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & Game objects to use.\\
+\hline
+{\em content} & Content manager to use.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_a3646fcf97e067bac267d42aad66e71c4}{}\label{class_midnight_blue_1_1_galaxy_scene_a3646fcf97e067bac267d42aad66e71c4} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch,  }\item[{Sprite\+Batch}]{ui\+Sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draw the game world and UI to the specified sprite\+Batch and ui\+Sprite\+Batch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch for world-\/based entities.\\
+\hline
+{\em ui\+Sprite\+Batch} & User interface sprite batch.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_a7a96978e050da997330bcc0f3cd00f9e}{}\label{class_midnight_blue_1_1_galaxy_scene_a7a96978e050da997330bcc0f3cd00f9e} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Exit@{Exit}}
+\index{Exit@{Exit}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Exit this scene instantly. 
+
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_afd7f8c9f6d0cf6ded10299d4b0015c29}{}\label{class_midnight_blue_1_1_galaxy_scene_afd7f8c9f6d0cf6ded10299d4b0015c29} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Handle\+Input()}{HandleInput()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles all input for the player ship and moves between galaxy and star system scenes if the player enters a star system. 
+
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_a97d97e56a73d9a4b7caf6dd6ce86647e}{}\label{class_midnight_blue_1_1_galaxy_scene_a97d97e56a73d9a4b7caf6dd6ce86647e} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes the galaxy generation and background music -\/ sets up the players ship and the collision bounds. 
+
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_aeb44afaeda2cccd225e64908bb76bee4}{}\label{class_midnight_blue_1_1_galaxy_scene_aeb44afaeda2cccd225e64908bb76bee4} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Pause@{Pause}}
+\index{Pause@{Pause}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fades the sound out when transitioning to another scene. 
+
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_ab641e6727cdb64dc6487e9a229521692}{}\label{class_midnight_blue_1_1_galaxy_scene_ab641e6727cdb64dc6487e9a229521692} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Resume@{Resume}}
+\index{Resume@{Resume}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Resume()}{Resume()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_galaxy_scene_ab641e6727cdb64dc6487e9a229521692_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_galaxy_scene_a9dfa66406143ed20f4d534c768f05a78}{}\label{class_midnight_blue_1_1_galaxy_scene_a9dfa66406143ed20f4d534c768f05a78} 
+\index{Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Galaxy\+Scene@{Midnight\+Blue\+::\+Galaxy\+Scene}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Galaxy\+Scene.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the galaxy view and fuel consumption if not loading. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_galaxy_scene_a9dfa66406143ed20f4d534c768f05a78_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Game/\+Scenes/Galaxy\+Scene.\+cs\end{DoxyCompactItemize}

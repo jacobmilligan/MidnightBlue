@@ -154,6 +154,7 @@ namespace MidnightBlue
           cache.Add(planet.Name, _planets[p]);
         } else {
           _planets[p] = cache[planet.Name];
+          UpdateSpace(_planets[p]);
         }
         p++;
       }
@@ -269,6 +270,7 @@ namespace MidnightBlue
 
         foreach ( var p in _planets ) {
           if ( p.GetMapLayer("planet map") == null ) {
+            p.CreateMapTexture(Content);
             UpdateSpace(p);
           }
         }
@@ -291,7 +293,6 @@ namespace MidnightBlue
     /// <param name="p">Planet to update.</param>
     private void UpdateSpace(Planet p)
     {
-      p.CreateMapTexture(Content);
       // Get a random point on the planets orbit to place it at
       var randAngle = _rand.Next() * MathHelper.Pi * 2;
       var orbitX = (float)Math.Cos(randAngle) * p.Meta.StarDistance.RelativeKilometers;
@@ -505,13 +506,8 @@ namespace MidnightBlue
     private void BuildPlayer(int x, int y)
     {
       var player = GameObjects["player"];
-      var movement = player.GetComponent<Movement>();
-      movement.Speed = 25.0f;
-      movement.RotationSpeed = 0.05f;
-      movement.Position = new Vector2(x, y);
-
-      player.GetComponent<SpriteTransform>().Target.Scale = new Vector2(0.3f, 0.3f);
-      player.GetComponent<ShipController>().State = ShipState.Normal;
+      GameObjects.UseBlueprint("starsystem playership", player);
+      player.GetComponent<Movement>().Position = new Vector2(x, y);
     }
 
   }

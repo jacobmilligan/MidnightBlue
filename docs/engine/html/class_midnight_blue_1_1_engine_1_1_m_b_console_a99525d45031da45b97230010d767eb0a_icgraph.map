@@ -1,0 +1,4 @@
+<map id="MidnightBlue.Engine.MBConsole.Debug" name="MidnightBlue.Engine.MBConsole.Debug">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a8c0ab363d287940ce8a66d1ab1356714" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="273,5,469,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_m_b_game.html#a28dd0bac108b77fe04164ff81acf9881" title="Draws the current scene to the window " alt="" coords="517,12,755,37"/>
+</map>

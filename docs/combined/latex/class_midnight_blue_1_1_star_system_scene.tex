@@ -1,0 +1,256 @@
+\hypertarget{class_midnight_blue_1_1_star_system_scene}{}\section{Midnight\+Blue.\+Star\+System\+Scene Class Reference}
+\label{class_midnight_blue_1_1_star_system_scene}\index{Midnight\+Blue.\+Star\+System\+Scene@{Midnight\+Blue.\+Star\+System\+Scene}}
+
+
+Scene to display a star system with planets and a star.  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Star\+System\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_midnight_blue_1_1_star_system_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Star\+System\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_midnight_blue_1_1_star_system_scene__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_star_system_scene_a630b2de039b719d35fbdf572bbc69ea0}{Star\+System\+Scene} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map}{Entity\+Map} map, Content\+Manager content, \hyperlink{class_midnight_blue_1_1_star_system}{Star\+System} star\+System, Dictionary$<$ string, \hyperlink{class_midnight_blue_1_1_planet}{Planet} $>$ cache, int seed)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Star\+System\+Scene class. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_a1b593cd45d0f1b6c02f17ec5dd1033ca}{Initialize} ()
+\begin{DoxyCompactList}\small\item\em Ends initializing instantly. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_a9fd64901322082a4da8658650257163d}{Handle\+Input} ()
+\begin{DoxyCompactList}\small\item\em Handles moving the players ship. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_ac36506b721064e015a9f93140681d93a}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates all systems in the game and handles the ocurrance of the player entering a planet. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_ac3d90fb8d914d15b912f5da3cc1aa8a0}{Draw} (Sprite\+Batch sprite\+Batch, Sprite\+Batch ui\+Sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the star system to the sprite batch and the H\+UD to the UI spritebatch. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_star_system_scene_a8ce5e552f65d43e0326644e069dc6c24}{Draw\+Map} (Sprite\+Batch ui\+Sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the minimap to the window. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_ad533ba93e597964d015099031a85cb77}{Exit} ()
+\begin{DoxyCompactList}\small\item\em Exits the scene instantly. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_a04e8bfcb31eebfd859c4bd543f0bb6f9}{Pause} ()
+\begin{DoxyCompactList}\small\item\em Pauses the scene instantly. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_star_system_scene_aefbf0750a7ce153b923bcabb132e4875}{Resume} ()
+\begin{DoxyCompactList}\small\item\em Resumes the star system scene after leaving a planet. Handles resetting the physics environment, players ship settings and reactivates all planets and the star. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Scene to display a star system with planets and a star. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_a630b2de039b719d35fbdf572bbc69ea0}{}\label{class_midnight_blue_1_1_star_system_scene_a630b2de039b719d35fbdf572bbc69ea0} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Star\+System\+Scene@{Star\+System\+Scene}}
+\index{Star\+System\+Scene@{Star\+System\+Scene}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Star\+System\+Scene()}{StarSystemScene()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Star\+System\+Scene.\+Star\+System\+Scene (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map}{Entity\+Map}}]{map,  }\item[{Content\+Manager}]{content,  }\item[{\hyperlink{class_midnight_blue_1_1_star_system}{Star\+System}}]{star\+System,  }\item[{Dictionary$<$ string, \hyperlink{class_midnight_blue_1_1_planet}{Planet} $>$}]{cache,  }\item[{int}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Star\+System\+Scene class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & Entity map to load entities into.\\
+\hline
+{\em content} & Content manager for loading resources.\\
+\hline
+{\em star\+System} & Star system information to use for the scene.\\
+\hline
+{\em cache} & \hyperlink{class_midnight_blue_1_1_planet}{Planet} cache used for quickly loading recently-\/visited star systems.\\
+\hline
+{\em seed} & Seed to use in random generation.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_a630b2de039b719d35fbdf572bbc69ea0_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_ac3d90fb8d914d15b912f5da3cc1aa8a0}{}\label{class_midnight_blue_1_1_star_system_scene_ac3d90fb8d914d15b912f5da3cc1aa8a0} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch,  }\item[{Sprite\+Batch}]{ui\+Sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draws the star system to the sprite batch and the H\+UD to the UI spritebatch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw world-\/based entities to.\\
+\hline
+{\em ui\+Sprite\+Batch} & User interface sprite batch.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a6ec0b4be6c7dc226c9afd308e1fb3fd3}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_ac3d90fb8d914d15b912f5da3cc1aa8a0_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_a8ce5e552f65d43e0326644e069dc6c24}{}\label{class_midnight_blue_1_1_star_system_scene_a8ce5e552f65d43e0326644e069dc6c24} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Draw\+Map@{Draw\+Map}}
+\index{Draw\+Map@{Draw\+Map}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Draw\+Map()}{DrawMap()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Star\+System\+Scene.\+Draw\+Map (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{ui\+Sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the minimap to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Sprite\+Batch} & User interface sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_a8ce5e552f65d43e0326644e069dc6c24_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_ad533ba93e597964d015099031a85cb77}{}\label{class_midnight_blue_1_1_star_system_scene_ad533ba93e597964d015099031a85cb77} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Exit@{Exit}}
+\index{Exit@{Exit}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Exits the scene instantly. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_adbf0f6d758df9fc5e20f24f327599e67}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_star_system_scene_a9fd64901322082a4da8658650257163d}{}\label{class_midnight_blue_1_1_star_system_scene_a9fd64901322082a4da8658650257163d} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Handle\+Input()}{HandleInput()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Handles moving the players ship. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a2f7849ef8976f9aeed0023448033b6fd}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_a9fd64901322082a4da8658650257163d_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_a1b593cd45d0f1b6c02f17ec5dd1033ca}{}\label{class_midnight_blue_1_1_star_system_scene_a1b593cd45d0f1b6c02f17ec5dd1033ca} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Ends initializing instantly. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_aa919101862c14384b955d91a4d3362ab}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_star_system_scene_a04e8bfcb31eebfd859c4bd543f0bb6f9}{}\label{class_midnight_blue_1_1_star_system_scene_a04e8bfcb31eebfd859c4bd543f0bb6f9} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Pause@{Pause}}
+\index{Pause@{Pause}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Pauses the scene instantly. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_aeb3c4d9bea0177d21fbffcdabab660de}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_star_system_scene_aefbf0750a7ce153b923bcabb132e4875}{}\label{class_midnight_blue_1_1_star_system_scene_aefbf0750a7ce153b923bcabb132e4875} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Resume@{Resume}}
+\index{Resume@{Resume}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Resume()}{Resume()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Resumes the star system scene after leaving a planet. Handles resetting the physics environment, players ship settings and reactivates all planets and the star. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_ab7cd837b20785116007a4732d90bc548}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_aefbf0750a7ce153b923bcabb132e4875_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_star_system_scene_ac36506b721064e015a9f93140681d93a}{}\label{class_midnight_blue_1_1_star_system_scene_ac36506b721064e015a9f93140681d93a} 
+\index{Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Star\+System\+Scene@{Midnight\+Blue\+::\+Star\+System\+Scene}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Star\+System\+Scene.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Updates all systems in the game and handles the ocurrance of the player entering a planet. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a4e37ff3d5362a8ad5c0d82d7c990dfdf}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_star_system_scene_ac36506b721064e015a9f93140681d93a_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Game/\+Scenes/Star\+System\+Scene.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="MidnightBlue.Engine.EntityComponent.Entity.DetachAll" name="MidnightBlue.Engine.EntityComponent.Entity.DetachAll">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#ae719ec7cdc2b4311590ca22674d47bf0" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="240,5,506,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#abecc0cc62b145f8d44661b56e06fb06e" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="247,68,499,107"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="MidnightBlue.StarSystemScene.Resume" name="MidnightBlue.StarSystemScene.Resume">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet.html#ac7264aea3a992afb4cab0ad99c96dbb8" title="Generates the planet after setting up with pre&#45;defined metadata parameters. " alt="" coords="266,12,465,37"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_noise_map.html#a70d9e8d99e157143eb3d1dbc3895cb9a" title="Gets a noise value at the specified x and y coordinates. Returned as a normalized value in the range ..." alt="" coords="513,5,700,44"/>
+</map>

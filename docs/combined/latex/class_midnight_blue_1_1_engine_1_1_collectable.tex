@@ -1,0 +1,164 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable}{}\section{Midnight\+Blue.\+Engine.\+Collectable Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_collectable}\index{Midnight\+Blue.\+Engine.\+Collectable@{Midnight\+Blue.\+Engine.\+Collectable}}
+
+
+Defines an object that can be contained within components and systems that operate on collectible items, such as Inventory.  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Engine.\+Collectable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_midnight_blue_1_1_engine_1_1_collectable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+Collectable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_midnight_blue_1_1_engine_1_1_collectable__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_add10299d380236ae2ba2a0c6fe32a769}{Collectable} (string name, string tag, int initial\+Count)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Collectable class. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_a2563b260d18521524bce996bc153dffb}{Consume} (int amount=1)
+\begin{DoxyCompactList}\small\item\em Consumes a number of instances of the item \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_a7c951f1615e5e82c9259893a33ca4b5d}{Add} (int amount=1)
+\begin{DoxyCompactList}\small\item\em Adds a number of instances of this item to the container \end{DoxyCompactList}\item 
+abstract void \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_a72a7783ba8fc1bb116193db38a465a6f}{Effect} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em The action to enact when the item is consumed or used \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_ac98670a6322f2dc0ecf173d1a5cced39}{Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the item. \end{DoxyCompactList}\item 
+string \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_aa92d9bc3bf5cf9d01bbb92429293be56}{Tag}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the items tag. \end{DoxyCompactList}\item 
+int \hyperlink{class_midnight_blue_1_1_engine_1_1_collectable_a61bb027d19c487afab716c9a0e73e6a0}{Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the count of available instances of the item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines an object that can be contained within components and systems that operate on collectible items, such as Inventory. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_add10299d380236ae2ba2a0c6fe32a769}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_add10299d380236ae2ba2a0c6fe32a769} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Collectable@{Collectable}}
+\index{Collectable@{Collectable}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Collectable()}{Collectable()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+Collectable.\+Collectable (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{tag,  }\item[{int}]{initial\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Collectable class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name to give to the item.\\
+\hline
+{\em tag} & Short tag to give to the item.\\
+\hline
+{\em initial\+Count} & Initial count to add to the container.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_a7c951f1615e5e82c9259893a33ca4b5d}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_a7c951f1615e5e82c9259893a33ca4b5d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Add@{Add}}
+\index{Add@{Add}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Collectable.\+Add (\begin{DoxyParamCaption}\item[{int}]{amount = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a number of instances of this item to the container 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount to add.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_a2563b260d18521524bce996bc153dffb}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_a2563b260d18521524bce996bc153dffb} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Consume@{Consume}}
+\index{Consume@{Consume}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Consume()}{Consume()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Collectable.\+Consume (\begin{DoxyParamCaption}\item[{int}]{amount = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Consumes a number of instances of the item 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount to consume.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_a72a7783ba8fc1bb116193db38a465a6f}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_a72a7783ba8fc1bb116193db38a465a6f} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Effect@{Effect}}
+\index{Effect@{Effect}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Effect()}{Effect()}}
+{\footnotesize\ttfamily abstract void Midnight\+Blue.\+Engine.\+Collectable.\+Effect (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The action to enact when the item is consumed or used 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to operate on.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_midnight_blue_1_1_fuel_a9ab52c79211ec8cdcc9389f772615ac0}{Midnight\+Blue.\+Fuel}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_a61bb027d19c487afab716c9a0e73e6a0}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_a61bb027d19c487afab716c9a0e73e6a0} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Count@{Count}}
+\index{Count@{Count}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Count}{Count}}
+{\footnotesize\ttfamily int Midnight\+Blue.\+Engine.\+Collectable.\+Count\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the count of available instances of the item. 
+
+The count.\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_ac98670a6322f2dc0ecf173d1a5cced39}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_ac98670a6322f2dc0ecf173d1a5cced39} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Name@{Name}}
+\index{Name@{Name}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily string Midnight\+Blue.\+Engine.\+Collectable.\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the item. 
+
+The name.\hypertarget{class_midnight_blue_1_1_engine_1_1_collectable_aa92d9bc3bf5cf9d01bbb92429293be56}{}\label{class_midnight_blue_1_1_engine_1_1_collectable_aa92d9bc3bf5cf9d01bbb92429293be56} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}!Tag@{Tag}}
+\index{Tag@{Tag}!Midnight\+Blue\+::\+Engine\+::\+Collectable@{Midnight\+Blue\+::\+Engine\+::\+Collectable}}
+\subsubsection{\texorpdfstring{Tag}{Tag}}
+{\footnotesize\ttfamily string Midnight\+Blue.\+Engine.\+Collectable.\+Tag\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the items tag. 
+
+The tag.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/\+Inventory/Collectable.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,227 @@
+\hypertarget{class_midnight_blue_1_1_planet_scene}{}\section{Midnight\+Blue.\+Planet\+Scene Class Reference}
+\label{class_midnight_blue_1_1_planet_scene}\index{Midnight\+Blue.\+Planet\+Scene@{Midnight\+Blue.\+Planet\+Scene}}
+
+
+Scene active when the player is exploring a given planet.  
+
+
+
+
+Inheritance diagram for Midnight\+Blue.\+Planet\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_midnight_blue_1_1_planet_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Midnight\+Blue.\+Planet\+Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_midnight_blue_1_1_planet_scene__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_planet_scene_a50ee691836116a89ff549e519f895ba3}{Planet\+Scene} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map}{Entity\+Map} map, Content\+Manager content, \hyperlink{class_midnight_blue_1_1_planet}{Planet} planet)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Planet\+Scene class. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_ac8b7e88283b22b87aa45f116b549e86f}{Initialize} ()
+\begin{DoxyCompactList}\small\item\em Sets up the player and physics environment for this planet \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_a6c84a639f27b9f7510b514969d47d1bd}{Handle\+Input} ()
+\begin{DoxyCompactList}\small\item\em Handles the input for the scene. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_add0a85b4f754f026231aa7269259c65c}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates the players position and state alongside the current biome the player is located at. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_af22a201631e5f8c606ec3f7463635977}{Draw} (Sprite\+Batch sprite\+Batch, Sprite\+Batch ui\+Sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draw the tilemap to the specified sprite\+Batch and ui\+Sprite\+Batch. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_af3aab90a13294493e1f2cd29b0fb60e6}{Exit} ()
+\begin{DoxyCompactList}\small\item\em Exit this scene. \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_abc077e1cd5f40879ca3af4224f0ff455}{Pause} ()
+\begin{DoxyCompactList}\small\item\em Instantly pause the scene \end{DoxyCompactList}\item 
+override void \hyperlink{class_midnight_blue_1_1_planet_scene_aa14750d3675b59462796e821b3921397}{Resume} ()
+\begin{DoxyCompactList}\small\item\em Instantly resume the scene \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Scene active when the player is exploring a given planet. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_planet_scene_a50ee691836116a89ff549e519f895ba3}{}\label{class_midnight_blue_1_1_planet_scene_a50ee691836116a89ff549e519f895ba3} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Planet\+Scene@{Planet\+Scene}}
+\index{Planet\+Scene@{Planet\+Scene}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Planet\+Scene()}{PlanetScene()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Planet\+Scene.\+Planet\+Scene (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map}{Entity\+Map}}]{map,  }\item[{Content\+Manager}]{content,  }\item[{\hyperlink{class_midnight_blue_1_1_planet}{Planet}}]{planet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Planet\+Scene class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & Game object map.\\
+\hline
+{\em content} & Content manager for loading resources.\\
+\hline
+{\em planet} & \hyperlink{class_midnight_blue_1_1_planet}{Planet} to use in this scene.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_planet_scene_a50ee691836116a89ff549e519f895ba3_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_planet_scene_af22a201631e5f8c606ec3f7463635977}{}\label{class_midnight_blue_1_1_planet_scene_af22a201631e5f8c606ec3f7463635977} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch,  }\item[{Sprite\+Batch}]{ui\+Sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draw the tilemap to the specified sprite\+Batch and ui\+Sprite\+Batch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw world-\/based entities to.\\
+\hline
+{\em ui\+Sprite\+Batch} & User interface sprite batch.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a6ec0b4be6c7dc226c9afd308e1fb3fd3}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_planet_scene_af22a201631e5f8c606ec3f7463635977_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_planet_scene_af3aab90a13294493e1f2cd29b0fb60e6}{}\label{class_midnight_blue_1_1_planet_scene_af3aab90a13294493e1f2cd29b0fb60e6} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Exit@{Exit}}
+\index{Exit@{Exit}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Exit this scene. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_adbf0f6d758df9fc5e20f24f327599e67}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_planet_scene_a6c84a639f27b9f7510b514969d47d1bd}{}\label{class_midnight_blue_1_1_planet_scene_a6c84a639f27b9f7510b514969d47d1bd} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Handle\+Input()}{HandleInput()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Handles the input for the scene. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a2f7849ef8976f9aeed0023448033b6fd}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_planet_scene_a6c84a639f27b9f7510b514969d47d1bd_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_planet_scene_ac8b7e88283b22b87aa45f116b549e86f}{}\label{class_midnight_blue_1_1_planet_scene_ac8b7e88283b22b87aa45f116b549e86f} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets up the player and physics environment for this planet 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_aa919101862c14384b955d91a4d3362ab}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_planet_scene_abc077e1cd5f40879ca3af4224f0ff455}{}\label{class_midnight_blue_1_1_planet_scene_abc077e1cd5f40879ca3af4224f0ff455} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Pause@{Pause}}
+\index{Pause@{Pause}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Instantly pause the scene 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_aeb3c4d9bea0177d21fbffcdabab660de}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+\hypertarget{class_midnight_blue_1_1_planet_scene_aa14750d3675b59462796e821b3921397}{}\label{class_midnight_blue_1_1_planet_scene_aa14750d3675b59462796e821b3921397} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Resume@{Resume}}
+\index{Resume@{Resume}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Resume()}{Resume()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Instantly resume the scene 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_ab7cd837b20785116007a4732d90bc548}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_planet_scene_aa14750d3675b59462796e821b3921397_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_planet_scene_add0a85b4f754f026231aa7269259c65c}{}\label{class_midnight_blue_1_1_planet_scene_add0a85b4f754f026231aa7269259c65c} 
+\index{Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}!Update@{Update}}
+\index{Update@{Update}!Midnight\+Blue\+::\+Planet\+Scene@{Midnight\+Blue\+::\+Planet\+Scene}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void Midnight\+Blue.\+Planet\+Scene.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Updates the players position and state alongside the current biome the player is located at. 
+
+
+
+Implements \hyperlink{class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_a4e37ff3d5362a8ad5c0d82d7c990dfdf}{Midnight\+Blue.\+Engine.\+Scenes.\+Scene}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_planet_scene_add0a85b4f754f026231aa7269259c65c_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Game/\+Scenes/Planet\+Scene.\+cs\end{DoxyCompactItemize}

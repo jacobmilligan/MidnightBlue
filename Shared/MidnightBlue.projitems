@@ -114,6 +114,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\InitScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -137,7 +138,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)Content\JSON\biomes.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Folder>
   </ItemGroup>
   <ItemGroup>

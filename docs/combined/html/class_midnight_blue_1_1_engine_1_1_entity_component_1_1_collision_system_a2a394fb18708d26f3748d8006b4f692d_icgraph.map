@@ -1,0 +1,4 @@
+<map id="MidnightBlue.Engine.EntityComponent.CollisionSystem.ResetGrid" name="MidnightBlue.Engine.EntityComponent.CollisionSystem.ResetGrid">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="306,5,550,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_scene.html#aefbf0750a7ce153b923bcabb132e4875" title="Resumes the star system scene after leaving a planet. Handles resetting the physics environment..." alt="" coords="321,55,534,93"/>
+</map>

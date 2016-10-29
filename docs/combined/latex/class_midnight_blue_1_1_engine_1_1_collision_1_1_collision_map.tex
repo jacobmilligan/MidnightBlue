@@ -1,0 +1,269 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map}{}\section{Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map}\index{Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map@{Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map}}
+
+
+A 2D Grid that represents a particular space in the game world to check for collisions. Uses spatial indexing to determine where an entity will be located at any given time. For best results, the cellsize and overall size of the map should be tweaked for each individual game screen and environment.  
+
+
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac0f2a2ca0e0dc469d86cef325c6e20ac}{Collision\+Map} (int x\+Min, int x\+Max, int y\+Min, int y\+Max, int cell\+Size)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map class. \end{DoxyCompactList}\item 
+Point \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a994b7b33c4573726782cdbcbad785c93}{Index\+Of} (Point position)
+\begin{DoxyCompactList}\small\item\em Indexes a world-\/based coordinate into the collision grid \end{DoxyCompactList}\item 
+bool \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_af68316c70c60b8b8bfa5cb47f824a5da}{Index\+Exists} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Checks if a particular index exists in the grid \end{DoxyCompactList}\item 
+bool \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a5adaed6c764ad94ad8ceca07631cbd93}{Index\+Exists} (Point index)
+\begin{DoxyCompactList}\small\item\em Checks if a particular index exists in the grid \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac5effff2c812f658296f7eb5d80b8baf}{Insert} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} entity, \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_component}{Collision\+Component} collision)
+\begin{DoxyCompactList}\small\item\em Inserts an entity and its associated collision component into the grid \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac6cb425b42914d6035b917d056ad8773}{Get\+Collisions} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity} entity, \hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_component}{Collision\+Component} collision)
+\begin{DoxyCompactList}\small\item\em Gets a list of all entities located in the same cell/s as a specific single entity \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a7d387825607acea56ea40b3c84b34169}{Update\+Position} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Updates the position of the collision grid. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ab8ef33abaee3cfbe9f15dd73fda3cf6e}{Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all non-\/empty cells of the grid from their entities \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_geometry_1_1_grid}{Grid} \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4874d2a5ecd291536bed6d32c10cb5e8}{Grid}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the geometric representation of the grid \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4221dbaa3fcdcd868a8fb6e9eccbd924}{Position}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current position of the grid. \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a98bc019f889435855333b26feb840b20}{Max}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the upper bounds of the x and y coordinates in the grid \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A 2D Grid that represents a particular space in the game world to check for collisions. Uses spatial indexing to determine where an entity will be located at any given time. For best results, the cellsize and overall size of the map should be tweaked for each individual game screen and environment. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac0f2a2ca0e0dc469d86cef325c6e20ac}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac0f2a2ca0e0dc469d86cef325c6e20ac} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Collision\+Map@{Collision\+Map}}
+\index{Collision\+Map@{Collision\+Map}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Collision\+Map()}{CollisionMap()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Collision\+Map (\begin{DoxyParamCaption}\item[{int}]{x\+Min,  }\item[{int}]{x\+Max,  }\item[{int}]{y\+Min,  }\item[{int}]{y\+Max,  }\item[{int}]{cell\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Min} & The grids left most x coordinate.\\
+\hline
+{\em x\+Max} & Right most x coordinae.\\
+\hline
+{\em y\+Min} & Top most y coordinate.\\
+\hline
+{\em y\+Max} & Bottom most y coordinate.\\
+\hline
+{\em cell\+Size} & The size of each cell in the grid.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ab8ef33abaee3cfbe9f15dd73fda3cf6e}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ab8ef33abaee3cfbe9f15dd73fda3cf6e} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Clear@{Clear}}
+\index{Clear@{Clear}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all non-\/empty cells of the grid from their entities 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ab8ef33abaee3cfbe9f15dd73fda3cf6e_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac6cb425b42914d6035b917d056ad8773}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac6cb425b42914d6035b917d056ad8773} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Get\+Collisions@{Get\+Collisions}}
+\index{Get\+Collisions@{Get\+Collisions}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Get\+Collisions()}{GetCollisions()}}
+{\footnotesize\ttfamily List$<$\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity}$>$ Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Get\+Collisions (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity}}]{entity,  }\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_component}{Collision\+Component}}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of all entities located in the same cell/s as a specific single entity 
+
+\begin{DoxyReturn}{Returns}
+The entities neighbours.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to get collisions for.\\
+\hline
+{\em collision} & \hyperlink{namespace_midnight_blue_1_1_engine_1_1_collision}{Collision} component to use in checking.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac6cb425b42914d6035b917d056ad8773_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_af68316c70c60b8b8bfa5cb47f824a5da}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_af68316c70c60b8b8bfa5cb47f824a5da} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Index\+Exists@{Index\+Exists}}
+\index{Index\+Exists@{Index\+Exists}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Exists()}{IndexExists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Index\+Exists (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a particular index exists in the grid 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if index exists, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate.\\
+\hline
+{\em y} & The y coordinate.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a5adaed6c764ad94ad8ceca07631cbd93}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a5adaed6c764ad94ad8ceca07631cbd93} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Index\+Exists@{Index\+Exists}}
+\index{Index\+Exists@{Index\+Exists}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Exists()}{IndexExists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Index\+Exists (\begin{DoxyParamCaption}\item[{Point}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a particular index exists in the grid 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if index exists, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to check.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a994b7b33c4573726782cdbcbad785c93}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a994b7b33c4573726782cdbcbad785c93} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Index\+Of@{Index\+Of}}
+\index{Index\+Of@{Index\+Of}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Of()}{IndexOf()}}
+{\footnotesize\ttfamily Point Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Index\+Of (\begin{DoxyParamCaption}\item[{Point}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexes a world-\/based coordinate into the collision grid 
+
+\begin{DoxyReturn}{Returns}
+The grid-\/based position.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & World-\/based position to index.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac5effff2c812f658296f7eb5d80b8baf}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac5effff2c812f658296f7eb5d80b8baf} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Insert@{Insert}}
+\index{Insert@{Insert}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity}{Entity}}]{entity,  }\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_collision_component}{Collision\+Component}}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts an entity and its associated collision component into the grid 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to insert.\\
+\hline
+{\em collision} & The entities collision component.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac5effff2c812f658296f7eb5d80b8baf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_ac5effff2c812f658296f7eb5d80b8baf_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a7d387825607acea56ea40b3c84b34169}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a7d387825607acea56ea40b3c84b34169} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Update\+Position@{Update\+Position}}
+\index{Update\+Position@{Update\+Position}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Update\+Position()}{UpdatePosition()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Update\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the position of the collision grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate.\\
+\hline
+{\em y} & The y coordinate.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4874d2a5ecd291536bed6d32c10cb5e8}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4874d2a5ecd291536bed6d32c10cb5e8} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Grid@{Grid}}
+\index{Grid@{Grid}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Grid}{Grid}}
+{\footnotesize\ttfamily \hyperlink{class_midnight_blue_1_1_engine_1_1_geometry_1_1_grid}{Grid} Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Grid\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the geometric representation of the grid 
+
+The grid.\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a98bc019f889435855333b26feb840b20}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a98bc019f889435855333b26feb840b20} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Max@{Max}}
+\index{Max@{Max}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Max}{Max}}
+{\footnotesize\ttfamily Vector2 Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Max\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the upper bounds of the x and y coordinates in the grid 
+
+The max coordinates.\hypertarget{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4221dbaa3fcdcd868a8fb6e9eccbd924}{}\label{class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map_a4221dbaa3fcdcd868a8fb6e9eccbd924} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}!Position@{Position}}
+\index{Position@{Position}!Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map@{Midnight\+Blue\+::\+Engine\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily Vector2 Midnight\+Blue.\+Engine.\+Collision.\+Collision\+Map.\+Position\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the current position of the grid. 
+
+The position.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/\+Collision/Collision\+Map.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,219 @@
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}{}\section{Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map Class Reference}
+\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}\index{Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map@{Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map}}
+
+
+A grid of tiles with collision. Wraps coordinates when they fall out of bounds. Allows accessing tiles by index.  
+
+
+
+
+Collaboration diagram for Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ab2ae5b8ef2fb44d5267b8be7997ddb4c}{Fill} (\hyperlink{class_midnight_blue_1_1_tile}{Tile}\mbox{[},\mbox{]} tiles)
+\begin{DoxyCompactList}\small\item\em Uses a 2D Array of previously defined tile information to fill a tile map with collision data and other information. Must be called in order for the \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}{Tile\+Map} to function. \end{DoxyCompactList}\item 
+\hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a1baa1f61cadd4e7086514d70604f1025}{Tile\+Map} (Texture2D texture, int cell\+Size, int margin=0, int spacing=0, int offset=0, float scale=1.\+0f)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map class. Seperates the texture into a series of regions. \end{DoxyCompactList}\item 
+Rectangle \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ae4d1521e4d80f255fb926141378966ca}{Get\+Tile} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves the bounding rectangle of a tile texture from the tilemap \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5114eb9087f448be67b146f40245e7ee}{Draw} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the tile map to the specified Sprite\+Batch, wrapping the rendering when the camera reaches the bounds of the map. \end{DoxyCompactList}\item 
+void \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a503a61faaa4edd93bfa18258785726ec}{Handle\+Wrapping} (\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_movement}{Movement} movement)
+\begin{DoxyCompactList}\small\item\em Handles wrapping an entity around the map if their movement falls out of bounds -\/ gives the illusion of an infinitely looping map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_midnight_blue_1_1_tile}{Tile} \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_aaa31f70007fee9ded9c727d2eceda1b5}{this\mbox{[}int x, int y\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the T\+:\+Midnight\+Blue.\+Engine.\+Tiles.\+Tile at the specified x y. \end{DoxyCompactList}\item 
+Texture2D \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a2cac83aafbdbffe76d092adc29a32f60}{Texture}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the texture atlases undivided texture. \end{DoxyCompactList}\item 
+Point \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5401474616db996c4755c634cdd056eb}{Tile\+Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the size of each tile in the world. \end{DoxyCompactList}\item 
+Point \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ac67e4df079e26f5383bc970f77a9ab3d}{Map\+Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the size of the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A grid of tiles with collision. Wraps coordinates when they fall out of bounds. Allows accessing tiles by index. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a1baa1f61cadd4e7086514d70604f1025}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a1baa1f61cadd4e7086514d70604f1025} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Tile\+Map@{Tile\+Map}}
+\index{Tile\+Map@{Tile\+Map}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Tile\+Map()}{TileMap()}}
+{\footnotesize\ttfamily Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Tile\+Map (\begin{DoxyParamCaption}\item[{Texture2D}]{texture,  }\item[{int}]{cell\+Size,  }\item[{int}]{margin = {\ttfamily 0},  }\item[{int}]{spacing = {\ttfamily 0},  }\item[{int}]{offset = {\ttfamily 0},  }\item[{float}]{scale = {\ttfamily 1.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map class. Seperates the texture into a series of regions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Texture to use in the texture atlas.\\
+\hline
+{\em cell\+Size} & The size of each cell in the texture atlas.\\
+\hline
+{\em margin} & Margin to apply to each rendered tile.\\
+\hline
+{\em spacing} & Spacing to apply to each rendered tile.\\
+\hline
+{\em offset} & Offset to apply to the x and y coordinates of each tile when rendering.\\
+\hline
+{\em scale} & Scale vector to apply to each cell when rendering.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5114eb9087f448be67b146f40245e7ee}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5114eb9087f448be67b146f40245e7ee} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Draw@{Draw}}
+\index{Draw@{Draw}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the tile map to the specified Sprite\+Batch, wrapping the rendering when the camera reaches the bounds of the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5114eb9087f448be67b146f40245e7ee_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ab2ae5b8ef2fb44d5267b8be7997ddb4c}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ab2ae5b8ef2fb44d5267b8be7997ddb4c} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Fill@{Fill}}
+\index{Fill@{Fill}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Fill (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_tile}{Tile}}]{tiles\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Uses a 2D Array of previously defined tile information to fill a tile map with collision data and other information. Must be called in order for the \hyperlink{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map}{Tile\+Map} to function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tiles} & \hyperlink{namespace_midnight_blue_1_1_engine_1_1_tiles}{Tiles}.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ab2ae5b8ef2fb44d5267b8be7997ddb4c_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ae4d1521e4d80f255fb926141378966ca}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ae4d1521e4d80f255fb926141378966ca} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Get\+Tile@{Get\+Tile}}
+\index{Get\+Tile@{Get\+Tile}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Get\+Tile()}{GetTile()}}
+{\footnotesize\ttfamily Rectangle Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Get\+Tile (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the bounding rectangle of a tile texture from the tilemap 
+
+\begin{DoxyReturn}{Returns}
+The tile ID\textquotesingle{}s bounding rectangle.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to get.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a503a61faaa4edd93bfa18258785726ec}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a503a61faaa4edd93bfa18258785726ec} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Handle\+Wrapping@{Handle\+Wrapping}}
+\index{Handle\+Wrapping@{Handle\+Wrapping}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Handle\+Wrapping()}{HandleWrapping()}}
+{\footnotesize\ttfamily void Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Handle\+Wrapping (\begin{DoxyParamCaption}\item[{\hyperlink{class_midnight_blue_1_1_engine_1_1_entity_component_1_1_movement}{Movement}}]{movement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles wrapping an entity around the map if their movement falls out of bounds -\/ gives the illusion of an infinitely looping map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em movement} & Movement component to operate on.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a503a61faaa4edd93bfa18258785726ec_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ac67e4df079e26f5383bc970f77a9ab3d}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_ac67e4df079e26f5383bc970f77a9ab3d} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Map\+Size@{Map\+Size}}
+\index{Map\+Size@{Map\+Size}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Map\+Size}{MapSize}}
+{\footnotesize\ttfamily Point Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Map\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the size of the map. 
+
+The size of the map.\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a2cac83aafbdbffe76d092adc29a32f60}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a2cac83aafbdbffe76d092adc29a32f60} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Texture@{Texture}}
+\index{Texture@{Texture}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Texture}{Texture}}
+{\footnotesize\ttfamily Texture2D Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Texture\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the texture atlases undivided texture. 
+
+The texture.\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_aaa31f70007fee9ded9c727d2eceda1b5}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_aaa31f70007fee9ded9c727d2eceda1b5} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}}
+\index{this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{this[int x, int y]}{this[int x, int y]}}
+{\footnotesize\ttfamily \hyperlink{class_midnight_blue_1_1_tile}{Tile} Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+this\mbox{[}int x, int y\mbox{]}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the T\+:\+Midnight\+Blue.\+Engine.\+Tiles.\+Tile at the specified x y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate.\\
+\hline
+{\em y} & The y coordinate.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5401474616db996c4755c634cdd056eb}{}\label{class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map_a5401474616db996c4755c634cdd056eb} 
+\index{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}!Tile\+Size@{Tile\+Size}}
+\index{Tile\+Size@{Tile\+Size}!Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map@{Midnight\+Blue\+::\+Engine\+::\+Tiles\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Tile\+Size}{TileSize}}
+{\footnotesize\ttfamily Point Midnight\+Blue.\+Engine.\+Tiles.\+Tile\+Map.\+Tile\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the size of each tile in the world. 
+
+The size of the tile.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Shared/src/\+Engine/\+Tiles/Tile\+Map.\+cs\end{DoxyCompactItemize}

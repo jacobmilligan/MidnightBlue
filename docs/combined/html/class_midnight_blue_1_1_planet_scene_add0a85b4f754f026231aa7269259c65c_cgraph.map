@@ -1,0 +1,7 @@
+<map id="MidnightBlue.PlanetScene.Update" name="MidnightBlue.PlanetScene.Update">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map.html#a503a61faaa4edd93bfa18258785726ec" title="Handles wrapping an entity around the map if their movement falls out of bounds &#45; gives the illusion ..." alt="" coords="243,5,422,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a8c0ab363d287940ce8a66d1ab1356714" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="235,68,430,107"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_sound_trigger.html#a97b79ca1906cdb3138da1f120d4c64fd" title="Increases the sounds volume one step based on the specified FadeSpeed " alt="" coords="240,131,425,169"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_sound_trigger.html#ac3df1f278adce8dac56f94cc9de8eaca" title="Decreases the volume based on the specified FadeSpeed. Stops the sound once the volume reaches 0 ..." alt="" coords="240,193,425,232"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a99525d45031da45b97230010d767eb0a" title="Writes a debug line to the console with the specified string format information " alt="" coords="478,68,698,107"/>
+</map>
