@@ -109,12 +109,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Audio\SoundTrigger.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBGame.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\InitScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\TextInputHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleAST.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleLexer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />
@@ -139,6 +143,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)Content\JSON\biomes.json">
     </Folder>
+    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

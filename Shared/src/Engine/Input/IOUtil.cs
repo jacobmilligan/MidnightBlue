@@ -117,6 +117,11 @@ namespace MidnightBlue.Engine.IO
       }
     }
 
+    public static bool KeyDown(Keys key)
+    {
+      return Keyboard.GetState().IsKeyDown(key);
+    }
+
     /// <summary>
     /// Gets the last key held down.
     /// </summary>
@@ -135,6 +140,16 @@ namespace MidnightBlue.Engine.IO
         }
         return result;
       }
+    }
+
+    public static Keys[] PreviousKeyboardState
+    {
+      get { return _previousState.GetPressedKeys(); }
+    }
+
+    public static Keys[] KeyboardState
+    {
+      get { return Keyboard.GetState().GetPressedKeys(); }
     }
   }
 }

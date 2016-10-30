@@ -49,6 +49,9 @@ namespace MidnightBlue
     /// </summary>
     private bool _loading;
 
+    /// <summary>
+    /// The players last position before changing scenes.
+    /// </summary>
     private Vector2 _lastPos;
 
     /// <summary>

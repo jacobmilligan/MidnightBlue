@@ -17,6 +17,9 @@ namespace MidnightBlue.Engine
   /// </summary>
   public class MBGame : Game
   {
+    private TextInputHandler _textHandler;
+    private string _lastInput;
+
     /// <summary>
     /// The main graphics adapter used in the game.
     /// </summary>
@@ -79,6 +82,8 @@ namespace MidnightBlue.Engine
       _scenes = new SceneStack(); // main scene stack
       _gameObjects = new EntityMap();
       _fps = new FramesPerSecondCounter();
+      _textHandler = new TextInputHandler();
+      _lastInput = string.Empty;
 
       ForceQuit = false;
       Content.RootDirectory = "Content";
@@ -174,10 +179,6 @@ namespace MidnightBlue.Engine
 
       _debugConsole.Update();
 
-      // Update IO states
-      IOUtil.UpdateKeyState();
-      IOUtil.UpdateMouseState();
-
       // Update the camera position to look at the player
       var playerMovement = _gameObjects["player"].GetComponent<Movement>();
       if ( playerMovement != null ) {
@@ -219,6 +220,10 @@ namespace MidnightBlue.Engine
       _spriteBatch.End();
       _uiSpriteBatch.End();
 
+      // Update IO states
+      IOUtil.UpdateKeyState();
+      IOUtil.UpdateMouseState();
+
       base.Draw(gameTime);
     }
 
@@ -228,6 +233,25 @@ namespace MidnightBlue.Engine
     /// </summary>
     private void CheckDebugVars()
     {
+      if ( (bool)_debugConsole.Vars["showKeys"] ) {
+        var lastChar = _textHandler.LastChar;
+
+        if ( lastChar != '\0' ) {
+          _lastInput = lastChar.ToString();
+
+          if ( _textHandler.IsSpecialChar(lastChar) ) {
+            _lastInput = _textHandler.EscapeString(lastChar);
+          }
+        }
+
+        _uiSpriteBatch.DrawString(
+          Content.Load<SpriteFont>("Fonts/SourceCode"),
+          "Last char: " + _lastInput,
+          new Vector2(450, 0),
+          Color.White
+        );
+      }
+
       // Draw framerate
       if ( (bool)_debugConsole.Vars["showFramerate"] ) {
         _uiSpriteBatch.DrawString(
@@ -290,10 +314,13 @@ namespace MidnightBlue.Engine
       _debugConsole.AddVar("collisionChecks", true);
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);
+      _debugConsole.AddVar("showKeys", true);
 
       // Add all functions
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());
-      _debugConsole.AddFunc("PopScene", (string[] args) => _scenes.Pop());
+      _debugConsole.AddFunc("PopScene", (string[] args) =>
+                            _scenes.Pop()
+                           );
       _debugConsole.AddFunc("SetSpeed", (string[] args) => {
         if ( args.Length > 0 ) {
           var newSpeed = 0.0f;

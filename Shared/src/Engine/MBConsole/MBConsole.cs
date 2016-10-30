@@ -39,6 +39,16 @@ namespace MidnightBlue.Engine
     private Vector2 _textOffset;
 
     /// <summary>
+    /// Processes all text input from the keyboard.
+    /// </summary>
+    private TextInputHandler _textHandler;
+
+    /// <summary>
+    /// Parses and executes all command input
+    /// </summary>
+    private MBConsoleParser _parser;
+
+    /// <summary>
     /// Points to the currently highlighted command.
     /// </summary>
     private int _cmdPtr;
@@ -90,11 +100,6 @@ namespace MidnightBlue.Engine
     /// Variables attached to the console that can be altered in game
     /// </summary>
     private Dictionary<string, object> _gameVars;
-    /// <summary>
-    /// Variables created on the fly in-game not attached to any code. They only live for
-    /// the lifetime of the game and can be either numeric, boolean or a string.
-    /// </summary>
-    private Dictionary<string, object> _cmdVars;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.MBConsole"/> class.
@@ -106,6 +111,8 @@ namespace MidnightBlue.Engine
       _bgColor = bgColor;
       _txtColor = txtColor;
       _font = font;
+      _textHandler = new TextInputHandler();
+      _parser = new MBConsoleParser();
 
       _animating = false;
 
@@ -117,7 +124,6 @@ namespace MidnightBlue.Engine
       _cmdPtr = 0;
       _funcs = new Dictionary<string, Action<string[]>>();
       _gameVars = new Dictionary<string, object>();
-      _cmdVars = new Dictionary<string, object>();
     }
 
     /// <summary>
@@ -158,22 +164,20 @@ namespace MidnightBlue.Engine
       // Animate down. Not displayed so we need to display it
       if ( _animating && !Display ) {
         _surface.Height += _ANIM_SPEED;
-        if ( _surface.Height >= MBGame.Graphics.Viewport.Height / 3 ) {
-          _animating = false;
-          Display = true; // show
-        }
-      } else if ( _animating && Display ) {
+        CheckAnimationState();
+        return;
+      }
+
+      if ( _animating && Display ) {
         // Animate up
         _surface.Height -= _ANIM_SPEED;
-        if ( _surface.Height <= 0 ) {
-          _animating = false;
-          Display = false; // hide
-        }
-      } else {
-        // No animation state, so process input (won't do anything if console is hidden)
-        if ( Display ) {
-          ProcessInput();
-        }
+        CheckAnimationState();
+        return;
+      }
+
+      // No animation state, so process input (won't do anything if console is hidden)
+      if ( Display ) {
+        ProcessInput();
       }
     }
 
@@ -183,22 +187,27 @@ namespace MidnightBlue.Engine
     public void Draw(SpriteBatch spriteBatch)
     {
       // Don't draw if hidden
-      if ( _surface.Height > 0 ) {
-        _textOffset = new Vector2(_surface.Left + 25, _surface.Bottom - 25);
-
-        spriteBatch.FillRectangle(_surface, _bgColor);
-
-        spriteBatch.DrawString(_font, _CARET + _currentLine, _textOffset, _txtColor);
-
-        int i = _ioHistory.Count - 1;
-        float y = _textOffset.Y;
-        // print io history until top of screen or no more history
-        while ( y > _surface.Top && i >= 0 ) {
-          y -= _font.MeasureString(_ioHistory[i]).Y + (_font.LineSpacing / 2);
-          spriteBatch.DrawString(_font, _ioHistory[i], new Vector2(_textOffset.X, y), _txtColor);
-          i--;
-        }
+      if ( _surface.Height <= 0 ) {
+        return;
       }
+
+      _textOffset = new Vector2(_surface.Left + 25, _surface.Bottom - 25);
+
+      spriteBatch.FillRectangle(_surface, _bgColor);
+      Console.WriteLine(_currentLine);
+
+      spriteBatch.DrawString(_font, _CARET + _currentLine, _textOffset, _txtColor);
+
+      int i = _ioHistory.Count - 1;
+      float y = _textOffset.Y;
+
+      // print io history until top of screen or no more history
+      while ( y > _surface.Top && i >= 0 ) {
+        y -= _font.MeasureString(_ioHistory[i]).Y + (_font.LineSpacing / 2);
+        spriteBatch.DrawString(_font, _ioHistory[i], new Vector2(_textOffset.X, y), _txtColor);
+        i--;
+      }
+
     }
 
     /// <summary>
@@ -290,38 +299,61 @@ namespace MidnightBlue.Engine
     }
 
     /// <summary>
+    /// Checks the state of the animation to see if the
+    /// console should be displayed or hidden
+    /// </summary>
+    private void CheckAnimationState()
+    {
+      if ( _surface.Height >= MBGame.Graphics.Viewport.Height / 3 ) {
+        _animating = false;
+        Display = true; // show
+      }
+      if ( _surface.Height <= 0 ) {
+        _animating = false;
+        Display = false; // hide
+      }
+    }
+
+    /// <summary>
     /// Handles all input in the console and displays key inputted characters
     /// </summary>
     private void ProcessInput()
     {
-      if ( IOUtil.KeyTyped(Keys.Enter) ) {
+      var lastChar = _textHandler.LastChar;
+
+      // Handle completions/hints
+      if ( lastChar == '\t' ) {
+        HandleCompletions();
+      } else if ( lastChar == '\r' ) {
         PushCommand(); // try to execute command
       } else if ( IOUtil.KeyTyped(Keys.Up) || IOUtil.KeyTyped(Keys.Down) ) {
         NavigateHistory(); // navigate iohistory
-      } else if ( Keyboard.GetState().GetPressedKeys().Length > 0 ) {
-        UpdateCurrentLine(); // display text
+      } else if ( IOUtil.KeyboardState.Length > 0 && lastChar != '\0' ) {
+        UpdateCurrentLine(lastChar); // display text
+      }
+    }
+
+    /// <summary>
+    /// Handles printing any tab completions to the console.
+    /// </summary>
+    private void HandleCompletions()
+    {
+      // Show console functions
+      if ( _currentLine == "run" || _currentLine == "run " ) {
+        var funcStr = "<run> ";
+        foreach ( var key in _funcs.Keys ) {
+          funcStr += "[" + key + "] ";
+        }
+        Write(funcStr);
       }
 
-      // Handle completions/hints
-      if ( IOUtil.KeyTyped(Keys.Tab) ) {
-
-        // Show console functions
-        if ( _currentLine == "run" || _currentLine == "run " ) {
-          var funcStr = "<run> ";
-          foreach ( var key in _funcs.Keys ) {
-            funcStr += "[" + key + "] ";
-          }
-          Write(funcStr);
+      // Show game variables
+      if ( _currentLine == "set" || _currentLine == "set " ) {
+        var varStr = "<set> ";
+        foreach ( var key in _gameVars.Keys ) {
+          varStr += "[" + key + "] ";
         }
-
-        // Show game variables
-        if ( _currentLine == "set" || _currentLine == "set " ) {
-          var varStr = "<set> ";
-          foreach ( var key in _gameVars.Keys ) {
-            varStr += "[" + key + "] ";
-          }
-          Write(varStr);
-        }
+        Write(varStr);
       }
     }
 
@@ -332,7 +364,17 @@ namespace MidnightBlue.Engine
     {
       _cmdHistory.Add(_currentLine); // add to history
       Write(_CARET + _currentLine);
-      Parse();
+
+      // Parse the command
+      var root = _parser.Parse(_currentLine);
+
+      if ( root != null ) {
+        // Traverse the AST and execute
+        root.Handle(this);
+      } else {
+        Write("Parse error: Unkown command");
+      }
+
       _currentLine = string.Empty;
       _cmdPtr = _cmdHistory.Count; // reset pointer
     }
@@ -342,172 +384,46 @@ namespace MidnightBlue.Engine
     /// </summary>
     private void NavigateHistory()
     {
-      if ( IOUtil.KeyTyped(Keys.Up) ) {
+      if ( IOUtil.KeyTyped(Keys.Up) )
         _cmdPtr--;
-      }
-      if ( IOUtil.KeyTyped(Keys.Down) ) {
+      if ( IOUtil.KeyTyped(Keys.Down) )
         _cmdPtr++;
-      }
 
       if ( _cmdPtr >= _cmdHistory.Count ) {
         _cmdPtr = _cmdHistory.Count;
 
-        if ( _cmdHistory.Count > 0 ) {
-          // Show empty string for last entered command + 1
+        // Show empty string for last entered command + 1
+        if ( _cmdHistory.Count > 0 )
           _currentLine = string.Empty;
-        }
-      } else {
-        // Navigate to earliest command. Stop there in current line
-        if ( _cmdPtr < 0 ) {
-          _cmdPtr = 0;
-        }
 
-        if ( _cmdHistory.Count > 0 ) {
-          _currentLine = _cmdHistory[_cmdPtr];
-        }
+        return;
       }
+
+      // Navigate to earliest command. Stop there in current line
+      if ( _cmdPtr < 0 )
+        _cmdPtr = 0;
+      if ( _cmdHistory.Count > 0 )
+        _currentLine = _cmdHistory[_cmdPtr];
     }
 
     /// <summary>
     /// Updates the text input in the current line and displays it
     /// </summary>
-    private void UpdateCurrentLine()
+    private void UpdateCurrentLine(char lastChar)
     {
-      var keyStates = Keyboard.GetState();
-      var lastKey = IOUtil.LastKeyTyped;
-      var keyChar = (char)0;
+      if ( IOUtil.LastKeyTyped == Keys.Left || IOUtil.LastKeyTyped == Keys.Right )
+        return;
 
-      // Check if its an alpha key then if space then if numeric, otherwise
-      // invalid entry
-      if ( lastKey.ToString().Length < 2 ) {
-        keyChar = lastKey.ToString().ToLower()[0];
-      } else if ( lastKey == Keys.Space ) {
-        keyChar = ' ';
-      } else if ( (char)lastKey >= '0' && (char)lastKey <= '9' ) {
-        keyChar = (char)lastKey;
-      }
-
-      // Gets all valid alphanumeric and control ASCII keys
-      if ( (keyChar >= 32 && keyChar < 127) && lastKey != Keys.OemTilde ) {
-        // Get shift altered keys
-        if ( keyStates.IsKeyDown(Keys.LeftShift) || keyStates.IsKeyDown(Keys.RightShift) ) {
-
-          switch ( lastKey ) {
-            case Keys.D9:
-              keyChar = Keys.OemCloseBrackets.ToString()[0];
-              break;
-            case Keys.D0:
-              keyChar = Keys.OemCloseBrackets.ToString()[0];
-              break;
-            case Keys.OemQuotes:
-              keyChar = Keys.OemQuotes.ToString()[0];
-              break;
-            default:
-              keyChar = keyChar.ToString().ToUpper()[0];
-              break;
-          }
-
+      // Get ctrl+c to erase line
+      if ( IOUtil.KeyDown(Keys.LeftControl) || IOUtil.KeyDown(Keys.RightControl) ) {
+        if ( lastChar != 'c' ) {
+          _currentLine = string.Empty;
         }
-
-        _currentLine += (keyChar).ToString();
-
-        // Get ctrl+c to erase line
-        if ( keyStates.IsKeyDown(Keys.LeftControl) || keyStates.IsKeyDown(Keys.RightControl) ) {
-          if ( lastKey == Keys.C ) {
-            _currentLine = string.Empty;
-          }
-        }
-
-        // Handle backspace
-      } else if ( lastKey == Keys.Back && _currentLine != string.Empty ) {
+      } else if ( lastChar == '\b' && _currentLine != string.Empty ) {
+        // Backspace
         _currentLine = _currentLine.Remove(_currentLine.Length - 1);
-      }
-    }
-
-    /// <summary>
-    /// Parses the current line and attempts to execute a command from it
-    /// </summary>
-    private void Parse()
-    {
-      // Split into whitespace
-      var toks = _currentLine.Split(new char[] { ' ' });
-
-      // Handle variable setting
-      if ( toks[0] == "set" ) {
-
-        // Try to assign a new value to the specified variable
-        try {
-          var ident = toks[1]; // the new value
-
-          // Find the identifier and alter it
-          if ( _gameVars.ContainsKey(ident) ) {
-            // Convert data type of token to the identifiers type
-            var type = _gameVars[ident].GetType();
-            var result = Convert.ChangeType(toks[2], type);
-            _gameVars[ident] = result;
-          } else if ( _cmdVars.ContainsKey(ident) ) {
-            // If not found in game vars look in temporary command line vars
-            var type = _cmdVars[ident].GetType();
-            var result = Convert.ChangeType(toks[2], type);
-            _cmdVars[ident] = result;
-          } else {
-            // This is a new identifier so add to the command line temporary vars
-            _cmdVars.Add(ident, toks[2]);
-          }
-
-        } catch ( Exception ex ) {
-          var msg = ex.Message;
-          if ( ex is KeyNotFoundException ) {
-            msg = "No such variable '" + toks[1] + "'";
-          }
-          if ( ex is IndexOutOfRangeException ) {
-            msg = "No variable identifier specified";
-          }
-          Write("MBConsole parse error: " + msg);
-        }
-
-      } else if ( toks[0] == "print" ) {
-        // Try to find the specified variable to print
-        try {
-          // Look in game vars then temporary command vars if not found
-          if ( _gameVars.ContainsKey(toks[1]) ) {
-            Write(_gameVars[toks[1]].ToString());
-          } else if ( _cmdVars.ContainsKey(toks[1]) ) {
-            Write(_cmdVars[toks[1]].ToString());
-          }
-        } catch ( Exception ex ) {
-          var msg = ex.Message;
-          if ( ex is KeyNotFoundException ) {
-            msg = "No such variable '" + toks[1] + "'";
-          }
-          if ( ex is IndexOutOfRangeException ) {
-            msg = "No variable name specified to print";
-          }
-          Write("Parse error: " + msg);
-        }
-      } else if ( toks[0] == "run" ) {
-        // Try to run an added MBConsole function
-        try {
-          var ident = toks[1];
-          var args = toks.Skip(2).ToArray(); // get all the entered arguments for the function
-          if ( args.Length < 1 ) {
-            args = new string[] { string.Empty };
-          }
-          _funcs[ident].Invoke(args);
-        } catch ( Exception ex ) {
-          var msg = ex.Message;
-          if ( ex is KeyNotFoundException ) {
-            msg = "No such function '" + toks[1] + "'";
-          }
-#if DEBUG
-          System.Diagnostics.Debug.WriteLine(ex);
-#endif
-          Write("Parse error: " + msg + " (see IDE output for more information)");
-        }
-      } else if ( toks[0] == "quit" ) {
-        MBGame.ForceQuit = true;
-      } else {
-        Write("No such command '" + toks[0] + "'");
+      } else if ( lastChar != '\b' ) {
+        _currentLine += lastChar.ToString();
       }
     }
 
@@ -550,6 +466,15 @@ namespace MidnightBlue.Engine
     public Dictionary<string, object> Vars
     {
       get { return _gameVars; }
+    }
+
+    /// <summary>
+    /// Gets the consoles game functions.
+    /// </summary>
+    /// <value>The functions.</value>
+    public Dictionary<string, Action<string[]>> Funcs
+    {
+      get { return _funcs; }
     }
   }
 }
