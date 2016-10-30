@@ -123,10 +123,13 @@ namespace MidnightBlue.Engine
 
       // Gather all the remaining tokens to use as an
       // argument list
-      var arg = _lexer.RawToken(_lexer.NextPos);
-      while ( arg != string.Empty ) {
+      var next = _lexer.NextPos;
+      var arg = _lexer.RawToken(next);
+      while ( arg != string.Empty && next < _lexer.NumTokens ) {
         results.Add(arg);
-        arg = _lexer.RawToken(_lexer.NextPos);
+
+        next++;
+        arg = _lexer.RawToken(next);
       }
 
       return results.ToArray();
@@ -163,7 +166,7 @@ namespace MidnightBlue.Engine
     private object GetObjectFromString(string val)
     {
       // Check for boolean
-      if ( val == "true" || val == "false" ) {
+      if ( val.ToLower() == "true" || val.ToLower() == "false" ) {
         return bool.Parse(val);
       }
 

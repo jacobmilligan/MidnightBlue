@@ -51,7 +51,7 @@ namespace MidnightBlue.Engine.Testing
         Tuple.Create(Keys.OemPlus, '+'),
         Tuple.Create(Keys.OemOpenBrackets, '{'),
         Tuple.Create(Keys.OemCloseBrackets, '}'),
-        Tuple.Create(Keys.OemBackslash, '|'),
+        Tuple.Create(Keys.OemPipe, '|'),
         Tuple.Create(Keys.OemSemicolon, ':'),
         Tuple.Create(Keys.OemQuotes, '\"'),
         Tuple.Create(Keys.OemComma, '<'),
@@ -79,7 +79,7 @@ namespace MidnightBlue.Engine.Testing
         Tuple.Create(Keys.OemPlus, '='),
         Tuple.Create(Keys.OemOpenBrackets, '['),
         Tuple.Create(Keys.OemCloseBrackets, ']'),
-        Tuple.Create(Keys.OemBackslash, '\\'),
+        Tuple.Create(Keys.OemPipe, '\\'),
         Tuple.Create(Keys.OemSemicolon, ';'),
         Tuple.Create(Keys.OemQuotes, '\''),
         Tuple.Create(Keys.OemComma, ','),
@@ -89,7 +89,7 @@ namespace MidnightBlue.Engine.Testing
       };
 
       foreach ( var charPair in charTest ) {
-        var testKey = (Keys)charPair.Item1;
+        var testKey = charPair.Item1;
         var result = _handler.Translate(
           new Keys[] { }, testKey
         );

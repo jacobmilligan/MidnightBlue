@@ -216,7 +216,10 @@ namespace MidnightBlue.Engine
     /// <param name="line">Line to write</param>
     public void Write(string line)
     {
-      var width = _font.MeasureString(line).X;
+      var width = 0.0f;
+      if ( _font != null ) {
+        width = _font.MeasureString(line).X;
+      }
       // Split input when wider than the max width
       if ( width > _maxTextWidth ) {
         var splitPos = (int)(_maxTextWidth / (width / line.Length));
@@ -475,6 +478,11 @@ namespace MidnightBlue.Engine
     public Dictionary<string, Action<string[]>> Funcs
     {
       get { return _funcs; }
+    }
+
+    public string LastOutput
+    {
+      get { return _ioHistory[_ioHistory.Count - 1]; }
     }
   }
 }
