@@ -31,9 +31,7 @@ namespace MidnightBlue
     /// </summary>
     /// <param name="map">Game objects.</param>
     /// <param name="content">Content manager for loading textures and sounds.</param>
-    public InitScene(EntityMap map, ContentManager content) : base(map, content)
-    {
-    }
+    public InitScene(EntityMap map, ContentManager content) : base(map, content) { }
 
     /// <summary>
     /// Creates the UIView and starts the background music.
@@ -52,16 +50,12 @@ namespace MidnightBlue
     /// <summary>
     /// Handles the input for the menu.
     /// </summary>
-    public override void HandleInput()
-    {
-    }
+    public override void HandleInput() { }
 
     /// <summary>
     /// Updates the UI
     /// </summary>
-    public override void Update()
-    {
-    }
+    public override void Update() { }
 
     /// <summary>
     /// Draws the UI to the uiSpriteBatch
@@ -85,6 +79,7 @@ namespace MidnightBlue
     /// </summary>
     public override void Pause()
     {
+      TransitionState = TransitionState.None;
     }
 
     /// <summary>
@@ -92,8 +87,14 @@ namespace MidnightBlue
     /// </summary>
     public override void Resume()
     {
+      TransitionState = TransitionState.None;
     }
 
+    /// <summary>
+    /// Defines a blueprint for creating the player ship to be called from
+    /// the entity map.
+    /// </summary>
+    /// <param name="entity">Entity to transform.</param>
     private void MakeGalaxyPlayership(Entity entity)
     {
       // Setup sprite
@@ -127,6 +128,11 @@ namespace MidnightBlue
       movement.RotationSpeed = 0.02f;
     }
 
+    /// <summary>
+    /// Defines a blueprint to use when altering the players ship when
+    /// entering a start system view.
+    /// </summary>
+    /// <param name="entity">Entity.</param>
     private void MakeStarSystemPlayerShip(Entity entity)
     {
       var movement = entity.GetComponent<Movement>();
@@ -138,7 +144,8 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Gives the entity the necessary components to become a controllable player
+    /// Defines a blueprint that gives the entity the necessary 
+    /// components to become a controllable player.
     /// </summary>
     /// <param name="entity">Entity to change.</param>
     private void MakePlayer(Entity entity)
@@ -172,7 +179,8 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Gives the entity the correct components to become a controllable ship
+    /// Defines a blueprint that gives the entity the correct 
+    /// components to become a controllable ship
     /// </summary>
     /// <param name="entity">Entity to change.</param>
     private void MakeShip(Entity entity)

@@ -69,7 +69,7 @@ namespace MidnightBlue.Engine
     /// <returns>The root node.</returns>
     private RootASTNode ParseRoot()
     {
-      _currTok = _lexer.NextToken;
+      _currTok = _lexer.NextToken();
 
       // Handles all top level tokens
       switch ( _currTok ) {
@@ -80,7 +80,7 @@ namespace MidnightBlue.Engine
 
           // Get the identifier and eat that token
           var ident = ParseIdent();
-          _currTok = _lexer.NextToken;
+          _currTok = _lexer.NextToken();
 
           var setNode = new SetASTNode(ident, ParseVariable());
           return new RootASTNode(setNode);
@@ -93,7 +93,7 @@ namespace MidnightBlue.Engine
           // Get the string representation and the tokenized representation
           // of the variable to print
           var print = new PrintASTNode(
-            _lexer.RawToken(_lexer.CurrentPos), _lexer.NextToken
+            _lexer.RawToken(_lexer.CurrentPos), _lexer.NextToken()
           );
           return new RootASTNode(print);
         case Token.Quit:
@@ -188,7 +188,7 @@ namespace MidnightBlue.Engine
 
       // Check for string token and value. Return a pure object
       // as an error state if not true
-      _currTok = _lexer.NextToken;
+      _currTok = _lexer.NextToken();
       if ( _currTok == Token.String ) {
         return val;
       } else {

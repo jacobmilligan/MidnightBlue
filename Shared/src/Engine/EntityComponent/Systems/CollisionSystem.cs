@@ -141,7 +141,7 @@ namespace MidnightBlue.Engine.EntityComponent
               collision.Collider = n;
               neighbourCollision.Event = true;
               neighbourCollision.Collider = entity;
-              Console.WriteLine("collision");
+              break;
             }
 
           }

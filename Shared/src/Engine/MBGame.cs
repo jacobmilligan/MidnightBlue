@@ -275,7 +275,7 @@ namespace MidnightBlue.Engine
         _uiSpriteBatch.DrawString(
           Content.Load<SpriteFont>("Fonts/SourceCode"),
           Camera.Position.ToString(),
-          new Vector2(200, 0),
+          new Vector2(550, 0),
           Color.White
         );
       }

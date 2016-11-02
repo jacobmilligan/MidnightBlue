@@ -305,6 +305,11 @@ namespace MidnightBlue.Engine.Scenes
     {
       get { return _scenes.Count - 1; }
     }
+
+    public Scene Next
+    {
+      get { return _nextScene; }
+    }
   }
 }
 

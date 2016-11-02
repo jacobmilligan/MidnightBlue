@@ -373,43 +373,6 @@ namespace MidnightBlue
 
     }
 
-    //private void CreateNoiseMapTexture(string layerName, NoiseMap map)
-    //{
-    //  if ( _layers.ContainsKey(layerName) ) {
-    //    return;
-    //  }
-
-    //  _spriteBatch.Begin();
-    //  // Generates a texture for the map
-    //  var target = new RenderTarget2D(
-    //    MBGame.Graphics,
-    //    map.Width * _cellSize,
-    //    map.Height * _cellSize
-    //  );
-
-    //  MBGame.Graphics.SetRenderTarget(target);
-    //  MBGame.Graphics.Clear(Color.Black);
-
-    //  for ( int x = 0; x < map.Width; x++ ) {
-    //    for ( int y = 0; y < map.Height; y++ ) {
-    //      var clr = Color.Lerp(Color.Black, Color.White, (float)map.GetValue(x, y));
-    //      _spriteBatch.FillRectangle(
-    //        x * _cellSize,
-    //        y * _cellSize,
-    //        _cellSize,
-    //        _cellSize,
-    //        clr
-    //      );
-    //    }
-    //  }
-
-    //  _spriteBatch.End();
-    //  MBGame.Graphics.SetRenderTarget(null);
-
-    //  _layers.Add(layerName, target);
-    //  //_map = target;
-    //}
-
     /// <summary>
     /// Gets one of the planets generated noise map textures
     /// </summary>

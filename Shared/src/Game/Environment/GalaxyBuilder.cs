@@ -164,7 +164,7 @@ namespace MidnightBlue
           _bounds.Inflate(0, _bounds.Top - rect.Top);
         }
         if ( rect.Left < _bounds.Left ) {
-          _bounds.Inflate(_bounds.Right - rect.Right, 0);
+          _bounds.Inflate(_bounds.Left - rect.Left, 0);
         }
       }
 

@@ -256,6 +256,8 @@ namespace MidnightBlue
     /// </summary>
     public override void Exit()
     {
+      var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
+      collision.SetTileMap(null);
       // End transition instantly
       TransitionState = TransitionState.Null;
     }

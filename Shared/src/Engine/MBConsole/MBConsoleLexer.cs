@@ -1,5 +1,5 @@
 ﻿//
-// 	MBConsoleTokenizer.cs
+// 	MBConsoleL.cs
 // 	Midnight Blue
 //
 // 	--------------------------------------------------------------
@@ -8,9 +8,7 @@
 // 	Copyright  All rights reserved
 //
 
-using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace MidnightBlue
 {
@@ -52,9 +50,9 @@ namespace MidnightBlue
   public class MBConsoleLexer
   {
     /// <summary>
-    /// The token representation of the strin
+    /// The token representation of the string
     /// </summary>
-    private Token[] _tokens;
+    private List<Token> _tokens;
     /// <summary>
     /// The command broken up on whitespace and
     /// quotations represented as raw strings
@@ -63,12 +61,12 @@ namespace MidnightBlue
     /// <summary>
     /// The current token being analyzed
     /// </summary>
-    private int _currTok,
+    private int _currTok;
     /// <summary>
     /// The index of the current character being analyzed
     /// in the un-tokenized command string
     /// </summary>
-    _currCharPos;
+    private int _currCharPos;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.MBConsoleLexer"/> class.
@@ -77,6 +75,7 @@ namespace MidnightBlue
     {
       _currTok = 0;
       _rawTokens = new List<string>();
+      _tokens = new List<Token>();
     }
 
     /// <summary>
@@ -89,9 +88,7 @@ namespace MidnightBlue
     {
       _currTok = 0;
       _rawTokens.Clear();
-      _tokens = null;
-
-      var tokens = new List<Token>();
+      _tokens.Clear();
 
       _currCharPos = 0;
       var currStr = string.Empty;
@@ -105,12 +102,12 @@ namespace MidnightBlue
         switch ( currChar ) {
           case ' ':
             _rawTokens.Add(currStr);
-            tokens.Add(GetToken(currStr));
+            _tokens.Add(GetToken(currStr));
             currStr = string.Empty;
             break;
           case '\'':
             _rawTokens.Add(GetString(command));
-            tokens.Add(Token.String);
+            _tokens.Add(Token.String);
             currStr = string.Empty;
             break;
           default:
@@ -123,10 +120,11 @@ namespace MidnightBlue
       // Add the last string if it's not an empty one aka end of line
       if ( currStr != string.Empty ) {
         _rawTokens.Add(currStr);
-        tokens.Add(GetToken(currStr));
+        _tokens.Add(GetToken(currStr));
       }
 
-      _tokens = tokens.ToArray();
+      _currTok = 0;
+      _currCharPos = 0;
     }
 
     /// <summary>
@@ -188,9 +186,14 @@ namespace MidnightBlue
     /// the command
     /// </summary>
     /// <value>The next token.</value>
-    public Token NextToken
+    public Token NextToken()
     {
-      get { return _tokens[_currTok++]; }
+      if ( _currTok > _tokens.Count - 1 )
+        return Token.Unknown;
+
+      var tok = _tokens[_currTok];
+      _currTok++;
+      return tok;
     }
 
     /// <summary>
@@ -217,7 +220,7 @@ namespace MidnightBlue
     /// <value>The number of tokens.</value>
     public int NumTokens
     {
-      get { return _tokens.Length; }
+      get { return _tokens.Count; }
     }
   }
 }

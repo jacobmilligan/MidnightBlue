@@ -295,10 +295,16 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Fades the sound out when transitioning to another scene.
+    /// Fades the sound out when transitioning to another scene unless the
+    /// next scene is the star system scene.
     /// </summary>
     public override void Pause()
     {
+      if ( SceneController.Next.GetType() == typeof(StarSystemScene) ) {
+        TransitionState = TransitionState.None;
+        return;
+      }
+
       var fadeSpeed = 0.8f;
       if ( MediaPlayer.Volume > 0 ) {
         MediaPlayer.Volume -= fadeSpeed;
@@ -358,12 +364,7 @@ namespace MidnightBlue
       center.X -= measureStr.X / 2;
 
       // Draw the text
-      spriteBatch.DrawString(
-        _benderLarge,
-        loadingStr,
-        center,
-        Color.White
-      );
+      spriteBatch.DrawString(_benderLarge, loadingStr, center, Color.White);
 
       // Render the next frame in the animation
       var loadingTexture = _loadingTextures[_animFrame];
@@ -379,9 +380,11 @@ namespace MidnightBlue
       _animTime++;
       if ( _animTime > 2 ) {
 
-        _animTime = 0;
-        _animFrame++;
+        _animTime = 0; // increase time this frame
 
+        _animFrame++; // go to next frame
+
+        // Check for looping frames
         if ( _animFrame > _loadingTextures.Count - 1 ) {
           _animFrame = 0;
         }
