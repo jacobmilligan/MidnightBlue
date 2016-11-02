@@ -34,7 +34,7 @@ namespace MidnightBlue
     public InitScene(EntityMap map, ContentManager content) : base(map, content) { }
 
     /// <summary>
-    /// Creates the UIView and starts the background music.
+    /// Registers all blueprints to the EntityMap
     /// </summary>
     public override void Initialize()
     {
@@ -43,22 +43,33 @@ namespace MidnightBlue
       GameObjects.MakeBlueprint("player", MakePlayer);
       GameObjects.MakeBlueprint("planet ship", MakeShip);
 
+      // Setup player
+      Entity player = GameObjects.CreateEntity("player");
+      player.Attach<UtilityController>();
+      player.Persistant = true;
+
+      var controller = GameObjects["player"].GetComponent<UtilityController>() as UtilityController;
+      var menuCommand = controller.InputMap.Assign<MenuCommand>(
+        Keys.Escape, CommandType.Trigger, SceneController, Content
+      );
+      menuCommand.Disabled = true;
+
       SceneController.ResetTo(new TitleScene(GameObjects, Content));
       TransitionState = TransitionState.None;
     }
 
     /// <summary>
-    /// Handles the input for the menu.
+    /// Handles the input for the scene.
     /// </summary>
     public override void HandleInput() { }
 
     /// <summary>
-    /// Updates the UI
+    /// Updates the scene.
     /// </summary>
     public override void Update() { }
 
     /// <summary>
-    /// Draws the UI to the uiSpriteBatch
+    /// Draws the scene to the uiSpriteBatch
     /// </summary>
     /// <param name="spriteBatch">Sprite batch for world-based entities.</param>
     /// <param name="uiSpriteBatch">User interface sprite batch.</param>
@@ -67,7 +78,7 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Stops the music and quits instantly
+    /// Exits the scene.
     /// </summary>
     public override void Exit()
     {
@@ -75,7 +86,7 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Pauses the title screen, fading music while it does so.
+    /// Pauses the scene.
     /// </summary>
     public override void Pause()
     {
@@ -83,7 +94,7 @@ namespace MidnightBlue
     }
 
     /// <summary>
-    /// Resumes the title screen, fading music in while it does so.
+    /// Resumes the scene.
     /// </summary>
     public override void Resume()
     {
@@ -97,6 +108,9 @@ namespace MidnightBlue
     /// <param name="entity">Entity to transform.</param>
     private void MakeGalaxyPlayership(Entity entity)
     {
+      var utilityController = entity.GetComponent<UtilityController>() as UtilityController;
+      utilityController.InputMap.Search<MenuCommand>().Disabled = false;
+
       // Setup sprite
       var sprite = entity.Attach<SpriteTransform>(
         Content.Load<Texture2D>("Images/playership_blue"),

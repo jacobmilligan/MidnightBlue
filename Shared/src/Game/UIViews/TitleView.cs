@@ -27,16 +27,6 @@ namespace MidnightBlue
   public class TitleView : UIView
   {
     /// <summary>
-    /// Color to render accented elements with.
-    /// </summary>
-    private Color _superNovaYellow = new Color(251, 186, 48);
-
-    /// <summary>
-    /// Color to render normal elements with.
-    /// </summary>
-    private Color _grayBlue = new Color(142, 189, 245);
-
-    /// <summary>
     /// The main UI font for the title screen.
     /// </summary>
     private SpriteFont _benderLarge,
@@ -73,7 +63,7 @@ namespace MidnightBlue
 
       var titleLayout = new Layout(this, 5, 6) {
         BorderDisplayed = true,
-        BorderColor = _superNovaYellow,
+        BorderColor = UIColors.NormalMenuText,
         BorderWidth = 2,
         BorderRightColor = Color.Transparent,
         BorderLeftColor = Color.Transparent
@@ -85,20 +75,20 @@ namespace MidnightBlue
       var titleA = new Label {
         TextContent = "Midnight",
         Font = _serifGothic,
-        TextColor = _superNovaYellow,
+        TextColor = UIColors.NormalMenuText,
       };
       var titleB = new Label {
         TextContent = "Blue",
         Font = _serifGothic,
-        TextColor = _superNovaYellow
+        TextColor = UIColors.NormalMenuText
       };
 
-      titleLayout.Add(titleA, 1, 1, 10, 10);
-      titleLayout.Add(titleB, 3, 2, 10, 10);
+      titleLayout.Add(titleA, 2, 2, 10, 10);
+      titleLayout.Add(titleB, 4, 3, 10, 10);
 
       var newGameBtn = new Button {
         NormalTextColor = Color.White,
-        HighlightedTextColor = _grayBlue,
+        HighlightedTextColor = UIColors.HighlightedMenuText,
         TextContent = "New Game",
         Font = _benderLarge,
         Fill = true,
@@ -108,7 +98,7 @@ namespace MidnightBlue
 
       var continueBtn = new Button {
         NormalTextColor = Color.White,
-        HighlightedTextColor = _grayBlue,
+        HighlightedTextColor = UIColors.HighlightedMenuText,
         TextContent = "Continue",
         Font = _benderLarge,
         Fill = true,
@@ -118,7 +108,7 @@ namespace MidnightBlue
 
       var quitBtn = new Button {
         NormalTextColor = Color.White,
-        HighlightedTextColor = _grayBlue,
+        HighlightedTextColor = UIColors.HighlightedMenuText,
         TextContent = "Quit",
         Font = _benderLarge,
         Fill = true,

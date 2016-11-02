@@ -99,8 +99,16 @@ namespace MidnightBlue.Engine.UI
     /// <param name="colSpan">Number of columns the element should span.</param>
     public void Add(UIElement element, int atRow, int atCol, int rowSpan, int colSpan)
     {
+      atRow--;
+      atCol--;
+
+      if ( atRow < 0 )
+        atRow = 0;
+      if ( atCol < 0 )
+        atCol = 0;
+
       element.SetRelativeSize(Content, atRow, atCol, rowSpan, colSpan);
-      Content.Elements[atRow - 1, atCol - 1] = element;
+      Content.Elements[atRow, atCol] = element;
       _parent.AddToLookup(element);
     }
 

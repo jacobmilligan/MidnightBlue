@@ -50,6 +50,14 @@ namespace MidnightBlue.Engine.EntityComponent
           HandleInput(utilityController.InputMap[keys[k]], entity);
         }
       }
+
+      // Update the camera position to look at the player
+      var playerMovement = entity.GetComponent<Movement>();
+      if ( playerMovement != null ) {
+        MBGame.Camera.LookAt(
+          playerMovement.Position
+        );
+      }
     }
 
     /// <summary>

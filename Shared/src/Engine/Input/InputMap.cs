@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework.Input;
 
 namespace MidnightBlue.Engine.IO
@@ -38,9 +39,9 @@ namespace MidnightBlue.Engine.IO
     /// <param name="key">Key to assign the command to</param>
     /// <param name="type">Type of trigger</param>
     /// <typeparam name="T">The command to assign</typeparam>
-    public Command Assign<T>(Keys key, CommandType type) where T : Command
+    public Command Assign<T>(Keys key, CommandType type, params object[] args) where T : Command
     {
-      var newCommand = NewCommand<T>(key, type);
+      var newCommand = NewCommand<T>(key, type, args);
 
       if ( _inputMap.ContainsKey(key) ) {
         _inputMap[key].Add(newCommand);
@@ -53,14 +54,43 @@ namespace MidnightBlue.Engine.IO
     }
 
     /// <summary>
+    /// Searches the map for a specific command
+    /// </summary>
+    /// <typeparam name="T">The 1st type parameter.</typeparam>
+    public T Search<T>() where T : Command
+    {
+      var bucket = _inputMap.Select(
+        (key) => key.Value.Find(
+          command => command.GetType() == typeof(T)
+        )
+      );
+      var result = bucket.FirstOrDefault(
+        command => command != null && command.GetType() == typeof(T)
+      );
+
+      if ( result == null )
+        return null;
+
+      return (T)result;
+    }
+
+    /// <summary>
     /// Creates a new instance of a Command
     /// </summary>
     /// <returns>The command.</returns>
     /// <param name="key">Key to assign the command to</param>
     /// <param name="type">Type of trigger</param>
     /// <typeparam name="T">Type of Command to new</typeparam>
-    private Command NewCommand<T>(Keys key, CommandType type) where T : Command
+    private Command NewCommand<T>(Keys key, CommandType type, params object[] arguments) where T : Command
     {
+      var args = new List<object> { key, type };
+      foreach ( var a in arguments ) {
+        args.Add(a);
+      }
+
+      if ( arguments.Length > 0 )
+        return (T)Activator.CreateInstance(typeof(T), args.ToArray());
+
       return (T)Activator.CreateInstance(typeof(T), key, type);
     }
 

@@ -284,6 +284,17 @@ namespace MidnightBlue.Engine.EntityComponent
       }
     }
 
+    public void Reset()
+    {
+      // Clear associated entities for all systems
+      foreach ( var system in _systems.Values ) {
+        system.AssociatedEntities.Clear();
+      }
+      _tags.Clear();
+      // Remove all non-persistant entities
+      _entities.Clear();
+    }
+
     public void MakeBlueprint(string id, Action<Entity> buildFunction)
     {
       if ( !_blueprints.ContainsKey(id) ) {

@@ -42,5 +42,15 @@ namespace MidnightBlue
     {
       get { return HUD * 0.8f; }
     }
+
+    public static Color HighlightedMenuText
+    {
+      get { return new Color(142, 189, 245); }
+    }
+
+    public static Color NormalMenuText
+    {
+      get { return new Color(251, 186, 48); }
+    }
   }
 }

@@ -32,6 +32,8 @@ namespace MidnightBlue.Engine.Scenes
     /// </summary>
     private Scene _nextScene;
 
+    private Type _lastType;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.Scenes.SceneStack"/> class.
     /// </summary>
@@ -95,6 +97,7 @@ namespace MidnightBlue.Engine.Scenes
     /// </summary>
     public void Pop()
     {
+      _lastType = Top.GetType();
       if ( _scenes.Count > 0 ) {
         if ( Top.TransitionState != TransitionState.Null ) {
           Top.TransitionState = TransitionState.Exiting;
@@ -137,7 +140,7 @@ namespace MidnightBlue.Engine.Scenes
     public Scene SceneAt(int index)
     {
       Scene result = null;
-      if ( index > 0 && index < _scenes.Count ) {
+      if ( index >= 0 && index < _scenes.Count ) {
         result = _scenes[index];
       }
       return result;
@@ -309,6 +312,11 @@ namespace MidnightBlue.Engine.Scenes
     public Scene Next
     {
       get { return _nextScene; }
+    }
+
+    public Type LastSceneType
+    {
+      get { return _lastType; }
     }
   }
 }

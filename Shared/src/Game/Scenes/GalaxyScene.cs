@@ -300,7 +300,8 @@ namespace MidnightBlue
     /// </summary>
     public override void Pause()
     {
-      if ( SceneController.Next.GetType() == typeof(StarSystemScene) ) {
+      var nextType = SceneController.Next.GetType();
+      if ( nextType == typeof(StarSystemScene) || nextType == typeof(MenuScene) ) {
         TransitionState = TransitionState.None;
         return;
       }
@@ -320,6 +321,11 @@ namespace MidnightBlue
     /// </summary>
     public override void Resume()
     {
+      if ( SceneController.LastSceneType == typeof(MenuScene) ) {
+        TransitionState = TransitionState.None;
+        return;
+      }
+
       GameObjects.Clear();
 
       var physics = GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem;

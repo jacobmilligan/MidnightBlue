@@ -52,6 +52,7 @@ namespace MidnightBlue.Engine.IO
     {
       Type = commandType;
       _key = key;
+      Disabled = false;
     }
 
     /// <summary>
@@ -60,15 +61,20 @@ namespace MidnightBlue.Engine.IO
     /// <param name="e">Entity to operate on. Optional</param>
     public bool Execute(Entity e = null)
     {
-      var result = false;
+      if ( Disabled )
+        return false;
+
       if ( Type == CommandType.Hold && Keyboard.GetState().IsKeyDown(_key) ) {
         OnKeyPress(e);
-        result = true;
-      } else if ( Type == CommandType.Trigger && IOUtil.KeyTyped(_key) ) {
-        OnKeyPress(e);
-        result = true;
+        return true;
       }
-      return result;
+
+      if ( Type == CommandType.Trigger && IOUtil.KeyTyped(_key) ) {
+        OnKeyPress(e);
+        return true;
+      }
+
+      return false;
     }
 
     /// <summary>
@@ -91,6 +97,8 @@ namespace MidnightBlue.Engine.IO
     {
       get { return _key; }
     }
+
+    public bool Disabled { get; set; }
   }
 }
 

@@ -119,6 +119,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleAST.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleLexer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\MenuView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\MenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src\Game\Commands\MenuCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)src\" />

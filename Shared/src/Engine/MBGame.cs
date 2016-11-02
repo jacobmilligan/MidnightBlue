@@ -125,11 +125,6 @@ namespace MidnightBlue.Engine
       SetUpDebugVals();
       RegisterSystems();
 
-      // Setup player
-      Entity player = _gameObjects.CreateEntity("player");
-      player.Attach<UtilityController>();
-      player.Persistant = true;
-
       _scenes.ResetTo(new InitScene(_gameObjects, Content));
       _fps.Reset();
     }
@@ -157,13 +152,6 @@ namespace MidnightBlue.Engine
       _dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
       _fps.Update(_dt);
 
-      // For Mobile devices, this logic will close the Game when the Back button is pressed
-      // Exit() is obsolete on iOS
-#if !__IOS__ && !__TVOS__
-      if ( GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) )
-        Exit();
-#endif
-
       // Update the current scene
       if ( _scenes.Top != null ) {
         _bgColor = _scenes.Top.WindowBackgroundColor;
@@ -178,14 +166,6 @@ namespace MidnightBlue.Engine
       _scenes.Update(); //FIXME: There was a divide by zero error here. Plz fix
 
       _debugConsole.Update();
-
-      // Update the camera position to look at the player
-      var playerMovement = _gameObjects["player"].GetComponent<Movement>();
-      if ( playerMovement != null ) {
-        _camera.LookAt(
-          playerMovement.Position
-        );
-      }
 
       base.Update(gameTime); // Monogame update
     }
@@ -358,7 +338,7 @@ namespace MidnightBlue.Engine
     /// <summary>
     /// Registers all EntitySystems used in the engine
     /// </summary>
-    private void RegisterSystems()
+    public void RegisterSystems()
     {
       _gameObjects.AddSystem<InputSystem>();
       _gameObjects.AddSystem<ShipInputSystem>();

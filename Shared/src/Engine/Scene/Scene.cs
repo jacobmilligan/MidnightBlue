@@ -80,9 +80,14 @@ namespace MidnightBlue.Engine.Scenes
     /// <param name="gameObjects">EntityMap to assign to the scene.</param>
     public Scene(EntityMap gameObjects, ContentManager content)
     {
+      _content = content;
+      if ( gameObjects == null ) {
+        _gameObjects = new EntityMap();
+        return;
+      }
+
       _gameObjects = new EntityMap(gameObjects);
       _gameObjects.Clear();
-      _content = content;
     }
 
     public void UpdateTransition()
@@ -141,7 +146,7 @@ namespace MidnightBlue.Engine.Scenes
     /// Gets all entities allocated to the scene
     /// </summary>
     /// <value>The game objects.</value>
-    protected EntityMap GameObjects
+    public EntityMap GameObjects
     {
       get { return _gameObjects; }
     }

@@ -79,8 +79,20 @@ namespace MidnightBlue.Engine.UI
       var mousePos = Mouse.GetState().Position;
       _previousState = _currentState;
 
+      var size = Font.MeasureString(TextContent);
+      var scale = Font.MeasureString(TextContent).FitInto(
+        Content.Grid.CellSize, Fill
+      );
+
+      var rect = new Rectangle(
+        Content.Rect.Location, (size * scale).ToPoint()
+      );
+      if ( NormalTexture != null ) {
+        rect = NormalTexture.Bounds;
+      }
+
       // Selected state
-      if ( Content.Rect.Contains(mousePos) ) {
+      if ( rect.Contains(mousePos) ) {
         _currentState = UIState.Selected;
         TextColor = HighlightedTextColor;
 

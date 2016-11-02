@@ -43,8 +43,6 @@ namespace MidnightBlue.Engine.UI
     /// </summary>
     private int _numRows, _numCols;
 
-    private Point _gridPos;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.UI.UIElement"/> class.
     /// Sets default property values
@@ -83,8 +81,6 @@ namespace MidnightBlue.Engine.UI
     /// <param name="span">Number of columns/rows the element should span.</param>
     public void SetRelativeSize(UIContent parent, Point at, Point span)
     {
-      _gridPos = at;
-
       var x = parent.Rect.X + (parent.Grid.ColSize * at.X);
       var y = parent.Rect.Y + (parent.Grid.RowSize * at.Y);
       var width = parent.Grid.ColSize * span.X;
@@ -99,7 +95,11 @@ namespace MidnightBlue.Engine.UI
       _borderRect = rect;
       _borderRect.Width += parent.Grid.ColSize;
       _borderRect.Height += parent.Grid.RowSize;
+      ResetBorders();
+    }
 
+    private void ResetBorders()
+    {
       _borderTop = new Line(
         new Vector2(_borderRect.X, _borderRect.Y),
         new Vector2(_borderRect.X + _borderRect.Width, _borderRect.Y)
