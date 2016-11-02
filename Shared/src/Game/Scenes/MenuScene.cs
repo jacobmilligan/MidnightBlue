@@ -26,7 +26,6 @@ namespace MidnightBlue
       _ui = new MenuView(Content);
       var quit = (Button)_ui["Quit Button"];
       quit.OnPress += (sender, e) => {
-        GameObjects.Reset();
         SceneController.ResetTo(new InitScene(SceneController.Bottom.GameObjects, Content));
       };
     }

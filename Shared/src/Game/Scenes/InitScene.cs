@@ -38,6 +38,8 @@ namespace MidnightBlue
     /// </summary>
     public override void Initialize()
     {
+      GameObjects.Reset();
+
       GameObjects.MakeBlueprint("galaxy playership", MakeGalaxyPlayership);
       GameObjects.MakeBlueprint("starsystem playership", MakeStarSystemPlayerShip);
       GameObjects.MakeBlueprint("player", MakePlayer);

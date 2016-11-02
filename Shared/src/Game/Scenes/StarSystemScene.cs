@@ -146,14 +146,14 @@ namespace MidnightBlue
       ) as SpriteTransform;
       star.Attach<CollisionComponent>(starSprite.Bounds);
 
-      //TODO: Replace with for loop
+      // Check the cache for recently visited planets before building new ones
       var p = 0;
-      foreach ( var planet in _starSystem.Planets ) {
-        if ( !cache.ContainsKey(planet.Name) ) {
-          _planets[p] = new Planet(planet, _rand.Next(seed));
-          cache.Add(planet.Name, _planets[p]);
+      foreach ( var newPlanet in _starSystem.Planets ) {
+        if ( !cache.ContainsKey(newPlanet.Name) ) {
+          _planets[p] = new Planet(newPlanet, _rand.Next(seed));
+          cache.Add(newPlanet.Name, _planets[p]);
         } else {
-          _planets[p] = cache[planet.Name];
+          _planets[p] = cache[newPlanet.Name];
           UpdateSpace(_planets[p]);
         }
         p++;

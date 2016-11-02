@@ -195,7 +195,7 @@ namespace MidnightBlue
             _galaxy.Bounds.Top,
             _galaxy.Bounds.Bottom,
             180
-          ); //HACK: Hardcoded collision cell size
+          ); // Cell size tuned to game requirements
         }
       }
 
@@ -321,7 +321,7 @@ namespace MidnightBlue
     /// </summary>
     public override void Resume()
     {
-      if ( SceneController.LastSceneType == typeof(MenuScene) ) {
+      if ( SceneController.LastSceneType == typeof(MenuScene) || SceneController.Next.GetType() == typeof(InitScene) ) {
         TransitionState = TransitionState.None;
         return;
       }
@@ -460,7 +460,7 @@ namespace MidnightBlue
           _galaxy.Bounds.Top,
           _galaxy.Bounds.Bottom,
           180
-        ); //HACK: Hardcoded collision cell size
+        ); // Cell size tuned to game requirements
       }
 
       _loading = false;
