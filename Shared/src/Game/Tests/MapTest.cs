@@ -1,4 +1,4 @@
-﻿//
+//
 // 	SimplexTest.cs
 // 	Midnight Blue
 //
@@ -12,11 +12,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scenes;
-using MidnightBlue.Engine.Tiles;
-using MonoGame.Extended.Shapes;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
+using MB2D.Tiles;
 
 namespace MidnightBlue.Testing
 {

@@ -260,10 +260,10 @@ namespace MidnightBlue
             biome = Biome.SubtropicalDesert;
             break;
           case MoistureLevel.SemiDry:
-            biome = Biome.Savana; // TODO: 50/50 chance this or Tropical seasonal forest
+            biome = Biome.Savana;
             break;
           case MoistureLevel.SemiMoist:
-            biome = Biome.Savana; // TODO: 50/50 chance this or Tropical seasonal forest
+            biome = Biome.Savana;
             break;
           default:
             biome = Biome.TropicalRainforest;

@@ -1,4 +1,4 @@
-﻿//
+//
 // ECSTest.cs
 // Midnight Blue
 //
@@ -8,10 +8,10 @@
 // Copyright (c) Jacob Milligan 2016. All rights reserved.
 //
 
-using MidnightBlue.Engine.EntityComponent;
+using MB2D.EntityComponent;
 using NUnit.Framework;
 
-namespace MidnightBlue.Engine.Testing
+namespace MB2D.Testing
 {
   [TestFixture]
   public class ECSTest

@@ -1,4 +1,4 @@
-﻿//
+//
 // 	InitScene.cs
 // 	Midnight Blue
 //
@@ -12,10 +12,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.IO;
-using MidnightBlue.Engine.Scenes;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.IO;
+using MB2D.Scenes;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
@@ -40,6 +40,8 @@ namespace MidnightBlue
     {
       GameObjects.Reset();
 
+      GameObjects.AddSystem<ShipInputSystem>();
+
       GameObjects.MakeBlueprint("galaxy playership", MakeGalaxyPlayership);
       GameObjects.MakeBlueprint("starsystem playership", MakeStarSystemPlayerShip);
       GameObjects.MakeBlueprint("player", MakePlayer);
@@ -48,16 +50,33 @@ namespace MidnightBlue
       // Setup player
       Entity player = GameObjects.CreateEntity("player");
       player.Attach<UtilityController>();
-      player.Persistant = true;
+      player.Persistent = true;
 
-      var controller = GameObjects["player"].GetComponent<UtilityController>() as UtilityController;
-      var menuCommand = controller.InputMap.Assign<MenuCommand>(
-        Keys.Escape, CommandType.Trigger, SceneController, Content
-      );
-      menuCommand.Disabled = true;
+      var utility = GameObjects["player"].GetComponent<UtilityController>() as UtilityController;
+      AssignMenu(utility);
 
       SceneController.ResetTo(new TitleScene(GameObjects, Content));
+
+      if ( !MBGame.Console.Funcs.ContainsKey("SetSpeed") ) {
+        MBGame.Console.AddFunc("SetSpeed", SetSpeed);
+      }
+
       TransitionState = TransitionState.None;
+    }
+
+    /// <summary>
+    /// Sets the speed of the player via the debug console
+    /// </summary>
+    /// <param name="args">Arguments. Will be null.</param>
+    private void SetSpeed(string[] args)
+    {
+      if ( args.Length > 0 ) {
+        var newSpeed = 0.0f;
+        var movement = GameObjects["player"].GetComponent<Movement>();
+        if ( float.TryParse(args[0], out newSpeed) && movement != null ) {
+          movement.Speed = newSpeed;
+        }
+      }
     }
 
     /// <summary>
@@ -211,6 +230,7 @@ namespace MidnightBlue
         lastAngle = entity.GetComponent<Movement>().Angle;
       }
 
+
       entity.DetachAll();
 
       // Setup sprite transform facing the same way as before in the same position
@@ -230,11 +250,23 @@ namespace MidnightBlue
       movement.Position = lastPos;
 
       entity.Attach<ShipController>();
-      entity.Attach<UtilityController>();
+      var utility = entity.Attach<UtilityController>() as UtilityController;
+      AssignMenu(utility);
 
       GameObjects.UpdateSystems(entity);
     }
 
+    /// <summary>
+    /// Assigns the menu command to a utility controller
+    /// </summary>
+    /// <param name="utility">Utility controller to assign to.</param>
+    private void AssignMenu(UtilityController utility)
+    {
+      var menuCommand = utility.InputMap.Assign<MenuCommand>(
+          Keys.Escape, CommandType.Trigger, SceneController, Content
+        );
+      menuCommand.Disabled = false;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-﻿//
+//
 // 	Planet.cs
 // 	Midnight Blue
 //
@@ -15,12 +15,10 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.Tiles;
-using MonoGame.Extended.Shapes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using MB2D;
+using MB2D.Tiles;
 using TinkerWorX.AccidentalNoiseLibrary;
+using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
 {

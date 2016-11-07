@@ -8,10 +8,8 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
+using MB2D;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Newtonsoft.Json.Linq;
 
 namespace MidnightBlue
 {

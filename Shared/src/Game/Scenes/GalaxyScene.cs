@@ -1,4 +1,4 @@
-﻿//
+//
 // 	GalaxyScene.cs
 // 	Midnight Blue
 //
@@ -17,10 +17,10 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scenes;
-using MidnightBlue.Engine.UI;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
+using MB2D.UI;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue
@@ -65,13 +65,9 @@ namespace MidnightBlue
     private SpriteFont _benderLarge;
 
     /// <summary>
-    /// The ships texture
-    /// </summary>
-    private Texture2D _ship,
-    /// <summary>
     /// Texture used for each star system
     /// </summary>
-    _solarSystem,
+    private Texture2D _solarSystem,
     /// <summary>
     /// The star field background
     /// </summary>
@@ -115,15 +111,14 @@ namespace MidnightBlue
     private Dictionary<string, Planet> _planetCache;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.GalaxyScene"/> class.
+    /// Initializes a new instance of the <see cref="T:MB2D.GalaxyScene"/> class.
     /// Loads all resources and sets up the galaxy for generation.
     /// </summary>
     /// <param name="map">Game objects to use.</param>
     /// <param name="content">Content manager to use.</param>
     public GalaxyScene(EntityMap map, ContentManager content) : base(map, content)
     {
-      //TODO: Load from file here
-      _seed = 7822800; //HACK: Hardcoded seed value for galaxy
+      _seed = 7822800;
       _loading = true;
       _animTime = _animFrame = 0;
 
@@ -132,7 +127,6 @@ namespace MidnightBlue
       _planetCache = new Dictionary<string, Planet>();
       _galaxyBuildThread = new Thread(new ThreadStart(BuildGalaxy));
 
-      _ship = content.Load<Texture2D>("Images/playership_blue");
       _solarSystem = content.Load<Texture2D>("Images/starsystem");
       _background = content.Load<Texture2D>("Images/stars");
       _loadingTextures = new List<Texture2D>();
@@ -166,6 +160,9 @@ namespace MidnightBlue
         MediaPlayer.Play(_bgSong);
         MediaPlayer.IsRepeating = true;
       }
+
+      var utility = GameObjects["player"].GetComponent<UtilityController>();
+      utility.InputMap.Search<MenuCommand>().Disabled = false;
 
       // Check if galaxy has been generated and generate it on another thread
       // if it hasn't
@@ -300,6 +297,8 @@ namespace MidnightBlue
     /// </summary>
     public override void Pause()
     {
+      _thrusterSound.Cut();
+
       var nextType = SceneController.Next.GetType();
       if ( nextType == typeof(StarSystemScene) || nextType == typeof(MenuScene) ) {
         TransitionState = TransitionState.None;
@@ -321,7 +320,8 @@ namespace MidnightBlue
     /// </summary>
     public override void Resume()
     {
-      if ( SceneController.LastSceneType == typeof(MenuScene) || SceneController.Next.GetType() == typeof(InitScene) ) {
+      if ( SceneController.LastSceneType == typeof(MenuScene)
+          || SceneController.Next.GetType() == typeof(InitScene) ) {
         TransitionState = TransitionState.None;
         return;
       }

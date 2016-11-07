@@ -1,4 +1,4 @@
-﻿#region Using Statements
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq;
 using AppKit;
 using Foundation;
 
-using MidnightBlue.Engine;
+using MB2D;
 #endregion
 
 namespace MidnightBlue.MacOSX
@@ -20,7 +20,7 @@ namespace MidnightBlue.MacOSX
     {
       NSApplication.Init();
 
-      using ( var game = new MBGame() ) {
+      using ( var game = new MBGame(typeof(InitScene)) ) {
         game.Run();
       }
     }

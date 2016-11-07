@@ -1,4 +1,4 @@
-﻿//
+//
 // 	MapTest3.cs
 // 	Midnight Blue
 //
@@ -18,7 +18,7 @@
 //
 
 using System;
-using MidnightBlue.Engine;
+using MB2D;
 using TinkerWorX.AccidentalNoiseLibrary;
 
 namespace MidnightBlue

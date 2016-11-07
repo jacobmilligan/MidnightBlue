@@ -1,4 +1,4 @@
-﻿//
+//
 // 	TextInputTest.cs
 // 	Midnight Blue
 //
@@ -9,10 +9,10 @@
 //
 using System;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine.IO;
+using MB2D.IO;
 using NUnit.Framework;
 
-namespace MidnightBlue.Engine.Testing
+namespace MB2D.Testing
 {
   [TestFixture]
   public class TextInputTest

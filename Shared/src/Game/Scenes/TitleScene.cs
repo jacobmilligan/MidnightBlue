@@ -14,10 +14,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scenes;
-using MonoGame.Extended.Shapes;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
 
 namespace MidnightBlue
 {
@@ -59,6 +58,9 @@ namespace MidnightBlue
         MediaPlayer.IsRepeating = true;
       }
 
+      var utility = GameObjects["player"].GetComponent<UtilityController>();
+      utility.InputMap.Search<MenuCommand>().Disabled = true;
+
       TransitionState = TransitionState.None;
     }
 
@@ -85,6 +87,9 @@ namespace MidnightBlue
     /// <param name="uiSpriteBatch">User interface sprite batch.</param>
     public override void Draw(SpriteBatch spriteBatch, SpriteBatch uiSpriteBatch)
     {
+      if ( GameObjects.GetSystem<GalaxyRenderSystem>() == null )
+        GameObjects.AddSystem<GalaxyRenderSystem>(spriteBatch, Content);
+
       _ui.Draw(spriteBatch, uiSpriteBatch);
     }
 

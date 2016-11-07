@@ -1,4 +1,4 @@
-﻿//
+//
 // 	PlanetComponent.cs
 // 	Midnight Blue
 //
@@ -8,7 +8,7 @@
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
 using System;
-using MidnightBlue.Engine.EntityComponent;
+using MB2D.EntityComponent;
 
 namespace MidnightBlue
 {

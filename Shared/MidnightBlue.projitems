@@ -35,7 +35,6 @@
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SourceCode.xnb" />
     <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll" />
     <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll.mdb" />
-    <None Include="$(MSBuildThisFileDirectory)src\Engine\Test\GenTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />
@@ -61,64 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\UIColors.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\PlanetScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Components\PlanetComponent.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionCell.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Collision\CollisionMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\CollisionComponent.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\Depth.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\Inventory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\Movement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\PhysicsComponent.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\PlayerController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\SpriteTransform.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Components\UtilityController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Entity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\EntityMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\EntitySystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\IComponent.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\CollisionSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\DepthSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\InputSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\MovementSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\PhysicsSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\Systems\RenderSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Grid.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\Line.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\Command.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\ConsoleCommand.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\InputMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\IOUtil.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\MoveCommands.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Inventory\Collectable.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\SpriteBatchExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\Vector2Extensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\Scene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Scene\SceneStack.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\CollisionRenderSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\EntityContainerTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestSystem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\TestUIView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Test\UITest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Tiles\Tile.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Tiles\TileMap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Button.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Label.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\Layout.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\ListControl.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIControlElement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIElement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\UI\UIView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Audio\SoundTrigger.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBGame.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\InitScene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\Input\TextInputHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsole.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleParser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleAST.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\MBConsoleLexer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\UIViews\MenuView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\MenuScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Commands\MenuCommand.cs" />
@@ -132,21 +74,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Commands\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Inventory\" />
     <Folder Include="$(MSBuildThisFileDirectory)src\Game\Tests\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Collision\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\EntityComponent\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Geometry\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Input\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Inventory\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MonogameExtensions\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Scene\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Test\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Tiles\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\UI\" />
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\Audio\" />
     <Folder Include="$(MSBuildThisFileDirectory)Content\JSON\biomes.json">
     </Folder>
-    <Folder Include="$(MSBuildThisFileDirectory)src\Engine\MBConsole\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Content\Audio\Title.mp3">

@@ -1,4 +1,4 @@
-﻿//
+//
 // 	TestConsoleParse.cs
 // 	Midnight Blue
 //
@@ -11,7 +11,7 @@ using System;
 using Microsoft.Xna.Framework;
 using NUnit.Framework;
 
-namespace MidnightBlue.Engine.Testing
+namespace MB2D.Testing
 {
   [TestFixture]
   public class TestConsoleParse

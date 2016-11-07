@@ -1,4 +1,4 @@
-﻿//
+//
 // 	GalaxyBuilder.cs
 // 	Midnight Blue
 //
@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightBlue.Engine;
+using MB2D;
 using MonoGame.Extended.Shapes;
 
 namespace MidnightBlue

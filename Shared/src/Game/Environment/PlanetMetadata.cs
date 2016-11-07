@@ -1,4 +1,4 @@
-﻿//
+//
 // 	Planet.cs
 // 	Midnight Blue
 //
@@ -9,7 +9,7 @@
 //
 using System;
 using Microsoft.Xna.Framework;
-using MidnightBlue.Engine.EntityComponent;
+using MB2D.EntityComponent;
 
 namespace MidnightBlue
 {

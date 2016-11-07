@@ -1,4 +1,4 @@
-﻿//
+//
 // 	MenuCommand.cs
 // 	Midnight Blue
 //
@@ -10,10 +10,10 @@
 using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.IO;
-using MidnightBlue.Engine.Scenes;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.IO;
+using MB2D.Scenes;
 
 namespace MidnightBlue
 {

@@ -1,4 +1,4 @@
-﻿//
+//
 // 	GalaxyRenderSystem.cs
 // 	Midnight Blue
 //
@@ -13,8 +13,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
+using MB2D;
+using MB2D.EntityComponent;
 
 namespace MidnightBlue
 {

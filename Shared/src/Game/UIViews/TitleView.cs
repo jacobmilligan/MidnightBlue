@@ -1,4 +1,4 @@
-﻿//
+//
 // 	TitleView.cs
 // 	Midnight Blue
 //
@@ -14,10 +14,10 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scenes;
-using MidnightBlue.Engine.UI;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
+using MB2D.UI;
 
 namespace MidnightBlue
 {

@@ -1,9 +1,9 @@
-﻿#region Using Statements
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using MidnightBlue.Engine;
+using MB2D;
 #if MONOMAC
 using MonoMac.AppKit;
 using MonoMac.Foundation;
@@ -26,7 +26,7 @@ namespace MidnightBlue.DesktopGL
 
     internal static void RunGame()
     {
-      _game = new MBGame();
+      _game = new MBGame(typeof(InitScene));
       _game.Run();
 #if !__IOS__ && !__TVOS__
       _game.Dispose();

@@ -1,4 +1,4 @@
-﻿//
+//
 // 	StarSystem.cs
 // 	Midnight Blue
 //
@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
-using MidnightBlue.Engine.EntityComponent;
+using MB2D.EntityComponent;
 
 namespace MidnightBlue
 {

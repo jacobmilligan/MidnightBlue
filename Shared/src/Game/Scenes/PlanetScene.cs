@@ -1,4 +1,4 @@
-﻿//
+//
 // 	PlanetScene.cs
 // 	Midnight Blue
 //
@@ -7,20 +7,15 @@
 // 	Created by Jacob Milligan on 12/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
 //
-using System;
-using System.Diagnostics;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.IO;
-using MidnightBlue.Engine.Scenes;
-using MidnightBlue.Engine.Tiles;
-using MonoGame.Extended.Shapes;
-using MonoGame.Extended.Sprites;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
+using MB2D.Tiles;
 
 namespace MidnightBlue
 {

@@ -171,6 +171,12 @@
     <EmbeddedResource Include="Icon.ico" />
     <EmbeddedResource Include="Icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB2D\MB2D.csproj">
+      <Project>{937A4F5D-E7ED-47F7-AEA2-5EC4AE842543}</Project>
+      <Name>MB2D</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
 </Project>

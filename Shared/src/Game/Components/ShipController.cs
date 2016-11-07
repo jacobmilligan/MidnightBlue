@@ -1,4 +1,4 @@
-﻿//
+//
 // 	ShipController.cs
 // 	Midnight Blue
 //
@@ -11,9 +11,8 @@ using System;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.IO;
-using MonoGame.Extended.Particles;
+using MB2D.EntityComponent;
+using MB2D.IO;
 
 namespace MidnightBlue
 {

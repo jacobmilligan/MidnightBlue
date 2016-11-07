@@ -1,4 +1,4 @@
-﻿//
+//
 // 	StarSystemScene.cs
 // 	Midnight Blue
 //
@@ -16,11 +16,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightBlue.Engine;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.Scenes;
+using MB2D;
+using MB2D.EntityComponent;
+using MB2D.Scenes;
 using MonoGame.Extended.Shapes;
-using MonoGame.Extended.Sprites;
 
 namespace MidnightBlue
 {
@@ -43,13 +42,9 @@ namespace MidnightBlue
     _animTime;
 
     /// <summary>
-    /// The ships texture
-    /// </summary>
-    private Texture2D _ship,
-    /// <summary>
     /// The background star field texture
     /// </summary>
-    _background,
+    private Texture2D _background,
     /// <summary>
     /// The texture used for the systems star
     /// </summary>
@@ -120,7 +115,6 @@ namespace MidnightBlue
     {
       _rand = new Random(seed);
       _loading = true;
-      _ship = content.Load<Texture2D>("Images/playership_blue");
       _background = content.Load<Texture2D>("Images/stars");
       _bender = content.Load<SpriteFont>("Fonts/Bender Large");
       _star = content.Load<Texture2D>("Images/star");
@@ -229,12 +223,10 @@ namespace MidnightBlue
             var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
             foreach ( var p in planetEntities ) {
               p.Active = false;
-              p.Persistant = true;
+              p.Persistent = true;
             }
             GameObjects[_starSystem.Name].Active = false;
-            GameObjects[_starSystem.Name].Persistant = true;
-
-            GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
+            GameObjects[_starSystem.Name].Persistent = true;
 
             SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
           }
@@ -325,7 +317,7 @@ namespace MidnightBlue
       }
       var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {
-        //HACK: Hardcoded cell size
+        // Cell size is hardcoded to be finely tuned for this specific scene
         collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 180);
       }
     }
@@ -393,6 +385,11 @@ namespace MidnightBlue
     /// </summary>
     public override void Resume()
     {
+      if ( SceneController.LastSceneType == typeof(MenuScene) ) {
+        TransitionState = TransitionState.None;
+        return;
+      }
+
       (GameObjects.GetSystem<PhysicsSystem>() as PhysicsSystem).Environment =
         new PhysicsEnvironment {
           Inertia = 0.999f,
@@ -404,12 +401,12 @@ namespace MidnightBlue
       var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
       foreach ( var p in planetEntities ) {
         p.Active = true;
-        p.Persistant = false;
+        p.Persistent = false;
       }
 
       GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
-      GameObjects[_starSystem.Name].Active = false;
-      GameObjects[_starSystem.Name].Persistant = false;
+      GameObjects[_starSystem.Name].Active = true;
+      GameObjects[_starSystem.Name].Persistent = false;
 
       var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {

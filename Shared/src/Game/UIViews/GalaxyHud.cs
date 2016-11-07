@@ -1,4 +1,4 @@
-﻿//
+//
 // 	GalaxyHud.cs
 // 	Midnight Blue
 //
@@ -11,8 +11,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MidnightBlue.Engine.EntityComponent;
-using MidnightBlue.Engine.UI;
+using MB2D.EntityComponent;
+using MB2D.UI;
 
 namespace MidnightBlue
 {
@@ -31,7 +31,7 @@ namespace MidnightBlue
     private SpriteFont _bender;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:MidnightBlue.Engine.GalaxyHud"/> class.
+    /// Initializes a new instance of the <see cref="T:MB2D.GalaxyHud"/> class.
     /// </summary>
     /// <param name="content">Content to use in loading fonts and textures.</param>
     public GalaxyHud(ContentManager content) : base(25, 25)
