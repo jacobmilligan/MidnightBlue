@@ -11,7 +11,7 @@
 //
 // Generates a Noise map that wraps on both axis' using
 // the 4D Simplex Noise class provided as part of Nikolaj Mariager's
-// C# port of the excellent, original AccidentalNoise Library by
+// C# port of the excellent, AccidentalNoise Library by
 // Joshua Tippetts.
 // Port source: https://github.com/TinkerWorX/AccidentalNoiseLibrary
 // AccidentalNoise original source: http://accidentalnoise.sourceforge.net/

@@ -212,22 +212,17 @@ namespace MidnightBlue
         var player = GameObjects["player"];
         var shipController = player.GetComponent<ShipController>();
 
+        // Handle landing on planets
         if ( shipController.State == ShipState.Landing ) {
           var collision = player.GetComponent<CollisionComponent>();
 
           if ( collision != null ) {
-            var planet = collision.Collider.GetComponent<PlanetComponent>();
             _lasPos = player.GetComponent<Movement>().Position;
             shipController.State = ShipState.Normal;
 
-            var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
-            foreach ( var p in planetEntities ) {
-              p.Active = false;
-              p.Persistent = true;
-            }
-            GameObjects[_starSystem.Name].Active = false;
-            GameObjects[_starSystem.Name].Persistent = true;
+            ChangePlanetActive(false);
 
+            var planet = collision.Collider.GetComponent<PlanetComponent>();
             SceneController.Push(new PlanetScene(GameObjects, Content, planet.Data));
           }
 
@@ -266,6 +261,7 @@ namespace MidnightBlue
             UpdateSpace(p);
           }
         }
+
       }
 
       if ( _loading || _planetLoader.IsAlive ) {
@@ -303,6 +299,7 @@ namespace MidnightBlue
 
       GameObjects.UpdateSystems(planetEntity);
 
+      // Grow the bounding rectangle of the galaxy to snugly fit the planets
       if ( p.Position.X > _bounds.Right ) {
         _bounds.Inflate(p.Position.X - _bounds.Right, 0);
       }
@@ -345,6 +342,7 @@ namespace MidnightBlue
       if ( star != null ) {
         var starSprite = star.GetComponent<SpriteTransform>() as SpriteTransform;
         normalizedPos = (starSprite.Target.Position / hudBounds.Width);
+
         uiSpriteBatch.FillRectangle(
           hudBounds.Center.ToVector2() + normalizedPos,
           new Vector2(3, 3),
@@ -354,6 +352,7 @@ namespace MidnightBlue
 
       var player = GameObjects["player"].GetComponent<Movement>();
       normalizedPos = (player.Position / hudBounds.Width);
+
       uiSpriteBatch.FillRectangle(
         hudBounds.Center.ToVector2() + normalizedPos,
         new Vector2(3, 3),
@@ -398,15 +397,9 @@ namespace MidnightBlue
 
       BuildPlayer((int)_lasPos.X, (int)_lasPos.Y);
 
-      var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
-      foreach ( var p in planetEntities ) {
-        p.Active = true;
-        p.Persistent = false;
-      }
+      ChangePlanetActive(true);
 
       GameObjects.EntitiesWithComponent<PlanetComponent>().First().Active = true;
-      GameObjects[_starSystem.Name].Active = true;
-      GameObjects[_starSystem.Name].Persistent = false;
 
       var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {
@@ -415,6 +408,19 @@ namespace MidnightBlue
 
       // End transition instantly
       TransitionState = TransitionState.None;
+    }
+
+    private void ChangePlanetActive(bool activeState)
+    {
+      var planetEntities = GameObjects.EntitiesWithComponent<PlanetComponent>();
+
+      foreach ( var p in planetEntities ) {
+        p.Active = activeState;
+        p.Persistent = !activeState;
+      }
+
+      GameObjects[_starSystem.Name].Active = activeState;
+      GameObjects[_starSystem.Name].Persistent = !activeState;
     }
 
     /// <summary>

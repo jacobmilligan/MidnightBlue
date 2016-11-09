@@ -6,6 +6,11 @@
 //
 // 	Created by Jacob Milligan on 11/10/2016.
 // 	Copyright (c) Jacob Milligan All rights reserved
+
+//
+//  Admittedly this would have been better implemented using JSON but I
+//  didn't have time and this is super fast compared to having to read from
+//  a data file
 //
 
 namespace MidnightBlue

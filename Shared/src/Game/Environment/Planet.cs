@@ -88,6 +88,9 @@ namespace MidnightBlue
     /// <param name="seed">Seed to use in generating the map.</param>
     public Planet(PlanetMetadata meta, int seed)
     {
+      var octaves = 6;
+      var frequency = 1.8;
+
       _meta = meta;
       _name = _meta.Name;
       _generated = false;
@@ -108,8 +111,8 @@ namespace MidnightBlue
         BasisType.Simplex,
         InterpolationType.Quintic
       );
-      elevationMap.Octaves = 6;
-      elevationMap.Frequency = 1.8;
+      elevationMap.Octaves = octaves;
+      elevationMap.Frequency = frequency;
       elevationMap.Seed = seed;
       _elevation = new NoiseMap(elevationMap, _width, _height);
 
@@ -123,8 +126,8 @@ namespace MidnightBlue
         BasisType.Simplex,
         InterpolationType.Quintic
       );
-      temperatureMap.Octaves = 6;
-      temperatureMap.Frequency = 1.8;
+      temperatureMap.Octaves = octaves;
+      temperatureMap.Frequency = frequency;
       temperatureMap.Seed = seed;
 
       // Setup combination between gradient and temperature map
@@ -141,8 +144,8 @@ namespace MidnightBlue
         BasisType.Simplex,
         InterpolationType.Quintic
       );
-      moistureMap.Octaves = 6;
-      moistureMap.Frequency = 1.8;
+      moistureMap.Octaves = octaves;
+      moistureMap.Frequency = frequency;
       moistureMap.Seed = seed;
       _moisture = new NoiseMap(moistureMap, _width, _height);
 
@@ -242,15 +245,11 @@ namespace MidnightBlue
 
       // Generates a texture for the map
       var target = new RenderTarget2D(
-        MBGame.Graphics,
-        _width * _cellSize,
-        _height * _cellSize
+        MBGame.Graphics, _width * _cellSize, _height * _cellSize
       );
       // Generates the 'sphere' version of the map using a texture gradient overlay
       var roundTarget = new RenderTarget2D(
-        MBGame.Graphics,
-        _width * _cellSize,
-        _height * _cellSize
+        MBGame.Graphics, _width * _cellSize, _height * _cellSize
       );
 
       var spriteBatch = new SpriteBatch(MBGame.Graphics);
@@ -263,16 +262,12 @@ namespace MidnightBlue
       // Draw the tiles to the regular square map
       for ( int x = 0; x < _width; x++ ) {
         for ( int y = 0; y < _height; y++ ) {
+
           var tile = _tiles[x, y];
           var clr = tile.TintColor;
-
           // Draw the tile
           spriteBatch.FillRectangle(
-            x * _cellSize,
-            y * _cellSize,
-            _cellSize,
-            _cellSize,
-            clr
+            x * _cellSize, y * _cellSize, _cellSize, _cellSize, clr
           );
 
         }
@@ -300,11 +295,7 @@ namespace MidnightBlue
           if ( circleMask.Contains(x * _cellSize, y * _cellSize) ) {
             // Draw the tile if within the circle
             spriteBatch.FillRectangle(
-              x * _cellSize,
-              y * _cellSize,
-              _cellSize,
-              _cellSize,
-              clr
+              x * _cellSize, y * _cellSize, _cellSize, _cellSize, clr
             );
 
           }
@@ -312,7 +303,7 @@ namespace MidnightBlue
         }
       }
 
-      // Setu pa temporary scale vector for drawing the planet
+      // Setup a temporary scale vector for drawing the planet
       var maskSize = target.Bounds.Size.ToVector2();
       maskSize.X += 5f;
       maskSize.Y += 5f;
