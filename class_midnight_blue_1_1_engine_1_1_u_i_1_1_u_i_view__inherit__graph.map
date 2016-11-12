@@ -1,0 +1,6 @@
+<map id="MidnightBlue.Engine.UI.UIView" name="MidnightBlue.Engine.UI.UIView">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_test_u_i_view.html" title="{MidnightBlue.Engine.Testing.\lTestUIView\n||+ TestUIView()\l}" alt="" coords="5,220,199,307"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="223,220,391,307"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="415,227,610,300"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="635,227,790,300"/>
+</map>

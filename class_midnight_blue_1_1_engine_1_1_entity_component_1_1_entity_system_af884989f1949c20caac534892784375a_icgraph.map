@@ -1,0 +1,5 @@
+<map id="MidnightBlue.Engine.EntityComponent.EntitySystem.Run" name="MidnightBlue.Engine.EntityComponent.EntitySystem.Run">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_scene.html#a3646fcf97e067bac267d42aad66e71c4" title="Draw the game world and UI to the specified spriteBatch and uiSpriteBatch. " alt="" coords="253,5,470,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet_scene.html#a6c84a639f27b9f7510b514969d47d1bd" title="Handles the input for the scene. " alt="" coords="271,55,452,93"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_scene.html#a9fd64901322082a4da8658650257163d" title="Handles moving the players ship. " alt="" coords="255,117,468,156"/>
+</map>

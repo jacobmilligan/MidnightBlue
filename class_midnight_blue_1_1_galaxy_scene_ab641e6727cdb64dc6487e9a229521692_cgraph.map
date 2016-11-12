@@ -1,0 +1,7 @@
+<map id="MidnightBlue.GalaxyScene.Resume" name="MidnightBlue.GalaxyScene.Resume">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a079e8e957e7fbaa8de73e609ab646fe1" title="Clears all entities from this map except for any marked as persistant. " alt="" coords="243,5,444,44"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_sound_trigger.html#a677d10464891b21b44da3811430d5bea" title="Increases the sounds volume one step based on the specified FadeSpeed " alt="" coords="247,68,440,93"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_sound_trigger.html#aca40e191ef7b6cd594d43bb36ae787e9" title="Decreases the volume based on the specified FadeSpeed. Stops the sound once the volume reaches 0 ..." alt="" coords="238,117,448,143"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="243,167,444,205"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_galaxy_builder.html#aaa080e0108cf02709137b7eebb56ad1a" title="Generates the galaxy with a specified max distance between stars. Takes a while so should be called o..." alt="" coords="249,229,437,268"/>
+</map>

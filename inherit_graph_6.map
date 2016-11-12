@@ -1,0 +1,19 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_m_b2_d_1_1_entity_component_1_1_i_component.html" title="Tags any class as a valid component for use in the EntityMap. Derived classes should contain no logic..." alt="" coords="5,439,246,464"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_collision_component.html" title="Used for running collision detection on an Entity " alt="" coords="300,5,518,44"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_depth.html" title="A tag class used to define an entity that should be draw sorted according to its current z&#45;index ..." alt="" coords="307,68,511,93"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_entity_component_1_1_inventory.html" title="Defines a dictionary of Collectable types used for entities " alt="" coords="298,117,521,143"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_entity_component_1_1_movement.html" title="Defines position, rotation and speed related data for moving an entity. " alt="" coords="294,167,524,192"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_entity_component_1_1_physics_component.html" title="Physics component used to define acceleration and velocity. " alt="" coords="302,216,516,255"/>
+<area shape="rect" id="node7" href="$class_m_b2_d_1_1_entity_component_1_1_player_controller.html" title="Defines the attached entity as controllable " alt="" coords="306,279,512,317"/>
+<area shape="rect" id="node8" href="$class_m_b2_d_1_1_entity_component_1_1_sprite_transform.html" title="Defines a sprite component with control over its size, rotation, and scale " alt="" coords="308,341,511,380"/>
+<area shape="rect" id="node9" href="$class_m_b2_d_1_1_entity_component_1_1_utility_controller.html" title="Declares the attached entity as able to control utility commands such as opening the debug console ..." alt="" coords="309,404,510,443"/>
+<area shape="rect" id="node10" href="$class_m_b2_d_1_1_testing_1_1_position.html" title="MB2D.Testing.Position" alt="" coords="331,467,487,492"/>
+<area shape="rect" id="node11" href="$class_m_b2_d_1_1_testing_1_1_test.html" title="MB2D.Testing.Test" alt="" coords="343,516,475,541"/>
+<area shape="rect" id="node12" href="$class_m_b2_d_1_1_testing_1_1_unregistered.html" title="MB2D.Testing.Unregistered" alt="" coords="317,565,501,591"/>
+<area shape="rect" id="node13" href="$class_m_b2_d_1_1_testing_1_1_velocity.html" title="MB2D.Testing.Velocity" alt="" coords="332,615,486,640"/>
+<area shape="rect" id="node14" href="$class_midnight_blue_1_1_planet_component.html" title="Represents a planet entity with pre&#45;generated metadata " alt="" coords="305,664,514,689"/>
+<area shape="rect" id="node15" href="$class_midnight_blue_1_1_planet_metadata.html" title="Planet metadata used as information and arguments for generating the actual biome map of a planet..." alt="" coords="311,713,507,739"/>
+<area shape="rect" id="node16" href="$class_midnight_blue_1_1_ship_controller.html" title="Controls a ships movement and actions " alt="" coords="316,763,502,788"/>
+<area shape="rect" id="node17" href="$class_midnight_blue_1_1_star_system.html" title="Represents an star system entity to be used in the galaxy view " alt="" coords="324,812,495,837"/>
+</map>

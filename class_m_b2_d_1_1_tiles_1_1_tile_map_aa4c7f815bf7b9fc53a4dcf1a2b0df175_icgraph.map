@@ -1,0 +1,3 @@
+<map id="MB2D.Tiles.TileMap.Draw" name="MB2D.Tiles.TileMap.Draw">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet_scene.html#af22a201631e5f8c606ec3f7463635977" title="Draw the tilemap to the specified spriteBatch and uiSpriteBatch. " alt="" coords="229,5,441,31"/>
+</map>

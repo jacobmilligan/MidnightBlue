@@ -1,0 +1,5 @@
+<map id="MB2D.UI.UIView.Add" name="MB2D.UI.UIView.Add">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_hud.html#a6f15257e5bc5bbc67cac3888f075ea29" title="Initializes a new instance of the T:MB2D.GalaxyHud class. " alt="" coords="201,5,439,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_hud.html#acfe0b74ff1b0013956511de5ab3d38b3" title="Initializes a new instance of the T:MidnightBlue.StarSystemHud class. " alt="" coords="220,55,420,93"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_title_view.html#ae4322373616e1100eda699d87ee63ff7" title="Initializes a new instance of the T:MidnightBlue.TitleView class. " alt="" coords="214,117,426,143"/>
+</map>

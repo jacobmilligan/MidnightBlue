@@ -1,0 +1,8 @@
+<map id="MidnightBlue.StarSystemScene.Update" name="MidnightBlue.StarSystemScene.Update">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a5628b6cd853a0f419eb8ac62958f62bb" title="Updates and handles input for all elements in the View. " alt="" coords="290,5,457,31"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a22760622453ac16621534bc324ec039f" title="Pushes a new scene to the top of the stack. Calls the new scenes Initialize method and the previous s..." alt="" coords="266,55,481,80"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a134c3aff1731fb86116b78cac7112464" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="269,104,478,129"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#aa97bcbe44f3fac8a13e2febca23b2d4d" title="Update the elements state and handles input. Overriden in derived classes " alt="" coords="529,5,717,31"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_m_b_console.html#a6f0c0f179b2fef32a130a5e1d4957a70" title="Writes a debug line to the console with the specified string format information " alt="" coords="536,104,710,129"/>
+<area shape="rect" id="node7" href="$class_m_b2_d_1_1_m_b_console.html#a1d85081cb5400f09883c1fc62f37d861" title="Writes a line to the console to display " alt="" coords="765,104,931,129"/>
+</map>

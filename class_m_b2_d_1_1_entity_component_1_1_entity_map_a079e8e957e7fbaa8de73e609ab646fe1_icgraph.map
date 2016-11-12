@@ -1,0 +1,6 @@
+<map id="MB2D.EntityComponent.EntityMap.Clear" name="MB2D.EntityComponent.EntityMap.Clear">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#ac9cb0c45a98614e7e4c1307ebb6ef85e" title="Initializes a new instance of the T:MB2D.Scenes.Scene class with a pre&#45;existing EntityMap ..." alt="" coords="261,5,450,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a3ee3777b94ccff0a739e75ca1ca151c6" title="Cleans up the scene and unloads content. " alt="" coords="255,55,456,80"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#ab641e6727cdb64dc6487e9a229521692" title="Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache..." alt="" coords="263,104,448,143"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_planet_scene.html#a50ee691836116a89ff549e519f895ba3" title="Initializes a new instance of the T:MidnightBlue.PlanetScene class. " alt="" coords="265,167,446,205"/>
+</map>

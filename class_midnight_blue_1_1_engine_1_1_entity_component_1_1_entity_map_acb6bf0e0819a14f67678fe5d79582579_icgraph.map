@@ -1,0 +1,5 @@
+<map id="MidnightBlue.Engine.EntityComponent.EntityMap.CreateEntity" name="MidnightBlue.Engine.EntityComponent.EntityMap.CreateEntity">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_m_b_game.html#a0e02fa538b3344104374f61a058516f8" title="Allows the game to perform any initialization it needs to before starting to run. This is where it ca..." alt="" coords="302,5,509,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_scene.html#a630b2de039b719d35fbdf572bbc69ea0" title="Initializes a new instance of the T:MidnightBlue.StarSystemScene class. " alt="" coords="299,68,512,107"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="284,131,527,156"/>
+</map>

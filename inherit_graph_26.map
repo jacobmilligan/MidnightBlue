@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html" title="A single context for all UI elements and layouts. " alt="" coords="5,104,126,129"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_testing_1_1_test_u_i_view.html" title="MB2D.Testing.TestUIView" alt="" coords="185,5,359,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="188,55,356,80"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_menu_view.html" title="MidnightBlue.MenuView" alt="" coords="190,104,354,129"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="174,153,370,179"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="194,203,350,228"/>
+</map>

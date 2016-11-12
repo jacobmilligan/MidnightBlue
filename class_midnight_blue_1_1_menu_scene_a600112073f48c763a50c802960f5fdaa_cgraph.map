@@ -1,0 +1,10 @@
+<map id="MidnightBlue.MenuScene.Draw" name="MidnightBlue.MenuScene.Draw">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a84b1a5b2771f6c663eece04bcafd5416" title="Gets the scene located at the specific index in the stack " alt="" coords="261,104,497,129"/>
+<area shape="rect" id="node7" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a932d33071ecb4c5187367825dba72324" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="288,153,471,179"/>
+<area shape="rect" id="node8" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a1f1acf013f17aa0738ff2d9b0516126e" title="Draws the View and its elements to the window " alt="" coords="302,203,457,228"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a081b4f8866936b495bdce388a7c96c25" title="Initialize this scene and loads all resources. Runs logic to execute during the Initializing state..." alt="" coords="546,5,746,31"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a0661eff0223150fa8e9ea88145409e5d" title="Runs logic to execute while the scene is in the Pausing state. Set state to None to end..." alt="" coords="551,55,740,80"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#ad13639db22b059a1b714eefd9d927735" title="Runs logic to execute while the scene is in the Resuming state. Set state to None to end..." alt="" coords="545,104,746,129"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a099b79e16d23b67349847999d2336813" title="Runs logic to execute while the scene is in the Exiting state. Set state to Null to end..." alt="" coords="559,153,733,179"/>
+<area shape="rect" id="node9" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#afec98e6e38cb0dbc17a5db6d6a3d5ba5" title="Draws the element to the window. Overriden in derived classes " alt="" coords="558,203,734,228"/>
+</map>

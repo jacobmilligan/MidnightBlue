@@ -1,0 +1,5 @@
+<map id="MB2D.EntityComponent.EntityMap.CreateEntity" name="MB2D.EntityComponent.EntityMap.CreateEntity">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_init_scene.html#a99eee8cc5dab8d7263591aeaa50144fb" title="Registers all blueprints to the EntityMap " alt="" coords="272,5,481,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_scene.html#a630b2de039b719d35fbdf572bbc69ea0" title="Initializes a new instance of the T:MidnightBlue.StarSystemScene class. " alt="" coords="270,55,483,93"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="255,117,498,143"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="MidnightBlue.TitleView.TitleView" name="MidnightBlue.TitleView.TitleView">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a486357124c0a1bc13d1c5909f26a6e2b" title="Adds a new UIElement to the View " alt="" coords="308,5,456,31"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a521a38426d3e85caeb53b2909b623562" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="265,55,499,80"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#a4c3d52b5993c5f1d6615d0535fdd9e19" title="Sets the size of the element relative to its parent " alt="" coords="547,5,786,31"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="MidnightBlue.Engine.MBGame.Update" name="MidnightBlue.Engine.MBGame.Update">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a440c1403c5992a98a7f9fb9feb8849cc" title="Updates the scene at the top of the stack and handles any state transitions if they&#39;ve been called..." alt="" coords="273,5,468,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a94e6b48373f8dda4137ad79ecea8a40d" title="Updates any animation until no longer in an animation state. Otherwise calls ProcessInput() ..." alt="" coords="261,68,481,107"/>
+</map>

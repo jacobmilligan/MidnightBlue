@@ -1,0 +1,3 @@
+<map id="MB2D.SoundTrigger.Cut" name="MB2D.SoundTrigger.Cut">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_scene.html#aeb44afaeda2cccd225e64908bb76bee4" title="Fades the sound out when transitioning to another scene unless the next scene is the star system scen..." alt="" coords="219,5,405,44"/>
+</map>

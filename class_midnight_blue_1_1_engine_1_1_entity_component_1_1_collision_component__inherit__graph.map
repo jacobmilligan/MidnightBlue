@@ -1,0 +1,3 @@
+<map id="MidnightBlue.Engine.EntityComponent.CollisionComponent" name="MidnightBlue.Engine.EntityComponent.CollisionComponent">
+<area shape="rect" id="node2" href="$interface_midnight_blue_1_1_engine_1_1_entity_component_1_1_i_component.html" title="Tags any class as a valid component for use in the EntityMap. Derived classes should contain no logic..." alt="" coords="65,5,159,79"/>
+</map>

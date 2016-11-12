@@ -1,0 +1,7 @@
+<map id="MidnightBlue.Engine.UI.UIElement.Draw" name="MidnightBlue.Engine.UI.UIElement.Draw">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a167c98165d6ed4031b371c6a92b95a1e" title="Draws the View and its elements to the window " alt="" coords="315,93,555,119"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_u_i_test.html#a8c8604e47a7ac4ef8b8c74e82ff5cb83" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="628,5,822,44"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#a3646fcf97e067bac267d42aad66e71c4" title="Draw the game world and UI to the specified spriteBatch and uiSpriteBatch. " alt="" coords="617,68,833,93"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="603,117,847,143"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_title_scene.html#a03fa806a36226ec5fd0ce09870109c18" title="Draws the UI to the uiSpriteBatch " alt="" coords="625,167,825,192"/>
+</map>
