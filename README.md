@@ -6,7 +6,7 @@ MB2D (Midnight Blue engine for 2D) is a free and open source (MIT License) 2D ga
 
 * Complete integration with any MonoGame project, just drop the class library in and make your first scene without any extra trouble.
 	* Uses MonoGames sprite batch utility with lots of geometry extensions such as drawing a grid!
-* Complete, exhaustive documentation available ___
+* Complete, exhaustive documentation available [here](https://jacobmilligan.github.io/MidnightBlue/)
 * Entity-Component based game object system - Flexible and efficient.
 * Scene management system with transitions
 * Complete UI library with buttons, labels, list boxes etc. defined in ``Views`` that can be attached to any scene
