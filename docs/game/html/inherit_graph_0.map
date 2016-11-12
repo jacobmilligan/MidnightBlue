@@ -3,5 +3,6 @@
 <area shape="rect" id="node3" href="$class_midnight_blue_1_1_land_command.html" title="Lands the ship " alt="" coords="143,55,336,80"/>
 <area shape="rect" id="node4" href="$class_midnight_blue_1_1_launch_command.html" title="Launches the ship from a landed state " alt="" coords="136,104,344,129"/>
 <area shape="rect" id="node5" href="$class_midnight_blue_1_1_leave_star_system.html" title="MidnightBlue.LeaveStarSystem" alt="" coords="136,153,344,179"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_move_ship.html" title="Performs logic aside from movement required to execute when moving the ship such as consuming fuel..." alt="" coords="159,203,321,228"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_menu_command.html" title="MidnightBlue.MenuCommand" alt="" coords="141,203,338,228"/>
+<area shape="rect" id="node7" href="$class_midnight_blue_1_1_move_ship.html" title="Performs logic aside from movement required to execute when moving the ship such as consuming fuel..." alt="" coords="159,252,321,277"/>
 </map>

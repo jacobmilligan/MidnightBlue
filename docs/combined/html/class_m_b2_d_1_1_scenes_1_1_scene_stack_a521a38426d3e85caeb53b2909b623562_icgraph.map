@@ -1,0 +1,5 @@
+<map id="MB2D.Scenes.SceneStack.ResetTo" name="MB2D.Scenes.SceneStack.ResetTo">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_m_b_game.html#a2157be479c1831c49301cd472cc01cde" title="Allows the game to perform any initialization it needs to before starting to run. This is where it ca..." alt="" coords="308,5,478,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_init_scene.html#a99eee8cc5dab8d7263591aeaa50144fb" title="Registers all blueprints to the EntityMap " alt="" coords="288,55,498,80"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_title_view.html#ae4322373616e1100eda699d87ee63ff7" title="Initializes a new instance of the T:MidnightBlue.TitleView class. " alt="" coords="287,104,499,129"/>
+</map>

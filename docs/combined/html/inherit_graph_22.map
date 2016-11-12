@@ -1,7 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html" title="A single context for all UI elements and layouts. " alt="" coords="5,93,212,119"/>
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_test_u_i_view.html" title="MidnightBlue.Engine.Testing.\lTestUIView" alt="" coords="261,5,454,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="273,68,441,93"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="260,117,455,143"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="280,167,435,192"/>
+<area shape="rect" id="node1" href="$class_m_b2_d_1_1_tile.html" title="Represents a single tile in a tile map. " alt="" coords="5,5,88,31"/>
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet_tile.html" title="A tile type used in planet tilemaps " alt="" coords="136,5,297,31"/>
 </map>

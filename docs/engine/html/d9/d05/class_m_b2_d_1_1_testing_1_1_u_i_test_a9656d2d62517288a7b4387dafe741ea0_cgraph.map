@@ -1,0 +1,4 @@
+<map id="MB2D.Testing.UITest.Draw" name="MB2D.Testing.UITest.Draw">
+<area shape="rect" id="node2" href="$dd/d81/class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a1f1acf013f17aa0738ff2d9b0516126e" title="Draws the View and its elements to the window " alt="" coords="234,5,389,31"/>
+<area shape="rect" id="node3" href="$d5/dac/class_m_b2_d_1_1_u_i_1_1_u_i_element.html#afec98e6e38cb0dbc17a5db6d6a3d5ba5" title="Draws the element to the window. Overriden in derived classes " alt="" coords="437,5,613,31"/>
+</map>

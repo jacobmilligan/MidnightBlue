@@ -1,5 +1,5 @@
 <map id="MidnightBlue.GalaxyScene.Update" name="MidnightBlue.GalaxyScene.Update">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#aba1d6f02ef75ed1a595f448acef47915" title="Updates and handles input for all elements in the View. " alt="" coords="243,5,452,44"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_hud.html#aea2d04b212188a2e729ea327b7da0449" title="Refreshed the HUD with the specified inventory values. " alt="" coords="238,68,457,93"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element.html#a5b2bff6eed644fc33bc3e1ffaa8bfc70" title="Update the elements state and handles input. Overriden in derived classes " alt="" coords="505,5,735,44"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a5628b6cd853a0f419eb8ac62958f62bb" title="Updates and handles input for all elements in the View. " alt="" coords="264,5,431,31"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_hud.html#aea2d04b212188a2e729ea327b7da0449" title="Refreshed the HUD with the specified inventory values. " alt="" coords="238,55,457,80"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#aa97bcbe44f3fac8a13e2febca23b2d4d" title="Update the elements state and handles input. Overriden in derived classes " alt="" coords="505,5,693,31"/>
 </map>

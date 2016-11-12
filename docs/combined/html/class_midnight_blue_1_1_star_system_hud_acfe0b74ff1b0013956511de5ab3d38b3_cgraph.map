@@ -1,4 +1,4 @@
 <map id="MidnightBlue.StarSystemHud.StarSystemHud" name="MidnightBlue.StarSystemHud.StarSystemHud">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a46705046c44aec1a6ca1d99a2d39194d" title="Adds a new UIElement to the View " alt="" coords="253,12,486,37"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element.html#ae111ac1d2f348f78f689a7619ac47853" title="Sets the size of the element relative to its parent " alt="" coords="534,5,764,44"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a486357124c0a1bc13d1c5909f26a6e2b" title="Adds a new UIElement to the View " alt="" coords="253,12,400,37"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#a4c3d52b5993c5f1d6615d0535fdd9e19" title="Sets the size of the element relative to its parent " alt="" coords="448,12,688,37"/>
 </map>

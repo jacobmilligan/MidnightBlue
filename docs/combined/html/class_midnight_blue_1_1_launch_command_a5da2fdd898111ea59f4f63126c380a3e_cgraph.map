@@ -1,5 +1,5 @@
 <map id="MidnightBlue.LaunchCommand.OnKeyPress" name="MidnightBlue.LaunchCommand.OnKeyPress">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#a03dd4fbb29f2a0be51589726304725df" title="Attaches a new component to the entity. " alt="" coords="264,37,445,76"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#ae719ec7cdc2b4311590ca22674d47bf0" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="493,5,758,44"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#abecc0cc62b145f8d44661b56e06fb06e" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="500,68,751,107"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_entity.html#aa86d1be62df6d89b981d1000c856a306" title="Attaches a new component to the entity. " alt="" coords="264,37,469,76"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a968ce46cbba14cdc7814dd308f133949" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="517,5,718,44"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="517,68,718,107"/>
 </map>

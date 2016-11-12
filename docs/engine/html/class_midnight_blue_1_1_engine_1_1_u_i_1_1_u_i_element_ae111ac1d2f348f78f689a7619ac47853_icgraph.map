@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.UI.UIElement.SetRelativeSize" name="MidnightBlue.Engine.UI.UIElement.SetRelativeSize">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_layout.html#afa3293d67ab980b6b19501fa965ae38f" title="Adds a new UIElement to the layout, setting its size relative to this layouts cell size ..." alt="" coords="284,5,516,31"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a46705046c44aec1a6ca1d99a2d39194d" title="Adds a new UIElement to the View " alt="" coords="284,55,517,80"/>
-</map>

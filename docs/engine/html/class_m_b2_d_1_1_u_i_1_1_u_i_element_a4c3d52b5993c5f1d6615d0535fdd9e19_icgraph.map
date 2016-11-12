@@ -1,0 +1,4 @@
+<map id="MB2D.UI.UIElement.SetRelativeSize" name="MB2D.UI.UIElement.SetRelativeSize">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_layout.html#aef7a54a9b1c195a99cdd83d1d526ddd4" title="Adds a new UIElement to the layout, setting its size relative to this layouts cell size ..." alt="" coords="293,5,440,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a486357124c0a1bc13d1c5909f26a6e2b" title="Adds a new UIElement to the View " alt="" coords="293,55,440,80"/>
+</map>

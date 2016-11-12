@@ -1,9 +1,9 @@
-\hypertarget{namespace_midnight_blue}{}\section{Midnight\+Blue Namespace Reference}
+\hypertarget{namespace_midnight_blue}{}\subsection{Midnight\+Blue Namespace Reference}
 \label{namespace_midnight_blue}\index{Midnight\+Blue@{Midnight\+Blue}}
-\subsection*{Namespaces}
+\subsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \end{DoxyCompactItemize}
-\subsection*{Classes}
+\subsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class {\bfseries Ecosystem\+Tool}
@@ -20,6 +20,8 @@ class \hyperlink{class_midnight_blue_1_1_galaxy_render_system}{Galaxy\+Render\+S
 \begin{DoxyCompactList}\small\item\em Renders all information into the main H\+UD\textquotesingle{}s list box on the hovered star system. Also displays the name of all the star systems planets. \end{DoxyCompactList}\item 
 class \hyperlink{class_midnight_blue_1_1_galaxy_scene}{Galaxy\+Scene}
 \begin{DoxyCompactList}\small\item\em The scene displayed at the galaxy view -\/ handles the control over all systems, loading, and content management for the scene. \end{DoxyCompactList}\item 
+class \hyperlink{class_midnight_blue_1_1_init_scene}{Init\+Scene}
+\begin{DoxyCompactList}\small\item\em The scene shown at the title screen. \end{DoxyCompactList}\item 
 class \hyperlink{class_midnight_blue_1_1_land_command}{Land\+Command}
 \begin{DoxyCompactList}\small\item\em Lands the ship \end{DoxyCompactList}\item 
 class \hyperlink{class_midnight_blue_1_1_launch_command}{Launch\+Command}
@@ -28,6 +30,12 @@ class \hyperlink{class_midnight_blue_1_1_leave_star_system}{Leave\+Star\+System}
 \item 
 class \hyperlink{class_midnight_blue_1_1_length}{Length}
 \begin{DoxyCompactList}\small\item\em Defines a measurement of length in meters able to be converted to other measurements. \end{DoxyCompactList}\item 
+class \hyperlink{class_midnight_blue_1_1_menu_command}{Menu\+Command}
+\item 
+class \hyperlink{class_midnight_blue_1_1_menu_scene}{Menu\+Scene}
+\item 
+class \hyperlink{class_midnight_blue_1_1_menu_view}{Menu\+View}
+\item 
 class \hyperlink{class_midnight_blue_1_1_move_ship}{Move\+Ship}
 \begin{DoxyCompactList}\small\item\em Performs logic aside from movement required to execute when moving the ship such as consuming fuel. \end{DoxyCompactList}\item 
 class \hyperlink{class_midnight_blue_1_1_noise_map}{Noise\+Map}
@@ -58,7 +66,7 @@ class \hyperlink{class_midnight_blue_1_1_title_view}{Title\+View}
 \begin{DoxyCompactList}\small\item\em The title screens UI view \end{DoxyCompactList}\item 
 class {\bfseries U\+I\+Colors}
 \begin{DoxyCompactList}\small\item\em The main color scheme for the UI \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Enumerations}
+\subsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \hyperlink{namespace_midnight_blue_a46fd3250d826e0dec67892328d5b368c}{Ship\+State} \{ \newline
@@ -135,11 +143,11 @@ enum \hyperlink{namespace_midnight_blue_a4a799009a18b57979628708589ae53e3}{Plane
 \end{DoxyCompactItemize}
 
 
-\subsection{Enumeration Type Documentation}
+\subsubsection{Enumeration Type Documentation}
 \hypertarget{namespace_midnight_blue_a8a6ba5637b64c3eb991f00d48decf381}{}\label{namespace_midnight_blue_a8a6ba5637b64c3eb991f00d48decf381} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Biome@{Biome}}
 \index{Biome@{Biome}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Biome}{Biome}}
+\paragraph{\texorpdfstring{Biome}{Biome}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a8a6ba5637b64c3eb991f00d48decf381}{Midnight\+Blue.\+Biome}\hspace{0.3cm}{\ttfamily [strong]}}
 
 
@@ -215,7 +223,7 @@ Ice&Ice biome -\/ mostly present in inhospitable cold planets. \\
 \hypertarget{namespace_midnight_blue_a86f8aaa0bbb651a6a094d3eb95f799e0}{}\label{namespace_midnight_blue_a86f8aaa0bbb651a6a094d3eb95f799e0} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Height\+Level@{Height\+Level}}
 \index{Height\+Level@{Height\+Level}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Height\+Level}{HeightLevel}}
+\paragraph{\texorpdfstring{Height\+Level}{HeightLevel}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a86f8aaa0bbb651a6a094d3eb95f799e0}{Midnight\+Blue.\+Height\+Level}\hspace{0.3cm}{\ttfamily [strong]}}
 
 
@@ -251,7 +259,7 @@ Snow&Heighest level of elevation, super cold and only mountaineous biomes. \\
 \hypertarget{namespace_midnight_blue_a7428767e7fc0b52bab6cb270f8354e1d}{}\label{namespace_midnight_blue_a7428767e7fc0b52bab6cb270f8354e1d} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Moisture\+Level@{Moisture\+Level}}
 \index{Moisture\+Level@{Moisture\+Level}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Moisture\+Level}{MoistureLevel}}
+\paragraph{\texorpdfstring{Moisture\+Level}{MoistureLevel}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a7428767e7fc0b52bab6cb270f8354e1d}{Midnight\+Blue.\+Moisture\+Level}\hspace{0.3cm}{\ttfamily [strong]}}
 
 
@@ -261,7 +269,7 @@ Represents moisture categories for biomes used in generation.
 \hypertarget{namespace_midnight_blue_a4a799009a18b57979628708589ae53e3}{}\label{namespace_midnight_blue_a4a799009a18b57979628708589ae53e3} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Planet\+Type@{Planet\+Type}}
 \index{Planet\+Type@{Planet\+Type}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Planet\+Type}{PlanetType}}
+\paragraph{\texorpdfstring{Planet\+Type}{PlanetType}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a4a799009a18b57979628708589ae53e3}{Midnight\+Blue.\+Planet\+Type}\hspace{0.3cm}{\ttfamily [strong]}}
 
 
@@ -271,7 +279,7 @@ Represents moisture categories for biomes used in generation.
 \hypertarget{namespace_midnight_blue_a46fd3250d826e0dec67892328d5b368c}{}\label{namespace_midnight_blue_a46fd3250d826e0dec67892328d5b368c} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Ship\+State@{Ship\+State}}
 \index{Ship\+State@{Ship\+State}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Ship\+State}{ShipState}}
+\paragraph{\texorpdfstring{Ship\+State}{ShipState}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a46fd3250d826e0dec67892328d5b368c}{Midnight\+Blue.\+Ship\+State}\hspace{0.3cm}{\ttfamily [strong]}}
 
 
@@ -281,7 +289,7 @@ Represents the current travelling state of the ship
 \hypertarget{namespace_midnight_blue_a6ea6484178cbe707f25d1a0ed56db7ab}{}\label{namespace_midnight_blue_a6ea6484178cbe707f25d1a0ed56db7ab} 
 \index{Midnight\+Blue@{Midnight\+Blue}!Temperature\+Level@{Temperature\+Level}}
 \index{Temperature\+Level@{Temperature\+Level}!Midnight\+Blue@{Midnight\+Blue}}
-\subsubsection{\texorpdfstring{Temperature\+Level}{TemperatureLevel}}
+\paragraph{\texorpdfstring{Temperature\+Level}{TemperatureLevel}}
 {\footnotesize\ttfamily enum \hyperlink{namespace_midnight_blue_a6ea6484178cbe707f25d1a0ed56db7ab}{Midnight\+Blue.\+Temperature\+Level}\hspace{0.3cm}{\ttfamily [strong]}}
 
 

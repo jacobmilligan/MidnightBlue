@@ -76,21 +76,17 @@ $(function() {
 Inheritance diagram for MidnightBlue.GalaxyScene:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_midnight_blue_1_1_galaxy_scene__inherit__graph.png" border="0" usemap="#_midnight_blue_8_galaxy_scene_inherit__map" alt="Inheritance graph"/></div>
-<map name="_midnight_blue_8_galaxy_scene_inherit__map" id="_midnight_blue_8_galaxy_scene_inherit__map">
-</map>
 </div>
 <div class="dynheader">
 Collaboration diagram for MidnightBlue.GalaxyScene:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_midnight_blue_1_1_galaxy_scene__coll__graph.png" border="0" usemap="#_midnight_blue_8_galaxy_scene_coll__map" alt="Collaboration graph"/></div>
-<map name="_midnight_blue_8_galaxy_scene_coll__map" id="_midnight_blue_8_galaxy_scene_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acdd82e3464ea18ca77bcf4694e9803a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midnight_blue_1_1_galaxy_scene.html#acdd82e3464ea18ca77bcf4694e9803a5">GalaxyScene</a> (EntityMap map, ContentManager content)</td></tr>
-<tr class="memdesc:acdd82e3464ea18ca77bcf4694e9803a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the T:MidnightBlue.Engine.GalaxyScene class. Loads all resources and sets up the galaxy for generation.  <a href="#acdd82e3464ea18ca77bcf4694e9803a5">More...</a><br /></td></tr>
+<tr class="memdesc:acdd82e3464ea18ca77bcf4694e9803a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the T:MB2D.GalaxyScene class. Loads all resources and sets up the galaxy for generation.  <a href="#acdd82e3464ea18ca77bcf4694e9803a5">More...</a><br /></td></tr>
 <tr class="separator:acdd82e3464ea18ca77bcf4694e9803a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97d97e56a73d9a4b7caf6dd6ce86647e"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midnight_blue_1_1_galaxy_scene.html#a97d97e56a73d9a4b7caf6dd6ce86647e">Initialize</a> ()</td></tr>
 <tr class="memdesc:a97d97e56a73d9a4b7caf6dd6ce86647e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the galaxy generation and background music - sets up the players ship and the collision bounds.  <a href="#a97d97e56a73d9a4b7caf6dd6ce86647e">More...</a><br /></td></tr>
@@ -108,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7a96978e050da997330bcc0f3cd00f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exit this scene instantly.  <a href="#a7a96978e050da997330bcc0f3cd00f9e">More...</a><br /></td></tr>
 <tr class="separator:a7a96978e050da997330bcc0f3cd00f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb44afaeda2cccd225e64908bb76bee4"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midnight_blue_1_1_galaxy_scene.html#aeb44afaeda2cccd225e64908bb76bee4">Pause</a> ()</td></tr>
-<tr class="memdesc:aeb44afaeda2cccd225e64908bb76bee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades the sound out when transitioning to another scene.  <a href="#aeb44afaeda2cccd225e64908bb76bee4">More...</a><br /></td></tr>
+<tr class="memdesc:aeb44afaeda2cccd225e64908bb76bee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades the sound out when transitioning to another scene unless the next scene is the star system scene.  <a href="#aeb44afaeda2cccd225e64908bb76bee4">More...</a><br /></td></tr>
 <tr class="separator:aeb44afaeda2cccd225e64908bb76bee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab641e6727cdb64dc6487e9a229521692"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_midnight_blue_1_1_galaxy_scene.html#ab641e6727cdb64dc6487e9a229521692">Resume</a> ()</td></tr>
 <tr class="memdesc:ab641e6727cdb64dc6487e9a229521692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache.  <a href="#ab641e6727cdb64dc6487e9a229521692">More...</a><br /></td></tr>
@@ -151,7 +147,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes a new instance of the T:MidnightBlue.Engine.GalaxyScene class. Loads all resources and sets up the galaxy for generation. </p>
+<p>Initializes a new instance of the T:MB2D.GalaxyScene class. Loads all resources and sets up the galaxy for generation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td>Game objects to use.</td></tr>
@@ -312,7 +308,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fades the sound out when transitioning to another scene. </p>
+<p>Fades the sound out when transitioning to another scene unless the next scene is the star system scene. </p>
 
 </div>
 </div>

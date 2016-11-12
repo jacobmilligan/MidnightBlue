@@ -1,5 +1,5 @@
 <map id="MidnightBlue.TitleView.TitleView" name="MidnightBlue.TitleView.TitleView">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a46705046c44aec1a6ca1d99a2d39194d" title="Adds a new UIElement to the View " alt="" coords="265,12,498,37"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a8bddd32efa3f6133aa3899a164160431" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="284,61,479,100"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element.html#ae111ac1d2f348f78f689a7619ac47853" title="Sets the size of the element relative to its parent " alt="" coords="546,5,777,44"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a486357124c0a1bc13d1c5909f26a6e2b" title="Adds a new UIElement to the View " alt="" coords="308,5,456,31"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a521a38426d3e85caeb53b2909b623562" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="265,55,499,80"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#a4c3d52b5993c5f1d6615d0535fdd9e19" title="Sets the size of the element relative to its parent " alt="" coords="547,5,786,31"/>
 </map>

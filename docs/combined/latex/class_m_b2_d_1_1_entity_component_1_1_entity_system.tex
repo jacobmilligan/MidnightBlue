@@ -1,0 +1,315 @@
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system}{}\section{M\+B2\+D.\+Entity\+Component.\+Entity\+System Class Reference}
+\label{class_m_b2_d_1_1_entity_component_1_1_entity_system}\index{M\+B2\+D.\+Entity\+Component.\+Entity\+System@{M\+B2\+D.\+Entity\+Component.\+Entity\+System}}
+
+
+Performs logic on an entity.  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+Entity\+Component.\+Entity\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_entity_component_1_1_entity_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+Entity\+Component.\+Entity\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{class_m_b2_d_1_1_entity_component_1_1_entity_system__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abc7175246313b23db881d09da586428a}{Entity\+System} (params Type\mbox{[}$\,$\mbox{]} components)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+System class. Checks if the passed in types are valid components and if not, all components are deregistered leaving a system that knows about nothing and can\textquotesingle{}t operate on any entities. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a3a1a74c4d3f8f0f452e0cdaa5515face}{Run} ()
+\begin{DoxyCompactList}\small\item\em Runs this systems \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{Process()} method on all entities \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_aaf18ceb985015ddbff4a361a3b1de5bb}{Associate\+Entity} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Associates a new entity with this system. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a6fa9406e1f4a0ca8ddf21cf04be3abe3}{Remove\+Association} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Decouples an association with this system \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a75552787342e68c427bf2e1ffa60ed6c}{Processing\+Loop} ()
+\begin{DoxyCompactList}\small\item\em Executes \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{Process()} on all Associated\+Entities. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a86f27e2e12da562903092d5afb9dd70d}{Destroy} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Adds the specific entity to the destroy list to be cleaned up the next time a system is run \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_aadc002dd04d9cb75775ca955a28e303e}{Pre\+Process} ()
+\begin{DoxyCompactList}\small\item\em Used to setup any data needed before processing all entities, such as sorting a list ahead of time \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_aa215c796a01092b66eb70c5726dfac75}{Post\+Process} ()
+\begin{DoxyCompactList}\small\item\em Used to cleanup or execute any teardown logic needed \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_ae8d1330e220d3ae7c8f6640c5d4aacd0}{Post\+Associate} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Used to define any logic or extra data needed after an entity is associated with the system. \end{DoxyCompactList}\item 
+abstract void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{Process} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Executes this systems logic on a single entity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ ulong, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a7415c4bff1132bb4dadcc1a072c663da}{\+\_\+id\+Entity\+Map}
+\begin{DoxyCompactList}\small\item\em All G\+U\+ID\textquotesingle{}s of entities this system knows about \end{DoxyCompactList}\item 
+Entity\+Association \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1e5512e27d2cf3f40dcf8f39975ca1d7}{\+\_\+association\+Type}
+\begin{DoxyCompactList}\small\item\em Defines if this system should be Loose or Strict \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1c442059af272594b0485832c9f44e94}{Associated\+Entities}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the associated entities list. \end{DoxyCompactList}\item 
+List$<$ Type $>$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_ad78a75cc9b9bd5a4250ea725dbde3300}{Valid\+Components}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the list of components this system is interested in \end{DoxyCompactList}\item 
+ulong \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a33c31c8fda2901b2bebd71caf39c0d23}{ID}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets this systems ID mask \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_a9da3b207e098aa5fcc6ceb2aa3d247d8}{Destroy\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the destroy list. \end{DoxyCompactList}\item 
+Entity\+Association \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_af68858392489a7aab3c91122ab48865f}{Association}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the systems association level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Performs logic on an entity. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_abc7175246313b23db881d09da586428a}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_abc7175246313b23db881d09da586428a} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Entity\+System@{Entity\+System}}
+\index{Entity\+System@{Entity\+System}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Entity\+System()}{EntitySystem()}}
+{\footnotesize\ttfamily M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Entity\+System (\begin{DoxyParamCaption}\item[{params Type \mbox{[}$\,$\mbox{]}}]{components }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+System class. Checks if the passed in types are valid components and if not, all components are deregistered leaving a system that knows about nothing and can\textquotesingle{}t operate on any entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em components} & Components this system is interested in\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_aaf18ceb985015ddbff4a361a3b1de5bb}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_aaf18ceb985015ddbff4a361a3b1de5bb} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Associate\+Entity@{Associate\+Entity}}
+\index{Associate\+Entity@{Associate\+Entity}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Associate\+Entity()}{AssociateEntity()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Associate\+Entity (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Associates a new entity with this system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to associate\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a86f27e2e12da562903092d5afb9dd70d}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a86f27e2e12da562903092d5afb9dd70d} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Destroy (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Adds the specific entity to the destroy list to be cleaned up the next time a system is run 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to destroy.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_ae8d1330e220d3ae7c8f6640c5d4aacd0}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_ae8d1330e220d3ae7c8f6640c5d4aacd0} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Post\+Associate@{Post\+Associate}}
+\index{Post\+Associate@{Post\+Associate}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Post\+Associate()}{PostAssociate()}}
+{\footnotesize\ttfamily virtual void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Post\+Associate (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Used to define any logic or extra data needed after an entity is associated with the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_aa215c796a01092b66eb70c5726dfac75}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_aa215c796a01092b66eb70c5726dfac75} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Post\+Process@{Post\+Process}}
+\index{Post\+Process@{Post\+Process}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Post\+Process()}{PostProcess()}}
+{\footnotesize\ttfamily virtual void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Post\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Used to cleanup or execute any teardown logic needed 
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_aadc002dd04d9cb75775ca955a28e303e}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_aadc002dd04d9cb75775ca955a28e303e} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Pre\+Process@{Pre\+Process}}
+\index{Pre\+Process@{Pre\+Process}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Pre\+Process()}{PreProcess()}}
+{\footnotesize\ttfamily virtual void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Pre\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Used to setup any data needed before processing all entities, such as sorting a list ahead of time 
+
+
+
+Reimplemented in \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_system_ad591227767c8b6c66ca3891de04e9050}{M\+B2\+D.\+Entity\+Component.\+Collision\+System}, \hyperlink{class_midnight_blue_1_1_galaxy_render_system_a269f042fe0c55e47f3b23cc1930ed71a}{Midnight\+Blue.\+Galaxy\+Render\+System}, and \hyperlink{class_m_b2_d_1_1_entity_component_1_1_render_system_aadd36efe73a5f8cc489894232a5fc201}{M\+B2\+D.\+Entity\+Component.\+Render\+System}.
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Process@{Process}}
+\index{Process@{Process}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Process()}{Process()}}
+{\footnotesize\ttfamily abstract void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Process (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Executes this systems logic on a single entity 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to operate on\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_system_adfbee070ed7b120565a5f8a08c159535}{M\+B2\+D.\+Entity\+Component.\+Collision\+System}, \hyperlink{class_midnight_blue_1_1_galaxy_render_system_aabbf61a4bcfb7c026d2d0c9fbe90569f}{Midnight\+Blue.\+Galaxy\+Render\+System}, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_render_system_a015ba5b16cc227c7a5a16fcc1ffa73b7}{M\+B2\+D.\+Entity\+Component.\+Render\+System}, \hyperlink{class_m_b2_d_1_1_testing_1_1_test_system2_a0fbdd06fd0de796cfec32b7e025f73fe}{M\+B2\+D.\+Testing.\+Test\+System2}, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_physics_system_ab8398d3b16f49e684f55649877f645c0}{M\+B2\+D.\+Entity\+Component.\+Physics\+System}, \hyperlink{class_m_b2_d_1_1_testing_1_1_test_system_a35d160e6e7e8ffb8f1a6cf403b00ef40}{M\+B2\+D.\+Testing.\+Test\+System}, \hyperlink{class_midnight_blue_1_1_ship_input_system_ac504beb5b6afa47ca4618d9683e46946}{Midnight\+Blue.\+Ship\+Input\+System}, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_input_system_afa241f5c32788fc65587e0443f7217b3}{M\+B2\+D.\+Entity\+Component.\+Input\+System}, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_movement_system_afa730fd9080848ce877206c00a744cdf}{M\+B2\+D.\+Entity\+Component.\+Movement\+System}, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_depth_system_a738556bdf819c9c0d4082a323a502c58}{M\+B2\+D.\+Entity\+Component.\+Depth\+System}, and \hyperlink{class_m_b2_d_1_1_testing_1_1_collision_render_system_af7b7ffdb316533a084e98cbea97a096f}{M\+B2\+D.\+Testing.\+Collision\+Render\+System}.
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a75552787342e68c427bf2e1ffa60ed6c}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a75552787342e68c427bf2e1ffa60ed6c} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Processing\+Loop@{Processing\+Loop}}
+\index{Processing\+Loop@{Processing\+Loop}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Processing\+Loop()}{ProcessingLoop()}}
+{\footnotesize\ttfamily virtual void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Processing\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Executes \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{Process()} on all Associated\+Entities. 
+
+
+
+Reimplemented in \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_system_a06249adc606475cdc35f28783a1b27c4}{M\+B2\+D.\+Entity\+Component.\+Collision\+System}.
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a6fa9406e1f4a0ca8ddf21cf04be3abe3}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a6fa9406e1f4a0ca8ddf21cf04be3abe3} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Remove\+Association@{Remove\+Association}}
+\index{Remove\+Association@{Remove\+Association}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Remove\+Association()}{RemoveAssociation()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Remove\+Association (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Decouples an association with this system 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to decouple.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a3a1a74c4d3f8f0f452e0cdaa5515face}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a3a1a74c4d3f8f0f452e0cdaa5515face} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Run@{Run}}
+\index{Run@{Run}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Runs this systems \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system_abbf83b87cb5d12754fb058cef50451fa}{Process()} method on all entities 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_entity_component_1_1_entity_system_a3a1a74c4d3f8f0f452e0cdaa5515face_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1e5512e27d2cf3f40dcf8f39975ca1d7}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1e5512e27d2cf3f40dcf8f39975ca1d7} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!\+\_\+association\+Type@{\+\_\+association\+Type}}
+\index{\+\_\+association\+Type@{\+\_\+association\+Type}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{\+\_\+association\+Type}{\_associationType}}
+{\footnotesize\ttfamily Entity\+Association M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+\_\+association\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Defines if this system should be Loose or Strict 
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a7415c4bff1132bb4dadcc1a072c663da}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a7415c4bff1132bb4dadcc1a072c663da} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!\+\_\+id\+Entity\+Map@{\+\_\+id\+Entity\+Map}}
+\index{\+\_\+id\+Entity\+Map@{\+\_\+id\+Entity\+Map}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{\+\_\+id\+Entity\+Map}{\_idEntityMap}}
+{\footnotesize\ttfamily Dictionary$<$ulong, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}$>$ M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+\_\+id\+Entity\+Map\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+All G\+U\+ID\textquotesingle{}s of entities this system knows about 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1c442059af272594b0485832c9f44e94}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a1c442059af272594b0485832c9f44e94} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Associated\+Entities@{Associated\+Entities}}
+\index{Associated\+Entities@{Associated\+Entities}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Associated\+Entities}{AssociatedEntities}}
+{\footnotesize\ttfamily List$<$\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}$>$ M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Associated\+Entities\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the associated entities list. 
+
+The associated entities.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_af68858392489a7aab3c91122ab48865f}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_af68858392489a7aab3c91122ab48865f} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Association@{Association}}
+\index{Association@{Association}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Association}{Association}}
+{\footnotesize\ttfamily Entity\+Association M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Association\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the systems association level. 
+
+The association level.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a9da3b207e098aa5fcc6ceb2aa3d247d8}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a9da3b207e098aa5fcc6ceb2aa3d247d8} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Destroy\+List@{Destroy\+List}}
+\index{Destroy\+List@{Destroy\+List}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Destroy\+List}{DestroyList}}
+{\footnotesize\ttfamily List$<$\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}$>$ M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Destroy\+List\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the destroy list. 
+
+The destroy list.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_a33c31c8fda2901b2bebd71caf39c0d23}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_a33c31c8fda2901b2bebd71caf39c0d23} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!ID@{ID}}
+\index{ID@{ID}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily ulong M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+ID\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets this systems ID mask 
+
+The identifier mask.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_system_ad78a75cc9b9bd5a4250ea725dbde3300}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_system_ad78a75cc9b9bd5a4250ea725dbde3300} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}!Valid\+Components@{Valid\+Components}}
+\index{Valid\+Components@{Valid\+Components}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+System}}
+\subsubsection{\texorpdfstring{Valid\+Components}{ValidComponents}}
+{\footnotesize\ttfamily List$<$Type$>$ M\+B2\+D.\+Entity\+Component.\+Entity\+System.\+Valid\+Components\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of components this system is interested in 
+
+The valid components.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Entity\+Component/Entity\+System.\+cs\end{DoxyCompactItemize}

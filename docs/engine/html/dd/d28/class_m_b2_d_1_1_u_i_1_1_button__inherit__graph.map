@@ -1,0 +1,4 @@
+<map id="MB2D.UI.Button" name="MB2D.UI.Button">
+<area shape="rect" id="node2" href="$df/dec/class_m_b2_d_1_1_u_i_1_1_u_i_control_element.html" title="An interactive and controllable UIElement " alt="" coords="5,327,161,533"/>
+<area shape="rect" id="node3" href="$d5/dac/class_m_b2_d_1_1_u_i_1_1_u_i_element.html" title="Defines a UI object that can be contained within Views and Layouts, drawn, updated, and moved about " alt="" coords="15,5,151,279"/>
+</map>

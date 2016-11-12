@@ -1,0 +1,137 @@
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell}{}\subsection{M\+B2\+D.\+Collision.\+Collision\+Cell Class Reference}
+\label{class_m_b2_d_1_1_collision_1_1_collision_cell}\index{M\+B2\+D.\+Collision.\+Collision\+Cell@{M\+B2\+D.\+Collision.\+Collision\+Cell}}
+
+
+A cell used in a collision map to hold a linked list of all its contained entities  
+
+
+
+
+Collaboration diagram for M\+B2\+D.\+Collision.\+Collision\+Cell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_m_b2_d_1_1_collision_1_1_collision_cell__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_a2eefdbb1f60eb35c38c45b4a0f4d939d}{Collision\+Cell} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Collision.\+Collision\+Cell class. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_a4fc338d7dbfd7418f5493424c5937213}{Add} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Adds an entity to the cell \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_a064f540f907885b4224119308cbf1761}{Remove} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Removes a specific entity from the cell \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_aa4be244387541ee24d88da80331b3438}{Contains} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Checks if the entity is inside the cell already \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_ae4ff144f6c768003d8be46e17e130646}{Clear} ()
+\begin{DoxyCompactList}\small\item\em Clear the cell of all entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Linked\+List$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_cell_ab893dad8ce4d09c5ab38a5da93145755}{Items}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the list of this cells entities \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+A cell used in a collision map to hold a linked list of all its contained entities 
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_a2eefdbb1f60eb35c38c45b4a0f4d939d}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_a2eefdbb1f60eb35c38c45b4a0f4d939d} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Collision\+Cell@{Collision\+Cell}}
+\index{Collision\+Cell@{Collision\+Cell}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Collision\+Cell()}{CollisionCell()}}
+{\footnotesize\ttfamily M\+B2\+D.\+Collision.\+Collision\+Cell.\+Collision\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Collision.\+Collision\+Cell class. 
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_a4fc338d7dbfd7418f5493424c5937213}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_a4fc338d7dbfd7418f5493424c5937213} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Add@{Add}}
+\index{Add@{Add}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Cell.\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an entity to the cell 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to add.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_collision_1_1_collision_cell_a4fc338d7dbfd7418f5493424c5937213_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_ae4ff144f6c768003d8be46e17e130646}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_ae4ff144f6c768003d8be46e17e130646} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Clear@{Clear}}
+\index{Clear@{Clear}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Cell.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clear the cell of all entities. 
+
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_aa4be244387541ee24d88da80331b3438}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_aa4be244387541ee24d88da80331b3438} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Contains@{Contains}}
+\index{Contains@{Contains}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Contains()}{Contains()}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+Collision.\+Collision\+Cell.\+Contains (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the entity is inside the cell already 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_a064f540f907885b4224119308cbf1761}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_a064f540f907885b4224119308cbf1761} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Remove@{Remove}}
+\index{Remove@{Remove}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Cell.\+Remove (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a specific entity from the cell 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to remove.\\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_cell_ab893dad8ce4d09c5ab38a5da93145755}{}\label{class_m_b2_d_1_1_collision_1_1_collision_cell_ab893dad8ce4d09c5ab38a5da93145755} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}!Items@{Items}}
+\index{Items@{Items}!M\+B2\+D\+::\+Collision\+::\+Collision\+Cell@{M\+B2\+D\+::\+Collision\+::\+Collision\+Cell}}
+\paragraph{\texorpdfstring{Items}{Items}}
+{\footnotesize\ttfamily Linked\+List$<$\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}$>$ M\+B2\+D.\+Collision.\+Collision\+Cell.\+Items\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the list of this cells entities 
+
+The entities.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Collision/Collision\+Cell.\+cs\end{DoxyCompactItemize}

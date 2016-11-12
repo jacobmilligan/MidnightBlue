@@ -1,0 +1,7 @@
+<map id="MB2D.UI.UIElement.SetRelativeSize" name="MB2D.UI.UIElement.SetRelativeSize">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_layout.html#aef7a54a9b1c195a99cdd83d1d526ddd4" title="Adds a new UIElement to the layout, setting its size relative to this layouts cell size ..." alt="" coords="293,12,440,37"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a486357124c0a1bc13d1c5909f26a6e2b" title="Adds a new UIElement to the View " alt="" coords="293,61,440,87"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_hud.html#a6f15257e5bc5bbc67cac3888f075ea29" title="Initializes a new instance of the T:MB2D.GalaxyHud class. " alt="" coords="488,5,726,31"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_hud.html#acfe0b74ff1b0013956511de5ab3d38b3" title="Initializes a new instance of the T:MidnightBlue.StarSystemHud class. " alt="" coords="508,55,707,93"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_title_view.html#ae4322373616e1100eda699d87ee63ff7" title="Initializes a new instance of the T:MidnightBlue.TitleView class. " alt="" coords="501,117,713,143"/>
+</map>

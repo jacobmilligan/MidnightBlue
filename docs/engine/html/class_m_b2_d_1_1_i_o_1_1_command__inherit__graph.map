@@ -1,0 +1,11 @@
+<map id="MB2D.IO.Command" name="MB2D.IO.Command">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_i_o_1_1_console_command.html" title="Shows or hides the debug console " alt="" coords="5,180,196,267"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_i_o_1_1_move_backward.html" title="Moves an entity backward. Only runs on entities with a physics component " alt="" coords="219,180,390,267"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_i_o_1_1_move_down.html" title="Moves an entity down " alt="" coords="414,180,560,267"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_i_o_1_1_move_forward.html" title="Moves an entity forward. Only runs on entities with a physics component " alt="" coords="584,180,745,267"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_i_o_1_1_move_left.html" title="Moves an entity left. " alt="" coords="769,180,904,267"/>
+<area shape="rect" id="node7" href="$class_m_b2_d_1_1_i_o_1_1_move_right.html" title="Moves an entity right " alt="" coords="927,180,1071,267"/>
+<area shape="rect" id="node8" href="$class_m_b2_d_1_1_i_o_1_1_move_up.html" title="Moves a player controller up " alt="" coords="1094,180,1224,267"/>
+<area shape="rect" id="node9" href="$class_m_b2_d_1_1_i_o_1_1_rotate_left.html" title="Rotates an entity left " alt="" coords="1248,180,1390,267"/>
+<area shape="rect" id="node10" href="$class_m_b2_d_1_1_i_o_1_1_rotate_right.html" title="Rotates an entity right " alt="" coords="1413,180,1564,267"/>
+</map>

@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.Testing.UITest.Update" name="MidnightBlue.Engine.Testing.UITest.Update">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#aba1d6f02ef75ed1a595f448acef47915" title="Updates and handles input for all elements in the View. " alt="" coords="247,5,456,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element.html#a5b2bff6eed644fc33bc3e1ffaa8bfc70" title="Update the elements state and handles input. Overriden in derived classes " alt="" coords="504,5,734,44"/>
-</map>

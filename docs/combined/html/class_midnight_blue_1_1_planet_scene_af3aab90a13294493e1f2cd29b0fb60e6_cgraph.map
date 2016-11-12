@@ -1,0 +1,3 @@
+<map id="MidnightBlue.PlanetScene.Exit" name="MidnightBlue.PlanetScene.Exit">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_collision_system.html#a4710a6cf7aba7b5ba9c75e0771793b93" title="Sets the current tile map to check for collisions " alt="" coords="257,5,475,44"/>
+</map>

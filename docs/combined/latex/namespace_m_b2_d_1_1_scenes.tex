@@ -1,0 +1,61 @@
+\hypertarget{namespace_m_b2_d_1_1_scenes}{}\section{M\+B2\+D.\+Scenes Namespace Reference}
+\label{namespace_m_b2_d_1_1_scenes}\index{M\+B2\+D.\+Scenes@{M\+B2\+D.\+Scenes}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene}
+\begin{DoxyCompactList}\small\item\em Holds all logic and data for a single game screen \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack}{Scene\+Stack}
+\begin{DoxyCompactList}\small\item\em Holds the games scenes in a stack structure running the top scene every frame. Handles switching state for scenes and popping/pushing new scenes on top of one another. Allows the current scene to access other scenes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acc}{Transition\+State} \{ \newline
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accabbb93ef26e3c101ff11cdd21cab08a94}{Transition\+State.\+Null}, 
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca6adf97f83acf6453d4a6a4b1070f3754}{Transition\+State.\+None}, 
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accaf89bf2973f11fc8bac3db5669252725a}{Transition\+State.\+Pausing}, 
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca69f55169cdb3caab27ba9f347bf05354}{Transition\+State.\+Resuming}, 
+\newline
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca0657d962b72e6f1f37dda8dad3684cb8}{Transition\+State.\+Exiting}, 
+\hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca32b169f72b293ef80d35435e9894f8e2}{Transition\+State.\+Initializing}
+ \}\begin{DoxyCompactList}\small\item\em Defines a valid transition state to move into. Once set, the scene stack will automatically move the current scene into that state the next frame. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acc}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acc} 
+\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Transition\+State@{Transition\+State}}
+\index{Transition\+State@{Transition\+State}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}
+\subsubsection{\texorpdfstring{Transition\+State}{TransitionState}}
+{\footnotesize\ttfamily enum \hyperlink{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acc}{M\+B2\+D.\+Scenes.\+Transition\+State}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Defines a valid transition state to move into. Once set, the scene stack will automatically move the current scene into that state the next frame. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null@{Null}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Null@{Null}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accabbb93ef26e3c101ff11cdd21cab08a94}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accabbb93ef26e3c101ff11cdd21cab08a94} 
+Null&The scene hasn\textquotesingle{}t intitialized yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!None@{None}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca6adf97f83acf6453d4a6a4b1070f3754}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca6adf97f83acf6453d4a6a4b1070f3754} 
+None&The normal state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pausing@{Pausing}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Pausing@{Pausing}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accaf89bf2973f11fc8bac3db5669252725a}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4accaf89bf2973f11fc8bac3db5669252725a} 
+Pausing&The scene is currently pausing. Set state to None to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Resuming@{Resuming}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Resuming@{Resuming}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca69f55169cdb3caab27ba9f347bf05354}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca69f55169cdb3caab27ba9f347bf05354} 
+Resuming&The scene is resuming from the paused state. Set state to None to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Exiting@{Exiting}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Exiting@{Exiting}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca0657d962b72e6f1f37dda8dad3684cb8}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca0657d962b72e6f1f37dda8dad3684cb8} 
+Exiting&The scene is exiting to be destroyed. Set state to Null to end transition. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Initializing@{Initializing}!M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}}\index{M\+B2\+D\+::\+Scenes@{M\+B2\+D\+::\+Scenes}!Initializing@{Initializing}}}\hypertarget{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca32b169f72b293ef80d35435e9894f8e2}{}\label{namespace_m_b2_d_1_1_scenes_a0e0db3f97bbaa272f70534c5954c4acca32b169f72b293ef80d35435e9894f8e2} 
+Initializing&The scene is initializing from the an unconstructed state. Set state to None to end. \\
+\hline
+
+\end{DoxyEnumFields}

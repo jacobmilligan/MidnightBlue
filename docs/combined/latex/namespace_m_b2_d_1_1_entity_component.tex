@@ -1,0 +1,51 @@
+\hypertarget{namespace_m_b2_d_1_1_entity_component}{}\section{M\+B2\+D.\+Entity\+Component Namespace Reference}
+\label{namespace_m_b2_d_1_1_entity_component}\index{M\+B2\+D.\+Entity\+Component@{M\+B2\+D.\+Entity\+Component}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_component}{Collision\+Component}
+\begin{DoxyCompactList}\small\item\em Used for running collision detection on an \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_system}{Collision\+System}
+\begin{DoxyCompactList}\small\item\em Checks collisions. Uses a spatial indexing grid for broad-\/phase collision checking and A\+A\+BB checks for narrow phase \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_depth}{Depth}
+\begin{DoxyCompactList}\small\item\em A tag class used to define an entity that should be draw sorted according to its current z-\/index \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_depth_system}{Depth\+System}
+\begin{DoxyCompactList}\small\item\em Changes an entities z-\/index based on the y coordinate of the top of their sprite \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}
+\begin{DoxyCompactList}\small\item\em Represents a tagged and id\textquotesingle{}d container for components that can be operated on by systems. \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map}
+\begin{DoxyCompactList}\small\item\em Maps entities, systems and components to one another and provides querying and updating access to all elements \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System}
+\begin{DoxyCompactList}\small\item\em Performs logic on an entity. \end{DoxyCompactList}\item 
+interface \hyperlink{interface_m_b2_d_1_1_entity_component_1_1_i_component}{I\+Component}
+\begin{DoxyCompactList}\small\item\em Tags any class as a valid component for use in the \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map}. Derived classes should contain no logic, only data fields. \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_input_system}{Input\+System}
+\begin{DoxyCompactList}\small\item\em Processes input for \hyperlink{class_m_b2_d_1_1_entity_component_1_1_player_controller}{Player\+Controller} and \hyperlink{class_m_b2_d_1_1_entity_component_1_1_utility_controller}{Utility\+Controller} entities. Can operate on an entity with either or both components \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_inventory}{Inventory}
+\begin{DoxyCompactList}\small\item\em Defines a dictionary of \hyperlink{class_m_b2_d_1_1_collectable}{Collectable} types used for entities \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_movement}{Movement}
+\begin{DoxyCompactList}\small\item\em Defines position, rotation and speed related data for moving an entity. \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_movement_system}{Movement\+System}
+\begin{DoxyCompactList}\small\item\em Processes the change in position, rotation, and sprite transform for an entity \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_physics_component}{Physics\+Component}
+\begin{DoxyCompactList}\small\item\em Physics component used to define acceleration and velocity. \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_physics_environment}{Physics\+Environment}
+\begin{DoxyCompactList}\small\item\em Defines a new environment to feed into the physics system to alter the impact it has on an entity \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_physics_system}{Physics\+System}
+\begin{DoxyCompactList}\small\item\em Processes physics changes for a given entity \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_player_controller}{Player\+Controller}
+\begin{DoxyCompactList}\small\item\em Defines the attached entity as controllable \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_render_system}{Render\+System}
+\begin{DoxyCompactList}\small\item\em Renders culled entities with a \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform}{Sprite\+Transform} to the window \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform}{Sprite\+Transform}
+\begin{DoxyCompactList}\small\item\em Defines a sprite component with control over its size, rotation, and scale \end{DoxyCompactList}\item 
+class \hyperlink{class_m_b2_d_1_1_entity_component_1_1_utility_controller}{Utility\+Controller}
+\begin{DoxyCompactList}\small\item\em Declares the attached entity as able to control utility commands such as opening the debug console \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_m_b2_d_1_1_entity_component_af25b66eefb854495844f42e40c693767}{}\label{namespace_m_b2_d_1_1_entity_component_af25b66eefb854495844f42e40c693767} 
+enum {\bfseries Entity\+Association} \{ {\bfseries Strict}, 
+{\bfseries Loose}
+ \}
+\end{DoxyCompactItemize}

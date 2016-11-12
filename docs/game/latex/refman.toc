@@ -1,0 +1,255 @@
+\contentsline {section}{\numberline {1}Namespace Index}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Namespace List}{2}{subsection.1.1}
+\contentsline {section}{\numberline {2}Hierarchical Index}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Class Hierarchy}{2}{subsection.2.1}
+\contentsline {section}{\numberline {3}Class Index}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Class List}{3}{subsection.3.1}
+\contentsline {section}{\numberline {4}Namespace Documentation}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue Namespace Reference}{5}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Enumeration Type Documentation}{6}{subsubsection.4.1.1}
+\contentsline {paragraph}{\numberline {4.1.1.1}Biome}{6}{paragraph.4.1.1.1}
+\contentsline {paragraph}{\numberline {4.1.1.2}Height\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Level}{7}{paragraph.4.1.1.2}
+\contentsline {paragraph}{\numberline {4.1.1.3}Moisture\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Level}{7}{paragraph.4.1.1.3}
+\contentsline {paragraph}{\numberline {4.1.1.4}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Type}{7}{paragraph.4.1.1.4}
+\contentsline {paragraph}{\numberline {4.1.1.5}Ship\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}State}{7}{paragraph.4.1.1.5}
+\contentsline {paragraph}{\numberline {4.1.1.6}Temperature\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Level}{8}{paragraph.4.1.1.6}
+\contentsline {subsection}{\numberline {4.2}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Testing Namespace Reference}{8}{subsection.4.2}
+\contentsline {section}{\numberline {5}Class Documentation}{8}{section.5}
+\contentsline {subsection}{\numberline {5.1}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Enter\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System Class Reference}{8}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Detailed Description}{10}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Constructor \& Destructor Documentation}{10}{subsubsection.5.1.2}
+\contentsline {paragraph}{\numberline {5.1.2.1}Enter\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System()}{10}{paragraph.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.3}Member Function Documentation}{10}{subsubsection.5.1.3}
+\contentsline {paragraph}{\numberline {5.1.3.1}On\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Press()}{10}{paragraph.5.1.3.1}
+\contentsline {subsection}{\numberline {5.2}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Fuel Class Reference}{10}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Detailed Description}{12}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Constructor \& Destructor Documentation}{12}{subsubsection.5.2.2}
+\contentsline {paragraph}{\numberline {5.2.2.1}Fuel()}{12}{paragraph.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.3}Member Function Documentation}{12}{subsubsection.5.2.3}
+\contentsline {paragraph}{\numberline {5.2.3.1}Effect()}{12}{paragraph.5.2.3.1}
+\contentsline {subsection}{\numberline {5.3}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Builder Class Reference}{13}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Constructor \& Destructor Documentation}{13}{subsubsection.5.3.1}
+\contentsline {paragraph}{\numberline {5.3.1.1}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Builder()}{13}{paragraph.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Member Function Documentation}{14}{subsubsection.5.3.2}
+\contentsline {paragraph}{\numberline {5.3.2.1}Generate()}{14}{paragraph.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.3}Property Documentation}{14}{subsubsection.5.3.3}
+\contentsline {paragraph}{\numberline {5.3.3.1}Bounds}{14}{paragraph.5.3.3.1}
+\contentsline {paragraph}{\numberline {5.3.3.2}Done}{14}{paragraph.5.3.3.2}
+\contentsline {paragraph}{\numberline {5.3.3.3}Size}{15}{paragraph.5.3.3.3}
+\contentsline {paragraph}{\numberline {5.3.3.4}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Systems}{15}{paragraph.5.3.3.4}
+\contentsline {subsection}{\numberline {5.4}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Hud Class Reference}{15}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Detailed Description}{16}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Constructor \& Destructor Documentation}{16}{subsubsection.5.4.2}
+\contentsline {paragraph}{\numberline {5.4.2.1}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Hud()}{16}{paragraph.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.3}Member Function Documentation}{16}{subsubsection.5.4.3}
+\contentsline {paragraph}{\numberline {5.4.3.1}Refresh()}{17}{paragraph.5.4.3.1}
+\contentsline {subsection}{\numberline {5.5}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Render\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System Class Reference}{17}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Detailed Description}{18}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Constructor \& Destructor Documentation}{18}{subsubsection.5.5.2}
+\contentsline {paragraph}{\numberline {5.5.2.1}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Render\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System()}{18}{paragraph.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.3}Member Function Documentation}{19}{subsubsection.5.5.3}
+\contentsline {paragraph}{\numberline {5.5.3.1}Pre\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Process()}{19}{paragraph.5.5.3.1}
+\contentsline {paragraph}{\numberline {5.5.3.2}Process()}{19}{paragraph.5.5.3.2}
+\contentsline {subsubsection}{\numberline {5.5.4}Property Documentation}{19}{subsubsection.5.5.4}
+\contentsline {paragraph}{\numberline {5.5.4.1}Info\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}List}{19}{paragraph.5.5.4.1}
+\contentsline {subsection}{\numberline {5.6}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{19}{subsection.5.6}
+\contentsline {subsubsection}{\numberline {5.6.1}Detailed Description}{21}{subsubsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.2}Constructor \& Destructor Documentation}{21}{subsubsection.5.6.2}
+\contentsline {paragraph}{\numberline {5.6.2.1}Galaxy\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene()}{21}{paragraph.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.3}Member Function Documentation}{21}{subsubsection.5.6.3}
+\contentsline {paragraph}{\numberline {5.6.3.1}Draw()}{21}{paragraph.5.6.3.1}
+\contentsline {paragraph}{\numberline {5.6.3.2}Exit()}{22}{paragraph.5.6.3.2}
+\contentsline {paragraph}{\numberline {5.6.3.3}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{22}{paragraph.5.6.3.3}
+\contentsline {paragraph}{\numberline {5.6.3.4}Initialize()}{22}{paragraph.5.6.3.4}
+\contentsline {paragraph}{\numberline {5.6.3.5}Pause()}{22}{paragraph.5.6.3.5}
+\contentsline {paragraph}{\numberline {5.6.3.6}Resume()}{22}{paragraph.5.6.3.6}
+\contentsline {paragraph}{\numberline {5.6.3.7}Update()}{23}{paragraph.5.6.3.7}
+\contentsline {subsection}{\numberline {5.7}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Testing.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Gen\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Test Class Reference}{23}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Init\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{24}{subsection.5.8}
+\contentsline {subsubsection}{\numberline {5.8.1}Detailed Description}{25}{subsubsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.2}Constructor \& Destructor Documentation}{26}{subsubsection.5.8.2}
+\contentsline {paragraph}{\numberline {5.8.2.1}Init\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene()}{26}{paragraph.5.8.2.1}
+\contentsline {subsubsection}{\numberline {5.8.3}Member Function Documentation}{26}{subsubsection.5.8.3}
+\contentsline {paragraph}{\numberline {5.8.3.1}Draw()}{26}{paragraph.5.8.3.1}
+\contentsline {paragraph}{\numberline {5.8.3.2}Exit()}{26}{paragraph.5.8.3.2}
+\contentsline {paragraph}{\numberline {5.8.3.3}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{26}{paragraph.5.8.3.3}
+\contentsline {paragraph}{\numberline {5.8.3.4}Initialize()}{26}{paragraph.5.8.3.4}
+\contentsline {paragraph}{\numberline {5.8.3.5}Pause()}{27}{paragraph.5.8.3.5}
+\contentsline {paragraph}{\numberline {5.8.3.6}Resume()}{27}{paragraph.5.8.3.6}
+\contentsline {paragraph}{\numberline {5.8.3.7}Update()}{27}{paragraph.5.8.3.7}
+\contentsline {subsection}{\numberline {5.9}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Land\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Command Class Reference}{27}{subsection.5.9}
+\contentsline {subsubsection}{\numberline {5.9.1}Detailed Description}{28}{subsubsection.5.9.1}
+\contentsline {subsubsection}{\numberline {5.9.2}Constructor \& Destructor Documentation}{28}{subsubsection.5.9.2}
+\contentsline {paragraph}{\numberline {5.9.2.1}Land\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Command()}{28}{paragraph.5.9.2.1}
+\contentsline {subsubsection}{\numberline {5.9.3}Member Function Documentation}{29}{subsubsection.5.9.3}
+\contentsline {paragraph}{\numberline {5.9.3.1}On\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Press()}{29}{paragraph.5.9.3.1}
+\contentsline {subsection}{\numberline {5.10}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Launch\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Command Class Reference}{29}{subsection.5.10}
+\contentsline {subsubsection}{\numberline {5.10.1}Detailed Description}{30}{subsubsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.2}Constructor \& Destructor Documentation}{30}{subsubsection.5.10.2}
+\contentsline {paragraph}{\numberline {5.10.2.1}Launch\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Command()}{30}{paragraph.5.10.2.1}
+\contentsline {subsubsection}{\numberline {5.10.3}Member Function Documentation}{31}{subsubsection.5.10.3}
+\contentsline {paragraph}{\numberline {5.10.3.1}On\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Press()}{31}{paragraph.5.10.3.1}
+\contentsline {subsection}{\numberline {5.11}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Leave\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System Class Reference}{31}{subsection.5.11}
+\contentsline {subsubsection}{\numberline {5.11.1}Constructor \& Destructor Documentation}{32}{subsubsection.5.11.1}
+\contentsline {paragraph}{\numberline {5.11.1.1}Leave\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System()}{32}{paragraph.5.11.1.1}
+\contentsline {subsection}{\numberline {5.12}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Length Class Reference}{33}{subsection.5.12}
+\contentsline {subsubsection}{\numberline {5.12.1}Detailed Description}{34}{subsubsection.5.12.1}
+\contentsline {subsubsection}{\numberline {5.12.2}Constructor \& Destructor Documentation}{34}{subsubsection.5.12.2}
+\contentsline {paragraph}{\numberline {5.12.2.1}Length()}{34}{paragraph.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.3}Member Data Documentation}{34}{subsubsection.5.12.3}
+\contentsline {paragraph}{\numberline {5.12.3.1}Astronomical\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Unit}{34}{paragraph.5.12.3.1}
+\contentsline {subsubsection}{\numberline {5.12.4}Property Documentation}{34}{subsubsection.5.12.4}
+\contentsline {paragraph}{\numberline {5.12.4.1}AU}{34}{paragraph.5.12.4.1}
+\contentsline {paragraph}{\numberline {5.12.4.2}Centimeters}{35}{paragraph.5.12.4.2}
+\contentsline {paragraph}{\numberline {5.12.4.3}Kilometers}{35}{paragraph.5.12.4.3}
+\contentsline {paragraph}{\numberline {5.12.4.4}Meters}{35}{paragraph.5.12.4.4}
+\contentsline {paragraph}{\numberline {5.12.4.5}Relative\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Kilometers}{35}{paragraph.5.12.4.5}
+\contentsline {subsection}{\numberline {5.13}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Testing.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Test Class Reference}{36}{subsection.5.13}
+\contentsline {subsection}{\numberline {5.14}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Menu\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Command Class Reference}{37}{subsection.5.14}
+\contentsline {subsection}{\numberline {5.15}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Menu\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{39}{subsection.5.15}
+\contentsline {subsubsection}{\numberline {5.15.1}Member Function Documentation}{40}{subsubsection.5.15.1}
+\contentsline {paragraph}{\numberline {5.15.1.1}Draw()}{40}{paragraph.5.15.1.1}
+\contentsline {paragraph}{\numberline {5.15.1.2}Exit()}{40}{paragraph.5.15.1.2}
+\contentsline {paragraph}{\numberline {5.15.1.3}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{40}{paragraph.5.15.1.3}
+\contentsline {paragraph}{\numberline {5.15.1.4}Initialize()}{40}{paragraph.5.15.1.4}
+\contentsline {paragraph}{\numberline {5.15.1.5}Pause()}{41}{paragraph.5.15.1.5}
+\contentsline {paragraph}{\numberline {5.15.1.6}Resume()}{41}{paragraph.5.15.1.6}
+\contentsline {paragraph}{\numberline {5.15.1.7}Update()}{41}{paragraph.5.15.1.7}
+\contentsline {subsection}{\numberline {5.16}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Menu\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}View Class Reference}{41}{subsection.5.16}
+\contentsline {subsection}{\numberline {5.17}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Move\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ship Class Reference}{42}{subsection.5.17}
+\contentsline {subsubsection}{\numberline {5.17.1}Detailed Description}{44}{subsubsection.5.17.1}
+\contentsline {subsubsection}{\numberline {5.17.2}Constructor \& Destructor Documentation}{44}{subsubsection.5.17.2}
+\contentsline {paragraph}{\numberline {5.17.2.1}Move\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ship()}{44}{paragraph.5.17.2.1}
+\contentsline {subsubsection}{\numberline {5.17.3}Member Function Documentation}{44}{subsubsection.5.17.3}
+\contentsline {paragraph}{\numberline {5.17.3.1}On\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Key\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Press()}{44}{paragraph.5.17.3.1}
+\contentsline {subsection}{\numberline {5.18}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Noise\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map Class Reference}{45}{subsection.5.18}
+\contentsline {subsubsection}{\numberline {5.18.1}Detailed Description}{45}{subsubsection.5.18.1}
+\contentsline {subsubsection}{\numberline {5.18.2}Constructor \& Destructor Documentation}{46}{subsubsection.5.18.2}
+\contentsline {paragraph}{\numberline {5.18.2.1}Noise\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{46}{paragraph.5.18.2.1}
+\contentsline {paragraph}{\numberline {5.18.2.2}Noise\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{46}{paragraph.5.18.2.2}
+\contentsline {subsubsection}{\numberline {5.18.3}Member Function Documentation}{46}{subsubsection.5.18.3}
+\contentsline {paragraph}{\numberline {5.18.3.1}Get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Value()}{46}{paragraph.5.18.3.1}
+\contentsline {paragraph}{\numberline {5.18.3.2}Set\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Value()}{47}{paragraph.5.18.3.2}
+\contentsline {subsubsection}{\numberline {5.18.4}Property Documentation}{47}{subsubsection.5.18.4}
+\contentsline {paragraph}{\numberline {5.18.4.1}Height}{47}{paragraph.5.18.4.1}
+\contentsline {paragraph}{\numberline {5.18.4.2}Map}{48}{paragraph.5.18.4.2}
+\contentsline {paragraph}{\numberline {5.18.4.3}Max\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Value}{48}{paragraph.5.18.4.3}
+\contentsline {paragraph}{\numberline {5.18.4.4}Min\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Value}{48}{paragraph.5.18.4.4}
+\contentsline {paragraph}{\numberline {5.18.4.5}Width}{48}{paragraph.5.18.4.5}
+\contentsline {subsection}{\numberline {5.19}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Planet Class Reference}{48}{subsection.5.19}
+\contentsline {subsubsection}{\numberline {5.19.1}Detailed Description}{49}{subsubsection.5.19.1}
+\contentsline {subsubsection}{\numberline {5.19.2}Constructor \& Destructor Documentation}{49}{subsubsection.5.19.2}
+\contentsline {paragraph}{\numberline {5.19.2.1}Planet()}{49}{paragraph.5.19.2.1}
+\contentsline {subsubsection}{\numberline {5.19.3}Member Function Documentation}{49}{subsubsection.5.19.3}
+\contentsline {paragraph}{\numberline {5.19.3.1}Create\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Texture()}{50}{paragraph.5.19.3.1}
+\contentsline {paragraph}{\numberline {5.19.3.2}Generate()}{50}{paragraph.5.19.3.2}
+\contentsline {paragraph}{\numberline {5.19.3.3}Get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Layer()}{51}{paragraph.5.19.3.3}
+\contentsline {subsubsection}{\numberline {5.19.4}Property Documentation}{51}{subsubsection.5.19.4}
+\contentsline {paragraph}{\numberline {5.19.4.1}Generated}{51}{paragraph.5.19.4.1}
+\contentsline {paragraph}{\numberline {5.19.4.2}Meta}{51}{paragraph.5.19.4.2}
+\contentsline {paragraph}{\numberline {5.19.4.3}Name}{52}{paragraph.5.19.4.3}
+\contentsline {paragraph}{\numberline {5.19.4.4}Position}{52}{paragraph.5.19.4.4}
+\contentsline {paragraph}{\numberline {5.19.4.5}Size}{52}{paragraph.5.19.4.5}
+\contentsline {paragraph}{\numberline {5.19.4.6}Tiles}{52}{paragraph.5.19.4.6}
+\contentsline {subsection}{\numberline {5.20}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Component Class Reference}{52}{subsection.5.20}
+\contentsline {subsubsection}{\numberline {5.20.1}Detailed Description}{53}{subsubsection.5.20.1}
+\contentsline {subsubsection}{\numberline {5.20.2}Property Documentation}{53}{subsubsection.5.20.2}
+\contentsline {paragraph}{\numberline {5.20.2.1}Data}{53}{paragraph.5.20.2.1}
+\contentsline {subsection}{\numberline {5.21}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Metadata Class Reference}{54}{subsection.5.21}
+\contentsline {subsubsection}{\numberline {5.21.1}Detailed Description}{56}{subsubsection.5.21.1}
+\contentsline {subsubsection}{\numberline {5.21.2}Property Documentation}{56}{subsubsection.5.21.2}
+\contentsline {paragraph}{\numberline {5.21.2.1}Carbon}{56}{paragraph.5.21.2.1}
+\contentsline {paragraph}{\numberline {5.21.2.2}Density}{56}{paragraph.5.21.2.2}
+\contentsline {paragraph}{\numberline {5.21.2.3}Gas}{56}{paragraph.5.21.2.3}
+\contentsline {paragraph}{\numberline {5.21.2.4}Habitable}{56}{paragraph.5.21.2.4}
+\contentsline {paragraph}{\numberline {5.21.2.5}Name}{56}{paragraph.5.21.2.5}
+\contentsline {paragraph}{\numberline {5.21.2.6}Radius}{56}{paragraph.5.21.2.6}
+\contentsline {paragraph}{\numberline {5.21.2.7}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Distance}{57}{paragraph.5.21.2.7}
+\contentsline {paragraph}{\numberline {5.21.2.8}Surface\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Area}{57}{paragraph.5.21.2.8}
+\contentsline {paragraph}{\numberline {5.21.2.9}Surface\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Temperature}{57}{paragraph.5.21.2.9}
+\contentsline {paragraph}{\numberline {5.21.2.10}Type}{57}{paragraph.5.21.2.10}
+\contentsline {paragraph}{\numberline {5.21.2.11}Water}{57}{paragraph.5.21.2.11}
+\contentsline {subsection}{\numberline {5.22}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{58}{subsection.5.22}
+\contentsline {subsubsection}{\numberline {5.22.1}Detailed Description}{59}{subsubsection.5.22.1}
+\contentsline {subsubsection}{\numberline {5.22.2}Constructor \& Destructor Documentation}{60}{subsubsection.5.22.2}
+\contentsline {paragraph}{\numberline {5.22.2.1}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene()}{60}{paragraph.5.22.2.1}
+\contentsline {subsubsection}{\numberline {5.22.3}Member Function Documentation}{60}{subsubsection.5.22.3}
+\contentsline {paragraph}{\numberline {5.22.3.1}Draw()}{60}{paragraph.5.22.3.1}
+\contentsline {paragraph}{\numberline {5.22.3.2}Exit()}{60}{paragraph.5.22.3.2}
+\contentsline {paragraph}{\numberline {5.22.3.3}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{60}{paragraph.5.22.3.3}
+\contentsline {paragraph}{\numberline {5.22.3.4}Initialize()}{60}{paragraph.5.22.3.4}
+\contentsline {paragraph}{\numberline {5.22.3.5}Pause()}{61}{paragraph.5.22.3.5}
+\contentsline {paragraph}{\numberline {5.22.3.6}Resume()}{61}{paragraph.5.22.3.6}
+\contentsline {paragraph}{\numberline {5.22.3.7}Update()}{61}{paragraph.5.22.3.7}
+\contentsline {subsection}{\numberline {5.23}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Tile Class Reference}{61}{subsection.5.23}
+\contentsline {subsubsection}{\numberline {5.23.1}Detailed Description}{62}{subsubsection.5.23.1}
+\contentsline {subsubsection}{\numberline {5.23.2}Constructor \& Destructor Documentation}{63}{subsubsection.5.23.2}
+\contentsline {paragraph}{\numberline {5.23.2.1}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Tile()}{63}{paragraph.5.23.2.1}
+\contentsline {subsubsection}{\numberline {5.23.3}Member Function Documentation}{63}{subsubsection.5.23.3}
+\contentsline {paragraph}{\numberline {5.23.3.1}Get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Color()}{63}{paragraph.5.23.3.1}
+\contentsline {paragraph}{\numberline {5.23.3.2}Get\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Texture\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}D()}{64}{paragraph.5.23.3.2}
+\contentsline {subsubsection}{\numberline {5.23.4}Property Documentation}{64}{subsubsection.5.23.4}
+\contentsline {paragraph}{\numberline {5.23.4.1}Biome}{64}{paragraph.5.23.4.1}
+\contentsline {paragraph}{\numberline {5.23.4.2}Height}{65}{paragraph.5.23.4.2}
+\contentsline {paragraph}{\numberline {5.23.4.3}Moisture}{65}{paragraph.5.23.4.3}
+\contentsline {paragraph}{\numberline {5.23.4.4}Temperature}{65}{paragraph.5.23.4.4}
+\contentsline {subsection}{\numberline {5.24}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ship\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Controller Class Reference}{65}{subsection.5.24}
+\contentsline {subsubsection}{\numberline {5.24.1}Detailed Description}{66}{subsubsection.5.24.1}
+\contentsline {subsubsection}{\numberline {5.24.2}Constructor \& Destructor Documentation}{66}{subsubsection.5.24.2}
+\contentsline {paragraph}{\numberline {5.24.2.1}Ship\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Controller()}{66}{paragraph.5.24.2.1}
+\contentsline {subsubsection}{\numberline {5.24.3}Property Documentation}{67}{subsubsection.5.24.3}
+\contentsline {paragraph}{\numberline {5.24.3.1}Input\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map}{67}{paragraph.5.24.3.1}
+\contentsline {paragraph}{\numberline {5.24.3.2}Is\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Landable}{67}{paragraph.5.24.3.2}
+\contentsline {paragraph}{\numberline {5.24.3.3}State}{67}{paragraph.5.24.3.3}
+\contentsline {subsection}{\numberline {5.25}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Ship\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System Class Reference}{67}{subsection.5.25}
+\contentsline {subsubsection}{\numberline {5.25.1}Detailed Description}{68}{subsubsection.5.25.1}
+\contentsline {subsubsection}{\numberline {5.25.2}Constructor \& Destructor Documentation}{68}{subsubsection.5.25.2}
+\contentsline {paragraph}{\numberline {5.25.2.1}Ship\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System()}{68}{paragraph.5.25.2.1}
+\contentsline {subsubsection}{\numberline {5.25.3}Member Function Documentation}{68}{subsubsection.5.25.3}
+\contentsline {paragraph}{\numberline {5.25.3.1}Process()}{68}{paragraph.5.25.3.1}
+\contentsline {subsection}{\numberline {5.26}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System Class Reference}{69}{subsection.5.26}
+\contentsline {subsubsection}{\numberline {5.26.1}Detailed Description}{71}{subsubsection.5.26.1}
+\contentsline {subsubsection}{\numberline {5.26.2}Constructor \& Destructor Documentation}{71}{subsubsection.5.26.2}
+\contentsline {paragraph}{\numberline {5.26.2.1}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System()}{71}{paragraph.5.26.2.1}
+\contentsline {subsubsection}{\numberline {5.26.3}Property Documentation}{71}{subsubsection.5.26.3}
+\contentsline {paragraph}{\numberline {5.26.3.1}Bounds}{71}{paragraph.5.26.3.1}
+\contentsline {paragraph}{\numberline {5.26.3.2}Color}{71}{paragraph.5.26.3.2}
+\contentsline {paragraph}{\numberline {5.26.3.3}Draw}{71}{paragraph.5.26.3.3}
+\contentsline {paragraph}{\numberline {5.26.3.4}Name}{71}{paragraph.5.26.3.4}
+\contentsline {paragraph}{\numberline {5.26.3.5}Planet\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}List}{71}{paragraph.5.26.3.5}
+\contentsline {paragraph}{\numberline {5.26.3.6}Planets}{72}{paragraph.5.26.3.6}
+\contentsline {paragraph}{\numberline {5.26.3.7}Radius}{72}{paragraph.5.26.3.7}
+\contentsline {paragraph}{\numberline {5.26.3.8}Scanned}{72}{paragraph.5.26.3.8}
+\contentsline {subsection}{\numberline {5.27}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Hud Class Reference}{72}{subsection.5.27}
+\contentsline {subsubsection}{\numberline {5.27.1}Detailed Description}{73}{subsubsection.5.27.1}
+\contentsline {subsubsection}{\numberline {5.27.2}Constructor \& Destructor Documentation}{73}{subsubsection.5.27.2}
+\contentsline {paragraph}{\numberline {5.27.2.1}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Hud()}{73}{paragraph.5.27.2.1}
+\contentsline {subsection}{\numberline {5.28}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{74}{subsection.5.28}
+\contentsline {subsubsection}{\numberline {5.28.1}Detailed Description}{76}{subsubsection.5.28.1}
+\contentsline {subsubsection}{\numberline {5.28.2}Constructor \& Destructor Documentation}{76}{subsubsection.5.28.2}
+\contentsline {paragraph}{\numberline {5.28.2.1}Star\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}System\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene()}{76}{paragraph.5.28.2.1}
+\contentsline {subsubsection}{\numberline {5.28.3}Member Function Documentation}{76}{subsubsection.5.28.3}
+\contentsline {paragraph}{\numberline {5.28.3.1}Draw()}{76}{paragraph.5.28.3.1}
+\contentsline {paragraph}{\numberline {5.28.3.2}Draw\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Map()}{77}{paragraph.5.28.3.2}
+\contentsline {paragraph}{\numberline {5.28.3.3}Exit()}{77}{paragraph.5.28.3.3}
+\contentsline {paragraph}{\numberline {5.28.3.4}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{77}{paragraph.5.28.3.4}
+\contentsline {paragraph}{\numberline {5.28.3.5}Initialize()}{77}{paragraph.5.28.3.5}
+\contentsline {paragraph}{\numberline {5.28.3.6}Pause()}{78}{paragraph.5.28.3.6}
+\contentsline {paragraph}{\numberline {5.28.3.7}Resume()}{78}{paragraph.5.28.3.7}
+\contentsline {paragraph}{\numberline {5.28.3.8}Update()}{78}{paragraph.5.28.3.8}
+\contentsline {subsection}{\numberline {5.29}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Title\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene Class Reference}{78}{subsection.5.29}
+\contentsline {subsubsection}{\numberline {5.29.1}Detailed Description}{80}{subsubsection.5.29.1}
+\contentsline {subsubsection}{\numberline {5.29.2}Constructor \& Destructor Documentation}{80}{subsubsection.5.29.2}
+\contentsline {paragraph}{\numberline {5.29.2.1}Title\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Scene()}{80}{paragraph.5.29.2.1}
+\contentsline {subsubsection}{\numberline {5.29.3}Member Function Documentation}{80}{subsubsection.5.29.3}
+\contentsline {paragraph}{\numberline {5.29.3.1}Draw()}{80}{paragraph.5.29.3.1}
+\contentsline {paragraph}{\numberline {5.29.3.2}Exit()}{81}{paragraph.5.29.3.2}
+\contentsline {paragraph}{\numberline {5.29.3.3}Handle\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Input()}{81}{paragraph.5.29.3.3}
+\contentsline {paragraph}{\numberline {5.29.3.4}Initialize()}{81}{paragraph.5.29.3.4}
+\contentsline {paragraph}{\numberline {5.29.3.5}Pause()}{81}{paragraph.5.29.3.5}
+\contentsline {paragraph}{\numberline {5.29.3.6}Resume()}{81}{paragraph.5.29.3.6}
+\contentsline {paragraph}{\numberline {5.29.3.7}Update()}{81}{paragraph.5.29.3.7}
+\contentsline {subsection}{\numberline {5.30}Midnight\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Blue.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Title\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}View Class Reference}{82}{subsection.5.30}
+\contentsline {subsubsection}{\numberline {5.30.1}Detailed Description}{83}{subsubsection.5.30.1}
+\contentsline {subsubsection}{\numberline {5.30.2}Constructor \& Destructor Documentation}{83}{subsubsection.5.30.2}
+\contentsline {paragraph}{\numberline {5.30.2.1}Title\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}View()}{83}{paragraph.5.30.2.1}

@@ -1,0 +1,6 @@
+<map id="MidnightBlue.InitScene.Resume" name="MidnightBlue.InitScene.Resume">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_entity.html#aa86d1be62df6d89b981d1000c856a306" title="Attaches a new component to the entity. " alt="" coords="264,68,469,107"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="517,68,718,107"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_entity_component_1_1_entity.html#a5c006a368383ba7b17653d9f958ceaf8" title="Detachs all of the entities attached components. " alt="" coords="264,5,469,44"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a968ce46cbba14cdc7814dd308f133949" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="517,5,718,44"/>
+</map>

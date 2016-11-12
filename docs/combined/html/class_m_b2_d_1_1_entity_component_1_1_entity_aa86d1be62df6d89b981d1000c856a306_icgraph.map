@@ -1,0 +1,7 @@
+<map id="MB2D.EntityComponent.Entity.Attach" name="MB2D.EntityComponent.Entity.Attach">
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_launch_command.html#a5da2fdd898111ea59f4f63126c380a3e" title="Launches the ship from landed on key press. " alt="" coords="274,5,485,44"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_init_scene.html#a99eee8cc5dab8d7263591aeaa50144fb" title="Registers all blueprints to the EntityMap " alt="" coords="274,68,484,93"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_init_scene.html#a01ade76252a492d20181bd2e00eb217f" title="Resumes the scene. " alt="" coords="274,117,485,143"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_scene.html#a630b2de039b719d35fbdf572bbc69ea0" title="Initializes a new instance of the T:MidnightBlue.StarSystemScene class. " alt="" coords="273,167,486,205"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="257,229,501,255"/>
+</map>

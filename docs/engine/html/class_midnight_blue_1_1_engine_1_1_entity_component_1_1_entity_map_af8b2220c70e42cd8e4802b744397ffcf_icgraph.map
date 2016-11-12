@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.EntityComponent.EntityMap.Clear" name="MidnightBlue.Engine.EntityComponent.EntityMap.Clear">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#ae99d5a05cb0441676e6a41cd502eb0a4" title="Initializes a new instance of the T:MidnightBlue.Engine.Scenes.Scene class with a pre&#45;existing Entity..." alt="" coords="242,5,438,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#a7200727dfc8a3c8b0d0b9cf54f920c92" title="Cleans up the scene and unloads content. " alt="" coords="242,68,438,107"/>
-</map>

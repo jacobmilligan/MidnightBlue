@@ -1,0 +1,151 @@
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform}{}\subsection{M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform Class Reference}
+\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform}\index{M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform@{M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform}}
+
+
+Defines a sprite component with control over its size, rotation, and scale  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_m_b2_d_1_1_entity_component_1_1_sprite_transform__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_m_b2_d_1_1_entity_component_1_1_sprite_transform__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a76c00772a0190f598f50e13f160ea6ca}{Sprite\+Transform} (Texture2D texture, Vector2 position, Vector2 scale)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform class. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a4d58f27164fa424eb839e74be97e238c}{Sprite\+Transform} (Texture\+Region2D texture, Vector2 position, Vector2 scale)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a31edaa3c4ce6d37d74b639032be4f845}{Target}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the sprites target containing all of the applied data and logicd. \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a0cd51eee71ba1b1f548e0950c05a8e12}{Direction}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the sprites direction. \end{DoxyCompactList}\item 
+float \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a6220a2c6ca43613d77065ec9eddc99dd}{Rotation}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the rotation in radians. \end{DoxyCompactList}\item 
+RectangleF \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a1b712a2eaabf39b3aa697054ba4a1904}{Bounds}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the sprites bounding box. \end{DoxyCompactList}\item 
+float \hyperlink{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a312bac0f6e60d258adce879f4d3da2e7}{Z}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the sprites z index. Used in depth systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Defines a sprite component with control over its size, rotation, and scale 
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a76c00772a0190f598f50e13f160ea6ca}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a76c00772a0190f598f50e13f160ea6ca} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Sprite\+Transform@{Sprite\+Transform}}
+\index{Sprite\+Transform@{Sprite\+Transform}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Sprite\+Transform()}{SpriteTransform()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Sprite\+Transform (\begin{DoxyParamCaption}\item[{Texture2D}]{texture,  }\item[{Vector2}]{position,  }\item[{Vector2}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Texture to assign to the sprite.\\
+\hline
+{\em position} & Initial position of the sprite. Should be the entities position for best practice.\\
+\hline
+{\em scale} & Initial scale of the sprite.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a4d58f27164fa424eb839e74be97e238c}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a4d58f27164fa424eb839e74be97e238c} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Sprite\+Transform@{Sprite\+Transform}}
+\index{Sprite\+Transform@{Sprite\+Transform}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Sprite\+Transform()}{SpriteTransform()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Sprite\+Transform (\begin{DoxyParamCaption}\item[{Texture\+Region2D}]{texture,  }\item[{Vector2}]{position,  }\item[{Vector2}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Texture region in a texture atlas to assign to the sprite.\\
+\hline
+{\em position} & Initial position of the sprite. Should be the entities position for best practice.\\
+\hline
+{\em scale} & Initial scale of the sprite.\\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a1b712a2eaabf39b3aa697054ba4a1904}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a1b712a2eaabf39b3aa697054ba4a1904} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Bounds@{Bounds}}
+\index{Bounds@{Bounds}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Bounds}{Bounds}}
+{\footnotesize\ttfamily RectangleF M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Bounds\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the sprites bounding box. 
+
+The bounds.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a0cd51eee71ba1b1f548e0950c05a8e12}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a0cd51eee71ba1b1f548e0950c05a8e12} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Direction@{Direction}}
+\index{Direction@{Direction}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily Vector2 M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Direction\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the sprites direction. 
+
+The direction.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a6220a2c6ca43613d77065ec9eddc99dd}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a6220a2c6ca43613d77065ec9eddc99dd} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Rotation@{Rotation}}
+\index{Rotation@{Rotation}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Rotation}{Rotation}}
+{\footnotesize\ttfamily float M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Rotation\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the rotation in radians. 
+
+The rotation in radians.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a31edaa3c4ce6d37d74b639032be4f845}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a31edaa3c4ce6d37d74b639032be4f845} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Target@{Target}}
+\index{Target@{Target}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Target}{Target}}
+{\footnotesize\ttfamily Sprite M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Target\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the sprites target containing all of the applied data and logicd. 
+
+The sprite target.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a312bac0f6e60d258adce879f4d3da2e7}{}\label{class_m_b2_d_1_1_entity_component_1_1_sprite_transform_a312bac0f6e60d258adce879f4d3da2e7} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}!Z@{Z}}
+\index{Z@{Z}!M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform@{M\+B2\+D\+::\+Entity\+Component\+::\+Sprite\+Transform}}
+\paragraph{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily float M\+B2\+D.\+Entity\+Component.\+Sprite\+Transform.\+Z\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the sprites z index. Used in depth systems. 
+
+The z index.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Entity\+Component/\+Components/Sprite\+Transform.\+cs\end{DoxyCompactItemize}

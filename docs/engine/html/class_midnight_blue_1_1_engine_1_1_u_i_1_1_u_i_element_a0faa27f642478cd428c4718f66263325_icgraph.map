@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.UI.UIElement.Draw" name="MidnightBlue.Engine.UI.UIElement.Draw">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a167c98165d6ed4031b371c6a92b95a1e" title="Draws the View and its elements to the window " alt="" coords="315,12,555,37"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_u_i_test.html#a8c8604e47a7ac4ef8b8c74e82ff5cb83" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="603,5,797,44"/>
-</map>

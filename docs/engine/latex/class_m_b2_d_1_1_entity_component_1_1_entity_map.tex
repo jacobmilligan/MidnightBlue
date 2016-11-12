@@ -1,0 +1,338 @@
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map}{}\subsection{M\+B2\+D.\+Entity\+Component.\+Entity\+Map Class Reference}
+\label{class_m_b2_d_1_1_entity_component_1_1_entity_map}\index{M\+B2\+D.\+Entity\+Component.\+Entity\+Map@{M\+B2\+D.\+Entity\+Component.\+Entity\+Map}}
+
+
+Maps entities, systems and components to one another and provides querying and updating access to all elements  
+
+
+
+
+Collaboration diagram for M\+B2\+D.\+Entity\+Component.\+Entity\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_m_b2_d_1_1_entity_component_1_1_entity_map__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3904c9181b806e476be24848837e1b53}{Entity\+Map} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+Map class. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_ac8f0662e42b90d8299e1044a1c429863}{Entity\+Map} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} map)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+Map class. Uses an existing \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} to copy all registered systems and components as well as any persistant Entities. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3832e5a6ae181f71d002e81caf008da4}{Add\+Component$<$ T $>$} ()
+\begin{DoxyCompactList}\small\item\em Registers a new component type to the \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_aff9e50266b46d782c31c5b482b86540c}{Add\+Component} (Type component\+Type)
+\begin{DoxyCompactList}\small\item\em Registers a new component type to the \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_af2aefc425308f1ca680b0083f3acab0d}{Add\+System$<$ T $>$} (params object\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Registers a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System} to the map \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a0800ef900f92c04902d5b1c355aab900}{Add\+Entity} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Adds a created entity to this map \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a968ce46cbba14cdc7814dd308f133949}{Update\+Entity\+Mask} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Updates a specific entities component mask. Use after registering new components or systems. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab6078e0b6eddb220b9bbf5d358d6e365}{Update\+Systems} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\begin{DoxyCompactList}\small\item\em Updates each systems associated entity list, adding the specified \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}. Use after creating a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} and adding it manually \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a2461bfeb368018daadb2578c445f8fc2}{Create\+Entity} (string tag=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Creates a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} with the given tag in this map. Auto-\/\+Registers the entity with all systems and updates its mask. \end{DoxyCompactList}\item 
+ulong \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_ad0a7991327281d908b72b33bc1944b70}{Get\+Component\+I\+D$<$ T $>$} ()
+\begin{DoxyCompactList}\small\item\em Gets the id of a specified component type if it exists. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System} \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a1240739b3c9be7daeebd2a0ae3cc04ff}{Get\+System$<$ T $>$} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a pre-\/registered system from the map \end{DoxyCompactList}\item 
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab84f162ddcef10ea2076c23d99f8e40f}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab84f162ddcef10ea2076c23d99f8e40f} 
+List$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ {\bfseries Entities\+With\+Component$<$ T $>$} ()
+\item 
+void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a079e8e957e7fbaa8de73e609ab646fe1}{Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all entities from this map except for any marked as persistant. \end{DoxyCompactList}\item 
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3d42b78583ee8cf16a9ce1c2d096ea01}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3d42b78583ee8cf16a9ce1c2d096ea01} 
+void {\bfseries Reset} ()
+\item 
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ad796d08b2566bdfa3862e54ba639e3ae}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ad796d08b2566bdfa3862e54ba639e3ae} 
+void {\bfseries Make\+Blueprint} (string id, Action$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ build\+Function)
+\item 
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a11e3a65f0404ad99f2a1aff9b0604d15}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a11e3a65f0404ad99f2a1aff9b0604d15} 
+void {\bfseries Use\+Blueprint} (string name, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity)
+\end{DoxyCompactItemize}
+\subsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_ae29ad08673cc4c756b43bd3a72c35b84}{this\mbox{[}string key\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity with the specified tag if it exists; null otherwise \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a607d25be9724ca759ecef96fe76ee516}{Entity\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of entities in the map. \end{DoxyCompactList}\item 
+ulong \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_a812155313251122f297b6653ab4f4ec1}{Next\+ID}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Auto-\/increments the last generated G\+U\+ID and retrieves the result \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Maps entities, systems and components to one another and provides querying and updating access to all elements 
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3904c9181b806e476be24848837e1b53}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3904c9181b806e476be24848837e1b53} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Entity\+Map@{Entity\+Map}}
+\index{Entity\+Map@{Entity\+Map}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Entity\+Map()}{EntityMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Entity\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+Map class. 
+
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ac8f0662e42b90d8299e1044a1c429863}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ac8f0662e42b90d8299e1044a1c429863} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Entity\+Map@{Entity\+Map}}
+\index{Entity\+Map@{Entity\+Map}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Entity\+Map()}{EntityMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Entity\+Map (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity\+Map class. Uses an existing \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} to copy all registered systems and components as well as any persistant Entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} to copy from\\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_aff9e50266b46d782c31c5b482b86540c}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_aff9e50266b46d782c31c5b482b86540c} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Add\+Component@{Add\+Component}}
+\index{Add\+Component@{Add\+Component}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Add\+Component()}{AddComponent()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Add\+Component (\begin{DoxyParamCaption}\item[{Type}]{component\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a new component type to the \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & Type of component to register\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3832e5a6ae181f71d002e81caf008da4}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a3832e5a6ae181f71d002e81caf008da4} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Add\+Component$<$ T $>$@{Add\+Component$<$ T $>$}}
+\index{Add\+Component$<$ T $>$@{Add\+Component$<$ T $>$}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Add\+Component$<$ T $>$()}{AddComponent< T >()}}
+{\footnotesize\ttfamily void \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map_aff9e50266b46d782c31c5b482b86540c}{M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Add\+Component}$<$ T $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a new component type to the \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_map}{Entity\+Map} 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of component to register\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em I\+Component}]\end{description}
+\end{Desc}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a0800ef900f92c04902d5b1c355aab900}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a0800ef900f92c04902d5b1c355aab900} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Add\+Entity@{Add\+Entity}}
+\index{Add\+Entity@{Add\+Entity}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Add\+Entity()}{AddEntity()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Add\+Entity (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a created entity to this map 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to add\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_af2aefc425308f1ca680b0083f3acab0d}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_af2aefc425308f1ca680b0083f3acab0d} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Add\+System$<$ T $>$@{Add\+System$<$ T $>$}}
+\index{Add\+System$<$ T $>$@{Add\+System$<$ T $>$}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Add\+System$<$ T $>$()}{AddSystem< T >()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Add\+System$<$ T $>$ (\begin{DoxyParamCaption}\item[{params object \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System} to the map 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System} type to add\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Entity\+System}]\end{description}
+\end{Desc}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a079e8e957e7fbaa8de73e609ab646fe1}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a079e8e957e7fbaa8de73e609ab646fe1} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Clear@{Clear}}
+\index{Clear@{Clear}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all entities from this map except for any marked as persistant. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_entity_component_1_1_entity_map_a079e8e957e7fbaa8de73e609ab646fe1_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a2461bfeb368018daadb2578c445f8fc2}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a2461bfeb368018daadb2578c445f8fc2} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Create\+Entity@{Create\+Entity}}
+\index{Create\+Entity@{Create\+Entity}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Create\+Entity()}{CreateEntity()}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Create\+Entity (\begin{DoxyParamCaption}\item[{string}]{tag = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} with the given tag in this map. Auto-\/\+Registers the entity with all systems and updates its mask. 
+
+\begin{DoxyReturn}{Returns}
+The created entity
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & Tagname to give the entity\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ad0a7991327281d908b72b33bc1944b70}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ad0a7991327281d908b72b33bc1944b70} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Get\+Component\+I\+D$<$ T $>$@{Get\+Component\+I\+D$<$ T $>$}}
+\index{Get\+Component\+I\+D$<$ T $>$@{Get\+Component\+I\+D$<$ T $>$}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Get\+Component\+I\+D$<$ T $>$()}{GetComponentID< T >()}}
+{\footnotesize\ttfamily ulong M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Get\+Component\+ID$<$ T $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the id of a specified component type if it exists. 
+
+\begin{DoxyReturn}{Returns}
+The component id mask.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of component to query for.\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em I\+Component}]\end{description}
+\end{Desc}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a1240739b3c9be7daeebd2a0ae3cc04ff}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a1240739b3c9be7daeebd2a0ae3cc04ff} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Get\+System$<$ T $>$@{Get\+System$<$ T $>$}}
+\index{Get\+System$<$ T $>$@{Get\+System$<$ T $>$}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Get\+System$<$ T $>$()}{GetSystem< T >()}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity_system}{Entity\+System} M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Get\+System$<$ T $>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a pre-\/registered system from the map 
+
+\begin{DoxyReturn}{Returns}
+The system if it exists; null otherwise
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of system to retrieve.\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Entity\+System}]\end{description}
+\end{Desc}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a968ce46cbba14cdc7814dd308f133949}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a968ce46cbba14cdc7814dd308f133949} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Update\+Entity\+Mask@{Update\+Entity\+Mask}}
+\index{Update\+Entity\+Mask@{Update\+Entity\+Mask}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Update\+Entity\+Mask()}{UpdateEntityMask()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Update\+Entity\+Mask (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates a specific entities component mask. Use after registering new components or systems. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to update\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_entity_component_1_1_entity_map_a968ce46cbba14cdc7814dd308f133949_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab6078e0b6eddb220b9bbf5d358d6e365}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab6078e0b6eddb220b9bbf5d358d6e365} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Update\+Systems@{Update\+Systems}}
+\index{Update\+Systems@{Update\+Systems}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Update\+Systems()}{UpdateSystems()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Update\+Systems (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates each systems associated entity list, adding the specified \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}. Use after creating a new \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} and adding it manually 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} to track in each system\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_entity_component_1_1_entity_map_ab6078e0b6eddb220b9bbf5d358d6e365_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a607d25be9724ca759ecef96fe76ee516}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a607d25be9724ca759ecef96fe76ee516} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Entity\+Count@{Entity\+Count}}
+\index{Entity\+Count@{Entity\+Count}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Entity\+Count}{EntityCount}}
+{\footnotesize\ttfamily int M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Entity\+Count\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the number of entities in the map. 
+
+The entity count.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_a812155313251122f297b6653ab4f4ec1}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_a812155313251122f297b6653ab4f4ec1} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!Next\+ID@{Next\+ID}}
+\index{Next\+ID@{Next\+ID}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{Next\+ID}{NextID}}
+{\footnotesize\ttfamily ulong M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+Next\+ID\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Auto-\/increments the last generated G\+U\+ID and retrieves the result 
+
+The next identifier.\hypertarget{class_m_b2_d_1_1_entity_component_1_1_entity_map_ae29ad08673cc4c756b43bd3a72c35b84}{}\label{class_m_b2_d_1_1_entity_component_1_1_entity_map_ae29ad08673cc4c756b43bd3a72c35b84} 
+\index{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}!this\mbox{[}string key\mbox{]}@{this[string key]}}
+\index{this\mbox{[}string key\mbox{]}@{this[string key]}!M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map@{M\+B2\+D\+::\+Entity\+Component\+::\+Entity\+Map}}
+\paragraph{\texorpdfstring{this[string key]}{this[string key]}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} M\+B2\+D.\+Entity\+Component.\+Entity\+Map.\+this\mbox{[}string key\mbox{]}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the T\+:\+M\+B2\+D.\+Entity\+Component.\+Entity with the specified tag if it exists; null otherwise 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Tagname of the entity to retireve.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Entity\+Component/Entity\+Map.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="MB2D.Scenes.SceneStack.Push" name="MB2D.Scenes.SceneStack.Push">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_m_b_game.html#ad791072c4d2a5b23bbaec3542d6facc9" title="Draws the current scene to the window " alt="" coords="299,5,452,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_menu_command.html#a2101f922aa12bd7fed4eff3eb714a9d4" title="Defines the logic to perform when operating on a given entity " alt="" coords="275,55,475,93"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#afd7f8c9f6d0cf6ded10299d4b0015c29" title="Handles all input for the player ship and moves between galaxy and star system scenes if the player e..." alt="" coords="283,117,468,156"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_scene.html#ac36506b721064e015a9f93140681d93a" title="Updates all systems in the game and handles the ocurrance of the player entering a planet..." alt="" coords="269,180,481,219"/>
+</map>

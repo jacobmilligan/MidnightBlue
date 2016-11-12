@@ -1,0 +1,251 @@
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view}{}\section{M\+B2\+D.\+U\+I.\+U\+I\+View Class Reference}
+\label{class_m_b2_d_1_1_u_i_1_1_u_i_view}\index{M\+B2\+D.\+U\+I.\+U\+I\+View@{M\+B2\+D.\+U\+I.\+U\+I\+View}}
+
+
+A single context for all \hyperlink{namespace_m_b2_d_1_1_u_i}{UI} elements and layouts.  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+U\+I.\+U\+I\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+U\+I.\+U\+I\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_ad441dede0fc04e04b4137395eaeab376}{U\+I\+View} (int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+View class. Divides itself into the number of rows and columns evenly based on the size of the current viewport. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a5628b6cd853a0f419eb8ac62958f62bb}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates and handles input for all elements in the View. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a1f1acf013f17aa0738ff2d9b0516126e}{Draw} (Sprite\+Batch sprite\+Batch, Sprite\+Batch ui\+Sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the View and its elements to the window \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a486357124c0a1bc13d1c5909f26a6e2b}{Add} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} element, int at\+Row, int at\+Col, int row\+Span, int col\+Span)
+\begin{DoxyCompactList}\small\item\em Adds a new \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} to the View \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_aad1fdbf0c8a8d94cb57fff8b5ff43ec8}{Add\+To\+Lookup} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} element)
+\begin{DoxyCompactList}\small\item\em Adds an element to the lookup table used by the view \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_aa054a491e5acf3816240b671db3212ce}{this\mbox{[}string key\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element with the specified key. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} \mbox{[},\mbox{]} \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a873fb2ef0e28bf1d96056e43a6fe18da}{Content}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the elements this View contains in a 2D array \end{DoxyCompactList}\item 
+Texture2D \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a9d5bf0c4239df5a79429921bda80a1ad}{Background\+Texture}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the background texture of the view. \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view_a715db505a27aeb27dd14c1108bda322f}{Stretch\+Background}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether the background image shoudl stretch to fit the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A single context for all \hyperlink{namespace_m_b2_d_1_1_u_i}{UI} elements and layouts. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_ad441dede0fc04e04b4137395eaeab376}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_ad441dede0fc04e04b4137395eaeab376} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!U\+I\+View@{U\+I\+View}}
+\index{U\+I\+View@{U\+I\+View}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{U\+I\+View()}{UIView()}}
+{\footnotesize\ttfamily M\+B2\+D.\+U\+I.\+U\+I\+View.\+U\+I\+View (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+View class. Divides itself into the number of rows and columns evenly based on the size of the current viewport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows in the view\\
+\hline
+{\em cols} & Number of columns in the view\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a486357124c0a1bc13d1c5909f26a6e2b}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a486357124c0a1bc13d1c5909f26a6e2b} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Add@{Add}}
+\index{Add@{Add}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+View.\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element}}]{element,  }\item[{int}]{at\+Row,  }\item[{int}]{at\+Col,  }\item[{int}]{row\+Span,  }\item[{int}]{col\+Span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} to the View 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to add.\\
+\hline
+{\em at\+Row} & Row position in the View.\\
+\hline
+{\em at\+Col} & Column position in the View.\\
+\hline
+{\em row\+Span} & Number of rows the element takes up.\\
+\hline
+{\em col\+Span} & Number of columns the element takes up.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a486357124c0a1bc13d1c5909f26a6e2b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a486357124c0a1bc13d1c5909f26a6e2b_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_aad1fdbf0c8a8d94cb57fff8b5ff43ec8}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_aad1fdbf0c8a8d94cb57fff8b5ff43ec8} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Add\+To\+Lookup@{Add\+To\+Lookup}}
+\index{Add\+To\+Lookup@{Add\+To\+Lookup}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Add\+To\+Lookup()}{AddToLookup()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+View.\+Add\+To\+Lookup (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element}}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an element to the lookup table used by the view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to add.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_aad1fdbf0c8a8d94cb57fff8b5ff43ec8_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a1f1acf013f17aa0738ff2d9b0516126e}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a1f1acf013f17aa0738ff2d9b0516126e} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Draw@{Draw}}
+\index{Draw@{Draw}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+View.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch,  }\item[{Sprite\+Batch}]{ui\+Sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws the View and its elements to the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Sprite\+Batch} & Sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a1f1acf013f17aa0738ff2d9b0516126e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a1f1acf013f17aa0738ff2d9b0516126e_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a5628b6cd853a0f419eb8ac62958f62bb}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a5628b6cd853a0f419eb8ac62958f62bb} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Update@{Update}}
+\index{Update@{Update}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+View.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates and handles input for all elements in the View. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a5628b6cd853a0f419eb8ac62958f62bb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_view_a5628b6cd853a0f419eb8ac62958f62bb_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a9d5bf0c4239df5a79429921bda80a1ad}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a9d5bf0c4239df5a79429921bda80a1ad} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Background\+Texture@{Background\+Texture}}
+\index{Background\+Texture@{Background\+Texture}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Background\+Texture}{BackgroundTexture}}
+{\footnotesize\ttfamily Texture2D M\+B2\+D.\+U\+I.\+U\+I\+View.\+Background\+Texture\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the background texture of the view. 
+
+The background texture.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a873fb2ef0e28bf1d96056e43a6fe18da}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a873fb2ef0e28bf1d96056e43a6fe18da} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Content@{Content}}
+\index{Content@{Content}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Content}{Content}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} \mbox{[},\mbox{]} M\+B2\+D.\+U\+I.\+U\+I\+View.\+Content\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the elements this View contains in a 2D array 
+
+All U\+I\+Elements.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_a715db505a27aeb27dd14c1108bda322f}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_a715db505a27aeb27dd14c1108bda322f} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!Stretch\+Background@{Stretch\+Background}}
+\index{Stretch\+Background@{Stretch\+Background}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{Stretch\+Background}{StretchBackground}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+U\+I.\+U\+I\+View.\+Stretch\+Background\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether the background image shoudl stretch to fit the window. 
+
+{\ttfamily true} if background should be stretched; otherwise, {\ttfamily false}.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_view_aa054a491e5acf3816240b671db3212ce}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_view_aa054a491e5acf3816240b671db3212ce} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}!this\mbox{[}string key\mbox{]}@{this[string key]}}
+\index{this\mbox{[}string key\mbox{]}@{this[string key]}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+View@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+View}}
+\subsubsection{\texorpdfstring{this[string key]}{this[string key]}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} M\+B2\+D.\+U\+I.\+U\+I\+View.\+this\mbox{[}string key\mbox{]}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element with the specified key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Tag of the element.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+U\+I/U\+I\+View.\+cs\end{DoxyCompactItemize}

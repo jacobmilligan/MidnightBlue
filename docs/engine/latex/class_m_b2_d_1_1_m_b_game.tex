@@ -1,0 +1,249 @@
+\hypertarget{class_m_b2_d_1_1_m_b_game}{}\subsection{M\+B2\+D.\+M\+B\+Game Class Reference}
+\label{class_m_b2_d_1_1_m_b_game}\index{M\+B2\+D.\+M\+B\+Game@{M\+B2\+D.\+M\+B\+Game}}
+
+
+This is the main type for your game.  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+M\+B\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_m_b2_d_1_1_m_b_game__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+M\+B\+Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_m_b2_d_1_1_m_b_game__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_m_b_game_aa75fd490a977436f16a048d38face6f9}{M\+B\+Game} (Type init\+Scene\+Type)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+M\+B\+Game class and defines essential graphics settings. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_m_b_game_ad7e9a60dbaefe1416db0456b07b13487}{Register\+Systems} ()
+\begin{DoxyCompactList}\small\item\em Registers all Entity\+Systems used in the engine \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_m_b2_d_1_1_m_b_game_a2157be479c1831c49301cd472cc01cde}{Initialize} ()
+\begin{DoxyCompactList}\small\item\em Allows the game to perform any initialization it needs to before starting to run. This is where it can query for any required services and load any non-\/graphic related content. Calling base.\+Initialize will enumerate through any components and initialize them as well. \end{DoxyCompactList}\item 
+override void \hyperlink{class_m_b2_d_1_1_m_b_game_a64ee7de17491790b25b326a644789082}{Load\+Content} ()
+\begin{DoxyCompactList}\small\item\em Loads content at the beginning of the game \end{DoxyCompactList}\item 
+override void \hyperlink{class_m_b2_d_1_1_m_b_game_a82968a66f75f9c437074ce7bfd468455}{Update} (Game\+Time game\+Time)
+\begin{DoxyCompactList}\small\item\em Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio. \end{DoxyCompactList}\item 
+override void \hyperlink{class_m_b2_d_1_1_m_b_game_ad791072c4d2a5b23bbaec3542d6facc9}{Draw} (Game\+Time game\+Time)
+\begin{DoxyCompactList}\small\item\em Draws the current scene to the window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Graphics\+Device \hyperlink{class_m_b2_d_1_1_m_b_game_ab46479cca47c2d5da6528ef81e9ff7c1}{Graphics}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the main graphics device. \end{DoxyCompactList}\item 
+static Camera2D \hyperlink{class_m_b2_d_1_1_m_b_game_adec48f512c50332353b12a569630defe}{Camera}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the main camera. \end{DoxyCompactList}\item 
+static \hyperlink{class_m_b2_d_1_1_m_b_console}{M\+B\+Console} \hyperlink{class_m_b2_d_1_1_m_b_game_a0db7935dd8a9f15b2dce1031920a4127}{Console}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the debug console for reading and writing to. There should only ever be one of these \end{DoxyCompactList}\item 
+static float \hyperlink{class_m_b2_d_1_1_m_b_game_ad5f17615f6a86c891635491cba99337d}{Delta\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets time it took to complete the last frame \end{DoxyCompactList}\item 
+static float \hyperlink{class_m_b2_d_1_1_m_b_game_acb9e6dfedc44ee2df89aa9714f098faf}{F\+PS}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current average frames per second \end{DoxyCompactList}\item 
+static bool \hyperlink{class_m_b2_d_1_1_m_b_game_a74cd19bc8809a473a639aed105f0f4e9}{Force\+Quit}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether this T\+:\+M\+B2\+D.\+M\+B\+Game should quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+This is the main type for your game. 
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_game_aa75fd490a977436f16a048d38face6f9}{}\label{class_m_b2_d_1_1_m_b_game_aa75fd490a977436f16a048d38face6f9} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!M\+B\+Game@{M\+B\+Game}}
+\index{M\+B\+Game@{M\+B\+Game}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{M\+B\+Game()}{MBGame()}}
+{\footnotesize\ttfamily M\+B2\+D.\+M\+B\+Game.\+M\+B\+Game (\begin{DoxyParamCaption}\item[{Type}]{init\+Scene\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+M\+B\+Game class and defines essential graphics settings. 
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_game_ad791072c4d2a5b23bbaec3542d6facc9}{}\label{class_m_b2_d_1_1_m_b_game_ad791072c4d2a5b23bbaec3542d6facc9} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Draw@{Draw}}
+\index{Draw@{Draw}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+M\+B\+Game.\+Draw (\begin{DoxyParamCaption}\item[{Game\+Time}]{game\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Draws the current scene to the window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Time} & Provides a snapshot of timing values.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_game_ad791072c4d2a5b23bbaec3542d6facc9_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_game_a2157be479c1831c49301cd472cc01cde}{}\label{class_m_b2_d_1_1_m_b_game_a2157be479c1831c49301cd472cc01cde} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+M\+B\+Game.\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Allows the game to perform any initialization it needs to before starting to run. This is where it can query for any required services and load any non-\/graphic related content. Calling base.\+Initialize will enumerate through any components and initialize them as well. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_game_a2157be479c1831c49301cd472cc01cde_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_game_a64ee7de17491790b25b326a644789082}{}\label{class_m_b2_d_1_1_m_b_game_a64ee7de17491790b25b326a644789082} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Load\+Content@{Load\+Content}}
+\index{Load\+Content@{Load\+Content}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Load\+Content()}{LoadContent()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+M\+B\+Game.\+Load\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Loads content at the beginning of the game 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_game_a64ee7de17491790b25b326a644789082_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_game_ad7e9a60dbaefe1416db0456b07b13487}{}\label{class_m_b2_d_1_1_m_b_game_ad7e9a60dbaefe1416db0456b07b13487} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Register\+Systems@{Register\+Systems}}
+\index{Register\+Systems@{Register\+Systems}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Register\+Systems()}{RegisterSystems()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+M\+B\+Game.\+Register\+Systems (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers all Entity\+Systems used in the engine 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_game_ad7e9a60dbaefe1416db0456b07b13487_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_game_a82968a66f75f9c437074ce7bfd468455}{}\label{class_m_b2_d_1_1_m_b_game_a82968a66f75f9c437074ce7bfd468455} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Update@{Update}}
+\index{Update@{Update}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+M\+B\+Game.\+Update (\begin{DoxyParamCaption}\item[{Game\+Time}]{game\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Allows the game to run logic such as updating the world, checking for collisions, gathering input, and playing audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Time} & Provides a snapshot of timing values.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_game_a82968a66f75f9c437074ce7bfd468455_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_game_adec48f512c50332353b12a569630defe}{}\label{class_m_b2_d_1_1_m_b_game_adec48f512c50332353b12a569630defe} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Camera@{Camera}}
+\index{Camera@{Camera}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Camera}{Camera}}
+{\footnotesize\ttfamily Camera2D M\+B2\+D.\+M\+B\+Game.\+Camera\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the main camera. 
+
+The main camera.\hypertarget{class_m_b2_d_1_1_m_b_game_a0db7935dd8a9f15b2dce1031920a4127}{}\label{class_m_b2_d_1_1_m_b_game_a0db7935dd8a9f15b2dce1031920a4127} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Console@{Console}}
+\index{Console@{Console}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Console}{Console}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_m_b_console}{M\+B\+Console} M\+B2\+D.\+M\+B\+Game.\+Console\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the debug console for reading and writing to. There should only ever be one of these 
+
+The debug console.\hypertarget{class_m_b2_d_1_1_m_b_game_ad5f17615f6a86c891635491cba99337d}{}\label{class_m_b2_d_1_1_m_b_game_ad5f17615f6a86c891635491cba99337d} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Delta\+Time@{Delta\+Time}}
+\index{Delta\+Time@{Delta\+Time}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Delta\+Time}{DeltaTime}}
+{\footnotesize\ttfamily float M\+B2\+D.\+M\+B\+Game.\+Delta\+Time\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets time it took to complete the last frame 
+
+The delta time.\hypertarget{class_m_b2_d_1_1_m_b_game_a74cd19bc8809a473a639aed105f0f4e9}{}\label{class_m_b2_d_1_1_m_b_game_a74cd19bc8809a473a639aed105f0f4e9} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Force\+Quit@{Force\+Quit}}
+\index{Force\+Quit@{Force\+Quit}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Force\+Quit}{ForceQuit}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+M\+B\+Game.\+Force\+Quit\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether this T\+:\+M\+B2\+D.\+M\+B\+Game should quit. 
+
+{\ttfamily true} if the game should quit; otherwise, {\ttfamily false}.\hypertarget{class_m_b2_d_1_1_m_b_game_acb9e6dfedc44ee2df89aa9714f098faf}{}\label{class_m_b2_d_1_1_m_b_game_acb9e6dfedc44ee2df89aa9714f098faf} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!F\+PS@{F\+PS}}
+\index{F\+PS@{F\+PS}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{F\+PS}{FPS}}
+{\footnotesize\ttfamily float M\+B2\+D.\+M\+B\+Game.\+F\+PS\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the current average frames per second 
+
+The fps.\hypertarget{class_m_b2_d_1_1_m_b_game_ab46479cca47c2d5da6528ef81e9ff7c1}{}\label{class_m_b2_d_1_1_m_b_game_ab46479cca47c2d5da6528ef81e9ff7c1} 
+\index{M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}!Graphics@{Graphics}}
+\index{Graphics@{Graphics}!M\+B2\+D\+::\+M\+B\+Game@{M\+B2\+D\+::\+M\+B\+Game}}
+\paragraph{\texorpdfstring{Graphics}{Graphics}}
+{\footnotesize\ttfamily Graphics\+Device M\+B2\+D.\+M\+B\+Game.\+Graphics\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the main graphics device. 
+
+The graphics device.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/M\+B\+Game.\+cs\end{DoxyCompactItemize}

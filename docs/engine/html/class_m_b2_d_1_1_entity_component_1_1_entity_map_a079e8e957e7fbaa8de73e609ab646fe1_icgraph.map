@@ -1,0 +1,4 @@
+<map id="MB2D.EntityComponent.EntityMap.Clear" name="MB2D.EntityComponent.EntityMap.Clear">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#ac9cb0c45a98614e7e4c1307ebb6ef85e" title="Initializes a new instance of the T:MB2D.Scenes.Scene class with a pre&#45;existing EntityMap ..." alt="" coords="261,5,450,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a3ee3777b94ccff0a739e75ca1ca151c6" title="Cleans up the scene and unloads content. " alt="" coords="255,55,456,80"/>
+</map>

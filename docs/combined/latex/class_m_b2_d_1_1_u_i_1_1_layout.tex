@@ -1,0 +1,142 @@
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout}{}\section{M\+B2\+D.\+U\+I.\+Layout Class Reference}
+\label{class_m_b2_d_1_1_u_i_1_1_layout}\index{M\+B2\+D.\+U\+I.\+Layout@{M\+B2\+D.\+U\+I.\+Layout}}
+
+
+A container for U\+I\+Elements used within a \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view}{U\+I\+View}. Used to divide the View into smaller segments and to move around a group of elements easily  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+U\+I.\+Layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_m_b2_d_1_1_u_i_1_1_layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+U\+I.\+Layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_m_b2_d_1_1_u_i_1_1_layout__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_a86bd9b8fde99644021327ce66b71d0b5}{Layout} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view}{U\+I\+View} parent\+View, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+Layout class. Divides the layouts rows and columns into an even cell size based of its parents size. \end{DoxyCompactList}\item 
+override void \hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_a88af7d81c8eecdca29c04e2616b69c0c}{Update} ()
+\begin{DoxyCompactList}\small\item\em Update all elements contained within the layout. \end{DoxyCompactList}\item 
+override void \hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_ae018eee922839254b46610216843afa7}{Draw} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws all elements contained within the layout and the layouts border to the window. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_aef7a54a9b1c195a99cdd83d1d526ddd4}{Add} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} element, int at\+Row, int at\+Col, int row\+Span, int col\+Span)
+\begin{DoxyCompactList}\small\item\em Adds a new \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} to the layout, setting its size relative to this layouts cell size \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout_a451dc6b22cf15cfe0660caa9c29f9767}{}\label{class_m_b2_d_1_1_u_i_1_1_layout_a451dc6b22cf15cfe0660caa9c29f9767} 
+Texture2D {\bfseries Base\+Texture}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A container for U\+I\+Elements used within a \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view}{U\+I\+View}. Used to divide the View into smaller segments and to move around a group of elements easily 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout_a86bd9b8fde99644021327ce66b71d0b5}{}\label{class_m_b2_d_1_1_u_i_1_1_layout_a86bd9b8fde99644021327ce66b71d0b5} 
+\index{M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}!Layout@{Layout}}
+\index{Layout@{Layout}!M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}}
+\subsubsection{\texorpdfstring{Layout()}{Layout()}}
+{\footnotesize\ttfamily M\+B2\+D.\+U\+I.\+Layout.\+Layout (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_view}{U\+I\+View}}]{parent\+View,  }\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+Layout class. Divides the layouts rows and columns into an even cell size based of its parents size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows the layout has.\\
+\hline
+{\em cols} & Number of columns the layout has.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout_aef7a54a9b1c195a99cdd83d1d526ddd4}{}\label{class_m_b2_d_1_1_u_i_1_1_layout_aef7a54a9b1c195a99cdd83d1d526ddd4} 
+\index{M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}!Add@{Add}}
+\index{Add@{Add}!M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+Layout.\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element}}]{element,  }\item[{int}]{at\+Row,  }\item[{int}]{at\+Col,  }\item[{int}]{row\+Span,  }\item[{int}]{col\+Span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element}{U\+I\+Element} to the layout, setting its size relative to this layouts cell size 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to add.\\
+\hline
+{\em at\+Row} & Row position to add the element at.\\
+\hline
+{\em at\+Col} & Column position to add the element at.\\
+\hline
+{\em row\+Span} & Number of rows the element should span.\\
+\hline
+{\em col\+Span} & Number of columns the element should span.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_layout_aef7a54a9b1c195a99cdd83d1d526ddd4_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout_ae018eee922839254b46610216843afa7}{}\label{class_m_b2_d_1_1_u_i_1_1_layout_ae018eee922839254b46610216843afa7} 
+\index{M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}!Draw@{Draw}}
+\index{Draw@{Draw}!M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+U\+I.\+Layout.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draws all elements contained within the layout and the layouts border to the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_afec98e6e38cb0dbc17a5db6d6a3d5ba5}{M\+B2\+D.\+U\+I.\+U\+I\+Element}.
+
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_layout_a88af7d81c8eecdca29c04e2616b69c0c}{}\label{class_m_b2_d_1_1_u_i_1_1_layout_a88af7d81c8eecdca29c04e2616b69c0c} 
+\index{M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}!Update@{Update}}
+\index{Update@{Update}!M\+B2\+D\+::\+U\+I\+::\+Layout@{M\+B2\+D\+::\+U\+I\+::\+Layout}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily override void M\+B2\+D.\+U\+I.\+Layout.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Update all elements contained within the layout. 
+
+
+
+Implements \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa97bcbe44f3fac8a13e2febca23b2d4d}{M\+B2\+D.\+U\+I.\+U\+I\+Element}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+U\+I/Layout.\+cs\end{DoxyCompactItemize}

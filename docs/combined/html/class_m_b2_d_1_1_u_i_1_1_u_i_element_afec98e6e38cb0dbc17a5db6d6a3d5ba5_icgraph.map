@@ -1,0 +1,8 @@
+<map id="MB2D.UI.UIElement.Draw" name="MB2D.UI.UIElement.Draw">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a1f1acf013f17aa0738ff2d9b0516126e" title="Draws the View and its elements to the window " alt="" coords="230,104,385,129"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_testing_1_1_u_i_test.html#a9656d2d62517288a7b4387dafe741ea0" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="464,5,645,31"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#a3646fcf97e067bac267d42aad66e71c4" title="Draw the game world and UI to the specified spriteBatch and uiSpriteBatch. " alt="" coords="446,55,663,80"/>
+<area shape="rect" id="node5" href="$class_midnight_blue_1_1_menu_scene.html#a600112073f48c763a50c802960f5fdaa" title="Draws the UI to the uiSpriteBatch " alt="" coords="451,104,659,129"/>
+<area shape="rect" id="node6" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="433,153,676,179"/>
+<area shape="rect" id="node7" href="$class_midnight_blue_1_1_title_scene.html#a03fa806a36226ec5fd0ce09870109c18" title="Draws the UI to the uiSpriteBatch " alt="" coords="455,203,654,228"/>
+</map>

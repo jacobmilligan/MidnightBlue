@@ -1,12 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_command.html" title="Executes an action associated with a specific key " alt="" coords="5,243,232,268"/>
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_console_command.html" title="Shows or hides the debug console " alt="" coords="289,5,503,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_backward.html" title="Moves an entity backward. Only runs on entities with a physics component " alt="" coords="297,68,495,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_down.html" title="Moves an entity down " alt="" coords="280,131,512,156"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_forward.html" title="Moves an entity forward. Only runs on entities with a physics component " alt="" coords="297,180,495,219"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_left.html" title="Moves an entity left. " alt="" coords="286,243,506,268"/>
-<area shape="rect" id="node7" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_right.html" title="Moves an entity right " alt="" coords="297,292,495,331"/>
-<area shape="rect" id="node8" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_move_up.html" title="Moves a player controller up " alt="" coords="288,355,503,380"/>
-<area shape="rect" id="node9" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_rotate_left.html" title="Rotates an entity left " alt="" coords="283,404,509,429"/>
-<area shape="rect" id="node10" href="$class_midnight_blue_1_1_engine_1_1_i_o_1_1_rotate_right.html" title="Rotates an entity right " alt="" coords="294,453,498,492"/>
+<area shape="rect" id="node1" href="$class_m_b2_d_1_1_i_o_1_1_input_map.html" title="Maps commands to keys and trigger types " alt="" coords="5,5,141,31"/>
 </map>

@@ -1,0 +1,390 @@
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element}{}\section{M\+B2\+D.\+U\+I.\+U\+I\+Element Class Reference}
+\label{class_m_b2_d_1_1_u_i_1_1_u_i_element}\index{M\+B2\+D.\+U\+I.\+U\+I\+Element@{M\+B2\+D.\+U\+I.\+U\+I\+Element}}
+
+
+Defines a \hyperlink{namespace_m_b2_d_1_1_u_i}{UI} object that can be contained within Views and Layouts, drawn, updated, and moved about  
+
+
+
+
+Inheritance diagram for M\+B2\+D.\+U\+I.\+U\+I\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_element__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+B2\+D.\+U\+I.\+U\+I\+Element\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_m_b2_d_1_1_u_i_1_1_u_i_element__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c3d52b5993c5f1d6615d0535fdd9e19}{Set\+Relative\+Size} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} parent, Point at, Point span)
+\begin{DoxyCompactList}\small\item\em Sets the size of the element relative to its parent \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_ada6dd87befb618ea03e8a3d30ae3fea9}{Set\+Relative\+Size} (\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} parent, int at\+Row, int at\+Col, int row\+Span, int col\+Span)
+\begin{DoxyCompactList}\small\item\em Sets the size of the element relative to its parent \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_afec98e6e38cb0dbc17a5db6d6a3d5ba5}{Draw} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the element to the window. Overriden in derived classes \end{DoxyCompactList}\item 
+abstract void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa97bcbe44f3fac8a13e2febca23b2d4d}{Update} ()
+\begin{DoxyCompactList}\small\item\em Update the elements state and handles input. Overriden in derived classes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a508bd28173afc58ba1214672a013f802}{U\+I\+Element} (int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element class. Sets default property values \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0a17b121a60ad05039f01eee006ae76c}{Draw\+Border} (Sprite\+Batch sprite\+Batch)
+\begin{DoxyCompactList}\small\item\em Draws the elements border to the window. Skips sides that have color set to Color.\+Transparent \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa8ea5b853315a074a1a745c54c83404f}{Content}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} of the element, only available in container elements \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0de3ac5ae7a1377b62677a9aeae8955e}{Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the column and row count of the element \end{DoxyCompactList}\item 
+Rectangle \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a840da120eb79b7ce0382e6c0a9d0a482}{Bounding\+Box}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of this element \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4bd0871f3e17f95b35aef3f3292bd89e}{Fill}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value that indicates the element should be stretched or shrunk to fill its parents bounds exactly \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_abcd3eabd4db0998955a1e856a41d3d84}{Background\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the elements background. \end{DoxyCompactList}\item 
+string \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_abddab0c939c89a0be403b577d4428309}{Text\+Content}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the string rendered by the element. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aaf5bdcd4524ae5e93f1c40431d7d6c90}{Text\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the current color of the text. \end{DoxyCompactList}\item 
+Sprite\+Font \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c6bdbe83ece72ab6434c439371a0a39}{Font}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the font used in rendering the elements Text\+Content \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a27fdfa5d734c96e8249bb7955d2d069c}{Border\+Displayed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets a value indicating whether this T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element has itsborder displayed. \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad20e0ef79012021b00d67fad2b013f94}{Border\+Width}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the width of the border. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a7e243b6b0b62b303751ce9d0425fbf1f}{Border\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa45f78b02d01b2dbec6b4fc217931893}{Border\+Top\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border top. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad9ccf8afb8798ad432e3e08872101bf4}{Border\+Right\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border right. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_af5fa3d6d3757bfe0a8d5ddd03d897c6c}{Border\+Bottom\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border bottom. \end{DoxyCompactList}\item 
+Color \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_aef07fe4fd9fef08485aa7265f4b9128b}{Border\+Left\+Color}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the color of the border left. \end{DoxyCompactList}\item 
+string \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_element_a6cb084698047528460e9c56690307f2c}{Tag}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the tag used to quickly access this element and uniquely identify it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a \hyperlink{namespace_m_b2_d_1_1_u_i}{UI} object that can be contained within Views and Layouts, drawn, updated, and moved about 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a508bd28173afc58ba1214672a013f802}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a508bd28173afc58ba1214672a013f802} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!U\+I\+Element@{U\+I\+Element}}
+\index{U\+I\+Element@{U\+I\+Element}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{U\+I\+Element()}{UIElement()}}
+{\footnotesize\ttfamily M\+B2\+D.\+U\+I.\+U\+I\+Element.\+U\+I\+Element (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element class. Sets default property values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Number of rows this element should span -\/ used only be used for container elements \\
+\hline
+{\em cols} & Number of columns this element should span -\/ used only be used for container elements. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_afec98e6e38cb0dbc17a5db6d6a3d5ba5}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_afec98e6e38cb0dbc17a5db6d6a3d5ba5} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Draw@{Draw}}
+\index{Draw@{Draw}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Draw (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draws the element to the window. Overriden in derived classes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw to.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_m_b2_d_1_1_u_i_1_1_list_control_a2ec92a77d8960945f3bd37bd76641946}{M\+B2\+D.\+U\+I.\+List\+Control}, \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_control_element_afac0cbbbbead7c7348401075cda433ba}{M\+B2\+D.\+U\+I.\+U\+I\+Control\+Element}, \hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_ae018eee922839254b46610216843afa7}{M\+B2\+D.\+U\+I.\+Layout}, and \hyperlink{class_m_b2_d_1_1_u_i_1_1_label_a976ec212cedf0710fb35cd578e1e51b1}{M\+B2\+D.\+U\+I.\+Label}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_element_afec98e6e38cb0dbc17a5db6d6a3d5ba5_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0a17b121a60ad05039f01eee006ae76c}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0a17b121a60ad05039f01eee006ae76c} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Draw\+Border@{Draw\+Border}}
+\index{Draw\+Border@{Draw\+Border}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Draw\+Border()}{DrawBorder()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Draw\+Border (\begin{DoxyParamCaption}\item[{Sprite\+Batch}]{sprite\+Batch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Draws the elements border to the window. Skips sides that have color set to Color.\+Transparent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Batch} & Sprite batch to draw the border to.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c3d52b5993c5f1d6615d0535fdd9e19}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c3d52b5993c5f1d6615d0535fdd9e19} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Set\+Relative\+Size@{Set\+Relative\+Size}}
+\index{Set\+Relative\+Size@{Set\+Relative\+Size}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Set\+Relative\+Size()}{SetRelativeSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Set\+Relative\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content}}]{parent,  }\item[{Point}]{at,  }\item[{Point}]{span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the size of the element relative to its parent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent content to align to\\
+\hline
+{\em at} & Position element should be set to\\
+\hline
+{\em span} & Number of columns/rows the element should span.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c3d52b5993c5f1d6615d0535fdd9e19_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_ada6dd87befb618ea03e8a3d30ae3fea9}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_ada6dd87befb618ea03e8a3d30ae3fea9} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Set\+Relative\+Size@{Set\+Relative\+Size}}
+\index{Set\+Relative\+Size@{Set\+Relative\+Size}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Set\+Relative\+Size()}{SetRelativeSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Set\+Relative\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content}}]{parent,  }\item[{int}]{at\+Row,  }\item[{int}]{at\+Col,  }\item[{int}]{row\+Span,  }\item[{int}]{col\+Span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the size of the element relative to its parent 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent content to align to\\
+\hline
+{\em at\+Row} & Row position the element should align to.\\
+\hline
+{\em at\+Col} & Column position the element should align to.\\
+\hline
+{\em row\+Span} & Number of rows in the parent the element should span.\\
+\hline
+{\em col\+Span} & Number of columns in the parent the element should span.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa97bcbe44f3fac8a13e2febca23b2d4d}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa97bcbe44f3fac8a13e2febca23b2d4d} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Update@{Update}}
+\index{Update@{Update}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily abstract void M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update the elements state and handles input. Overriden in derived classes 
+
+
+
+Implemented in \hyperlink{class_m_b2_d_1_1_u_i_1_1_list_control_a48587bc052ca0d3d28bd968369024e14}{M\+B2\+D.\+U\+I.\+List\+Control}, \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_control_element_aa43f7ea6155de3086efbf29396ea2ccf}{M\+B2\+D.\+U\+I.\+U\+I\+Control\+Element}, \hyperlink{class_m_b2_d_1_1_u_i_1_1_label_ae4cc8f88f75b0d16d983bb754d214ef4}{M\+B2\+D.\+U\+I.\+Label}, \hyperlink{class_m_b2_d_1_1_u_i_1_1_button_a1686d24f172e05a1bf83fc3aa49cfab5}{M\+B2\+D.\+U\+I.\+Button}, and \hyperlink{class_m_b2_d_1_1_u_i_1_1_layout_a88af7d81c8eecdca29c04e2616b69c0c}{M\+B2\+D.\+U\+I.\+Layout}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa97bcbe44f3fac8a13e2febca23b2d4d_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_abcd3eabd4db0998955a1e856a41d3d84}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_abcd3eabd4db0998955a1e856a41d3d84} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Background\+Color@{Background\+Color}}
+\index{Background\+Color@{Background\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Background\+Color}{BackgroundColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Background\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the elements background. 
+
+The color of the background.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_af5fa3d6d3757bfe0a8d5ddd03d897c6c}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_af5fa3d6d3757bfe0a8d5ddd03d897c6c} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Bottom\+Color@{Border\+Bottom\+Color}}
+\index{Border\+Bottom\+Color@{Border\+Bottom\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Bottom\+Color}{BorderBottomColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Bottom\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border bottom. 
+
+The color of the border bottom.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a7e243b6b0b62b303751ce9d0425fbf1f}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a7e243b6b0b62b303751ce9d0425fbf1f} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Color@{Border\+Color}}
+\index{Border\+Color@{Border\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Color}{BorderColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border. 
+
+The color of the border. Resets all border sides\textquotesingle{} colors to this color.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a27fdfa5d734c96e8249bb7955d2d069c}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a27fdfa5d734c96e8249bb7955d2d069c} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Displayed@{Border\+Displayed}}
+\index{Border\+Displayed@{Border\+Displayed}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Displayed}{BorderDisplayed}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Displayed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value indicating whether this T\+:\+M\+B2\+D.\+U\+I.\+U\+I\+Element has itsborder displayed. 
+
+{\ttfamily true} if border should be displayed; otherwise, {\ttfamily false}.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_aef07fe4fd9fef08485aa7265f4b9128b}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_aef07fe4fd9fef08485aa7265f4b9128b} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Left\+Color@{Border\+Left\+Color}}
+\index{Border\+Left\+Color@{Border\+Left\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Left\+Color}{BorderLeftColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Left\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border left. 
+
+The color of the border left.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad9ccf8afb8798ad432e3e08872101bf4}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad9ccf8afb8798ad432e3e08872101bf4} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Right\+Color@{Border\+Right\+Color}}
+\index{Border\+Right\+Color@{Border\+Right\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Right\+Color}{BorderRightColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Right\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border right. 
+
+The color of the border right.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa45f78b02d01b2dbec6b4fc217931893}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa45f78b02d01b2dbec6b4fc217931893} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Top\+Color@{Border\+Top\+Color}}
+\index{Border\+Top\+Color@{Border\+Top\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Top\+Color}{BorderTopColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Top\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the color of the border top. 
+
+The color of the border top.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad20e0ef79012021b00d67fad2b013f94}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_ad20e0ef79012021b00d67fad2b013f94} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Border\+Width@{Border\+Width}}
+\index{Border\+Width@{Border\+Width}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Border\+Width}{BorderWidth}}
+{\footnotesize\ttfamily int M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Border\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the width of the border. 
+
+The width of the border.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a840da120eb79b7ce0382e6c0a9d0a482}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a840da120eb79b7ce0382e6c0a9d0a482} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Bounding\+Box@{Bounding\+Box}}
+\index{Bounding\+Box@{Bounding\+Box}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Bounding\+Box}{BoundingBox}}
+{\footnotesize\ttfamily Rectangle M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Bounding\+Box\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the bounding box of this element 
+
+The bounding box.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa8ea5b853315a074a1a745c54c83404f}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_aa8ea5b853315a074a1a745c54c83404f} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Content@{Content}}
+\index{Content@{Content}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Content}{Content}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Content\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the \hyperlink{class_m_b2_d_1_1_u_i_1_1_u_i_content}{U\+I\+Content} of the element, only available in container elements 
+
+The content.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4bd0871f3e17f95b35aef3f3292bd89e}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4bd0871f3e17f95b35aef3f3292bd89e} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Fill@{Fill}}
+\index{Fill@{Fill}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Fill}{Fill}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Fill\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets a value that indicates the element should be stretched or shrunk to fill its parents bounds exactly 
+
+{\ttfamily true} if set to fill parent; otherwise, {\ttfamily false}.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c6bdbe83ece72ab6434c439371a0a39}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a4c6bdbe83ece72ab6434c439371a0a39} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Font@{Font}}
+\index{Font@{Font}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Font}{Font}}
+{\footnotesize\ttfamily Sprite\+Font M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Font\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the font used in rendering the elements Text\+Content 
+
+The font.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0de3ac5ae7a1377b62677a9aeae8955e}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a0de3ac5ae7a1377b62677a9aeae8955e} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Size@{Size}}
+\index{Size@{Size}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Size}{Size}}
+{\footnotesize\ttfamily Vector2 M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the column and row count of the element 
+
+The elements grid size.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_a6cb084698047528460e9c56690307f2c}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_a6cb084698047528460e9c56690307f2c} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Tag@{Tag}}
+\index{Tag@{Tag}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Tag}{Tag}}
+{\footnotesize\ttfamily string M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Tag\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the tag used to quickly access this element and uniquely identify it. 
+
+The tag.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_aaf5bdcd4524ae5e93f1c40431d7d6c90}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_aaf5bdcd4524ae5e93f1c40431d7d6c90} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Text\+Color@{Text\+Color}}
+\index{Text\+Color@{Text\+Color}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Text\+Color}{TextColor}}
+{\footnotesize\ttfamily Color M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Text\+Color\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the current color of the text. 
+
+The text contents current color value.\hypertarget{class_m_b2_d_1_1_u_i_1_1_u_i_element_abddab0c939c89a0be403b577d4428309}{}\label{class_m_b2_d_1_1_u_i_1_1_u_i_element_abddab0c939c89a0be403b577d4428309} 
+\index{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}!Text\+Content@{Text\+Content}}
+\index{Text\+Content@{Text\+Content}!M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element@{M\+B2\+D\+::\+U\+I\+::\+U\+I\+Element}}
+\subsubsection{\texorpdfstring{Text\+Content}{TextContent}}
+{\footnotesize\ttfamily string M\+B2\+D.\+U\+I.\+U\+I\+Element.\+Text\+Content\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the string rendered by the element. 
+
+The content of the text.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+U\+I/U\+I\+Element.\+cs\end{DoxyCompactItemize}

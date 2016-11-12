@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resuming',['Resuming',['../namespace_midnight_blue_1_1_engine_1_1_scenes.html#a829c47ebe553886b3b3e92db386e2557a69f55169cdb3caab27ba9f347bf05354',1,'MidnightBlue::Engine::Scenes']]]
+  ['quit',['Quit',['../namespace_m_b2_d.html#ab170e7e7db86e5ccb0ae156c0d9a6002a0d82790b0612935992bd564a17ce37d6',1,'MB2D']]]
 ];

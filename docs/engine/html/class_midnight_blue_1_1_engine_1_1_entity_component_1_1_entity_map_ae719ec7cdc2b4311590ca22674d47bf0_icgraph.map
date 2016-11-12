@@ -1,7 +1,0 @@
-<map id="MidnightBlue.Engine.EntityComponent.EntityMap.UpdateEntityMask" name="MidnightBlue.Engine.EntityComponent.EntityMap.UpdateEntityMask">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#ac0f755703d44843aff237147fa2f49ff" title="Attaches a new component to the entity. " alt="" coords="321,5,519,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#a03dd4fbb29f2a0be51589726304725df" title="Attaches a new component to the entity. " alt="" coords="330,68,510,107"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#ab5b2a5d043014c5c4b3e97562df9f76a" title="Detatches a specific component from the entity " alt="" coords="318,131,521,169"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity.html#a2109f26da3d9f33ff2ab950498e87782" title="Detachs all of the entities attached components. " alt="" coords="326,193,514,232"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_m_b_game.html#a0e02fa538b3344104374f61a058516f8" title="Allows the game to perform any initialization it needs to before starting to run. This is where it ca..." alt="" coords="569,68,777,107"/>
-</map>

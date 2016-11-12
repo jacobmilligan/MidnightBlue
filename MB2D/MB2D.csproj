@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="src\Test\GenTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />

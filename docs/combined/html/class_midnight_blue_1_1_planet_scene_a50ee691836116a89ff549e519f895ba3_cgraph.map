@@ -1,4 +1,4 @@
 <map id="MidnightBlue.PlanetScene.PlanetScene" name="MidnightBlue.PlanetScene.PlanetScene">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_tiles_1_1_tile_map.html#ab2ae5b8ef2fb44d5267b8be7997ddb4c" title="Uses a 2D Array of previously defined tile information to fill a tile map with collision data and oth..." alt="" coords="240,5,419,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#af8b2220c70e42cd8e4802b744397ffcf" title="Clears all entities from this map except for any marked as persistant. " alt="" coords="235,68,424,107"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_tiles_1_1_tile_map.html#acc786702f8dfb76227fcd76ce0b20510" title="Uses a 2D Array of previously defined tile information to fill a tile map with collision data and oth..." alt="" coords="255,5,416,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a079e8e957e7fbaa8de73e609ab646fe1" title="Clears all entities from this map except for any marked as persistant. " alt="" coords="235,55,436,93"/>
 </map>

@@ -1,0 +1,237 @@
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack}{}\subsection{M\+B2\+D.\+Scenes.\+Scene\+Stack Class Reference}
+\label{class_m_b2_d_1_1_scenes_1_1_scene_stack}\index{M\+B2\+D.\+Scenes.\+Scene\+Stack@{M\+B2\+D.\+Scenes.\+Scene\+Stack}}
+
+
+Holds the games scenes in a stack structure running the top scene every frame. Handles switching state for scenes and popping/pushing new scenes on top of one another. Allows the current scene to access other scenes.  
+
+
+
+
+Collaboration diagram for M\+B2\+D.\+Scenes.\+Scene\+Stack\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_afae8584f72ea2eb6848af3781e7c4137}{Scene\+Stack} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Scenes.\+Scene\+Stack class. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a22760622453ac16621534bc324ec039f}{Push} (\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} scene)
+\begin{DoxyCompactList}\small\item\em Pushes a new scene to the top of the stack. Calls the new scenes Initialize method and the previous scenes Pause method \end{DoxyCompactList}\item 
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_aad467942bd0fb8029b67af4e981c384a}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_aad467942bd0fb8029b67af4e981c384a} 
+void {\bfseries Draw} (Sprite\+Batch sprite\+Batch, Sprite\+Batch ui\+Sprite\+Batch)
+\item 
+void \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a8486b29eb65458e88512989201772984}{Update} ()
+\begin{DoxyCompactList}\small\item\em Updates the scene at the top of the stack and handles any state transitions if they\textquotesingle{}ve been called. For any transitions or scene logic to function correctly this must be called once per frame. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a134c3aff1731fb86116b78cac7112464}{Pop} ()
+\begin{DoxyCompactList}\small\item\em Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next scene on the stack if it exists. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a521a38426d3e85caeb53b2909b623562}{Reset\+To} (\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} scene)
+\begin{DoxyCompactList}\small\item\em Resets the scene stack to the specified scene, clearing all other scenes from the stack. Use this in most scenarios instead of Push to save memory by not keeping scenes allocated if unnecessary. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a84b1a5b2771f6c663eece04bcafd5416}{Scene\+At} (int index)
+\begin{DoxyCompactList}\small\item\em Gets the scene located at the specific index in the stack \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_ad409d4fad58a067955ee1f6ed88229ef}{Top}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the scene at the top of the stack. \end{DoxyCompactList}\item 
+\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a916ab93964a454fa69697bef787c79d6}{Bottom}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the scene at the bottom of the stack. \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a960aea6084b685c9cb4fce6b1a586009}{Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current size of the stack \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene_stack_a4c0fa3522458fb0d64cee1a54f31d50d}{Last\+Index}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the upper bounds of the indexes of the stack \end{DoxyCompactList}\item 
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a287e35dc511d160ddad89f49710c38b0}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a287e35dc511d160ddad89f49710c38b0} 
+\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} {\bfseries Next}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a1937f6c80443c9486b0afe5a8826ff2b}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a1937f6c80443c9486b0afe5a8826ff2b} 
+Type {\bfseries Last\+Scene\+Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Holds the games scenes in a stack structure running the top scene every frame. Handles switching state for scenes and popping/pushing new scenes on top of one another. Allows the current scene to access other scenes. 
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_afae8584f72ea2eb6848af3781e7c4137}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_afae8584f72ea2eb6848af3781e7c4137} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Scene\+Stack@{Scene\+Stack}}
+\index{Scene\+Stack@{Scene\+Stack}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Scene\+Stack()}{SceneStack()}}
+{\footnotesize\ttfamily M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Scene\+Stack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Scenes.\+Scene\+Stack class. 
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a134c3aff1731fb86116b78cac7112464}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a134c3aff1731fb86116b78cac7112464} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Pop@{Pop}}
+\index{Pop@{Pop}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Pop()}{Pop()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next scene on the stack if it exists. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a134c3aff1731fb86116b78cac7112464_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a134c3aff1731fb86116b78cac7112464_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a22760622453ac16621534bc324ec039f}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a22760622453ac16621534bc324ec039f} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Push@{Push}}
+\index{Push@{Push}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Push (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pushes a new scene to the top of the stack. Calls the new scenes Initialize method and the previous scenes Pause method 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} to push.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a22760622453ac16621534bc324ec039f_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a521a38426d3e85caeb53b2909b623562}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a521a38426d3e85caeb53b2909b623562} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Reset\+To@{Reset\+To}}
+\index{Reset\+To@{Reset\+To}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Reset\+To()}{ResetTo()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Reset\+To (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the scene stack to the specified scene, clearing all other scenes from the stack. Use this in most scenarios instead of Push to save memory by not keeping scenes allocated if unnecessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} to reset to.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a521a38426d3e85caeb53b2909b623562_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a84b1a5b2771f6c663eece04bcafd5416}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a84b1a5b2771f6c663eece04bcafd5416} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Scene\+At@{Scene\+At}}
+\index{Scene\+At@{Scene\+At}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Scene\+At()}{SceneAt()}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Scene\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the scene located at the specific index in the stack 
+
+\begin{DoxyReturn}{Returns}
+The T\+:\+M\+B2\+D.\+Scenes.\+Scene.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a84b1a5b2771f6c663eece04bcafd5416_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a8486b29eb65458e88512989201772984}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a8486b29eb65458e88512989201772984} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Update@{Update}}
+\index{Update@{Update}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the scene at the top of the stack and handles any state transitions if they\textquotesingle{}ve been called. For any transitions or scene logic to function correctly this must be called once per frame. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_scenes_1_1_scene_stack_a8486b29eb65458e88512989201772984_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a916ab93964a454fa69697bef787c79d6}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a916ab93964a454fa69697bef787c79d6} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Bottom@{Bottom}}
+\index{Bottom@{Bottom}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Bottom}{Bottom}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Bottom\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the scene at the bottom of the stack. 
+
+The bottom scene.\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a4c0fa3522458fb0d64cee1a54f31d50d}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a4c0fa3522458fb0d64cee1a54f31d50d} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Last\+Index@{Last\+Index}}
+\index{Last\+Index@{Last\+Index}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Last\+Index}{LastIndex}}
+{\footnotesize\ttfamily int M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Last\+Index\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the upper bounds of the indexes of the stack 
+
+The last index.\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_a960aea6084b685c9cb4fce6b1a586009}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_a960aea6084b685c9cb4fce6b1a586009} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Size@{Size}}
+\index{Size@{Size}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Size}{Size}}
+{\footnotesize\ttfamily int M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Size\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the current size of the stack 
+
+The size.\hypertarget{class_m_b2_d_1_1_scenes_1_1_scene_stack_ad409d4fad58a067955ee1f6ed88229ef}{}\label{class_m_b2_d_1_1_scenes_1_1_scene_stack_ad409d4fad58a067955ee1f6ed88229ef} 
+\index{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}!Top@{Top}}
+\index{Top@{Top}!M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack@{M\+B2\+D\+::\+Scenes\+::\+Scene\+Stack}}
+\paragraph{\texorpdfstring{Top}{Top}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_scenes_1_1_scene}{Scene} M\+B2\+D.\+Scenes.\+Scene\+Stack.\+Top\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the scene at the top of the stack. 
+
+The scene at the top of the stack.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Scene/Scene\+Stack.\+cs\end{DoxyCompactItemize}

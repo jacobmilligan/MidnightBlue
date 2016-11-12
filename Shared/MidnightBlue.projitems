@@ -35,6 +35,7 @@
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\SourceCode.xnb" />
     <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll" />
     <None Include="$(MSBuildThisFileDirectory)src\Lib\TinkerWorX.AccidentalNoiseLibrary.dll.mdb" />
+    <None Include="$(MSBuildThisFileDirectory)src\Game\Tests\GenTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)src\Game\Scenes\TitleScene.cs" />

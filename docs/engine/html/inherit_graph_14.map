@@ -1,3 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_m_b_game.html" title="This is the main type for your game. " alt="" coords="111,5,315,31"/>
+<area shape="rect" id="node1" href="$class_m_b2_d_1_1_m_b_console_a_s_t_node.html" title="Class all AST nodes inherit from " alt="" coords="5,104,194,129"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_print_a_s_t_node.html" title="Prints a variable to the console. " alt="" coords="243,5,390,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_quit_a_s_t_node.html" title="Handles quitting the game " alt="" coords="244,55,388,80"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_root_a_s_t_node.html" title="The entry point for command execution with a single child. " alt="" coords="242,104,390,129"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_run_a_s_t_node.html" title="AST node entry point for executing a run command " alt="" coords="244,153,388,179"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_set_a_s_t_node.html" title="AST node representing the entry point for a &#39;set&#39; command with an identifier and a value child ..." alt="" coords="246,203,386,228"/>
 </map>

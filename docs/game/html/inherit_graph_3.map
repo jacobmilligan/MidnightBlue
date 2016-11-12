@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="5,31,173,56"/>
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="221,5,417,31"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="241,55,397,80"/>
+<area shape="rect" id="node1" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="5,55,173,80"/>
+<area shape="rect" id="node2" href="$class_midnight_blue_1_1_menu_view.html" title="MidnightBlue.MenuView" alt="" coords="237,5,401,31"/>
+<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="221,55,417,80"/>
+<area shape="rect" id="node4" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="241,104,397,129"/>
 </map>

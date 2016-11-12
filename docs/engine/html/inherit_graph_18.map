@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_midnight_blue_1_1_engine_1_1_testing_1_1_entity_container_tests.html" title="MidnightBlue.Engine.Testing.\lEntityContainerTests" alt="" coords="5,5,199,44"/>
+<area shape="rect" id="node1" href="$class_m_b2_d_1_1_scenes_1_1_scene.html" title="Holds all logic and data for a single game screen " alt="" coords="5,5,153,31"/>
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_testing_1_1_u_i_test.html" title="MB2D.Testing.UITest" alt="" coords="201,5,347,31"/>
 </map>

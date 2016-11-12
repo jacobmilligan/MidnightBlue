@@ -1,0 +1,269 @@
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map}{}\section{M\+B2\+D.\+Collision.\+Collision\+Map Class Reference}
+\label{class_m_b2_d_1_1_collision_1_1_collision_map}\index{M\+B2\+D.\+Collision.\+Collision\+Map@{M\+B2\+D.\+Collision.\+Collision\+Map}}
+
+
+A 2D Grid that represents a particular space in the game world to check for collisions. Uses spatial indexing to determine where an entity will be located at any given time. For best results, the cellsize and overall size of the map should be tweaked for each individual game screen and environment.  
+
+
+
+
+Collaboration diagram for M\+B2\+D.\+Collision.\+Collision\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_m_b2_d_1_1_collision_1_1_collision_map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a715fbf658eed15c6f54a38a9bbb0cc82}{Collision\+Map} (int x\+Min, int x\+Max, int y\+Min, int y\+Max, int cell\+Size)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+M\+B2\+D.\+Collision.\+Collision\+Map class. \end{DoxyCompactList}\item 
+Point \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a738f7b15771993a037044aace6a6e09b}{Index\+Of} (Point position)
+\begin{DoxyCompactList}\small\item\em Indexes a world-\/based coordinate into the collision grid \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_adb3b318fb729bd02cda21a450e504465}{Index\+Exists} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Checks if a particular index exists in the grid \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_aa90ce934e081513f78aceacab50f27da}{Index\+Exists} (Point index)
+\begin{DoxyCompactList}\small\item\em Checks if a particular index exists in the grid \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a7d53571c049d50d62e6132413fe712e3}{Insert} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_component}{Collision\+Component} collision)
+\begin{DoxyCompactList}\small\item\em Inserts an entity and its associated collision component into the grid \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} $>$ \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_acbc6d9d9bb85342cf8f07c22f6947b27}{Get\+Collisions} (\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity} entity, \hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_component}{Collision\+Component} collision)
+\begin{DoxyCompactList}\small\item\em Gets a list of all entities located in the same cell/s as a specific single entity \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a8f34c934947ce25d7de681fc07f14e09}{Update\+Position} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Updates the position of the collision grid. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_ac7eeef6db2deadf738ea40ff939759ff}{Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all non-\/empty cells of the grid from their entities \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_geometry_1_1_grid}{Grid} \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_aacfa35801f16fad4ea0d128edf522095}{Grid}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the geometric representation of the grid \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a0d069be50f64db9f09d488dc2642ee48}{Position}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current position of the grid. \end{DoxyCompactList}\item 
+Vector2 \hyperlink{class_m_b2_d_1_1_collision_1_1_collision_map_a707dab6ca65cfe316c248976a0d750f6}{Max}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the upper bounds of the x and y coordinates in the grid \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A 2D Grid that represents a particular space in the game world to check for collisions. Uses spatial indexing to determine where an entity will be located at any given time. For best results, the cellsize and overall size of the map should be tweaked for each individual game screen and environment. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a715fbf658eed15c6f54a38a9bbb0cc82}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a715fbf658eed15c6f54a38a9bbb0cc82} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Collision\+Map@{Collision\+Map}}
+\index{Collision\+Map@{Collision\+Map}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Collision\+Map()}{CollisionMap()}}
+{\footnotesize\ttfamily M\+B2\+D.\+Collision.\+Collision\+Map.\+Collision\+Map (\begin{DoxyParamCaption}\item[{int}]{x\+Min,  }\item[{int}]{x\+Max,  }\item[{int}]{y\+Min,  }\item[{int}]{y\+Max,  }\item[{int}]{cell\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+M\+B2\+D.\+Collision.\+Collision\+Map class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Min} & The grids left most x coordinate.\\
+\hline
+{\em x\+Max} & Right most x coordinae.\\
+\hline
+{\em y\+Min} & Top most y coordinate.\\
+\hline
+{\em y\+Max} & Bottom most y coordinate.\\
+\hline
+{\em cell\+Size} & The size of each cell in the grid.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_ac7eeef6db2deadf738ea40ff939759ff}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_ac7eeef6db2deadf738ea40ff939759ff} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Clear@{Clear}}
+\index{Clear@{Clear}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Map.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all non-\/empty cells of the grid from their entities 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_collision_1_1_collision_map_ac7eeef6db2deadf738ea40ff939759ff_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_acbc6d9d9bb85342cf8f07c22f6947b27}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_acbc6d9d9bb85342cf8f07c22f6947b27} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Get\+Collisions@{Get\+Collisions}}
+\index{Get\+Collisions@{Get\+Collisions}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Get\+Collisions()}{GetCollisions()}}
+{\footnotesize\ttfamily List$<$\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}$>$ M\+B2\+D.\+Collision.\+Collision\+Map.\+Get\+Collisions (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity,  }\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_component}{Collision\+Component}}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of all entities located in the same cell/s as a specific single entity 
+
+\begin{DoxyReturn}{Returns}
+The entities neighbours.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to get collisions for.\\
+\hline
+{\em collision} & \hyperlink{namespace_m_b2_d_1_1_collision}{Collision} component to use in checking.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_collision_1_1_collision_map_acbc6d9d9bb85342cf8f07c22f6947b27_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_adb3b318fb729bd02cda21a450e504465}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_adb3b318fb729bd02cda21a450e504465} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Index\+Exists@{Index\+Exists}}
+\index{Index\+Exists@{Index\+Exists}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Exists()}{IndexExists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+Collision.\+Collision\+Map.\+Index\+Exists (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a particular index exists in the grid 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if index exists, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate.\\
+\hline
+{\em y} & The y coordinate.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_aa90ce934e081513f78aceacab50f27da}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_aa90ce934e081513f78aceacab50f27da} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Index\+Exists@{Index\+Exists}}
+\index{Index\+Exists@{Index\+Exists}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Exists()}{IndexExists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool M\+B2\+D.\+Collision.\+Collision\+Map.\+Index\+Exists (\begin{DoxyParamCaption}\item[{Point}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a particular index exists in the grid 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if index exists, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to check.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a738f7b15771993a037044aace6a6e09b}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a738f7b15771993a037044aace6a6e09b} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Index\+Of@{Index\+Of}}
+\index{Index\+Of@{Index\+Of}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Index\+Of()}{IndexOf()}}
+{\footnotesize\ttfamily Point M\+B2\+D.\+Collision.\+Collision\+Map.\+Index\+Of (\begin{DoxyParamCaption}\item[{Point}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexes a world-\/based coordinate into the collision grid 
+
+\begin{DoxyReturn}{Returns}
+The grid-\/based position.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & World-\/based position to index.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a7d53571c049d50d62e6132413fe712e3}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a7d53571c049d50d62e6132413fe712e3} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Insert@{Insert}}
+\index{Insert@{Insert}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Map.\+Insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_entity}{Entity}}]{entity,  }\item[{\hyperlink{class_m_b2_d_1_1_entity_component_1_1_collision_component}{Collision\+Component}}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts an entity and its associated collision component into the grid 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to insert.\\
+\hline
+{\em collision} & The entities collision component.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_collision_1_1_collision_map_a7d53571c049d50d62e6132413fe712e3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_collision_1_1_collision_map_a7d53571c049d50d62e6132413fe712e3_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a8f34c934947ce25d7de681fc07f14e09}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a8f34c934947ce25d7de681fc07f14e09} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Update\+Position@{Update\+Position}}
+\index{Update\+Position@{Update\+Position}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Update\+Position()}{UpdatePosition()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+Collision.\+Collision\+Map.\+Update\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the position of the collision grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate.\\
+\hline
+{\em y} & The y coordinate.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_aacfa35801f16fad4ea0d128edf522095}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_aacfa35801f16fad4ea0d128edf522095} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Grid@{Grid}}
+\index{Grid@{Grid}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Grid}{Grid}}
+{\footnotesize\ttfamily \hyperlink{class_m_b2_d_1_1_geometry_1_1_grid}{Grid} M\+B2\+D.\+Collision.\+Collision\+Map.\+Grid\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the geometric representation of the grid 
+
+The grid.\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a707dab6ca65cfe316c248976a0d750f6}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a707dab6ca65cfe316c248976a0d750f6} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Max@{Max}}
+\index{Max@{Max}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Max}{Max}}
+{\footnotesize\ttfamily Vector2 M\+B2\+D.\+Collision.\+Collision\+Map.\+Max\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the upper bounds of the x and y coordinates in the grid 
+
+The max coordinates.\hypertarget{class_m_b2_d_1_1_collision_1_1_collision_map_a0d069be50f64db9f09d488dc2642ee48}{}\label{class_m_b2_d_1_1_collision_1_1_collision_map_a0d069be50f64db9f09d488dc2642ee48} 
+\index{M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}!Position@{Position}}
+\index{Position@{Position}!M\+B2\+D\+::\+Collision\+::\+Collision\+Map@{M\+B2\+D\+::\+Collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily Vector2 M\+B2\+D.\+Collision.\+Collision\+Map.\+Position\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the current position of the grid. 
+
+The position.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+Collision/Collision\+Map.\+cs\end{DoxyCompactItemize}

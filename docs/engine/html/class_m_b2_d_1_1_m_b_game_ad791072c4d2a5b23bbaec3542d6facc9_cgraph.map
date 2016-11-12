@@ -1,0 +1,9 @@
+<map id="MB2D.MBGame.Draw" name="MB2D.MBGame.Draw">
+<area shape="rect" id="node2" href="$class_m_b2_d_1_1_m_b_console.html#ab737469f6fe24b287f7979f788adb8c9" title="Draws the console and associated text to the attached window " alt="" coords="231,5,397,31"/>
+<area shape="rect" id="node3" href="$class_m_b2_d_1_1_m_b_console.html#aeff7888e763a415aeccadc347e09828d" title="Adds a new variable to the console for altering in game " alt="" coords="225,55,403,80"/>
+<area shape="rect" id="node4" href="$class_m_b2_d_1_1_m_b_console.html#a3c515ad4a199b0b67049df57fce7cb3f" title="Adds a new function to the console for executing in game " alt="" coords="220,104,408,129"/>
+<area shape="rect" id="node5" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a134c3aff1731fb86116b78cac7112464" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="210,153,419,179"/>
+<area shape="rect" id="node8" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a22760622453ac16621534bc324ec039f" title="Pushes a new scene to the top of the stack. Calls the new scenes Initialize method and the previous s..." alt="" coords="207,203,422,228"/>
+<area shape="rect" id="node6" href="$class_m_b2_d_1_1_m_b_console.html#a6f0c0f179b2fef32a130a5e1d4957a70" title="Writes a debug line to the console with the specified string format information " alt="" coords="470,153,644,179"/>
+<area shape="rect" id="node7" href="$class_m_b2_d_1_1_m_b_console.html#a1d85081cb5400f09883c1fc62f37d861" title="Writes a line to the console to display " alt="" coords="692,153,858,179"/>
+</map>

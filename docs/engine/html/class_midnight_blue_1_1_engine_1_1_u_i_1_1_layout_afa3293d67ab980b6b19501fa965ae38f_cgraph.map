@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.UI.Layout.Add" name="MidnightBlue.Engine.UI.Layout.Add">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_element.html#ae111ac1d2f348f78f689a7619ac47853" title="Sets the size of the element relative to its parent " alt="" coords="285,5,516,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_u_i_1_1_u_i_view.html#a1f5a8d988b464af5c207b75e0422abc6" title="Adds an element to the lookup table used by the view " alt="" coords="296,68,505,107"/>
-</map>

@@ -1,0 +1,163 @@
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer}{}\section{M\+B2\+D.\+M\+B\+Console\+Lexer Class Reference}
+\label{class_m_b2_d_1_1_m_b_console_lexer}\index{M\+B2\+D.\+M\+B\+Console\+Lexer@{M\+B2\+D.\+M\+B\+Console\+Lexer}}
+
+
+Breaks a string into a series of tokens to use for parsing the debug consoles command language  
+
+
+
+
+Collaboration diagram for M\+B2\+D.\+M\+B\+Console\+Lexer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{class_m_b2_d_1_1_m_b_console_lexer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_b2_d_1_1_m_b_console_lexer_aa78375766c0612494a148a55814b4b7e}{M\+B\+Console\+Lexer} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the T\+:\+Midnight\+Blue.\+M\+B\+Console\+Lexer class. \end{DoxyCompactList}\item 
+void \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_a6c09fcdb1a36eff50201b9f5469bd55c}{Lex} (string command)
+\begin{DoxyCompactList}\small\item\em Lexes the command string breaking it up into token representation and a second raw string array for retrieving values. \end{DoxyCompactList}\item 
+string \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_a9f08e0a2739eb027f6b8c46abe67f647}{Raw\+Token} (int index)
+\begin{DoxyCompactList}\small\item\em Gets an untokenized representation of a string at a specific index \end{DoxyCompactList}\item 
+\hyperlink{namespace_m_b2_d_ab170e7e7db86e5ccb0ae156c0d9a6002}{Token} \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_ab083ced0d68a7f7278fbb462a9c60410}{Next\+Token} ()
+\begin{DoxyCompactList}\small\item\em Gets the next token in the tokenized representation of the command \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_aa3535c7e87e9d7855e3fb7848bf46ba8}{Next\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the next token index in the lexer \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_a15d3752a0f36b998985befdabfdb475e}{Current\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the current token index in the lexer \end{DoxyCompactList}\item 
+int \hyperlink{class_m_b2_d_1_1_m_b_console_lexer_ae91f360dd9246d226468c79f7322413f}{Num\+Tokens}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of tokens scanned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Breaks a string into a series of tokens to use for parsing the debug consoles command language 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_aa78375766c0612494a148a55814b4b7e}{}\label{class_m_b2_d_1_1_m_b_console_lexer_aa78375766c0612494a148a55814b4b7e} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!M\+B\+Console\+Lexer@{M\+B\+Console\+Lexer}}
+\index{M\+B\+Console\+Lexer@{M\+B\+Console\+Lexer}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{M\+B\+Console\+Lexer()}{MBConsoleLexer()}}
+{\footnotesize\ttfamily M\+B2\+D.\+M\+B\+Console\+Lexer.\+M\+B\+Console\+Lexer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the T\+:\+Midnight\+Blue.\+M\+B\+Console\+Lexer class. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_a6c09fcdb1a36eff50201b9f5469bd55c}{}\label{class_m_b2_d_1_1_m_b_console_lexer_a6c09fcdb1a36eff50201b9f5469bd55c} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Lex@{Lex}}
+\index{Lex@{Lex}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Lex()}{Lex()}}
+{\footnotesize\ttfamily void M\+B2\+D.\+M\+B\+Console\+Lexer.\+Lex (\begin{DoxyParamCaption}\item[{string}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lexes the command string breaking it up into token representation and a second raw string array for retrieving values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command string to scan.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_console_lexer_a6c09fcdb1a36eff50201b9f5469bd55c_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_ab083ced0d68a7f7278fbb462a9c60410}{}\label{class_m_b2_d_1_1_m_b_console_lexer_ab083ced0d68a7f7278fbb462a9c60410} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Next\+Token@{Next\+Token}}
+\index{Next\+Token@{Next\+Token}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Next\+Token()}{NextToken()}}
+{\footnotesize\ttfamily \hyperlink{namespace_m_b2_d_ab170e7e7db86e5ccb0ae156c0d9a6002}{Token} M\+B2\+D.\+M\+B\+Console\+Lexer.\+Next\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the next token in the tokenized representation of the command 
+
+The next token.Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_console_lexer_ab083ced0d68a7f7278fbb462a9c60410_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_a9f08e0a2739eb027f6b8c46abe67f647}{}\label{class_m_b2_d_1_1_m_b_console_lexer_a9f08e0a2739eb027f6b8c46abe67f647} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Raw\+Token@{Raw\+Token}}
+\index{Raw\+Token@{Raw\+Token}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Raw\+Token()}{RawToken()}}
+{\footnotesize\ttfamily string M\+B2\+D.\+M\+B\+Console\+Lexer.\+Raw\+Token (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets an untokenized representation of a string at a specific index 
+
+\begin{DoxyReturn}{Returns}
+The string representation.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_m_b2_d_1_1_m_b_console_lexer_a9f08e0a2739eb027f6b8c46abe67f647_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_a15d3752a0f36b998985befdabfdb475e}{}\label{class_m_b2_d_1_1_m_b_console_lexer_a15d3752a0f36b998985befdabfdb475e} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Current\+Pos@{Current\+Pos}}
+\index{Current\+Pos@{Current\+Pos}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Current\+Pos}{CurrentPos}}
+{\footnotesize\ttfamily int M\+B2\+D.\+M\+B\+Console\+Lexer.\+Current\+Pos\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the current token index in the lexer 
+
+The current position.\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_aa3535c7e87e9d7855e3fb7848bf46ba8}{}\label{class_m_b2_d_1_1_m_b_console_lexer_aa3535c7e87e9d7855e3fb7848bf46ba8} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Next\+Pos@{Next\+Pos}}
+\index{Next\+Pos@{Next\+Pos}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Next\+Pos}{NextPos}}
+{\footnotesize\ttfamily int M\+B2\+D.\+M\+B\+Console\+Lexer.\+Next\+Pos\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the next token index in the lexer 
+
+The next position.\hypertarget{class_m_b2_d_1_1_m_b_console_lexer_ae91f360dd9246d226468c79f7322413f}{}\label{class_m_b2_d_1_1_m_b_console_lexer_ae91f360dd9246d226468c79f7322413f} 
+\index{M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}!Num\+Tokens@{Num\+Tokens}}
+\index{Num\+Tokens@{Num\+Tokens}!M\+B2\+D\+::\+M\+B\+Console\+Lexer@{M\+B2\+D\+::\+M\+B\+Console\+Lexer}}
+\subsubsection{\texorpdfstring{Num\+Tokens}{NumTokens}}
+{\footnotesize\ttfamily int M\+B2\+D.\+M\+B\+Console\+Lexer.\+Num\+Tokens\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the number of tokens scanned. 
+
+The number of tokens.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+M\+B2\+D/src/\+M\+B\+Console/M\+B\+Console\+Lexer.\+cs\end{DoxyCompactItemize}
