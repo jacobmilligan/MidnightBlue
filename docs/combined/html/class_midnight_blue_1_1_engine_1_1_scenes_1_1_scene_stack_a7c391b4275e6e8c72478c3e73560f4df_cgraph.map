@@ -1,6 +1,0 @@
-<map id="MidnightBlue.Engine.Scenes.SceneStack.SceneAt" name="MidnightBlue.Engine.Scenes.SceneStack.SceneAt">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#aa919101862c14384b955d91a4d3362ab" title="Initialize this scene and loads all resources. Runs logic to execute during the Initializing state..." alt="" coords="249,5,444,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#aeb3c4d9bea0177d21fbffcdabab660de" title="Runs logic to execute while the scene is in the Pausing state. Set state to None to end..." alt="" coords="249,68,444,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#ab7cd837b20785116007a4732d90bc548" title="Runs logic to execute while the scene is in the Resuming state. Set state to None to end..." alt="" coords="249,131,444,169"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#adbf0f6d758df9fc5e20f24f327599e67" title="Runs logic to execute while the scene is in the Exiting state. Set state to Null to end..." alt="" coords="249,193,444,232"/>
-</map>

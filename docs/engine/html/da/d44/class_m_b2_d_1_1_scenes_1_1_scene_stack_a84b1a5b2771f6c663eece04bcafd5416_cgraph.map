@@ -1,6 +1,0 @@
-<map id="MB2D.Scenes.SceneStack.SceneAt" name="MB2D.Scenes.SceneStack.SceneAt">
-<area shape="rect" id="node2" href="$dd/dd8/class_m_b2_d_1_1_scenes_1_1_scene.html#a081b4f8866936b495bdce388a7c96c25" title="Initialize this scene and loads all resources. Runs logic to execute during the Initializing state..." alt="" coords="290,5,490,31"/>
-<area shape="rect" id="node3" href="$dd/dd8/class_m_b2_d_1_1_scenes_1_1_scene.html#a0661eff0223150fa8e9ea88145409e5d" title="Runs logic to execute while the scene is in the Pausing state. Set state to None to end..." alt="" coords="295,55,484,80"/>
-<area shape="rect" id="node4" href="$dd/dd8/class_m_b2_d_1_1_scenes_1_1_scene.html#ad13639db22b059a1b714eefd9d927735" title="Runs logic to execute while the scene is in the Resuming state. Set state to None to end..." alt="" coords="289,104,490,129"/>
-<area shape="rect" id="node5" href="$dd/dd8/class_m_b2_d_1_1_scenes_1_1_scene.html#a099b79e16d23b67349847999d2336813" title="Runs logic to execute while the scene is in the Exiting state. Set state to Null to end..." alt="" coords="303,153,477,179"/>
-</map>

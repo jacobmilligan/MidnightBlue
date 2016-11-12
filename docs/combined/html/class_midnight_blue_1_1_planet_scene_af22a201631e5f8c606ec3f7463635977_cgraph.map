@@ -1,3 +1,0 @@
-<map id="MidnightBlue.PlanetScene.Draw" name="MidnightBlue.PlanetScene.Draw">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_tiles_1_1_tile_map.html#aa4c7f815bf7b9fc53a4dcf1a2b0df175" title="Draws the tile map to the specified SpriteBatch, wrapping the rendering when the camera reaches the b..." alt="" coords="266,5,441,31"/>
-</map>

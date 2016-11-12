@@ -1,4 +1,0 @@
-<map id="MidnightBlue.GalaxyScene.Pause" name="MidnightBlue.GalaxyScene.Pause">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_sound_trigger.html#ae8846b39ac8469f479f8d64cbec25a11" title="Stops the sound if it&#39;s playing " alt="" coords="250,5,416,31"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_scenes_1_1_scene.html#a0661eff0223150fa8e9ea88145409e5d" title="Runs logic to execute while the scene is in the Pausing state. Set state to None to end..." alt="" coords="238,55,428,80"/>
-</map>

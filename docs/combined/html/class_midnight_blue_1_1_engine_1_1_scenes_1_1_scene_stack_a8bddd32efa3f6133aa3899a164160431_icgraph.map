@@ -1,4 +1,0 @@
-<map id="MidnightBlue.Engine.Scenes.SceneStack.ResetTo" name="MidnightBlue.Engine.Scenes.SceneStack.ResetTo">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_m_b_game.html#a0e02fa538b3344104374f61a058516f8" title="Allows the game to perform any initialization it needs to before starting to run. This is where it ca..." alt="" coords="251,5,458,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_title_view.html#ae4322373616e1100eda699d87ee63ff7" title="Initializes a new instance of the T:MidnightBlue.TitleView class. " alt="" coords="249,68,461,93"/>
-</map>

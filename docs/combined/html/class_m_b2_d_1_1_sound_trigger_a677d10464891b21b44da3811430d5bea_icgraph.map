@@ -1,5 +1,0 @@
-<map id="MB2D.SoundTrigger.FadeUp" name="MB2D.SoundTrigger.FadeUp">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_scene.html#ab641e6727cdb64dc6487e9a229521692" title="Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache..." alt="" coords="260,5,445,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet_scene.html#add0a85b4f754f026231aa7269259c65c" title="Updates the players position and state alongside the current biome the player is located at..." alt="" coords="262,68,443,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_scene.html#aefbf0750a7ce153b923bcabb132e4875" title="Resumes the star system scene after leaving a planet. Handles resetting the physics environment..." alt="" coords="246,131,459,169"/>
-</map>

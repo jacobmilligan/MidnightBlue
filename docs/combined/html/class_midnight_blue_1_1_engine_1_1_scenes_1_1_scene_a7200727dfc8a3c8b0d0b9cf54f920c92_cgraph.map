@@ -1,3 +1,0 @@
-<map id="MidnightBlue.Engine.Scenes.Scene.Cleanup" name="MidnightBlue.Engine.Scenes.Scene.Cleanup">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_entity_component_1_1_entity_map.html#af8b2220c70e42cd8e4802b744397ffcf" title="Clears all entities from this map except for any marked as persistant. " alt="" coords="249,5,438,44"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="MB2D.UI.UIElement.Draw" name="MB2D.UI.UIElement.Draw">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a1f1acf013f17aa0738ff2d9b0516126e" title="Draws the View and its elements to the window " alt="" coords="230,5,385,31"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_testing_1_1_u_i_test.html#a9656d2d62517288a7b4387dafe741ea0" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="433,5,613,31"/>
-</map>

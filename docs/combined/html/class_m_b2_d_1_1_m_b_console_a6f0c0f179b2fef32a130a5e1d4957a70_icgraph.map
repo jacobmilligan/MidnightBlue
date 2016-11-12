@@ -1,8 +1,0 @@
-<map id="MB2D.MBConsole.Debug" name="MB2D.MBConsole.Debug">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a134c3aff1731fb86116b78cac7112464" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="227,117,436,143"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_m_b_game.html#ad791072c4d2a5b23bbaec3542d6facc9" title="Draws the current scene to the window " alt="" coords="518,5,671,31"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_menu_command.html#a2101f922aa12bd7fed4eff3eb714a9d4" title="Defines the logic to perform when operating on a given entity " alt="" coords="494,55,695,93"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_menu_scene.html#af82ad49ba2744422e52fc6c1b8544255" title="Updates the UI " alt="" coords="484,117,704,143"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_planet_scene.html#add0a85b4f754f026231aa7269259c65c" title="Updates the players position and state alongside the current biome the player is located at..." alt="" coords="503,167,685,205"/>
-<area shape="rect" id="node7" href="$class_midnight_blue_1_1_star_system_scene.html#ac36506b721064e015a9f93140681d93a" title="Updates all systems in the game and handles the ocurrance of the player entering a planet..." alt="" coords="488,229,700,268"/>
-</map>

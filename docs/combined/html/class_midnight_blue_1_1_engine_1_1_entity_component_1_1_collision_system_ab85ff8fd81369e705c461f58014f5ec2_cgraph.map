@@ -1,5 +1,0 @@
-<map id="MidnightBlue.Engine.EntityComponent.CollisionSystem.PreProcess" name="MidnightBlue.Engine.EntityComponent.CollisionSystem.PreProcess">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map.html#ab8ef33abaee3cfbe9f15dd73fda3cf6e" title="Clears all non&#45;empty cells of the grid from their entities " alt="" coords="315,5,516,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_map.html#ac5effff2c812f658296f7eb5d80b8baf" title="Inserts an entity and its associated collision component into the grid " alt="" coords="315,68,516,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_collision_1_1_collision_cell.html#a6e7c40d82371e32cb18c5fb93e645dc8" title="Adds an entity to the cell " alt="" coords="564,68,766,107"/>
-</map>

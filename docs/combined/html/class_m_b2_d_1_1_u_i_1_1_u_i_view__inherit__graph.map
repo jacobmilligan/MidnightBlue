@@ -1,7 +1,0 @@
-<map id="MB2D.UI.UIView" name="MB2D.UI.UIView">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_testing_1_1_test_u_i_view.html" title="{MB2D.Testing.TestUIView\n||+ TestUIView()\l}" alt="" coords="5,227,180,300"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_hud.html" title="HUD to show in the galaxy view. " alt="" coords="203,220,371,307"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_menu_view.html" title="{MidnightBlue.MenuView\n|+ ShouldExit\l|+ MenuView()\l}" alt="" coords="396,227,560,300"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_hud.html" title="Star system hud with minimap. " alt="" coords="584,227,780,300"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_title_view.html" title="The title screens UI view " alt="" coords="804,227,960,300"/>
-</map>

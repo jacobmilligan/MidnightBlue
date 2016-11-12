@@ -1,4 +1,0 @@
-<map id="MidnightBlue.StarSystemScene.Draw" name="MidnightBlue.StarSystemScene.Draw">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_star_system_scene.html#a8ce5e552f65d43e0326644e069dc6c24" title="Draws the minimap to the window. " alt="" coords="297,5,510,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet.html#ac3b3442ad8f168a8d9151386592eb270" title="Gets one of the planets generated noise map textures " alt="" coords="308,68,499,107"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="MB2D.EntityComponent.CollisionSystem.PreProcess" name="MB2D.EntityComponent.CollisionSystem.PreProcess">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_collision_1_1_collision_map.html#ac7eeef6db2deadf738ea40ff939759ff" title="Clears all non&#45;empty cells of the grid from their entities " alt="" coords="272,5,438,44"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_collision_1_1_collision_map.html#a7d53571c049d50d62e6132413fe712e3" title="Inserts an entity and its associated collision component into the grid " alt="" coords="272,68,438,107"/>
-<area shape="rect" id="node4" href="$class_m_b2_d_1_1_collision_1_1_collision_cell.html#a4fc338d7dbfd7418f5493424c5937213" title="Adds an entity to the cell " alt="" coords="486,68,653,107"/>
-</map>

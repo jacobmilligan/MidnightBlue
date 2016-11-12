@@ -1,4 +1,0 @@
-<map id="MB2D.MBGame.Initialize" name="MB2D.MBGame.Initialize">
-<area shape="rect" id="node2" href="$da/d44/class_m_b2_d_1_1_m_b_game.html#ad7e9a60dbaefe1416db0456b07b13487" title="Registers all EntitySystems used in the engine " alt="" coords="229,5,452,31"/>
-<area shape="rect" id="node3" href="$da/d44/class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a521a38426d3e85caeb53b2909b623562" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="224,55,458,80"/>
-</map>

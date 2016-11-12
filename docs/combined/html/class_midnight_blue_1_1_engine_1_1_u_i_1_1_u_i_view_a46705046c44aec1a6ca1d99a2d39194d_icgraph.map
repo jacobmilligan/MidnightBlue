@@ -1,5 +1,0 @@
-<map id="MidnightBlue.Engine.UI.UIView.Add" name="MidnightBlue.Engine.UI.UIView.Add">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_hud.html#a6f15257e5bc5bbc67cac3888f075ea29" title="Initializes a new instance of the T:MidnightBlue.Engine.GalaxyHud class. " alt="" coords="286,5,524,31"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_star_system_hud.html#acfe0b74ff1b0013956511de5ab3d38b3" title="Initializes a new instance of the T:MidnightBlue.StarSystemHud class. " alt="" coords="306,55,505,93"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_title_view.html#ae4322373616e1100eda699d87ee63ff7" title="Initializes a new instance of the T:MidnightBlue.TitleView class. " alt="" coords="299,117,511,143"/>
-</map>

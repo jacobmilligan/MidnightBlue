@@ -1,6 +1,0 @@
-<map id="MidnightBlue.Engine.EntityComponent.EntityMap.Clear" name="MidnightBlue.Engine.EntityComponent.EntityMap.Clear">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#ae99d5a05cb0441676e6a41cd502eb0a4" title="Initializes a new instance of the T:MidnightBlue.Engine.Scenes.Scene class with a pre&#45;existing Entity..." alt="" coords="242,5,438,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#a7200727dfc8a3c8b0d0b9cf54f920c92" title="Cleans up the scene and unloads content. " alt="" coords="242,68,438,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#ab641e6727cdb64dc6487e9a229521692" title="Resets the physics environment when returning to the scene and rebuilds the galaxy from its cache..." alt="" coords="247,131,432,169"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_planet_scene.html#a50ee691836116a89ff549e519f895ba3" title="Initializes a new instance of the T:MidnightBlue.PlanetScene class. " alt="" coords="249,193,431,232"/>
-</map>

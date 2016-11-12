@@ -1,8 +1,0 @@
-<map id="MidnightBlue.InitScene.Initialize" name="MidnightBlue.InitScene.Initialize">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a2461bfeb368018daadb2578c445f8fc2" title="Creates a new Entity with the given tag in this map. Auto&#45;Registers the entity with all systems and u..." alt="" coords="279,5,481,44"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_entity.html#aa86d1be62df6d89b981d1000c856a306" title="Attaches a new component to the entity. " alt="" coords="278,68,482,107"/>
-<area shape="rect" id="node6" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a521a38426d3e85caeb53b2909b623562" title="Resets the scene stack to the specified scene, clearing all other scenes from the stack..." alt="" coords="263,131,497,156"/>
-<area shape="rect" id="node7" href="$class_m_b2_d_1_1_m_b_console.html#a3c515ad4a199b0b67049df57fce7cb3f" title="Adds a new function to the console for executing in game " alt="" coords="286,180,474,205"/>
-<area shape="rect" id="node4" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a968ce46cbba14cdc7814dd308f133949" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="545,37,746,76"/>
-<area shape="rect" id="node5" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="545,100,746,139"/>
-</map>

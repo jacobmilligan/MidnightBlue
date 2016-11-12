@@ -1,6 +1,0 @@
-<map id="MidnightBlue.Engine.UI.UIView.Update" name="MidnightBlue.Engine.UI.UIView.Update">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_u_i_test.html#a9866becb1e9b6bf9b9edb0f732b46250" title="Updates game logic and changes scene state. " alt="" coords="272,5,466,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_scene.html#a9dfa66406143ed20f4d534c768f05a78" title="Updates the galaxy view and fuel consumption if not loading. " alt="" coords="276,68,462,107"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_star_system_scene.html#ac36506b721064e015a9f93140681d93a" title="Updates all systems in the game and handles the ocurrance of the player entering a planet..." alt="" coords="263,131,475,169"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_title_scene.html#a4052b2a261434462cd0150e2f4da3c5b" title="Updates the UI " alt="" coords="285,193,453,232"/>
-</map>

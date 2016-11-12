@@ -1,4 +1,0 @@
-<map id="MidnightBlue.PlanetTile.PlanetTile" name="MidnightBlue.PlanetTile.PlanetTile">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_planet_tile.html#a0ba5d9886790e8f8d9e54e1873d5565b" title="Gets the ID of a biomes texture region for use in a tilemap " alt="" coords="218,5,383,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_planet_tile.html#a0efc70f73aaf5a252cfe6b96deb9aa22" title="Gets the color of a tile in the minimap based on its biome. " alt="" coords="218,68,383,107"/>
-</map>

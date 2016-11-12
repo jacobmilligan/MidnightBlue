@@ -1,4 +1,0 @@
-<map id="MB2D.MBGame.Update" name="MB2D.MBGame.Update">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a8486b29eb65458e88512989201772984" title="Updates the scene at the top of the stack and handles any state transitions if they&#39;ve been called..." alt="" coords="218,5,447,31"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_m_b_console.html#a4239aee536dc49bbbd59d81d79f24266" title="Updates any animation until no longer in an animation state. Otherwise calls ProcessInput() ..." alt="" coords="244,55,421,80"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="MidnightBlue.Engine.MBGame.Draw" name="MidnightBlue.Engine.MBGame.Draw">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene.html#a6ec0b4be6c7dc226c9afd308e1fb3fd3" title="Draws entities and UI elements to the specfied SpriteBatches " alt="" coords="320,5,515,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a807e956ca8a90cbcefb785e062d72b2d" title="Draws the console and associated text to the attached window " alt="" coords="292,68,543,93"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a7533b96118e74197ac3f3085e026a591" title="Adds a new variable to the console for altering in game " alt="" coords="307,117,527,156"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a5438a91f83cf6082a20e8d2c417e6ce1" title="Adds a new function to the console for executing in game " alt="" coords="307,180,527,219"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#a8c0ab363d287940ce8a66d1ab1356714" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="320,243,515,281"/>
-<area shape="rect" id="node8" href="$class_midnight_blue_1_1_engine_1_1_scenes_1_1_scene_stack.html#ac98c028592de2bbaad1babf63bfa1aa3" title="Pushes a new scene to the top of the stack. Calls the new scenes Initialize method and the previous s..." alt="" coords="320,305,515,344"/>
-<area shape="rect" id="node7" href="$class_midnight_blue_1_1_engine_1_1_m_b_console.html#a99525d45031da45b97230010d767eb0a" title="Writes a debug line to the console with the specified string format information " alt="" coords="591,243,811,281"/>
-</map>

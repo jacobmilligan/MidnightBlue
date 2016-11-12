@@ -1,5 +1,0 @@
-<map id="MB2D.Scenes.Scene.Pause" name="MB2D.Scenes.Scene.Pause">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a84b1a5b2771f6c663eece04bcafd5416" title="Gets the scene located at the specific index in the stack " alt="" coords="243,5,478,31"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#aeb44afaeda2cccd225e64908bb76bee4" title="Fades the sound out when transitioning to another scene unless the next scene is the star system scen..." alt="" coords="268,55,453,93"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_menu_scene.html#a600112073f48c763a50c802960f5fdaa" title="Draws the UI to the uiSpriteBatch " alt="" coords="526,5,735,31"/>
-</map>

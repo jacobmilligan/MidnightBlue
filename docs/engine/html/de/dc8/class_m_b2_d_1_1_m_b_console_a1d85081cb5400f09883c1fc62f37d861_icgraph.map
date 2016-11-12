@@ -1,9 +1,0 @@
-<map id="MB2D.MBConsole.Write" name="MB2D.MBConsole.Write">
-<area shape="rect" id="node2" href="$de/dc8/class_m_b2_d_1_1_m_b_console.html#a77bc48284eeebbc13eeced6451513c09" title="Writes a line to the console to display with specified string format information. ..." alt="" coords="233,5,398,31"/>
-<area shape="rect" id="node3" href="$de/dc8/class_m_b2_d_1_1_m_b_console.html#a6f0c0f179b2fef32a130a5e1d4957a70" title="Writes a debug line to the console with the specified string format information " alt="" coords="229,55,403,80"/>
-<area shape="rect" id="node6" href="$d5/d88/class_m_b2_d_1_1_set_a_s_t_node.html#a54eba248a545f6182c6a5509c4c1a6f2" title="Handles setting the variable using the consoles Vars property. Checks if the identifier only starts w..." alt="" coords="223,104,408,129"/>
-<area shape="rect" id="node7" href="$d9/dfa/class_m_b2_d_1_1_run_a_s_t_node.html#a20845d86608c81357f4347c29dcaf2c8" title="Checks for valid identifier and executes the given function from the console if correctly defined..." alt="" coords="220,153,411,179"/>
-<area shape="rect" id="node8" href="$de/d2e/class_m_b2_d_1_1_print_a_s_t_node.html#a61d2408e999df07c1190f6ba8bb6ad3f" title="Prints the variable to the console. If it&#39;s not a previously assigned variable, it will print the var..." alt="" coords="219,203,412,228"/>
-<area shape="rect" id="node4" href="$da/d44/class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a134c3aff1731fb86116b78cac7112464" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="460,55,669,80"/>
-<area shape="rect" id="node5" href="$da/d44/class_m_b2_d_1_1_m_b_game.html#ad791072c4d2a5b23bbaec3542d6facc9" title="Draws the current scene to the window " alt="" coords="717,55,870,80"/>
-</map>

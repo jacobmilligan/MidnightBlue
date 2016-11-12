@@ -1,8 +1,0 @@
-<map id="MB2D.UI.UIElement.Update" name="MB2D.UI.UIElement.Update">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a5628b6cd853a0f419eb8ac62958f62bb" title="Updates and handles input for all elements in the View. " alt="" coords="241,117,408,143"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_testing_1_1_u_i_test.html#a547d5592fee47d4c9354ee8f307c8813" title="Updates game logic and changes scene state. " alt="" coords="470,5,663,31"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_galaxy_scene.html#a9dfa66406143ed20f4d534c768f05a78" title="Updates the galaxy view and fuel consumption if not loading. " alt="" coords="474,55,659,93"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_menu_scene.html#af82ad49ba2744422e52fc6c1b8544255" title="Updates the UI " alt="" coords="456,117,676,143"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_star_system_scene.html#ac36506b721064e015a9f93140681d93a" title="Updates all systems in the game and handles the ocurrance of the player entering a planet..." alt="" coords="460,167,673,205"/>
-<area shape="rect" id="node7" href="$class_midnight_blue_1_1_title_scene.html#a4052b2a261434462cd0150e2f4da3c5b" title="Updates the UI " alt="" coords="482,229,651,268"/>
-</map>

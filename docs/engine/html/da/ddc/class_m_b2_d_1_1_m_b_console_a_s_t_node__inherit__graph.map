@@ -1,7 +1,0 @@
-<map id="MB2D.MBConsoleASTNode" name="MB2D.MBConsoleASTNode">
-<area shape="rect" id="node2" href="$de/d2e/class_m_b2_d_1_1_print_a_s_t_node.html" title="Prints a variable to the console. " alt="" coords="5,127,153,213"/>
-<area shape="rect" id="node3" href="$d3/df9/class_m_b2_d_1_1_quit_a_s_t_node.html" title="Handles quitting the game " alt="" coords="176,133,320,207"/>
-<area shape="rect" id="node4" href="$d4/db2/class_m_b2_d_1_1_root_a_s_t_node.html" title="The entry point for command execution with a single child. " alt="" coords="345,127,493,213"/>
-<area shape="rect" id="node5" href="$d9/dfa/class_m_b2_d_1_1_run_a_s_t_node.html" title="AST node entry point for executing a run command " alt="" coords="517,127,662,213"/>
-<area shape="rect" id="node6" href="$d5/d88/class_m_b2_d_1_1_set_a_s_t_node.html" title="AST node representing the entry point for a &#39;set&#39; command with an identifier and a value child ..." alt="" coords="686,127,826,213"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="MidnightBlue.Engine.Scenes.Scene" name="MidnightBlue.Engine.Scenes.Scene">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_engine_1_1_testing_1_1_u_i_test.html" title="{MidnightBlue.Engine.Testing.\lUITest\n||+ UITest()\l+ Initialize()\l+ HandleInput()\l+ Update()\l+ Draw()\l+ Exit()\l+ Pause()\l+ Resume()\l}" alt="" coords="5,340,199,520"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_galaxy_scene.html" title="The scene displayed at the galaxy view &#45; handles the control over all systems, loading, and content management for the scene. " alt="" coords="223,347,405,513"/>
-<area shape="rect" id="node4" href="$class_midnight_blue_1_1_planet_scene.html" title="Scene active when the player is exploring a given planet. " alt="" coords="429,347,607,513"/>
-<area shape="rect" id="node5" href="$class_midnight_blue_1_1_star_system_scene.html" title="Scene to display a star system with planets and a star. " alt="" coords="631,340,840,520"/>
-<area shape="rect" id="node6" href="$class_midnight_blue_1_1_testing_1_1_map_test.html" title="{MidnightBlue.Testing.MapTest\n||+ MapTest()\l+ Initialize()\l+ HandleInput()\l+ Update()\l+ Draw()\l+ Exit()\l+ Pause()\l+ Resume()\l}" alt="" coords="864,347,1063,513"/>
-<area shape="rect" id="node7" href="$class_midnight_blue_1_1_title_scene.html" title="The scene shown at the title screen. " alt="" coords="1086,347,1251,513"/>
-</map>

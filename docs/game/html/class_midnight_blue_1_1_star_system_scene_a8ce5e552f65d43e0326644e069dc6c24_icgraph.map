@@ -1,3 +1,0 @@
-<map id="MidnightBlue.StarSystemScene.DrawMap" name="MidnightBlue.StarSystemScene.DrawMap">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_star_system_scene.html#ac3d90fb8d914d15b912f5da3cc1aa8a0" title="Draws the star system to the sprite batch and the HUD to the UI spritebatch. " alt="" coords="266,12,510,37"/>
-</map>

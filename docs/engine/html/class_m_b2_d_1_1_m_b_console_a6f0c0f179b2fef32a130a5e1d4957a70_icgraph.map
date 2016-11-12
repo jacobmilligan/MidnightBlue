@@ -1,4 +1,0 @@
-<map id="MB2D.MBConsole.Debug" name="MB2D.MBConsole.Debug">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_scenes_1_1_scene_stack.html#a134c3aff1731fb86116b78cac7112464" title="Pops the top scene off the stack, calling its Exit method and calls the Resume method of the next sce..." alt="" coords="227,5,436,31"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_m_b_game.html#ad791072c4d2a5b23bbaec3542d6facc9" title="Draws the current scene to the window " alt="" coords="484,5,637,31"/>
-</map>

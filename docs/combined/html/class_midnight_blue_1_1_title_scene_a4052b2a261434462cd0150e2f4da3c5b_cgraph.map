@@ -1,4 +1,0 @@
-<map id="MidnightBlue.TitleScene.Update" name="MidnightBlue.TitleScene.Update">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_u_i_1_1_u_i_view.html#a5628b6cd853a0f419eb8ac62958f62bb" title="Updates and handles input for all elements in the View. " alt="" coords="222,12,389,37"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_u_i_1_1_u_i_element.html#aa97bcbe44f3fac8a13e2febca23b2d4d" title="Update the elements state and handles input. Overriden in derived classes " alt="" coords="437,12,625,37"/>
-</map>

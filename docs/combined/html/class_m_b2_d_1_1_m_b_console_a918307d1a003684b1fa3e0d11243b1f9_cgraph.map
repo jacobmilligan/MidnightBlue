@@ -1,9 +1,0 @@
-<map id="MB2D.MBConsole.Debug" name="MB2D.MBConsole.Debug">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_m_b_console.html#a1d85081cb5400f09883c1fc62f37d861" title="Writes a line to the console to display " alt="" coords="249,27,414,52"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_m_b_console_parser.html#a880d5a9c56db05d19610df482b15bbf0" title="Processes the command string and executes to the given console. " alt="" coords="227,76,435,101"/>
-<area shape="rect" id="node7" href="$class_m_b2_d_1_1_root_a_s_t_node.html#a16290285c34db0660c0a8006fa182d0d" title="Calls the child commands handle method " alt="" coords="234,139,428,164"/>
-<area shape="rect" id="node4" href="$class_m_b2_d_1_1_m_b_console_lexer.html#a6c09fcdb1a36eff50201b9f5469bd55c" title="Lexes the command string breaking it up into token representation and a second raw string array for r..." alt="" coords="506,5,695,31"/>
-<area shape="rect" id="node5" href="$class_m_b2_d_1_1_m_b_console_lexer.html#ab083ced0d68a7f7278fbb462a9c60410" title="Gets the next token in the tokenized representation of the command " alt="" coords="503,55,698,93"/>
-<area shape="rect" id="node6" href="$class_m_b2_d_1_1_m_b_console_lexer.html#a9f08e0a2739eb027f6b8c46abe67f647" title="Gets an untokenized representation of a string at a specific index " alt="" coords="486,117,716,143"/>
-<area shape="rect" id="node8" href="$class_m_b2_d_1_1_m_b_console_a_s_t_node.html#aa70a49e61ab623698af4ed8fda4ebbf5" title="Executes specific logic on the console " alt="" coords="483,167,718,192"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="MB2D.EntityComponent.Entity.Attach" name="MB2D.EntityComponent.Entity.Attach">
-<area shape="rect" id="node2" href="$d1/d02/class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a968ce46cbba14cdc7814dd308f133949" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="257,5,459,44"/>
-<area shape="rect" id="node3" href="$d1/d02/class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="257,68,459,107"/>
-</map>

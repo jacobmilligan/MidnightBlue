@@ -1,5 +1,0 @@
-<map id="MidnightBlue.LaunchCommand.OnKeyPress" name="MidnightBlue.LaunchCommand.OnKeyPress">
-<area shape="rect" id="node2" href="$class_m_b2_d_1_1_entity_component_1_1_entity.html#aa86d1be62df6d89b981d1000c856a306" title="Attaches a new component to the entity. " alt="" coords="264,37,469,76"/>
-<area shape="rect" id="node3" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#a968ce46cbba14cdc7814dd308f133949" title="Updates a specific entities component mask. Use after registering new components or systems..." alt="" coords="517,5,718,44"/>
-<area shape="rect" id="node4" href="$class_m_b2_d_1_1_entity_component_1_1_entity_map.html#ab6078e0b6eddb220b9bbf5d358d6e365" title="Updates each systems associated entity list, adding the specified Entity. Use after creating a new En..." alt="" coords="517,68,718,107"/>
-</map>

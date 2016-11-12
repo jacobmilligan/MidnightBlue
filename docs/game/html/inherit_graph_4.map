@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$class_midnight_blue_1_1_galaxy_render_system.html" title="Renders all information into the main HUD&#39;s list box on the hovered star system. Also displays the na..." alt="" coords="160,5,348,44"/>
-<area shape="rect" id="node3" href="$class_midnight_blue_1_1_ship_input_system.html" title="Handles moving the ship forward and backwards. " alt="" coords="152,68,355,93"/>
-</map>
