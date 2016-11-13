@@ -106,7 +106,7 @@ namespace MidnightBlue
     {
       // Get random seed if none was specified
       if ( _seed == 0 ) {
-        _seed = new Random().Next(100);
+        _seed = (int)(DateTime.Now.Ticks);
       }
       _rand = new Random(_seed);
 

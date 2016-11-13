@@ -168,7 +168,7 @@ namespace MidnightBlue
       // if it hasn't
       if ( _galaxy == null ) {
 
-        _galaxy = new GalaxyBuilder(Content, 4000, _seed);
+        _galaxy = new GalaxyBuilder(Content, 4000);
         _galaxyBuildThread.Start();
 
         // Setup the player and physics environment

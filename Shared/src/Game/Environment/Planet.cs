@@ -316,9 +316,12 @@ namespace MidnightBlue
       MBGame.Graphics.SetRenderTarget(null);
 
       // Add layers for lookup
-      _layers.Add("map", target);
-      _layers.Add("planet map", roundTarget);
-      //_map = target;
+      if ( !_layers.ContainsKey("map") ) {
+        _layers.Add("map", target);
+      }
+      if ( !_layers.ContainsKey("planet map") ) {
+        _layers.Add("planet map", roundTarget);
+      }
     }
 
     /// <summary>
@@ -374,6 +377,17 @@ namespace MidnightBlue
         result = _layers[layerName];
       }
       return result;
+    }
+
+    /// <summary>
+    /// Disposes a map layer.
+    /// </summary>
+    /// <param name="layerName">Layer name.</param>
+    public void DisposeLayer(string layerName)
+    {
+      if ( _layers.ContainsKey(layerName) ) {
+        _layers.Remove(layerName);
+      }
     }
 
     /// <summary>

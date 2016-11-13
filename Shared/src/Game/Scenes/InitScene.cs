@@ -174,8 +174,15 @@ namespace MidnightBlue
       movement.Speed = 25.0f;
       movement.RotationSpeed = 0.05f;
 
-      entity.GetComponent<SpriteTransform>().Target.Scale = new Vector2(0.3f, 0.3f);
+      var sprite = entity.GetComponent<SpriteTransform>();
+      sprite.Target.Scale = new Vector2(0.3f, 0.3f);
       entity.GetComponent<ShipController>().State = ShipState.Normal;
+
+      if ( !entity.HasComponent<CollisionComponent>() ) {
+        entity.Attach<CollisionComponent>(new RectangleF[] {
+          sprite.Target.GetBoundingRectangle()
+        });
+      }
     }
 
     /// <summary>
@@ -215,7 +222,7 @@ namespace MidnightBlue
 
     /// <summary>
     /// Defines a blueprint that gives the entity the correct 
-    /// components to become a controllable ship
+    /// components to become a controllable ship in the planet scene
     /// </summary>
     /// <param name="entity">Entity to change.</param>
     private void MakeShip(Entity entity)
@@ -229,7 +236,6 @@ namespace MidnightBlue
         lastPos = entity.GetComponent<Movement>().Position;
         lastAngle = entity.GetComponent<Movement>().Angle;
       }
-
 
       entity.DetachAll();
 

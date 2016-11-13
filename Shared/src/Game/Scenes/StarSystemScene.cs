@@ -148,7 +148,7 @@ namespace MidnightBlue
           cache.Add(newPlanet.Name, _planets[p]);
         } else {
           _planets[p] = cache[newPlanet.Name];
-          UpdateSpace(_planets[p]);
+          _planets[p].DisposeLayer("planet map");
         }
         p++;
       }
@@ -256,12 +256,12 @@ namespace MidnightBlue
         spriteBatch.Draw(_background, MBGame.Camera.Position);
 
         foreach ( var p in _planets ) {
-          if ( p.GetMapLayer("planet map") == null ) {
+          var map = p.GetMapLayer("planet map");
+          if ( map == null ) {
             p.CreateMapTexture(Content);
             UpdateSpace(p);
           }
         }
-
       }
 
       if ( _loading || _planetLoader.IsAlive ) {
@@ -293,29 +293,22 @@ namespace MidnightBlue
       var planetSprite = planetEntity.Attach<SpriteTransform>(
         p.GetMapLayer("planet map"), p.Position, new Vector2(1, 1)
       ) as SpriteTransform;
-      var planet = planetEntity.Attach<PlanetComponent>() as PlanetComponent;
-      planet.Data = p;
+      var planetComponent = planetEntity.Attach<PlanetComponent>() as PlanetComponent;
+      planetComponent.Data = p;
       planetEntity.Attach<CollisionComponent>(new RectangleF[] { planetSprite.Target.GetBoundingRectangle() });
 
       GameObjects.UpdateSystems(planetEntity);
 
-      // Grow the bounding rectangle of the galaxy to snugly fit the planets
-      if ( p.Position.X > _bounds.Right ) {
-        _bounds.Inflate(p.Position.X - _bounds.Right, 0);
-      }
-      if ( p.Position.X < _bounds.Left ) {
-        _bounds.Inflate(_bounds.Right - p.Position.X, 0);
-      }
-      if ( p.Position.Y > _bounds.Bottom ) {
-        _bounds.Inflate(0, p.Position.Y - _bounds.Bottom);
-      }
-      if ( p.Position.Y < _bounds.Top ) {
-        _bounds.Inflate(0, _bounds.Top - p.Position.Y);
-      }
+      var x = _planets.Min(planet => planet.Position.X);
+      var y = _planets.Min(planet => planet.Position.Y);
+      var width = Math.Abs(_planets.Max(planet => planet.Position.X));
+      var height = Math.Abs(_planets.Max(planet => planet.Position.Y));
       var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {
         // Cell size is hardcoded to be finely tuned for this specific scene
-        collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 180);
+        collision.ResetGrid(
+          (int)x, (int)(x + width), (int)y, (int)(y + height), 500
+        );
       }
     }
 
@@ -403,7 +396,7 @@ namespace MidnightBlue
 
       var collision = GameObjects.GetSystem<CollisionSystem>() as CollisionSystem;
       if ( collision != null ) {
-        collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 180);
+        collision.ResetGrid(_bounds.Left, _bounds.Right, _bounds.Top, _bounds.Bottom, 500);
       }
 
       // End transition instantly

@@ -74,7 +74,12 @@ namespace MB2D.Collision
     {
       var width = (xMax - xMin) / cellSize;
       var height = (yMax - yMin) / cellSize;
-
+      if ( width <= 0 ) {
+        width = 1;
+      }
+      if ( height <= 0 ) {
+        height = 1;
+      }
       _cells = new CollisionCell[width, height];
       _grid = new Grid(height, width, cellSize, cellSize);
 
