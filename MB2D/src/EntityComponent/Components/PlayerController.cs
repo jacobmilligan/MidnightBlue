@@ -1,6 +1,6 @@
 //
 // PlayerController.cs
-// Midnight Blue
+// MB2D Engine
 //
 // ---------------------------------------------------
 //

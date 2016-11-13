@@ -1,6 +1,6 @@
 //
 // ConsoleCommand.cs
-// Midnight Blue
+// MB2D Engine
 //
 // ---------------------------------------------------
 //

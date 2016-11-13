@@ -1,6 +1,6 @@
 //
 // SceneStack.cs
-// Midnight Blue
+// MB2D Engine
 //
 // ---------------------------------------------------
 //
@@ -118,7 +118,7 @@ namespace MB2D.Scenes
           _nextScene.TransitionState = TransitionState.Resuming;
         }
       } else {
-        MBGame.Console.Debug("Midnight Blue: Cannot pop scene from empty stack");
+        MBGame.Console.Debug("MB2D Engine: Cannot pop scene from empty stack");
       }
     }
 

@@ -1,6 +1,6 @@
 //
 // ECSystem.cs
-// Midnight Blue
+// MB2D Engine
 //
 // ---------------------------------------------------
 //
@@ -71,7 +71,7 @@ namespace MB2D.EntityComponent
       // Check if entities components are valid
       foreach ( var c in components ) {
         if ( !(typeof(IComponent).IsAssignableFrom(c)) ) {
-          Console.WriteLine("Midnight Blue: '{0}' is not a valid component.", c);
+          Console.WriteLine("MB2D Engine: '{0}' is not a valid component.", c);
           _components.Clear();
           break;
         } else {

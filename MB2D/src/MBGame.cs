@@ -122,7 +122,7 @@ namespace MB2D
       base.Initialize(); // MonoGame setup
 
       _bgColor = Color.Black;
-      Window.Title = "Midnight Blue";
+      Window.Title = "MB2D Engine";
 
       SetUpDebugVals();
       RegisterSystems();

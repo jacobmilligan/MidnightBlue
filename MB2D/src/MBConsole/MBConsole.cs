@@ -1,6 +1,6 @@
 //
 // MBConsole.cs
-// Midnight Blue
+// MB2D Engine
 //
 // ---------------------------------------------------
 //
@@ -21,7 +21,7 @@ using MonoGame.Extended.Shapes;
 namespace MB2D
 {
   /// <summary>
-  /// Midnight Blue debug console class. Executes attached methods and changes attached variables.
+  /// MB2D Engine debug console class. Executes attached methods and changes attached variables.
   /// </summary>
   public class MBConsole
   {
