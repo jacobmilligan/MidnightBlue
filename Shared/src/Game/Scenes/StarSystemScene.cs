@@ -476,6 +476,7 @@ namespace MidnightBlue
           closestPlanet.Generate(new Random(_rand.Next()));
         }
 
+
         _loading = false;
 
         for ( int i = 0; i < _planets.Length; i++ ) {
