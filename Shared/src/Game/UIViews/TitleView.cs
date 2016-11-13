@@ -96,16 +96,6 @@ namespace MidnightBlue
         PressedSound = _confirm.CreateInstance()
       };
 
-      var continueBtn = new Button {
-        NormalTextColor = Color.White,
-        HighlightedTextColor = UIColors.HighlightedMenuText,
-        TextContent = "Continue",
-        Font = _benderLarge,
-        Fill = true,
-        HighlightedSound = _select,
-        PressedSound = _confirm.CreateInstance()
-      };
-
       var quitBtn = new Button {
         NormalTextColor = Color.White,
         HighlightedTextColor = UIColors.HighlightedMenuText,
@@ -125,9 +115,8 @@ namespace MidnightBlue
 
       newGameBtn.OnPress += (sender, e) => scenes.ResetTo(new GalaxyScene(gameObjects, content));
 
-      opts.Add(newGameBtn, 1, 2, 7, 20);
-      opts.Add(continueBtn, 8, 4, 7, 15);
-      opts.Add(quitBtn, 15, 8, 7, 7);
+      opts.Add(newGameBtn, 2, 2, 7, 20);
+      opts.Add(quitBtn, 10, 8, 7, 7);
     }
   }
 }
