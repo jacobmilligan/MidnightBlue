@@ -198,7 +198,7 @@ namespace MidnightBlue
     /// </summary>
     public override void Update()
     {
-      if ( !_loading ) {
+      if ( !_loading && TransitionState != TransitionState.Pausing ) {
         GameObjects.GetSystem<CollisionSystem>().Run();
 
         UpdateSounds(GameObjects["player"]);
@@ -472,7 +472,9 @@ namespace MidnightBlue
       if ( planets.Count() > 0 ) {
         var closestPlanet = planets.Last();
 
-        closestPlanet.Generate(new Random(_rand.Next()));
+        if ( !closestPlanet.Generated ) {
+          closestPlanet.Generate(new Random(_rand.Next()));
+        }
 
         _loading = false;
 

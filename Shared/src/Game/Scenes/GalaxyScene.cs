@@ -224,8 +224,12 @@ namespace MidnightBlue
           _lastPos = player.GetComponent<Movement>().Position;
 
           var collision = player.GetComponent<CollisionComponent>();
-          var sys = collision.Collider.GetComponent<StarSystem>();
+          var collider = collision.Collider;
 
+          if ( collider == null )
+            return;
+
+          var sys = collider.GetComponent<StarSystem>();
           shipController.State = ShipState.Normal;
           // Go to star system
           SceneController.Push(new StarSystemScene(GameObjects, Content, sys, _planetCache, _seed));

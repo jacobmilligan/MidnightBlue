@@ -289,14 +289,14 @@ namespace MB2D
     private void SetUpDebugVals()
     {
       // Add all variables
-      _debugConsole.AddVar("showFramerate", true);
+      _debugConsole.AddVar("showFramerate", false);
       _debugConsole.AddVar("drawBorders", false);
       _debugConsole.AddVar("drawGrids", false);
       _debugConsole.AddVar("drawCollision", false);
-      _debugConsole.AddVar("collisionChecks", true);
+      _debugConsole.AddVar("collisionChecks", false);
       _debugConsole.AddVar("systemRuntime", false);
       _debugConsole.AddVar("showCameraPos", false);
-      _debugConsole.AddVar("showKeys", true);
+      _debugConsole.AddVar("showKeys", false);
 
       // Add all functions
       _debugConsole.AddFunc("ToggleFullscreen", (string[] args) => _graphics.ToggleFullScreen());

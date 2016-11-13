@@ -95,7 +95,7 @@ namespace MidnightBlue
       _name = _meta.Name;
       _generated = false;
 
-      var scaledRadius = (MathHelper.Pi * _meta.Radius * 2) / 10000;
+      var scaledRadius = (MathHelper.Pi * _meta.Radius * 2) / 3000;
       scaledRadius = scaledRadius + (scaledRadius / 2);
       // Limits max map size
       if ( scaledRadius > 1050 ) {
